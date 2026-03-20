@@ -1,0 +1,30 @@
+# Jay's management layer — private, not shared
+team/
+memory/
+
+# Personal / non-TFM files in parent directory
+../leah-goldman-warner/
+../imessage*/
+
+# Claude Code local config (per-user)
+.claude/
+
+# OS files
+.DS_Store
+**/.DS_Store
+Thumbs.db
+
+# Sensitive credentials
+*.env
+credentials.*
+tokens.*
+
+# Large files / media
+*.mp4
+*.mov
+*.zip
+*.tar.gz
+
+# Temp files
+*.tmp
+*~

@@ -1,0 +1,842 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presentation Title</title>
+
+  <!-- reveal.js 5.x from CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <!-- Base theme (black) — other options: white, league, beige, night, serif, simple, solarized, moon, dracula -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css" id="theme">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================
+       CUSTOM THEME OVERRIDES
+       ========================================
+       Edit these variables to change the entire look.
+       Colors, fonts, and spacing are all controlled here.
+    */
+    :root {
+      --r-background-color: #0f172a;        /* Slate 900 */
+      --r-main-font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --r-main-font-size: 32px;
+      --r-main-color: #e2e8f0;              /* Slate 200 */
+      --r-heading-font: 'Inter', sans-serif;
+      --r-heading-color: #f8fafc;           /* Slate 50 */
+      --r-heading-font-weight: 700;
+      --r-heading-text-transform: none;
+      --r-heading1-size: 2.4em;
+      --r-heading2-size: 1.6em;
+      --r-heading3-size: 1.2em;
+      --r-link-color: #38bdf8;              /* Sky 400 */
+      --r-link-color-hover: #7dd3fc;        /* Sky 300 */
+      --r-selection-background-color: #38bdf8;
+      --r-selection-color: #0f172a;
+      --r-code-font: 'JetBrains Mono', monospace;
+
+      /* Custom palette */
+      --accent: #38bdf8;        /* Sky 400 */
+      --accent-2: #a78bfa;      /* Violet 400 */
+      --accent-3: #34d399;      /* Emerald 400 */
+      --accent-4: #fb923c;      /* Orange 400 */
+      --accent-5: #f472b6;      /* Pink 400 */
+      --surface: #1e293b;       /* Slate 800 */
+      --surface-2: #334155;     /* Slate 700 */
+      --muted: #94a3b8;         /* Slate 400 */
+      --danger: #f87171;        /* Red 400 */
+      --success: #34d399;       /* Emerald 400 */
+    }
+
+    /* ========================================
+       GLOBAL STYLES
+       ======================================== */
+    .reveal {
+      font-weight: 400;
+    }
+
+    .reveal h1, .reveal h2, .reveal h3 {
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .reveal h1 { margin-bottom: 0.3em; }
+    .reveal h2 { margin-bottom: 0.4em; }
+
+    .reveal p {
+      line-height: 1.6;
+    }
+
+    .reveal small {
+      color: var(--muted);
+      font-size: 0.6em;
+    }
+
+    /* ========================================
+       SLIDE LAYOUTS
+       ======================================== */
+
+    /* --- Title Slide --- */
+    .title-slide h1 {
+      font-size: 2.8em;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.2em;
+    }
+    .title-slide .subtitle {
+      font-size: 1.2em;
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 1em;
+    }
+    .title-slide .meta {
+      font-size: 0.7em;
+      color: var(--muted);
+      border-top: 1px solid var(--surface-2);
+      padding-top: 0.8em;
+      display: inline-block;
+    }
+
+    /* --- Section Divider --- */
+    .section-slide {
+      text-align: center;
+    }
+    .section-slide h2 {
+      font-size: 2.2em;
+      font-weight: 800;
+    }
+    .section-slide .section-number {
+      font-size: 5em;
+      font-weight: 900;
+      opacity: 0.15;
+      position: absolute;
+      top: 0.1em;
+      left: 0.3em;
+    }
+
+    /* --- Big Number / Metric Slide --- */
+    .big-number {
+      text-align: center;
+    }
+    .big-number .number {
+      font-size: 5em;
+      font-weight: 900;
+      line-height: 1;
+      margin: 0.1em 0;
+    }
+    .big-number .number.gradient {
+      background: linear-gradient(135deg, var(--accent), var(--accent-3));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .big-number .label {
+      font-size: 1em;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+    }
+    .big-number .context {
+      font-size: 0.7em;
+      color: var(--muted);
+      margin-top: 0.5em;
+    }
+
+    /* --- Metric Row (multiple numbers) --- */
+    .metric-row {
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+      margin: 1em 0;
+    }
+    .metric-item {
+      text-align: center;
+    }
+    .metric-item .value {
+      font-size: 2.5em;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+    .metric-item .value.up { color: var(--success); }
+    .metric-item .value.down { color: var(--danger); }
+    .metric-item .value.neutral { color: var(--accent); }
+    .metric-item .desc {
+      font-size: 0.6em;
+      color: var(--muted);
+      margin-top: 0.2em;
+    }
+
+    /* --- Two Column Layout --- */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2em;
+      text-align: left;
+      align-items: start;
+    }
+    .two-col.wide-left {
+      grid-template-columns: 2fr 1fr;
+    }
+    .two-col.wide-right {
+      grid-template-columns: 1fr 2fr;
+    }
+
+    /* --- Three Column Layout --- */
+    .three-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5em;
+      text-align: left;
+    }
+
+    /* --- Card Style --- */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--surface-2);
+      border-radius: 12px;
+      padding: 1.2em;
+      text-align: left;
+    }
+    .card h3 {
+      font-size: 0.9em;
+      margin: 0 0 0.5em 0;
+      color: var(--accent);
+    }
+    .card p {
+      font-size: 0.7em;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* --- Quote Slide --- */
+    .quote-slide blockquote {
+      background: none;
+      border: none;
+      box-shadow: none;
+      position: relative;
+      padding: 0.5em 1em;
+      font-size: 1.3em;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--r-heading-color);
+      max-width: 85%;
+      margin: 0 auto;
+    }
+    .quote-slide blockquote::before {
+      content: "\201C";
+      font-size: 4em;
+      color: var(--accent);
+      opacity: 0.4;
+      position: absolute;
+      top: -0.2em;
+      left: -0.3em;
+      font-style: normal;
+    }
+    .quote-slide .attribution {
+      font-size: 0.6em;
+      color: var(--muted);
+      margin-top: 1em;
+      font-style: normal;
+    }
+
+    /* --- Table Styling --- */
+    .reveal table {
+      border-collapse: separate;
+      border-spacing: 0;
+      width: 100%;
+      font-size: 0.65em;
+      margin: 0.5em 0;
+    }
+    .reveal table thead th {
+      background: var(--surface);
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.85em;
+      padding: 0.8em 1em;
+      border-bottom: 2px solid var(--accent);
+    }
+    .reveal table thead th:first-child { border-radius: 8px 0 0 0; }
+    .reveal table thead th:last-child { border-radius: 0 8px 0 0; }
+    .reveal table tbody td {
+      padding: 0.7em 1em;
+      border-bottom: 1px solid var(--surface-2);
+    }
+    .reveal table tbody tr:last-child td { border-bottom: none; }
+    .reveal table tbody tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+    .reveal table tbody tr:hover { background: rgba(56, 189, 248, 0.05); }
+
+    /* --- Timeline --- */
+    .timeline {
+      position: relative;
+      text-align: left;
+      padding-left: 2em;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0.4em;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), var(--accent-2));
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 1.2em;
+      padding-left: 1em;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -1.6em;
+      top: 0.4em;
+      width: 10px;
+      height: 10px;
+      background: var(--accent);
+      border-radius: 50%;
+      border: 2px solid var(--r-background-color);
+    }
+    .timeline-item .date {
+      font-size: 0.6em;
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .timeline-item .event {
+      font-size: 0.8em;
+      margin-top: 0.1em;
+    }
+
+    /* --- Progress Bar --- */
+    .progress-bar {
+      background: var(--surface);
+      border-radius: 8px;
+      height: 12px;
+      overflow: hidden;
+      margin: 0.3em 0;
+    }
+    .progress-bar .fill {
+      height: 100%;
+      border-radius: 8px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-3));
+      transition: width 0.8s ease;
+    }
+
+    /* --- Tags / Badges --- */
+    .tag {
+      display: inline-block;
+      padding: 0.2em 0.6em;
+      border-radius: 6px;
+      font-size: 0.55em;
+      font-weight: 600;
+      margin: 0.1em;
+    }
+    .tag.blue    { background: rgba(56,189,248,0.15); color: var(--accent); }
+    .tag.purple  { background: rgba(167,139,250,0.15); color: var(--accent-2); }
+    .tag.green   { background: rgba(52,211,153,0.15); color: var(--accent-3); }
+    .tag.orange  { background: rgba(251,146,60,0.15); color: var(--accent-4); }
+    .tag.pink    { background: rgba(244,114,182,0.15); color: var(--accent-5); }
+
+    /* --- CTA Slide --- */
+    .cta-slide {
+      text-align: center;
+    }
+    .cta-slide h2 {
+      font-size: 2em;
+      font-weight: 800;
+    }
+    .cta-slide .cta-button {
+      display: inline-block;
+      padding: 0.6em 1.8em;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #0f172a;
+      font-weight: 700;
+      font-size: 0.9em;
+      border-radius: 8px;
+      margin-top: 0.8em;
+      text-decoration: none;
+    }
+    .cta-slide .contact-info {
+      font-size: 0.6em;
+      color: var(--muted);
+      margin-top: 1.5em;
+    }
+
+    /* --- List Styling --- */
+    .reveal ul, .reveal ol {
+      margin-left: 0;
+    }
+    .reveal li {
+      margin-bottom: 0.4em;
+      line-height: 1.5;
+    }
+    .styled-list {
+      list-style: none;
+      padding: 0;
+    }
+    .styled-list li {
+      padding-left: 1.5em;
+      position: relative;
+      font-size: 0.85em;
+    }
+    .styled-list li::before {
+      content: "\2192";  /* arrow */
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* --- Highlight / Emphasis --- */
+    .highlight {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .highlight-2 { color: var(--accent-2); font-weight: 700; }
+    .highlight-3 { color: var(--accent-3); font-weight: 700; }
+
+    /* --- Subtle Background Variations --- */
+    .bg-gradient {
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%) !important;
+    }
+    .bg-surface {
+      background: var(--surface) !important;
+    }
+
+    /* ========================================
+       RESPONSIVE
+       ======================================== */
+    @media screen and (max-width: 768px) {
+      .two-col, .three-col {
+        grid-template-columns: 1fr;
+      }
+      .metric-row {
+        flex-direction: column;
+        gap: 1em;
+      }
+      .big-number .number {
+        font-size: 3em;
+      }
+    }
+
+    /* ========================================
+       PRINT / PDF EXPORT
+       Ctrl+P or ?print-pdf in URL
+       ======================================== */
+    @media print {
+      .reveal .slides section {
+        page-break-after: always;
+        page-break-inside: avoid;
+      }
+      :root {
+        --r-background-color: #ffffff;
+        --r-main-color: #1e293b;
+        --r-heading-color: #0f172a;
+        --surface: #f1f5f9;
+        --surface-2: #e2e8f0;
+        --muted: #64748b;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ============================================
+           SLIDE 1: TITLE SLIDE
+           ============================================ -->
+      <section class="title-slide" data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%)">
+        <h1>Presentation Title</h1>
+        <p class="subtitle">A subtitle that explains what this is about</p>
+        <p class="meta">
+          Your Name &nbsp;|&nbsp; Company &nbsp;|&nbsp; March 2026
+        </p>
+
+        <aside class="notes">
+          Speaker notes go here. Press 'S' to open speaker view.
+          These are only visible to you, not the audience.
+        </aside>
+      </section>
+
+
+      <!-- ============================================
+           SLIDE 2: AGENDA / OVERVIEW
+           ============================================ -->
+      <section>
+        <h2>What We'll Cover</h2>
+        <div class="three-col" style="margin-top: 1em;">
+          <div class="card">
+            <h3>01 — Performance</h3>
+            <p>Key metrics and trends from the past period</p>
+          </div>
+          <div class="card">
+            <h3>02 — Strategy</h3>
+            <p>What's working, what we're changing, and why</p>
+          </div>
+          <div class="card">
+            <h3>03 — Next Steps</h3>
+            <p>Action items and timeline for the weeks ahead</p>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============================================
+           SLIDE 3: SECTION DIVIDER
+           ============================================ -->
+      <section class="section-slide" data-background-gradient="linear-gradient(135deg, #0f172a 0%, #172554 100%)">
+        <span class="section-number">01</span>
+        <h2>Performance<br><span style="color: var(--muted); font-weight: 300; font-size: 0.6em;">Key Metrics & Results</span></h2>
+      </section>
+
+
+      <!-- ============================================
+           SLIDE 4: BIG NUMBER / HERO METRIC
+           ============================================ -->
+      <section class="big-number">
+        <p class="label">Total New Subscribers</p>
+        <p class="number gradient">12,847</p>
+        <p class="context">+34% vs. previous period &nbsp; <span class="tag green">On Track</span></p>
+      </section>
+
+
+      <!-- ============================================
+           SLIDE 5: MULTIPLE METRICS ROW
+           ============================================ -->
+      <section>
+        <h2>Key Performance Indicators</h2>
+        <div class="metric-row">
+          <div class="metric-item">
+            <div class="value up">$2.14</div>
+            <div class="desc">Cost Per Lead</div>
+          </div>
+          <div class="metric-item">
+            <div class="value neutral">47.2%</div>
+            <div class="desc">Landing Page CVR</div>
+          </div>
+          <div class="metric-item">
+            <div class="value up">62%</div>
+            <div class="desc">Open Rate</div>
+          </div>
+          <div class="metric-item">
+            <div class="value down">3.1%</div>
+            <div class="desc">Unsubscribe Rate</div>
+          </div>
+        </div>
+        <p><small>Data period: Feb 15 - Mar 15, 2026</small></p>
+      </section>
+
+
+      <!-- ============================================
+           SLIDE 6: TWO-COLUMN LAYOUT
+           ============================================ -->
+      <section>
+        <h2>What's Working vs. What's Not</h2>
+        <div class="two-col" style="margin-top: 0.5em;">
+          <div class="card" style="border-left: 3px solid var(--success);">
+            <h3 style="color: var(--success);">Working Well</h3>
+            <ul class="styled-list">
+              <li class="fragment">UGC-style video creatives (2.3x CTR)</li>
+              <li class="fragment">Broad targeting outperforming interests</li>
+              <li class="fragment">New LP variant at 52% CVR</li>
+              <li class="fragment">Weekend delivery sweet spot</li>
+            </ul>
+          </div>
+          <div class="card" style="border-left: 3px solid var(--danger);">
+            <h3 style="color: var(--danger);">Needs Attention</h3>
+            <ul class="styled-list">
+              <li class="fragment">Static image fatigue (CPL up 40%)</li>
+              <li class="fragment">Mobile LP load time (4.2s)</li>
+              <li class="fragment">Welcome email open rate declining</li>
+              <li class="fragment">D7 retention below benchmark</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============================================
+           SLIDE 7: TABLE SLIDE
+           ============================================ -->
+      <section>
+        <h2>Campaign Performance</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Campaign</th>
+              <th>Spend</th>
+              <th>Leads</th>
+              <th>CPL</th>
+              <th>CVR</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>DCT - UGC Video v3</td>
+              <td>$2,450</td>
+              <td>1,285</td>
+              <td>$1.91</td>
+              <td>51.2%</td>
+              <td><span class="tag green">Scaling</span></td>
+            </tr>
+            <tr>
+              <td>DCT - Listicle Static</td>
+              <td>$1,800</td>
+              <td>720</td>
+              <td>$2.50</td>
+              <td>44.8%</td>
+              <td><span class="tag blue">Active</span></td>
+            </tr>
+            <tr>
+              <td>DCT - Testimonial</td>
+              <td>$950</td>
+              <td>310</td>
+              <td>$3.06</td>
+              <td>38.1%</td>
+              <td><span class="tag orange">Testing</span></td>
+            </tr>
+            <tr>
+              <td>DCT - Curiosity Hook</td>
+              <td>$600</td>
+              <td>142</td>
+              <td>$4.23</td>
+              <td>29.5%</td>
+              <td><span class="tag pink">Paused</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+
+      <!-- ============================================
+           SLIDE 8: PROGRESS / VISUAL METRICS
+           ============================================ -->
+      <section>
+        <h2>Goals Progress</h2>
+        <div style="text-align: left; max-width: 80%; margin: 1em auto;">
+
+          <div style="margin-bottom: 1.2em;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.75em; margin-bottom: 0.3em;">
+              <span>Monthly Subscriber Target</span>
+              <span class="highlight">12,847 / 15,000</span>
+            </div>
+            <div class="progress-bar">
+              <div class="fill" style="width: 86%;"></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 1.2em;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.75em; margin-bottom: 0.3em;">
+              <span>Budget Utilization</span>
+              <span class="highlight-2">$8,200 / $10,000</span>
+            </div>
+            <div class="progress-bar">
+              <div class="fill" style="width: 82%; background: linear-gradient(90deg, var(--accent-2), var(--accent-5));"></div>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 1.2em;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.75em; margin-bottom: 0.3em;">
+              <span>Landing Page CVR Target</span>
+              <span class="highlight-3">47.2% / 50%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="fill" style="width: 94%; background: linear-gradient(90deg, var(--accent-3), var(--accent));"></div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ============================================
+           SLIDE 9: QUOTE SLIDE
+           ============================================ -->
+      <section class="quote-slide" data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%)">
+        <blockquote>
+          The best newsletters don't just inform — they create a habit. Our job is to find the people who are ready for that habit.
+        </blockquote>
+        <p class="attribution">— Nathan May, TFM Agency Principal</p>
+      </section>
+
+
+      <!-- ============================================
+           SLIDE 10: TIMELINE SLIDE
+           ============================================ -->
+      <section>
+        <h2>Roadmap & Next Steps</h2>
+        <div class="timeline" style="max-width: 75%; margin: 1em auto;">
+          <div class="timeline-item fragment">
+            <div class="date">Week of Mar 16</div>
+            <div class="event">Launch 3 new UGC video concepts in DCT structure</div>
+          </div>
+          <div class="timeline-item fragment">
+            <div class="date">Week of Mar 23</div>
+            <div class="event">A/B test new landing page with faster load time</div>
+          </div>
+          <div class="timeline-item fragment">
+            <div class="date">Week of Mar 30</div>
+            <div class="event">Review welcome email sequence; propose edits</div>
+          </div>
+          <div class="timeline-item fragment">
+            <div class="date">Week of Apr 6</div>
+            <div class="event">Scale winners to $50/day; pause underperformers</div>
+          </div>
+          <div class="timeline-item fragment">
+            <div class="date">Apr 15</div>
+            <div class="event">Monthly performance review & strategy adjustment</div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============================================
+           SLIDE 11: TWO-COLUMN WITH IMAGE PLACEHOLDER
+           ============================================ -->
+      <section>
+        <h2>Creative Spotlight</h2>
+        <div class="two-col" style="align-items: center;">
+          <div>
+            <!-- Replace this with an actual image: <img src="image.jpg" style="border-radius: 12px; width: 100%;"> -->
+            <div style="background: var(--surface); border: 2px dashed var(--surface-2); border-radius: 12px; padding: 3em 1em; text-align: center;">
+              <p style="font-size: 0.7em; color: var(--muted); margin: 0;">
+                Ad Creative Image<br>
+                <small>Replace with &lt;img&gt; tag</small>
+              </p>
+            </div>
+          </div>
+          <div>
+            <h3 style="font-size: 0.9em; color: var(--accent);">UGC Video — "Morning Routine"</h3>
+            <ul class="styled-list" style="font-size: 0.7em;">
+              <li><strong>CTR:</strong> 2.8% (2.3x benchmark)</li>
+              <li><strong>CPL:</strong> $1.72</li>
+              <li><strong>CVR:</strong> 54%</li>
+              <li><strong>Spend:</strong> $1,200 over 2 weeks</li>
+            </ul>
+            <p style="font-size: 0.6em; color: var(--muted); margin-top: 0.8em;">
+              <span class="tag green">Top Performer</span>
+              <span class="tag blue">Scaling</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============================================
+           SLIDE 12: FRAGMENT ANIMATIONS EXAMPLE
+           ============================================ -->
+      <section>
+        <h2>Our Growth Framework</h2>
+        <div class="three-col" style="margin-top: 1em;">
+          <div class="card fragment fade-up">
+            <h3>1. Test</h3>
+            <p>4-3-2-2 DCT method: 4 creatives, 3 primary texts, 2 headlines, 2 descriptions per concept.</p>
+          </div>
+          <div class="card fragment fade-up" data-fragment-index="1">
+            <h3>2. Analyze</h3>
+            <p>Review after 1,000 impressions. Kill below-benchmark. Iterate on promising signals.</p>
+          </div>
+          <div class="card fragment fade-up" data-fragment-index="2">
+            <h3>3. Scale</h3>
+            <p>Winners get budget increases. Move from ABO testing to CBO scaling campaigns.</p>
+          </div>
+        </div>
+        <!-- Fragment types: fade-in, fade-up, fade-down, fade-left, fade-right,
+             grow, shrink, strike, highlight-red, highlight-blue, highlight-green -->
+      </section>
+
+
+      <!-- ============================================
+           SLIDE 13: CTA / CLOSING SLIDE
+           ============================================ -->
+      <section class="cta-slide" data-background-gradient="linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #172554 100%)">
+        <h2>Let's Grow Together</h2>
+        <p style="color: var(--muted); font-size: 0.8em; max-width: 60%; margin: 0 auto;">
+          Ready to scale your newsletter to the next level?<br>
+          We'd love to build a strategy together.
+        </p>
+        <a class="cta-button" href="#">Get Started</a>
+        <p class="contact-info">
+          your@email.com &nbsp;|&nbsp; yourwebsite.com &nbsp;|&nbsp; @yourhandle
+        </p>
+      </section>
+
+    </div><!-- .slides -->
+  </div><!-- .reveal -->
+
+  <!-- reveal.js from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+
+  <!-- Optional plugins (also from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <!-- Uncomment for Markdown support:
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
+  -->
+  <!-- Uncomment for code syntax highlighting:
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+  -->
+
+  <script>
+    Reveal.initialize({
+      // --- Core Settings ---
+      hash: true,                // Enable URL hashing per slide (#/2)
+      history: true,             // Push each slide to browser history
+      center: true,              // Vertically center slides
+      transition: 'slide',       // none | fade | slide | convex | concave | zoom
+      transitionSpeed: 'default', // default | fast | slow
+      backgroundTransition: 'fade',
+
+      // --- Display ---
+      width: 1280,               // Presentation width
+      height: 720,               // Presentation height
+      margin: 0.08,              // Factor of the display size for margin
+      minScale: 0.2,
+      maxScale: 2.0,
+
+      // --- Controls ---
+      controls: true,            // Show navigation arrows
+      controlsLayout: 'bottom-right',
+      controlsTutorial: true,    // Show guidance dots on first visit
+      progress: true,            // Show progress bar
+      slideNumber: 'c/t',        // Show slide number (current/total)
+      keyboard: true,            // Enable keyboard navigation
+      touch: true,               // Enable touch navigation
+
+      // --- Behavior ---
+      loop: false,
+      autoSlide: 0,              // 0 = off; set to ms for auto-advance (e.g. 5000)
+      autoPlayMedia: true,       // Auto-play embedded media
+      fragments: true,           // Enable fragments (step-by-step reveals)
+
+      // --- Plugins ---
+      plugins: [
+        RevealNotes,
+        // RevealMarkdown,
+        // RevealHighlight,
+      ],
+
+      // --- PDF Export ---
+      // Append ?print-pdf to URL, then Ctrl+P to print/save as PDF
+      // Example: file:///path/to/presentation.html?print-pdf
+      pdfMaxPagesPerSlide: 1,
+      pdfSeparateFragments: false, // Put all fragments on one PDF page
+    });
+  </script>
+</body>
+</html>
