@@ -1,3 +1,17 @@
+---
+client: Insight Links
+slug: insight-links
+status: Active
+gm: Lays
+media_buyer: Rabii
+esp: Mailchimp
+cpl_target: "Qualified CPL < $20"
+current_cpl: "$16.24 blended qualified CPL"
+risk_level: MEDIUM-LOW
+sentiment: Positive and strengthening
+last_enriched: 2026-03-21
+---
+
 # Insight Links — Client Intelligence (Updated March 2026)
 
 ---

@@ -1,3 +1,17 @@
+---
+client: Contrarian Thinking
+slug: contrarian-thinking
+status: Active
+gm: Luiz Pekelman
+media_buyer: Rabii
+esp: beehiiv
+cpl_target: "$5-6"
+current_cpl: "$4.96"
+risk_level: MEDIUM
+sentiment: CAUTIOUSLY OPTIMISTIC — Momentum Building
+last_enriched: 2026-03-21
+---
+
 # Contrarian Thinking (Codie Sanchez) — Client Intelligence (Updated March 2026)
 
 ---

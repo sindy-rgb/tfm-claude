@@ -1,3 +1,17 @@
+---
+client: Student Loan Planner
+slug: student-loan-planner
+status: Active
+gm: Aubree Clark
+media_buyer: Rabii
+esp: Kit (ConvertKit)
+cpl_target: "$15-20"
+current_cpl: "$18.82"
+risk_level: MEDIUM-HIGH
+sentiment: Cautiously Optimistic, Under Pressure
+last_enriched: 2026-03-21
+---
+
 # Student Loan Planner (SLP) — Client Intelligence File
 
 > **Last Updated:** 2026-03-21

@@ -1,3 +1,17 @@
+---
+client: Quartz
+slug: quartz
+status: Active
+gm: Mariely
+media_buyer: Rabii
+esp: Delivra
+cpl_target: "$2.50"
+current_cpl: "$3.55"
+risk_level: MEDIUM
+sentiment: Cautiously Optimistic
+last_enriched: 2026-03-21
+---
+
 # Quartz — Client Intelligence (Updated March 2026)
 
 ---

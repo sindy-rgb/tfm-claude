@@ -1,3 +1,17 @@
+---
+client: The Points Guy
+slug: the-points-guy
+status: Active
+gm: Jay Warner
+media_buyer: Jay Warner / Rabii
+esp: N/A (Red Ventures internal)
+cpl_target: "$3.50-$4.50"
+current_cpl: "~$2.80"
+risk_level: MODERATE
+sentiment: Positive — Handover Complete
+last_enriched: 2026-03-21
+---
+
 # The Points Guy — Client Intelligence (Updated March 2026)
 
 ---

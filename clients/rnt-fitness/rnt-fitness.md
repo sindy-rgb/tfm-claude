@@ -1,3 +1,17 @@
+---
+client: RNT Fitness
+slug: rnt-fitness
+status: Active
+gm: Kinte Otieno
+media_buyer: Rabii
+esp: beehiiv
+cpl_target: "Unconfirmed"
+current_cpl: "GBP 1.00"
+risk_level: MEDIUM
+sentiment: Strong Positive
+last_enriched: 2026-03-21
+---
+
 # RNT Fitness — Client Intelligence (Updated March 2026)
 
 **Last Updated:** 21 March 2026

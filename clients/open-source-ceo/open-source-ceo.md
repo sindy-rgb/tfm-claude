@@ -1,3 +1,17 @@
+---
+client: Open Source CEO
+slug: open-source-ceo
+status: Active
+gm: Aubree Clark
+media_buyer: Rabii
+esp: beehiiv
+cpl_target: "$3.50"
+current_cpl: "~$3.50+ (trending down)"
+risk_level: LOW-MEDIUM
+sentiment: Positive / Stable
+last_enriched: 2026-03-21
+---
+
 # Open Source CEO — Client Intelligence (Updated March 2026)
 
 ---

@@ -1,3 +1,17 @@
+---
+client: Vendry (Case Studied)
+slug: vendry
+status: Active
+gm: Aubree Clark
+media_buyer: Rabii
+esp: beehiiv
+cpl_target: "$2-6 CAD"
+current_cpl: "$411.65 CAD (DR funnel) / $13.38 CAD (newsletter)"
+risk_level: MEDIUM
+sentiment: CAUTIOUSLY POSITIVE
+last_enriched: 2026-03-21
+---
+
 # Vendry (Case Studied) -- Client Intelligence File
 
 > **Last Updated:** 2026-03-21

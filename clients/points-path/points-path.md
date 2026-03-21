@@ -1,3 +1,17 @@
+---
+client: Points Path
+slug: points-path
+status: Active
+gm: Mariely
+media_buyer: Rabii
+esp: Kit
+cpl_target: "$1.50-$2.00"
+current_cpl: "$1.78"
+risk_level: LOW
+sentiment: Positive and collaborative
+last_enriched: 2026-03-21
+---
+
 # Points Path — Client Intelligence (Updated March 2026)
 
 ---

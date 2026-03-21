@@ -1,3 +1,17 @@
+---
+client: Stocks & Income
+slug: stocks-and-income
+status: Active
+gm: Luiz Pekelman
+media_buyer: Rabii
+esp: beehiiv
+cpl_target: "$2.00"
+current_cpl: "$3.70"
+risk_level: MEDIUM
+sentiment: Positive but Watch
+last_enriched: 2026-03-21
+---
+
 # Stocks & Income — Client Intelligence (Updated March 2026)
 
 ---

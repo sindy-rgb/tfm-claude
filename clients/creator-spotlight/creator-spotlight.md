@@ -1,3 +1,17 @@
+---
+client: Creator Spotlight
+slug: creator-spotlight
+status: Active
+gm: Kinte Otieno
+media_buyer: Rabii
+esp: beehiiv
+cpl_target: "MAR >4 (quality-focused, not CPL-driven)"
+current_cpl: "$2.19"
+risk_level: MEDIUM
+sentiment: Stable
+last_enriched: 2026-03-21
+---
+
 # Creator Spotlight (beehiiv) — Client Intelligence (Updated March 2026)
 
 ---

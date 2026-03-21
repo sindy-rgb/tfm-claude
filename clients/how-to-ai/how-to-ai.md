@@ -1,3 +1,17 @@
+---
+client: How to AI
+slug: how-to-ai
+status: Active
+gm: Lays Paiva
+media_buyer: Rabii
+esp: Substack
+cpl_target: "$1.50-$2.50"
+current_cpl: "$2.28"
+risk_level: LOW-MEDIUM
+sentiment: Positive (8.5/10)
+last_enriched: 2026-03-21
+---
+
 # How to AI — Client Intelligence (Updated March 2026)
 
 ---

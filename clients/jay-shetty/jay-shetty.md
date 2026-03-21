@@ -1,3 +1,17 @@
+---
+client: Jay Shetty
+slug: jay-shetty
+status: Active
+gm: Lays Paiva
+media_buyer: Rabii
+esp: beehiiv
+cpl_target: "$3.00"
+current_cpl: "$0.91 gross / $0.36 net"
+risk_level: LOW-MEDIUM
+sentiment: Positive with emerging financial tension
+last_enriched: 2026-03-21
+---
+
 # Jay Shetty — Client Intelligence (Updated March 2026)
 
 ---

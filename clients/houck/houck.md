@@ -1,3 +1,17 @@
+---
+client: Houck (Founding Journey)
+slug: houck
+status: Active
+gm: Luiz Pekelman
+media_buyer: Rabii
+esp: beehiiv
+cpl_target: "$5-$15"
+current_cpl: "$1.80"
+risk_level: MODERATE-LOW
+sentiment: Cautiously Positive — Momentum Building
+last_enriched: 2026-03-21
+---
+
 # Houck (Founding Journey) — Client Intelligence (Updated March 2026)
 
 ---

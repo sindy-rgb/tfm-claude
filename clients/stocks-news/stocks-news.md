@@ -1,3 +1,17 @@
+---
+client: Stocks.News
+slug: stocks-news
+status: Active
+gm: Luiz Pekelman
+media_buyer: Rabii
+esp: N/A (app-based)
+cpl_target: "Cost Per Trial < $60"
+current_cpl: "$57.38 per trial"
+risk_level: LOW-MEDIUM
+sentiment: Positive and Stable
+last_enriched: 2026-03-21
+---
+
 # Stocks.News — Client Intelligence (Updated March 2026)
 
 ---

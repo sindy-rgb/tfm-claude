@@ -1,3 +1,17 @@
+---
+client: MDhair
+slug: mdhair
+status: Active
+gm: Kinte
+media_buyer: N/A (Creative Only)
+esp: N/A (DTC — not a newsletter client)
+cpl_target: "$80 CAC"
+current_cpl: "$130 CAC (testing phase)"
+risk_level: MEDIUM
+sentiment: POSITIVE with OPERATIONAL RISK
+last_enriched: 2026-03-21
+---
+
 # MDhair -- Client Intelligence File
 **Last Updated:** 2026-03-21
 **Client Type:** DTC Hair Care (NOT a newsletter client)

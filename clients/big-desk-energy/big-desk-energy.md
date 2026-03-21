@@ -1,3 +1,17 @@
+---
+client: Big Desk Energy
+slug: big-desk-energy
+status: Active
+gm: Mariely
+media_buyer: Rabii
+esp: beehiiv
+cpl_target: "$3.00"
+current_cpl: "$2.30"
+risk_level: LOW-MEDIUM
+sentiment: Positive
+last_enriched: 2026-03-21
+---
+
 # Big Desk Energy (BDE) — Client Intelligence (Updated March 2026)
 
 ---

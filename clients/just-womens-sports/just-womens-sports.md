@@ -1,3 +1,17 @@
+---
+client: Just Women's Sports
+slug: just-womens-sports
+status: Active
+gm: Natalie Rose
+media_buyer: Rabii
+esp: beehiiv
+cpl_target: "$1.50"
+current_cpl: "$1.17"
+risk_level: LOW-MEDIUM
+sentiment: POSITIVE
+last_enriched: 2026-03-21
+---
+
 # Just Women's Sports (JWS) -- Client Intelligence File
 
 > **Last Updated:** 2026-03-21

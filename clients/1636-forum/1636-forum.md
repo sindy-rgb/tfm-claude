@@ -1,3 +1,17 @@
+---
+client: 1636 Forum
+slug: 1636-forum
+status: Active
+gm: Mariely Galindo
+media_buyer: Rabii
+esp: beehiiv
+cpl_target: "$2.00"
+current_cpl: "$3.01"
+risk_level: MEDIUM
+sentiment: CAUTIOUSLY POSITIVE
+last_enriched: 2026-03-21
+---
+
 # 1636 Forum - Client Intelligence File
 
 > **Last Updated:** 2026-03-21

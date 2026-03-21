@@ -1,3 +1,17 @@
+---
+client: Franklin's Forum
+slug: franklins-forum
+status: Active
+gm: Mariely Galindo
+media_buyer: Rabii
+esp: beehiiv
+cpl_target: "$3.00-$3.50"
+current_cpl: "$4.03"
+risk_level: MEDIUM
+sentiment: CAUTIOUS / IMPROVING
+last_enriched: 2026-03-21
+---
+
 # Franklin's Forum -- Client Intelligence File
 
 > **Last Updated:** 2026-03-21

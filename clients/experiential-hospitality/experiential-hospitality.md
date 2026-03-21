@@ -1,3 +1,17 @@
+---
+client: Experiential Hospitality
+slug: experiential-hospitality
+status: Active
+gm: Mariely
+media_buyer: Rabii
+esp: GoHighLevel
+cpl_target: "$5.00"
+current_cpl: "$5.20-$5.30"
+risk_level: LOW-MEDIUM
+sentiment: Positive — Improving
+last_enriched: 2026-03-21
+---
+
 # Experiential Hospitality (EH) — Client Intelligence (Updated March 2026)
 
 ---

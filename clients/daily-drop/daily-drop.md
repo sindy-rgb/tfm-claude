@@ -1,3 +1,17 @@
+---
+client: Daily Drop
+slug: daily-drop
+status: Creative Only
+gm: Mariely
+media_buyer: N/A (client runs media)
+esp: N/A (client-managed)
+cpl_target: "$3-$4"
+current_cpl: "$4.26"
+risk_level: LOW-MEDIUM
+sentiment: Stable-to-Positive
+last_enriched: 2026-03-21
+---
+
 # Daily Drop — Client Intelligence (Updated March 2026)
 
 ---

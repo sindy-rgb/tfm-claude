@@ -1,3 +1,17 @@
+---
+client: Status (News)
+slug: status-news
+status: At Risk
+gm: Mariely
+media_buyer: Rabii
+esp: beehiiv
+cpl_target: "$1-$2 raw CPL (ICP-Verified is true north)"
+current_cpl: "$38.42 per 1P sub / ~$125 per ICP-Verified"
+risk_level: HIGH
+sentiment: Declining — Approaching Critical
+last_enriched: 2026-03-21
+---
+
 # Status (News) — Client Intelligence (Updated March 2026)
 
 ---
