@@ -1,6 +1,6 @@
 # The Feed Media -- Client Intelligence Vault
 
-The Feed Media (TFM) is a newsletter growth agency running paid media (primarily Meta Ads) for 25 newsletter and DTC clients. This Obsidian vault is the single source of truth for client intelligence, SOPs, creative strategy, and team operations.
+The Feed Media (TFM) is a newsletter growth agency running paid media (primarily Meta Ads) for 25 newsletter and DTC clients. This Obsidian vault is the team's single source of truth for client intelligence, SOPs, creative strategy, and team operations. Every team member should treat this as their primary reference for client context and workflows.
 
 **GitHub Repo:** `thefeedmedia/tfm-vault` (synced via Obsidian Git)
 
@@ -15,7 +15,6 @@ The Feed Media (TFM) is a newsletter growth agency running paid media (primarily
 | **Jay Warner** | Director of Growth |
 | **Rabii Elhaouat** | Media Buyer |
 | **Luiz Pekelman** | Growth Manager |
-| **Natalie Rose** | Growth Manager |
 | **Kinte Otieno** | Growth Manager |
 | **Lays Paiva** | Growth Manager |
 | **Mariely Galindo** | Growth Manager |
@@ -41,7 +40,7 @@ The Feed Media (TFM) is a newsletter growth agency running paid media (primarily
 | How to AI | Lays | Active |
 | Insight Links | Lays | Active |
 | Jay Shetty | Lays | Active |
-| Just Women's Sports | Natalie | Active |
+| Just Women's Sports | TBD | Active |
 | MarketBeat | Luiz | Active |
 | MDhair | Kinte | Active (Creative Only) |
 | Open Source CEO | Aubree | Active |

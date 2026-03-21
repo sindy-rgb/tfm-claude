@@ -23,12 +23,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CLIENT-INTELLIGENCE-SUMMARY.md",
+                "file": "team/sindy.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CLIENT-INTELLIGENCE-SUMMARY"
+              "title": "sindy"
             }
           }
         ],
@@ -105,7 +105,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CLIENT-INTELLIGENCE-SUMMARY.md",
+                "file": "team/sindy.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for CLIENT-INTELLIGENCE-SUMMARY"
+              "title": "Backlinks for sindy"
             }
           },
           {
@@ -212,8 +212,10 @@
   },
   "active": "14532f1389d72f50",
   "lastOpenFiles": [
-    "CLAUDE.md",
+    "team/jay.md",
     "README.md",
+    "CLIENT-INTELLIGENCE-SUMMARY.md",
+    "CLAUDE.md",
     "research/qa-log-v4.md",
     "system/claude-chat-project-instructions.md",
     "research/gm-friday-report-scorecard.md",
@@ -238,8 +240,6 @@
     "templates",
     "dashboards",
     "copilot/copilot-custom-prompts/Clip Web Page.md",
-    "copilot/copilot-custom-prompts/Clip YouTube Transcript.md",
-    "copilot/copilot-custom-prompts/Rewrite as tweet thread.md",
     "copilot/copilot-custom-prompts",
     "copilot",
     "clients/mdhair",

@@ -10,7 +10,7 @@ All 25 client intelligence files have been populated and enriched from Day.ai, S
 | 1636 Forum | Enriched | 2026-03-21 | Yes | Yes | MEDIUM | CPL above target ($3.01 vs $2.00) |
 | Big Desk Energy | Enriched | 2026-03-21 | Yes | Yes | LOW-MEDIUM | GM handover from Humza to Mariely; monitoring |
 | Contrarian Thinking | Enriched | 2026-03-21 | Yes | Yes | MEDIUM | 90-day trial; ads just went live Mar 12 |
-| Creator Spotlight | Enriched | 2026-03-21 | Yes | Yes | MEDIUM | Budget cut to $2K/week; GM transition Natalie to Kinte |
+| Creator Spotlight | Enriched | 2026-03-21 | Yes | Yes | MEDIUM | Budget cut to $2K/week; GM transition to Kinte |
 | Daily Drop | Enriched | 2026-03-21 | Yes | Yes | LOW-MEDIUM | Creative-only engagement; TFM does not run media |
 | Experiential Hospitality | Enriched | 2026-03-21 | Yes | Yes | LOW-MEDIUM | CPL slightly above target; webinar platform transition |
 | Franklin's Forum | Enriched | 2026-03-21 | Yes | Yes | MEDIUM | CPL above target ($4.03 vs $3.00-$3.50); young account |
@@ -18,7 +18,7 @@ All 25 client intelligence files have been populated and enriched from Day.ai, S
 | How to AI | Enriched | 2026-03-21 | Yes | Yes | LOW-MEDIUM | No bi-weekly calls scheduled |
 | Insight Links | Enriched | 2026-03-21 | Yes | Yes | MEDIUM-LOW | Ebook lead magnet funnels in development |
 | Jay Shetty | Enriched | 2026-03-21 | Yes | Yes | LOW-MEDIUM | Emerging financial tension on low-ticket product tests |
-| Just Women's Sports | Enriched | 2026-03-21 | Yes | Yes | LOW-MEDIUM | Performing well; GM transitioned from Lays to Natalie |
+| Just Women's Sports | Enriched | 2026-03-21 | Yes | Yes | LOW-MEDIUM | Performing well; GM: TBD — reassignment pending |
 | MarketBeat | Enriched | 2026-03-21 | Yes | Yes | LOW-MEDIUM | Competing with GrowJoy in same ad account; momentum building |
 | MDhair | Enriched | 2026-03-21 | Yes | Yes | MEDIUM | DTC creative-only; CAC above $80 target during testing |
 | Open Source CEO | Enriched | 2026-03-21 | Yes | Yes | LOW-MEDIUM | ANZ geo targeting; steady at $10K/mo |
@@ -41,7 +41,7 @@ All 25 client intelligence files have been populated and enriched from Day.ai, S
 | **Luiz Pekelman** | Contrarian Thinking, Houck, MarketBeat, Stocks & Income, Stocks.News |
 | **Lays Paiva** | How to AI, Insight Links, Jay Shetty, Workweek |
 | **Kinte Otieno** | Creator Spotlight, MDhair, RNT Fitness |
-| **Natalie Rose** | Just Women's Sports |
+| **TBD** | Just Women's Sports (reassignment pending) |
 | **Aubree Clark** | Open Source CEO, Student Loan Planner, Vendry |
 | **Jay Warner** | The Points Guy |
 

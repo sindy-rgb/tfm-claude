@@ -50,7 +50,7 @@ Every client file follows the same structure:
 | 9 | How to AI | Lays Paiva | Active | LOW-MEDIUM | $1.50-$2.50 | $2.28 | Substack | -- | Yes |
 | 10 | Insight Links | Lays | Active | MEDIUM-LOW | Qualified CPL < $20 | $16.24 blended | Mailchimp | -- | Yes |
 | 11 | Jay Shetty | Lays Paiva | Active | LOW-MEDIUM | $3.00 | $0.91 gross / $0.36 net | beehiiv | -- | Yes |
-| 12 | Just Women's Sports | Natalie Rose | Active | LOW-MEDIUM | $1.50 | $1.17 | beehiiv | -- | -- |
+| 12 | Just Women's Sports | TBD — reassignment pending | Active | LOW-MEDIUM | $1.50 | $1.17 | beehiiv | -- | -- |
 | 13 | MarketBeat | Luiz Pekelman | Active | LOW-MEDIUM | $10-14 | $8.86 | Custom (in-house) | -- | Yes |
 | 14 | MDhair | Kinte | Active | MEDIUM | $80 CAC | $130 CAC (testing) | N/A (DTC) | -- | -- |
 | 15 | Open Source CEO | Aubree Clark | Active | LOW-MEDIUM | $3.50 | ~$3.50+ (trending down) | beehiiv | -- | Yes |

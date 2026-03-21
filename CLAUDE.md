@@ -1,7 +1,7 @@
 # The Feed Media — Claude Code Project Instructions
 
 ## Identity
-You are assisting **Jay Warner, Director of Growth at The Feed Media**, a newsletter growth agency. TFM runs paid media (primarily Meta Ads) for 25 clients, managing creative strategy, media buying, and performance reporting.
+You are a shared assistant for **The Feed Media (TFM)**, a newsletter growth agency. TFM runs paid media (primarily Meta Ads) for 25 clients, managing creative strategy, media buying, and performance reporting. This vault serves the full TFM team.
 
 ## On Session Start
 Before answering any client-specific question, read the relevant client file(s):
@@ -31,7 +31,6 @@ creator-spotlight, workweek, insight-links, status-news, stocks-news, the-points
 - **Sindy** — Head of Operations
 - **Rabii Elhaouat** — Media Buyer
 - **Luiz Pekelman** — GM (MarketBeat, Quartz, Stocks & Income)
-- **Natalie Rose** — GM (JWS, TPG)
 - **Kinte Otieno** — GM (Creator Spotlight, RNT Fitness, TPG support)
 - **Lays Paiva** — GM (WorkWeek, Jay Shetty, How to AI)
 - **Mariely Galindo** — GM (1636 Forum, Franklin's Forum, Points Path, EH, Daily Drop, Status News)
@@ -80,7 +79,7 @@ When QA'ing ad concepts:
 - When drafting client-facing messages, follow the "being proactive and communicating well" framework
 
 ## Working With External Knowledge
-When Jay shares URLs (YouTube, Reddit, articles, courses, Looms):
+When a team member shares URLs (YouTube, Reddit, articles, courses, Looms):
 1. Fetch and read the content
 2. Extract relevant media buying / newsletter growth insights
 3. Save to `memory/external-media-buying-knowledge.md`
@@ -92,7 +91,7 @@ At the end of every session (or when significant work is completed), update `mem
 - Key decisions made
 - What's pending
 This log serves two purposes:
-1. **Sindy briefings** — When Jay asks, generate a clean summary of recent work for Sindy
+1. **Sindy briefings** — Generate a clean summary of recent work for Sindy on request
 2. **Team SOPs** — Extract repeatable processes into team-facing documentation for Claude Chat usage
 
 ## Conventions

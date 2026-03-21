@@ -2,7 +2,7 @@
 client: Just Women's Sports
 slug: just-womens-sports
 status: Active
-gm: Natalie Rose
+gm: TBD
 media_buyer: Rabii
 esp: beehiiv
 cpl_target: "$1.50"
@@ -17,7 +17,7 @@ last_enriched: 2026-03-21
 > **Last Updated:** 2026-03-21
 > **Status:** Active Client
 > **Kickoff Date:** October 1, 2025
-> **GM:** Natalie Rose (transitioned from Lays Paiva in Feb 2026)
+> **GM:** TBD — reassignment pending (previously Natalie Rose, transitioned from Lays Paiva in Feb 2026)
 > **Internal Channel:** #internal-justwsports
 > **External Channel:** #thefeed-justwsports
 
@@ -43,7 +43,7 @@ Audience growth for future monetization through brand partnerships and potential
 
 | Name | Role | Notes |
 |------|------|-------|
-| **Natalie Rose** | GM (current) | Took over Feb 2026 from Lays |
+| **TBD** | GM (reassignment pending) | Previously Natalie Rose, who took over Feb 2026 from Lays |
 | **Lays Paiva** | GM (previous, Oct 2025 - Feb 2026) | Creative Strategist who built the account from launch |
 | **Nathan May** | Agency Principal | Runs bi-weekly calls, oversees strategy |
 | **Sindy** | Head of Ops | Calendar management, Notion updates, ops oversight |
@@ -272,7 +272,7 @@ This is a critical note: **Always proactively communicate account changes to Joh
 - Successful GM transition from Lays to Natalie in Feb 2026
 
 **Medium risk factors:**
-- **GM transition still fresh:** Natalie took over in Feb 2026. The handover was documented well, but Natalie needs to build direct rapport with John. Intro was made March 4, 2026.
+- **GM transition needed:** Natalie Rose departed TFM. New GM assignment pending. The previous handover from Lays was documented well. Intro to John was made March 4, 2026.
 - **March concept pipeline behind schedule:** Day.ai notes that all 5 March concepts were still in initial stage as of the sprint check -- none sent to client yet. Creatives were validated March 12.
 - **Friday report timeliness:** On-time rate was 33% (1/3 on time) as of Day.ai tracking. Mar 13 was on time, Mar 6 was late, one was missing entirely.
 - **CVR volatility:** Dropped to 29.91% at one point, then to 33.94% in early March. Needs continued monitoring -- if landing page alignment drifts, CPL will spike.
@@ -287,13 +287,13 @@ This is a critical note: **Always proactively communicate account changes to Joh
 Dan Krenitsyn from Beehiiv introduced Nathan May to John Murray from JWS. Channel created Aug 15, 2025. DocuSign completed Sept 2025. Kick-off Oct 1, 2025.
 
 ### Next Bi-Weekly Meeting
-Tuesday, March 24, 2026 (attendees: John Murray, Natalie Rose, Lays, Sindy, Nathan May)
+Tuesday, March 24, 2026 (attendees: John Murray, TBD (new GM), Lays, Sindy, Nathan May)
 
 ### Action Items
-1. **Natalie:** Continue building rapport with John. First few bi-weeklies are critical for trust transfer.
-2. **Natalie:** Monitor CVR weekly -- if it drops below 35% for 2 consecutive weeks, flag to John and audit landing page.
-3. **Natalie:** Ensure March concepts are fully through the pipeline and live before month end.
-4. **Natalie:** Maintain Friday report timeliness -- aim for 100% on-time delivery.
+1. **New GM:** Build rapport with John. First few bi-weeklies are critical for trust transfer.
+2. **New GM:** Monitor CVR weekly -- if it drops below 35% for 2 consecutive weeks, flag to John and audit landing page.
+3. **New GM:** Ensure March concepts are fully through the pipeline and live before month end.
+4. **New GM:** Maintain Friday report timeliness -- aim for 100% on-time delivery.
 5. **Team:** Keep proactively communicating any account changes to John per Sindy's standing instruction.
 6. **Nathan:** Explore budget increase conversation with John when CPL sustains below $1.50 for 4+ weeks.
 

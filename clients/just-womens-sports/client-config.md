@@ -18,7 +18,7 @@
 
 | Field | Value |
 |-------|-------|
-| `gm_name` | Natalie Rose |
+| `gm_name` | TBD — reassignment pending |
 | `media_buyer_name` | Rabii Elhaouat |
 
 ---
@@ -96,7 +96,7 @@
 | `report_format` | CPL, sign-ups, CTR, CVR, open rate, verified CTR, unsub rate per DCT. Quality reports include beehiiv engagement metrics. |
 | `report_destination` | Slack #thefeed-justwsports + Google Sheets |
 | `report_cadence` | weekly (Friday) + bi-weekly (client calls, Tuesdays odd weeks 2:30 PM EST) |
-| `report_owner` | Natalie Rose |
+| `report_owner` | TBD — reassignment pending |
 
 ---
 
