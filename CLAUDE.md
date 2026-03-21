@@ -47,8 +47,16 @@ creator-spotlight, workweek, insight-links, status-news, stocks-news, the-points
 - **Google Drive** — Creative folders, script spreadsheets, ad reports (MCP access via gdrive)
 - **Google Calendar** — MCP access
 - **Gmail** — MCP access
-- **n8n** — Self-hosted workflow automation at `https://n8n-zwzfv-u62151.vm.elestio.app/`
+- **n8n** — Self-hosted workflow automation at `https://n8n-zwzfv-u62151.vm.elestio.app/` **(MCP access via n8n-mcp — full API: build, deploy, activate, debug workflows directly)**. Unlimited executions, no overage charges (Elestio hosting).
+- **Beehiiv** — Subscriber data API (MCP access via beehiiv). Pull subscriber lists, check UTM attribution, audit signup sources.
+- **Playwright** — Browser automation (MCP access). Landing page screenshots, UTM verification, visual QA, competitor scraping.
 - **GitHub** — Private repo at `thefeedmedia/tfm-vault` (synced via Obsidian Git)
+
+## Skills & Automation
+- **`/weekly-enrichment`** — Claude Code skill (Sunday): pulls Slack CPLs → updates all 25 client files + summary → Monday morning briefing. See `~/.claude/skills/weekly-enrichment/SKILL.md`
+- **Day.ai Monday skill** — Client Intelligence Updater (9am ET): pulls meeting recordings + Slack → writes to Day.ai org records (qualitative layer)
+- **Day.ai Daily skill** — Jay's morning operational briefing (9am ET): calendar prep, overdue actions, client signals
+- **Skills roadmap** — 10 prioritized skills at `research/skills-automation-roadmap.md`. P0: `/friday-autopilot`, `/creative-qa`. P1: `/fatigue-scan`, `/vault-integrity`, `/action-tracker`.
 
 ## Creative QA Process
 When QA'ing ad concepts:
@@ -93,6 +101,14 @@ At the end of every session (or when significant work is completed), update `mem
 This log serves two purposes:
 1. **Sindy briefings** — Generate a clean summary of recent work for Sindy on request
 2. **Team SOPs** — Extract repeatable processes into team-facing documentation for Claude Chat usage
+
+## State Management (GSD Pattern)
+- On session start, check `system/state/` for active initiative state files relevant to the current task
+- Read the state file before starting work on any tracked initiative
+- Update state files when completing significant milestones, hitting blockers, or making decisions
+- For large isolated tasks (building a skill, refactoring many files), use sub-agents that read the state file, do the work, and write back results — this protects main session context
+- State file conventions are documented in `system/state/README.md`
+- Do not create new state files for small or one-off tasks — only for multi-session initiatives
 
 ## Conventions
 - Do not auto-commit without being asked
