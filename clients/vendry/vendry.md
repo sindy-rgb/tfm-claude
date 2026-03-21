@@ -6,7 +6,7 @@ gm: Aubree Clark
 media_buyer: Rabii
 esp: beehiiv
 cpl_target: "$2-6 CAD"
-current_cpl: "$411.65 CAD (DR funnel) / $13.38 CAD (newsletter)"
+current_cpl: "DR paused (LP rebuild) / $19.38 CAD (newsletter, Mar 13-19)"
 risk_level: MEDIUM
 sentiment: CAUTIOUSLY POSITIVE
 last_enriched: 2026-03-21

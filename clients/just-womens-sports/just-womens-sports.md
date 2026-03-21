@@ -2,13 +2,13 @@
 client: Just Women's Sports
 slug: just-womens-sports
 status: Active
-gm: TBD
+gm: Lays Paiva (covering)
 media_buyer: Rabii
 esp: beehiiv
 cpl_target: "$1.50"
-current_cpl: "$1.17"
-risk_level: LOW-MEDIUM
-sentiment: POSITIVE
+current_cpl: "$2.32"
+risk_level: MEDIUM
+sentiment: WATCH — CPL above target
 last_enriched: 2026-03-21
 ---
 
@@ -17,7 +17,7 @@ last_enriched: 2026-03-21
 > **Last Updated:** 2026-03-21
 > **Status:** Active Client
 > **Kickoff Date:** October 1, 2025
-> **GM:** TBD — reassignment pending (previously Natalie Rose, transitioned from Lays Paiva in Feb 2026)
+> **GM:** Lays Paiva (covering since Natalie Rose departure; official reassignment pending). Lays posted the March 13-19 weekly report in #thefeed-justwsports.
 > **Internal Channel:** #internal-justwsports
 > **External Channel:** #thefeed-justwsports
 

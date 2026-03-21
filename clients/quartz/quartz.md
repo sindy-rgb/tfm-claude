@@ -6,7 +6,7 @@ gm: Mariely
 media_buyer: Rabii
 esp: Delivra
 cpl_target: "$2.50"
-current_cpl: "$3.55"
+current_cpl: "$3.27"
 risk_level: MEDIUM
 sentiment: Cautiously Optimistic
 last_enriched: 2026-03-21

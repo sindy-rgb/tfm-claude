@@ -37,41 +37,42 @@ Every client file follows the same structure:
 
 ## All 25 Clients
 
-| # | Client | GM | Status | Risk Level | CPL Target | Current CPL | ESP | Deep Enrichment | Claude Chat Project |
+| # | Client | GM | Status | Risk Level | CPL Target | Current CPL (Mar 13-19) | ESP | Deep Enrichment | Claude Chat Project |
 |---|--------|----|--------|------------|------------|-------------|-----|:-:|:-:|
-| 1 | 1636 Forum | Mariely Galindo | Active | MEDIUM | $2.00 | $3.01 | beehiiv | -- | -- |
-| 2 | Big Desk Energy | Mariely | Active | LOW-MEDIUM | $3.00 | $2.30 | beehiiv | -- | Yes |
-| 3 | Contrarian Thinking | Luiz Pekelman | Active | MEDIUM | $5-6 | $4.96 | beehiiv | -- | Yes |
+| 1 | 1636 Forum | Mariely Galindo | Active | MEDIUM | $2.00 | $3.01 | beehiiv | Yes | Yes |
+| 2 | Big Desk Energy | Mariely | Active | LOW-MEDIUM | $3.00 | $2.30 | beehiiv | Yes | Yes |
+| 3 | Contrarian Thinking | Luiz Pekelman | Active (90-day trial) | MEDIUM | $5-6 | $4.96 | beehiiv | Yes | Yes |
 | 4 | Creator Spotlight | Kinte Otieno | Active | MEDIUM | MAR >4 (quality) | $2.19 | beehiiv | Yes | Yes |
-| 5 | Daily Drop | Mariely | Creative Only | LOW-MEDIUM | $3-$4 | $4.26 | N/A (client-managed) | -- | Yes |
-| 6 | Experiential Hospitality | Mariely | Active | LOW-MEDIUM | $5.00 | $5.20-$5.30 | GoHighLevel | Yes | Yes |
-| 7 | Franklin's Forum | Mariely Galindo | Active | MEDIUM | $3.00-$3.50 | $4.03 | beehiiv | -- | -- |
-| 8 | Houck (Founding Journey) | Luiz Pekelman | Active | MODERATE-LOW | $5-$15 | $1.80 | beehiiv | -- | Yes |
-| 9 | How to AI | Lays Paiva | Active | LOW-MEDIUM | $1.50-$2.50 | $2.28 | Substack | -- | Yes |
-| 10 | Insight Links | Lays | Active | MEDIUM-LOW | Qualified CPL < $20 | $16.24 blended | Mailchimp | -- | Yes |
-| 11 | Jay Shetty | Lays Paiva | Active | LOW-MEDIUM | $3.00 | $0.91 gross / $0.36 net | beehiiv | -- | Yes |
-| 12 | Just Women's Sports | TBD — reassignment pending | Active | LOW-MEDIUM | $1.50 | $1.17 | beehiiv | -- | -- |
-| 13 | MarketBeat | Luiz Pekelman | Active | LOW-MEDIUM | $10-14 | $8.86 | Custom (in-house) | -- | Yes |
-| 14 | MDhair | Kinte | Active | MEDIUM | $80 CAC | $130 CAC (testing) | N/A (DTC) | -- | -- |
-| 15 | Open Source CEO | Aubree Clark | Active | LOW-MEDIUM | $3.50 | ~$3.50+ (trending down) | beehiiv | -- | Yes |
+| 5 | Daily Drop | Mariely | Creative Only | LOW-MEDIUM | $3-$4 | $4.16 (TFM) / $4.10 (BAU) | N/A (client-managed) | Yes | Yes |
+| 6 | Experiential Hospitality | Mariely | Active | LOW-MEDIUM | $5.00 | $5.20 | GoHighLevel | Yes | Yes |
+| 7 | Franklin's Forum | Mariely Galindo | Active | MEDIUM | $3.00-$3.50 | $4.03 | beehiiv | Yes | Yes |
+| 8 | Houck (Founding Journey) | Luiz Pekelman | Active | MODERATE-LOW | $5-$15 | $1.80 | beehiiv | Yes | Yes |
+| 9 | How to AI | Lays Paiva | Active | LOW-MEDIUM | $1.50-$2.50 | $2.28 | Substack | Yes | Yes |
+| 10 | Insight Links | Lays | Active | MEDIUM-LOW | Qualified CPL < $20 | $16.24 blended qual | Mailchimp | Yes | Yes |
+| 11 | Jay Shetty | Lays Paiva | Active | LOW-MEDIUM | $3.00 | $0.93 gross | beehiiv | Yes | Yes |
+| 12 | Just Women's Sports | Lays Paiva (covering) | Active | MEDIUM | $1.50 | $2.32 | beehiiv | Yes | Yes |
+| 13 | MarketBeat | Luiz Pekelman | Active | LOW | $10-14 | $7.51 | Custom (in-house) | Yes | Yes |
+| 14 | MDhair | Kinte | Active | MEDIUM | $80 CAC | $130 CAC (testing) | N/A (DTC) | Yes | -- |
+| 15 | Open Source CEO | Aubree Clark | Active | LOW-MEDIUM | $3.50 | ~$3.50+ (trending down) | beehiiv | Yes | Yes |
 | 16 | Points Path | Mariely | Active | LOW | $1.50-$2.00 | $1.78 | Kit | Yes | Yes |
-| 17 | Quartz | Mariely | Active | MEDIUM | $2.50 | $3.55 | Delivra | -- | Yes |
-| 18 | RNT Fitness | Kinte Otieno | Active | MEDIUM | Unconfirmed | GBP 1.00 | beehiiv | -- | Yes |
-| 19 | Status (News) | Mariely | At Risk | HIGH | $1-$2 raw / ICP-Verified | $38.42 per 1P / ~$125 ICP | beehiiv | -- | Yes |
-| 20 | Stocks & Income | Luiz Pekelman | Active | MEDIUM | $2.00 | $3.70 | beehiiv | -- | Yes |
+| 17 | Quartz | Mariely | Active | MEDIUM | $2.50 | $3.27 | Delivra | Yes | Yes |
+| 18 | RNT Fitness | Kinte Otieno | Active | MEDIUM | Unconfirmed | GBP 1.00 | beehiiv | Yes | Yes |
+| 19 | Status (News) | Mariely | At Risk | HIGH | $1-$2 raw / ICP-Verified | $68.42/qualified (15 qualified/$1,026) | beehiiv | Yes | Yes |
+| 20 | Stocks & Income | Luiz Pekelman | Active | MEDIUM | $2.00 | $3.70 (-15% WoW) | beehiiv | Yes | Yes |
 | 21 | Stocks.News | Luiz Pekelman | Active | LOW-MEDIUM | Cost Per Trial < $60 | $57.38 per trial | N/A (app-based) | Yes | Yes |
-| 22 | Student Loan Planner | Aubree Clark | Active | MEDIUM-HIGH | $15-20 | $18.82 | Kit (ConvertKit) | -- | -- |
+| 22 | Student Loan Planner | Aubree Clark | Active | MEDIUM-HIGH | $15-20 | $18.82 (+60% since Jan) | Kit (ConvertKit) | Yes | -- |
 | 23 | The Points Guy | Jay Warner | Active | MODERATE | $3.50-$4.50 | ~$2.80 | N/A (Red Ventures) | Yes | Yes |
-| 24 | Vendry (Case Studied) | Aubree Clark | Active | MEDIUM | $2-6 CAD | $411.65 CAD (DR) / $13.38 CAD (NL) | beehiiv | -- | -- |
-| 25 | Workweek | Lays Paiva | Active | LOW | $6-$9.50 V-CAC | IHIH $6.08 / TMM $6.09 / FTT $5.78 / Hosp $6.30 / GTM $4.24 | Sailthru | -- | Yes |
+| 24 | Vendry (Case Studied) | Aubree Clark | Active | MEDIUM | $2-6 CAD | DR paused (LP rebuild) / $19.38 (NL) | beehiiv | Yes | Yes |
+| 25 | Workweek | Lays Paiva | Active | LOW | $6-$9.50 Sub CAC | IHIH $6.08 / TMM $6.09 / FTT $5.78 / Hosp $6.30 / GTM $3.60 | Sailthru | Yes | Yes |
 
 ### Summary Counts
 - **25 total clients** (24 Active + 1 At Risk)
-- **5 clients with deep-enrichment.md** files: TPG, Stocks.News, Creator Spotlight, Experiential Hospitality, Points Path
-- **19 clients with Claude Chat project instructions** (missing: 1636 Forum, Franklin's Forum, JWS, Vendry, SLP, MDhair)
+- **25 clients with deep-enrichment.md** files (all clients now have deep enrichment)
+- **23 clients with Claude Chat project instructions** (missing: Student Loan Planner, MDhair)
 - **6 clients built from scratch on March 21:** 1636 Forum, Franklin's Forum, Just Women's Sports, Vendry, Student Loan Planner, MDhair
 - **All 25 client files** have YAML frontmatter for Obsidian Bases
 - **QA logs V1-V5** exist documenting data integrity checks across the enrichment process
+- **CPLs updated March 21** from weekly Slack reports (Mar 13-19 period)
 
 ---
 
@@ -101,35 +102,42 @@ Run the same process in Claude Code — it will pull from Day.ai, Slack, Notion,
 
 ---
 
-## Key Flags Across The Portfolio
+## Key Flags Across The Portfolio (Updated Mar 21 from live Slack data)
 
 ### HIGH Risk
-- **Status (News)** — $38.42 per 1P sub / ~$125 per ICP-Verified. Approaching critical.
-
-### MEDIUM-HIGH Risk
-- **Student Loan Planner** — $18.82 CPL against $15-20 target. Account under pressure, Aubree managing.
+- **Status (News)** — $68.42/qualified (15 qualified from $1,026 spend, Mar 13-19). 1P completion rate improved to 76.5%. March 26 meeting is prove-it-or-lose-it. Notion playbooks ALL empty.
+- **Student Loan Planner** — $18.82 CPL, up 60% since Jan ($11.79 → $18.82). CVR collapsed 16.87% → 11.64%. CRITICAL: Refi landing page copy mismatch blocking scale. Jeffrey Trull must fix.
 
 ### MEDIUM Risk
-- **1636 Forum** — New client, CPL $3.01 vs $2.00 target. Testing phase.
-- **Franklin's Forum** — New client, CPL $4.03 vs $3.00-$3.50 target. Testing phase.
-- **Contrarian Thinking** — CPL $4.96 tracking within $5-6 range. Momentum building.
-- **Creator Spotlight** — Quality-focused (MAR >4), not CPL-driven. GM transition to Kinte.
-- **MDhair** — DTC client, $130 CAC vs $80 target. Creative-only retainer, operational risk.
-- **Quartz** — CPL $3.55 vs $2.50 target. Bake-off context.
-- **RNT Fitness** — KPIs still unconfirmed. GBP 1.00 CPL.
-- **Stocks & Income** — CPL $3.70 vs $2.00 target. Needs attention.
-- **Vendry** — DR funnel at $411.65 CAD, newsletter at $13.38 CAD. Strategic pivot in progress.
+- **1636 Forum** — CPL $3.01 vs $2.00 target. Testing phase. Waiting on Allison for creative approval.
+- **Franklin's Forum** — CPL $4.03 vs $3.00-$3.50 target. Contract ambiguity (Gigi asking about "trial" end date — no end date per Sindy).
+- **Contrarian Thinking** — CPL $4.96 within $5-6 range. 90-day trial, ~55 days remain (May 16 deadline). 8 new creatives sent to Codie for approval.
+- **Creator Spotlight** — Quality-focused (MAR >4), not CPL-driven. GM transition to Kinte complete. Q2 goals 12+ days overdue from Francis. Budget overspend ($3,741 vs $2K/wk target).
+- **MDhair** — DTC client, $130 CAC vs $80 target. March sprint at 53% as of 3/18. Kinte committed to completing by Friday. Dual feedback issue (Yasin vs Pooja).
+- **Quartz** — CPL $3.27 (improved from $3.55) vs $2.50 target. Bake-off. Delivra infrastructure flagged (80.5% of TFM subs never sent email).
+- **RNT Fitness** — KPIs still unconfirmed. GBP 1.00 CPL (confirmed via beehiiv, 311 subs). Female messaging dominating; male angles need work.
+- **Stocks & Income** — CPL $3.70 vs $2.00 target (-15% WoW, trending down). Reporting quality flagged by Nathan (misspelled client name, missing CVR/CTR/CPM). 0/3 Friday reports on time.
+- **Vendry** — DR funnel paused (LP rebuild). Newsletter CPL up to $19.38 (from $13.38). Migration to casestudied.com needs event verification. "Case Studied" is newsletter name.
+- **Just Women's Sports** — CPL $2.32 (up from $1.17), now ABOVE $1.50 target. CPMs +17% WoW. Lays covering as GM. Needs attention.
+- **How to AI** — CPL $2.28 within target, but landing page CVR crashed (45% → 24%, recovering at 29%). UGC fatigue burned $40K+. Substack confirmation step inflating CPL.
 
 ### Stable / Low Risk
-- **Workweek** — All 5 newsletters green. Peak moment.
-- **Houck** — CPL $1.80, well under $5-$15 range. Momentum building.
-- **Jay Shetty** — CPL $0.91 gross. Strong but emerging financial tension.
-- **The Points Guy** — CPL ~$2.80 vs $3.50-$4.50 target. Under budget. Handover complete.
-- **Points Path** — CPL $1.78 within $1.50-$2.00 range. Collaborative relationship.
-- **Just Women's Sports** — CPL $1.17 vs $1.50 target. Under budget.
-- **MarketBeat** — CPL $8.86 vs $10-14 target. Momentum phase.
-- **Big Desk Energy** — CPL $2.30 vs $3.00 target. Under budget.
+- **Workweek** — All 5 newsletters green simultaneously (first time ever). GTM improved to $3.60. FTTB (6th newsletter) launching. IHIH under pressure (1% above $6.00 target).
+- **Houck** — CPL $1.80, well under $5-$15 range. Spend scaled 9x to $225/day. 5 new DCTs approved Mar 20. Thank-you pages expected Mar 22-23.
+- **Jay Shetty** — CPL $0.93 gross. Sparkloop reconciliation Mar 28 will inform scaling decisions.
+- **The Points Guy** — CPL ~$2.80 vs $3.50-$4.50 target. New spend caps $3-4K/month per concept. Hub LP test blocked on Louisa pixel verification.
+- **Points Path** — CPL $1.78 within $1.50-$2.00 range (+14% WoW though). Email retargeting of 19K subs + influencer partnership in pipeline.
+- **MarketBeat** — CPL $7.51 (improved from $8.86), best week ever Mar 14-20. Leads +79% WoW. Momentum phase.
+- **Big Desk Energy** — CPL $2.30 vs $3.00 target. Under budget. Stable.
+- **Experiential Hospitality** — CPSA $5.20 vs $5.00 target. 2,137 webinar registrations Mar 19. GHL integration in progress.
+- **Insight Links** — $16.24 blended qualified CPL, all 3 NLs under $20 for first time. Bake-off with Growletter — TFM has quality edge.
+- **Stocks.News** — $57.38/trial vs $60 target. Spend up 82% WoW. GrowJoy competitive pressure.
+
+### Process Flags (Cross-Account)
+- **Friday report timeliness** — Multiple accounts at 0% on-time (Franklin's Forum, Insight Links, Stocks & Income, TPG, MDhair). Sindy has flagged this as a priority.
+- **N8N report automation** — Template issues detected (Quartz/Stocks.News sheets showing placeholder IDs). Verify spreadsheet links.
+- **Stock Earnings** — New #thefeed-stockearnings channel (Hiral Ghelani, Adarsh). SoW sent. Not yet in 25-client roster — monitor for onboarding.
 
 ---
 
-*Generated March 21, 2026 by Claude Code. Full enrichment completed across all 25 clients.*
+*Updated March 21, 2026 by Claude Code. Full enrichment + live Slack cross-reference across all 25 clients.*

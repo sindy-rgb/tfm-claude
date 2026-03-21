@@ -6,7 +6,7 @@ gm: Lays Paiva
 media_buyer: Rabii
 esp: Sailthru
 cpl_target: "Sub CAC varies by newsletter ($6-$9.50)"
-current_cpl: "IHIH $6.08 / TMM $6.09 / FTT $5.78 / Hosp $6.30 / GTM $4.24"
+current_cpl: "IHIH $6.08 / TMM $6.09 / FTT $5.78 / Hosp $6.30 / GTM $3.60"
 risk_level: LOW
 sentiment: Strong — Peak Moment
 last_enriched: 2026-03-21

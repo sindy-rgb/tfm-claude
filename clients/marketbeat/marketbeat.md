@@ -6,7 +6,7 @@ gm: Luiz Pekelman
 media_buyer: Rabii
 esp: Custom (in-house)
 cpl_target: "$10-14"
-current_cpl: "$8.86"
+current_cpl: "$7.51"
 risk_level: LOW-MEDIUM
 sentiment: POSITIVE — MOMENTUM PHASE
 last_enriched: 2026-03-21

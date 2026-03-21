@@ -6,7 +6,7 @@ gm: Mariely
 media_buyer: N/A (client runs media)
 esp: N/A (client-managed)
 cpl_target: "$3-$4"
-current_cpl: "$4.26"
+current_cpl: "$4.16 (TFM) / $4.10 (BAU)"
 risk_level: LOW-MEDIUM
 sentiment: Stable-to-Positive
 last_enriched: 2026-03-21

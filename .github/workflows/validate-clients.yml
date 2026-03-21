@@ -1,0 +1,47 @@
+name: Validate Client Files
+
+on:
+  pull_request:
+    paths:
+      - 'clients/**/*.md'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check client intelligence files have required frontmatter
+        run: |
+          errors=0
+          for f in clients/*/$(basename $(dirname "$f")).md; do
+            [ ! -f "$f" ] && continue
+            # Check for required YAML frontmatter fields
+            if ! head -20 "$f" | grep -q "^client:"; then
+              echo "MISSING 'client:' in $f"
+              errors=$((errors + 1))
+            fi
+            if ! head -20 "$f" | grep -q "^status:"; then
+              echo "MISSING 'status:' in $f"
+              errors=$((errors + 1))
+            fi
+            if ! head -20 "$f" | grep -q "^gm:"; then
+              echo "MISSING 'gm:' in $f"
+              errors=$((errors + 1))
+            fi
+          done
+
+          # Check client-config files
+          for f in clients/*/client-config.md; do
+            [ ! -f "$f" ] && continue
+            if ! head -5 "$f" | grep -q "^---"; then
+              echo "MISSING frontmatter in $f"
+              errors=$((errors + 1))
+            fi
+          done
+
+          if [ $errors -gt 0 ]; then
+            echo "$errors validation errors found"
+            exit 1
+          fi
+          echo "All client files validated successfully"
