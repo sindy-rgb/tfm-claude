@@ -1,0 +1,25 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp"
+      ],
+      "env": {}
+    },
+    "beehiiv": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "beehiiv-mcp"
+      ],
+      "env": {
+        "BEEHIIV_API_KEY": "${BEEHIIV_API_KEY}",
+        "BEEHIIV_PUBLICATION_ID": "${BEEHIIV_PUBLICATION_ID}"
+      }
+    }
+  }
+}

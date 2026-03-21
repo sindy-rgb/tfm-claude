@@ -9,5 +9,9 @@
   "periodic-notes",
   "obsidian-tasks-plugin",
   "smart-connections",
-  "copilot"
+  "copilot",
+  "obsidian-linter",
+  "tag-wrangler",
+  "cmdr",
+  "obsidian-kanban"
 ]

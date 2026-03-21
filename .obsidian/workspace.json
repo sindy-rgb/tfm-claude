@@ -23,16 +23,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "team/sindy.md",
+                "file": "research/github-obsidian-improvements.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "sindy"
+              "title": "github-obsidian-improvements"
+            }
+          },
+          {
+            "id": "8498ff5326e43f3c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "README"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -105,7 +119,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "team/sindy.md",
+                "file": "research/smart-connections-config-guide.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +129,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for sindy"
+              "title": "Backlinks for smart-connections-config-guide"
             }
           },
           {
@@ -183,9 +197,29 @@
               "icon": "smart-connections",
               "title": "Connections"
             }
+          },
+          {
+            "id": "aac6ad520fccf07d",
+            "type": "leaf",
+            "state": {
+              "type": "smart-lookup-view",
+              "state": {},
+              "icon": "smart-lookup",
+              "title": "Lookup"
+            }
+          },
+          {
+            "id": "a94e0d14dd0e1c1b",
+            "type": "leaf",
+            "state": {
+              "type": "copilot-chat-view",
+              "state": {},
+              "icon": "message-square",
+              "title": "Copilot"
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 7
       }
     ],
     "direction": "horizontal",
@@ -201,52 +235,53 @@
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
-      "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "bases:Create new base": false,
       "smart-connections:Smart Connections: Open connections view": false,
       "smart-connections:Smart Lookup: Open lookup view": false,
       "smart-connections:Smart Connections: Open random connection": false,
-      "copilot:Open Copilot Chat": false
+      "copilot:Open Copilot Chat": false,
+      "obsidian-kanban:Create new board": false
     }
   },
-  "active": "14532f1389d72f50",
+  "active": "8498ff5326e43f3c",
   "lastOpenFiles": [
-    "team/jay.md",
-    "README.md",
-    "CLIENT-INTELLIGENCE-SUMMARY.md",
     "CLAUDE.md",
-    "research/qa-log-v4.md",
-    "system/claude-chat-project-instructions.md",
-    "research/gm-friday-report-scorecard.md",
-    "clients/mdhair/client-config.md",
-    "research/friday-report-database-batch3.md",
-    "clients/student-loan-planner/client-config.md",
-    "research/friday-report-database.md",
-    "clients/vendry/client-config.md",
-    "research/friday-report-database-batch2.md",
-    "clients/just-womens-sports/client-config.md",
-    "research/qa-log-v5.md",
-    "clients/franklins-forum/client-config.md",
-    "clients/1636-forum/client-config.md",
-    "research/obsidian-superbrain-research.md",
-    "research/n8n-friday-report-automation.md",
-    "templates/bi-weekly-prep.md",
-    "templates/new-client.md",
-    "templates/friday-report.md",
-    "templates/meeting-notes.md",
-    "dashboards/weekly-review.md",
-    "dashboards/client-portfolio.md",
+    "Untitled.base",
+    "Untitled.canvas",
+    "memory/claude-memory-index.md",
+    "research/smart-connections-config-guide.md",
+    "copilot/system-prompts/TFM.md",
+    "copilot/system-prompts",
+    "team/designers.md",
+    "2026-03-21.md",
+    "clients/insight-links/insight-links.md",
+    "research/github-obsidian-improvements.md",
+    "dashboards/creative-pipeline.md",
+    "templates/client-onboarding.md",
+    "templates/creative-qa-log.md",
+    "clients/mdhair/claude-chat-project.md",
+    "clients/student-loan-planner/claude-chat-project.md",
+    "clients/daily-drop/deep-enrichment.md",
+    "clients/1636-forum/deep-enrichment.md",
+    "clients/vendry/claude-chat-project.md",
+    "clients/mdhair/deep-enrichment.md",
+    "clients/big-desk-energy/deep-enrichment.md",
+    "clients/rnt-fitness/deep-enrichment.md",
+    "clients/just-womens-sports/claude-chat-project.md",
+    "clients/status-news/deep-enrichment.md",
+    "clients/quartz/deep-enrichment.md",
+    "clients/student-loan-planner/deep-enrichment.md",
+    "clients/houck/deep-enrichment.md",
+    "system/client-meeting-database.md",
+    "clients/franklins-forum/claude-chat-project.md",
     "templates",
     "dashboards",
-    "copilot/copilot-custom-prompts/Clip Web Page.md",
     "copilot/copilot-custom-prompts",
     "copilot",
     "clients/mdhair",
     "clients/vendry",
     "clients/just-womens-sports",
-    "clients/1636-forum",
-    "clients/franklins-forum",
-    "clients/student-loan-planner"
+    "clients/1636-forum"
   ]
 }

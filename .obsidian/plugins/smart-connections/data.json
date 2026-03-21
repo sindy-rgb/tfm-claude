@@ -1,4 +1,6 @@
 {
   "installed_at": 1774102447775,
-  "last_version": "4.1.8"
+  "last_version": "4.1.8",
+  "file_exclusions": ".obsidian,scripts,prompts,templates,copilot,dashboards,.smart-env",
+  "folder_exclusions": ".obsidian,scripts,prompts,templates,copilot,dashboards,.smart-env"
 }

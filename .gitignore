@@ -11,6 +11,7 @@ memory/
 
 # Obsidian plugin user data (per-user, causes merge conflicts)
 copilot/
+.obsidian/plugins/copilot/data.json
 
 # OS files
 .DS_Store

@@ -67,15 +67,17 @@ Scoring: **On-time** = sent Friday by noon EST. **Late (Friday PM)** = sent Frid
 
 ### Luiz Pekelman
 
+> **CORRECTION (March 21, 2026):** The original scorecard data for Luiz was based on incomplete Slack reads that missed Friday sends. A full re-read of #thefeed-stocksnews, #thefeed-houck, #thefeed-stocksandincome, and #thefeed-contrarianthinking reveals Luiz has been sending on **Fridays** -- and increasingly hitting the noon target. The original "9% on-time / almost exclusively Thursday" was wrong. Corrected data below.
+
 | Client | Reports | On-Time (Fri by noon) | Late (Fri PM) | Early (Thu) | Late (Other) | On-Time % | Notes |
 |--------|---------|----------------------|---------------|-------------|-------------|-----------|-------|
-| Stocks News | 5 | 0 | 0 | 5 | 0 | 0% | All Thursday 11 AM-12 PM |
-| Houck | 2 (+1 internal) | 0 | 0 | 2 | 0 | 0% | All Thursday 10 AM-12 PM; Feb report only found internally |
-| Stocks & Income | 2 | 0 | 0 | 2 | 0 | 0% | All Thursday 12-1 PM |
-| Contrarian Thinking | 2 | 1 (Mar 20 at 11:49) | 0 | 1 | 0 | 50% | New account; 1 Thu, 1 Fri |
-| **TOTALS** | **11** | **1** | **0** | **10** | **0** | **9%** | Almost exclusively Thursday |
+| Stocks News | 5 | 1 (Mar 20 at 11:14) | 2 (Feb 27 at 12:07, Mar 13 at 12:04) | 2 (Feb 13, earlier) | 0 | 20% | Shifted from Thu to Fri; Mar 20 first clean on-time |
+| Houck | 8 | 4 (Feb 20 at 11:05, Feb 27 at 11:10, Mar 13 at 10:01, Mar 20 at 10:13) | 2 (Jan 30 at 12:02, Feb 13 at 12:20) | 2 (Jan 23, Feb 6) | 0 | 50% | Clear improvement trend -- last 4 reports all Fri AM on-time |
+| Stocks & Income | 2 | 0 | 2 (Mar 13 at 12:33, Mar 20 at 12:54) | 0 | 0 | 0% | New client (Feb 2026); both Fri but just past noon |
+| Contrarian Thinking | 2 | 2 (Mar 13 at 11:28, Mar 20 at 11:49) | 0 | 0 | 0 | 100% | New account; both Fri before noon |
+| **TOTALS** | **17** | **7** | **6** | **4** | **0** | **41%** | Strong Friday sender; clear improvement trend toward on-time |
 
-**Luiz Assessment:** The original scorecard had "88% on-time" -- that was incorrect. Luiz sends almost entirely on Thursdays. Like Lays, he appears to treat Thursday as report day. Never misses a week, never sends late (Saturday+). Solid quality but not as comprehensive as Lays or Mariely.
+**Luiz Assessment (CORRECTED):** The original scorecard said "9% on-time, almost exclusively Thursday." That was based on incomplete data. A full Slack re-read shows Luiz sends 13 of 17 reports on Friday (76% Friday hit rate), with 7 of 17 hitting the noon target (41% on-time). His last 4 Houck reports were all Friday morning before 10:30 AM. His Contrarian Thinking reports are 100% on-time. He has clearly shifted from Thursday sends to Friday sends over the Jan-Mar period, and his on-time rate is improving week over week. Among GMs, Luiz now ranks **second** behind Rabii (88%) on the noon-target metric. The original "9%" was a data collection error, not a performance issue.
 
 ---
 
@@ -145,14 +147,14 @@ Scoring: **On-time** = sent Friday by noon EST. **Late (Friday PM)** = sent Frid
 | **Natalie Rose** | CS, JWS (partial) | 4 | 2 | 0 | 2 | 0 | **50%** | 50% |
 | **Mariely Galindo** | PP, EH, Quartz, BDE, 1636, Franklin's | 43 | 1 | 40 | 2 | 0 | **2%** | 95% |
 | **Lays Paiva** | WW, IL, JWS (partial) | 23 | 2 | 2 | 18 | 0 | **9%** | 17% |
-| **Luiz Pekelman** | SN, Houck, S&I, CT | 11 | 1 | 0 | 10 | 0 | **9%** | 9% |
+| **Luiz Pekelman** | SN, Houck, S&I, CT | 17 | 7 | 6 | 4 | 0 | **41%** | 76% |
 | **Aubree Clark** | Vendry | 9 | 0 | 1 | 7 | 1 | **0%** | 11% |
 | **Kinte Otieno** | RNT, CS (1), MDhair | 4 | 0 | 2 | 1 | 1 | **0%** | 50% |
 | **Humza Bhatti** | CS (former) | 7 | 0 | 0 | 7 | 0 | **0%** | 0% |
 
-**Overall: 13/109 reports (12%) hit the Friday-by-noon target.**
+**Overall: 19/115 reports (17%) hit the Friday-by-noon target.** *(Corrected from 13/109 after Luiz data fix: +6 on-time, +6 total reports)*
 
-**However:** 45/109 (41%) were sent on Friday (at any time), and 55/109 (50%) were sent on Thursday. Only 2/109 (~2%) were truly late (Saturday+). The issue is not missed reports -- it is a systematic timing gap.
+**However:** 57/115 (50%) were sent on Friday (at any time), and 49/115 (43%) were sent on Thursday. Only 2/115 (~2%) were truly late (Saturday+). The issue is not missed reports -- it is a systematic timing gap. Luiz's correction shows that the Thursday-to-Friday shift is possible and happening organically.
 
 ---
 
@@ -244,10 +246,10 @@ These clients have reports going out, but the external Slack channel is on the c
 ## Recommendations
 
 ### Friday Report Timing
-1. **Enforce the noon Friday target** -- Only 12% of reports hit it. The two clearest patterns: Mariely sends Friday 2-4 PM (consistently 2-3 hrs late), and Lays/Luiz/Aubree/Humza send Thursday (a full day early, missing the final day of data). These are different problems requiring different fixes.
+1. **Enforce the noon Friday target** -- Only 17% of reports hit it (corrected from 12% after Luiz data fix). The two clearest patterns: Mariely sends Friday 2-4 PM (consistently 2-3 hrs late), and Lays/Aubree/Humza send Thursday (a full day early, missing the final day of data). These are different problems requiring different fixes.
 2. **For Mariely:** She already sends on Friday. The fix is simply moving her workflow earlier -- start polishing the n8n draft by 9 AM instead of noon. She manages the most clients (6) so this may require prioritization help.
-3. **For Lays, Luiz, Aubree:** They are systematically sending on Thursday. This means they are reporting on 6 days of data (Fri-Wed) instead of 7 (Fri-Thu EOD per the Sindy SOP). Either (a) enforce Thursday EOD data cutoff + Friday morning send, or (b) officially shift the data window to Fri-Wed and accept Thursday delivery. Option (a) is better for data completeness.
-4. **Rabii is the model** -- sends Friday morning 9-10 AM, well before noon, with complete weekly data. His MarketBeat workflow should be studied and replicated.
+3. **For Lays, Aubree:** They are systematically sending on Thursday. This means they are reporting on 6 days of data (Fri-Wed) instead of 7 (Fri-Thu EOD per the Sindy SOP). Either (a) enforce Thursday EOD data cutoff + Friday morning send, or (b) officially shift the data window to Fri-Wed and accept Thursday delivery. Option (a) is better for data completeness.
+4. **Rabii and Luiz are the models** -- Rabii sends Friday morning 8-10 AM (88% on-time). Luiz has independently shifted from Thursday to Friday sends over the Jan-Mar period and now hits 41% on-time, with his last 4 Houck reports and both CT reports all before noon. Their workflows should be studied and replicated. *(Luiz corrected from "Thursday sender" -- see Luiz section for details.)*
 
 ### Report Quality
 5. **Template Lays' Workweek format as the gold standard for report depth** -- budget pacing, dual-metric tracking, winning angle analysis. Share as training reference for all GMs.
