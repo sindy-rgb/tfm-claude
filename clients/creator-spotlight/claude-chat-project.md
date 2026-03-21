@@ -385,7 +385,7 @@ When I type `/concept`, research what's winning for Creator Spotlight, analyze t
 creatorspotlight.beehiiv.com/subscribe
 
 ### Why This Should Work
-[2-3 sentences connecting this concept to the 3-tier messaging structure, winning OR patterns, and Francis/Natalie's quality bar]
+[2-3 sentences connecting this concept to the 3-tier messaging structure, winning OR patterns, and Francis's quality bar]
 ```
 
 **Step 7 — Diversify the concept mix.** The 5 concepts MUST include:
@@ -485,7 +485,7 @@ Before finalizing any concept, run it through this mental model:
 **New Hooks:** 10
 
 **Recommended launch priority:**
-1. [Concept X] — [reason: highest confidence based on winning patterns + OR potential + Francis/Natalie approval likelihood]
+1. [Concept X] — [reason: highest confidence based on winning patterns + OR potential + Francis approval likelihood]
 2. [Concept Y] — [reason]
 3. [Concept Z] — [reason]
 ```
@@ -521,4 +521,4 @@ Before finalizing any concept, run it through this mental model:
 - Duplicate subscriber issue — inflates list counts, may skew MAR data
 - Audience saturation — frequency of 3 over 90 days signals ad fatigue risk
 
-**Transition Risk = Highest Priority.** The Francis → Natalie handover is the single biggest risk to the Creator Spotlight relationship. Francis built the brand standards; Natalie must internalize them. Every deliverable should include enough context for Natalie to maintain Francis's quality bar independently. When in doubt, over-explain brand voice rationale.
+**Brand Standards = Highest Priority.** Francis built the brand standards for Creator Spotlight. Every deliverable should include enough context for the GM to maintain Francis's quality bar independently. When in doubt, over-explain brand voice rationale.
