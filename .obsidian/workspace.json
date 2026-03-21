@@ -212,6 +212,14 @@
   },
   "active": "14532f1389d72f50",
   "lastOpenFiles": [
+    "templates/bi-weekly-prep.md",
+    "templates/new-client.md",
+    "templates/friday-report.md",
+    "templates/meeting-notes.md",
+    "dashboards/weekly-review.md",
+    "dashboards/client-portfolio.md",
+    "templates",
+    "dashboards",
     "copilot/copilot-custom-prompts/Clip Web Page.md",
     "copilot/copilot-custom-prompts/Clip YouTube Transcript.md",
     "copilot/copilot-custom-prompts/Rewrite as tweet thread.md",
@@ -239,7 +247,6 @@
     "clients/1636-forum",
     "clients/franklins-forum/franklins-forum.md",
     "clients/franklins-forum",
-    "clients/student-loan-planner/student-loan-planner.md",
     "clients/student-loan-planner"
   ]
 }
