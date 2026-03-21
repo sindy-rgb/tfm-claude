@@ -162,6 +162,18 @@ Use these prompts in order when you first get access to a client project. Each o
 
 ---
 
+## Additional System Context
+
+Beyond the MCP-connected tools above, the TFM workspace includes:
+
+- **Google Drive** — Source of truth for ad scripts, creative briefs, and designer-facing production documents. Client intelligence files reference strategy; Google Drive holds the approved assets.
+- **GitHub (this repo)** — All client intelligence files, system configs, memory, and skills live here. Managed via Claude Code.
+- **Obsidian** — The local vault that syncs with this repo. Templater is used for new client file creation (see `templates/new-client.md`).
+- **YAML Frontmatter** — Every client intelligence file includes structured frontmatter (status, GM, ESP, CPL target, risk level, sentiment) for programmatic access and Obsidian Dataview queries.
+- **n8n** — Self-hosted workflow automation at `https://n8n-zwzfv-u62151.vm.elestio.app/`. Powers daily ROAS reports and other automated data flows.
+
+---
+
 ## After Completing All 10
 
 Report back to Jay with:

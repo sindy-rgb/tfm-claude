@@ -1,5 +1,5 @@
 # Points Path — Client Config
-<!-- Last updated: March 15, 2026 -->
+<!-- Last updated: March 21, 2026 -->
 <!-- Skills reference: /system/skills.md -->
 
 ---
@@ -27,8 +27,8 @@
 
 | `contacts` | |
 |------------|---|
-| Primary | Ankit Tiwari — Founder/Product Lead — N/A |
-| Secondary | Kit — Engineering Team Lead — N/A |
+| Primary | Julian Mark Kheel — Founder/Product Lead — julian@tripsighttravel.com |
+| Secondary | Corey Foster — ESP/Analytics — corey@pointspath.com |
 
 ---
 
@@ -72,7 +72,7 @@
 
 | Field | Value |
 |-------|-------|
-| `esp` | TBD |
+| `esp` | Kit |
 | `esp_api_access` | TBD |
 | `esp_dashboard_url` | TBD |
 | `esp_metrics` | TBD |

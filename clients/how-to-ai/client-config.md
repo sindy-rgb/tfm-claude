@@ -1,5 +1,5 @@
 # How to AI — Client Config
-<!-- Last updated: March 15, 2026 -->
+<!-- Last updated: March 21, 2026 -->
 <!-- Skills reference: /system/skills.md -->
 
 ---
@@ -18,7 +18,7 @@
 
 | Field | Value |
 |-------|-------|
-| `gm_name` | Lays |
+| `gm_name` | Lays Paiva |
 | `media_buyer_name` | Rabii Elhaouat |
 
 ---
@@ -50,8 +50,8 @@
 | Field | Value |
 |-------|-------|
 | `kpi_primary` | Cost Per Lead (CPL) |
-| `kpi_target` | <= $2.00 (currently ~$3.47 — above target) |
-| `cpl_target` | <= $2.00 |
+| `kpi_target` | $1.50–$2.50 (currently ~$2.28) |
+| `cpl_target` | $1.50–$2.50 |
 | `kpi_secondary` | Landing Page CVR |
 | `kpi_secondary_target` | 37-45% |
 | `quality_definition` | White-collar professionals aged 40+, non-tech industries (pharma, logistics, education) who open and engage. Ruben monetizes through sponsors seeking enterprise decision-makers. Engaged Subscriber Rate: 64.79%. |

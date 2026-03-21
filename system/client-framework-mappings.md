@@ -1,6 +1,6 @@
 # Client Framework Mappings — /concept Skill Reference
 
-> Generated March 20, 2026 | Maps each client to the 12 Proven Creative Frameworks from `meta-creative-frameworks-2026.md`
+> Updated March 21, 2026 | Maps each of 25 clients to the 12 Proven Creative Frameworks from `meta-creative-frameworks-2026.md`
 > Use this as the default starting point for concept sprints. Override with client-specific learnings when available.
 
 ---
@@ -214,6 +214,72 @@
 
 ---
 
+## 1636 Forum
+**Best frameworks:** TBD — pending initial creative sprint
+**Best hook types:** TBD
+**Format priority:** TBD
+**Anti-patterns:** TBD
+**Quality signal:** TBD
+**Creative volume:** TBD
+**Nuance:** New client — framework mapping pending first round of creative testing and client onboarding.
+
+---
+
+## Franklin's Forum
+**Best frameworks:** TBD — pending initial creative sprint
+**Best hook types:** TBD
+**Format priority:** TBD
+**Anti-patterns:** TBD
+**Quality signal:** TBD
+**Creative volume:** TBD
+**Nuance:** New client — framework mapping pending first round of creative testing and client onboarding.
+
+---
+
+## Just Women's Sports
+**Best frameworks:** TBD — pending initial creative sprint
+**Best hook types:** TBD
+**Format priority:** TBD
+**Anti-patterns:** TBD
+**Quality signal:** TBD
+**Creative volume:** TBD
+**Nuance:** New client — framework mapping pending first round of creative testing and client onboarding.
+
+---
+
+## MDhair
+**Best frameworks:** TBD — pending initial creative sprint
+**Best hook types:** TBD
+**Format priority:** TBD
+**Anti-patterns:** TBD
+**Quality signal:** TBD
+**Creative volume:** TBD
+**Nuance:** New client — framework mapping pending first round of creative testing and client onboarding.
+
+---
+
+## Student Loan Planner
+**Best frameworks:** TBD — pending initial creative sprint
+**Best hook types:** TBD
+**Format priority:** TBD
+**Anti-patterns:** TBD
+**Quality signal:** TBD
+**Creative volume:** TBD
+**Nuance:** New client — framework mapping pending first round of creative testing and client onboarding.
+
+---
+
+## Vendry
+**Best frameworks:** TBD — pending initial creative sprint
+**Best hook types:** TBD
+**Format priority:** TBD
+**Anti-patterns:** TBD
+**Quality signal:** TBD
+**Creative volume:** TBD
+**Nuance:** New client — framework mapping pending first round of creative testing and client onboarding.
+
+---
+
 *Framework names reference: IEC (Interrupt-Engage-Convert), PAS (Problem-Agitate-Solve), Social Proof Cascade, Value Inversion, Specificity Ladder, Objection-First, BAB (Before-After-Bridge), Pattern Interrupt Matrix, Offer Architecture, Audience Mirror, Funnel-Stage Alignment, Creative Iteration System*
 
-*Last updated: March 20, 2026*
+*Last updated: March 21, 2026*

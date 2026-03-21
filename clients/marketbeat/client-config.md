@@ -1,5 +1,5 @@
 # MarketBeat — Client Config
-<!-- Last updated: March 11, 2026 -->
+<!-- Last updated: March 21, 2026 -->
 <!-- Skills reference: /system/skills.md -->
 
 ---
@@ -51,7 +51,7 @@
 |-------|-------|
 | `kpi_primary` | ROAS |
 | `kpi_target` | 45% (match GrowJoy → unlock 2x budget) |
-| `cpl_target` | $14.00 (ideal under $10) |
+| `cpl_target` | $10-14 (current: $8.86) |
 | `kpi_secondary` | SMS Opt-ins |
 | `kpi_secondary_target` | Close gap with GrowJoy (currently 6.2x behind in March) |
 | `quality_definition` | Revenue-generating subscriber — measured by Rev/User and confirmed sales on partner dashboard |
@@ -138,7 +138,7 @@
 
 | Field | Value |
 |-------|-------|
-| `relationship_health` | Neutral — Prove-It Phase |
+| `relationship_health` | Positive — Momentum Phase |
 | `sync_cadence` | Bi-weekly (client calls with Matt/Maureen) + daily internal (n8n ROAS reports) |
 | `biggest_risk` | ROAS gap vs GrowJoy is the existential risk. Matt allocates budget mathematically — no relationship cushion. Match GrowJoy = 2x budget. Fail = lose the account. |
 

@@ -18,7 +18,7 @@
 
 | Field | Value |
 |-------|-------|
-| `gm_name` | Lays |
+| `gm_name` | Lays Paiva |
 | `media_buyer_name` | Rabii Elhaouat |
 
 ---

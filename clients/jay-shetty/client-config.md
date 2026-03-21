@@ -1,5 +1,5 @@
 # Jay Shetty — Client Config
-<!-- Last updated: March 15, 2026 -->
+<!-- Last updated: March 21, 2026 -->
 <!-- Skills reference: /system/skills.md -->
 
 ---
@@ -18,7 +18,7 @@
 
 | Field | Value |
 |-------|-------|
-| `gm_name` | Lays |
+| `gm_name` | Lays Paiva |
 | `media_buyer_name` | Rabii Elhaouat |
 
 ---
@@ -72,7 +72,7 @@
 
 | Field | Value |
 |-------|-------|
-| `esp` | TBD |
+| `esp` | beehiiv |
 | `esp_api_access` | TBD |
 | `esp_dashboard_url` | TBD |
 | `esp_metrics` | engaged_rate, open_rate, verified_ctr, unsubscribe_rate, cvr |
@@ -138,6 +138,6 @@
 
 | Field | Value |
 |-------|-------|
-| `relationship_health` | Positive and Stable |
+| `relationship_health` | Positive with emerging financial tension |
 | `sync_cadence` | Bi-weekly |
 | `biggest_risk` | No formal brand guideline kit provided yet. DCT 105 (anchor creative) showing fatigue — declining engagement and elevated unsub rate. Designer capacity flagged as constraint. 4 of 5 March concepts still pending client approval. |

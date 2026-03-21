@@ -27,7 +27,7 @@
 
 | `contacts` | |
 |------------|---|
-| Primary | Emily Sharpe — Head of Growth — emily@faredrop.com |
+| Primary | Emily Sharpe — Head of Growth — emily@dailydrop.com |
 | Secondary | Andrew — Internal team (combative on numbers) |
 
 ---

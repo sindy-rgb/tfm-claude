@@ -1,5 +1,5 @@
 # Stocks.News — Client Config
-<!-- Last updated: March 15, 2026 -->
+<!-- Last updated: March 21, 2026 -->
 <!-- Skills reference: /system/skills.md -->
 
 ---
@@ -51,7 +51,7 @@
 | Field | Value |
 |-------|-------|
 | `kpi_primary` | Cost Per Trial Start |
-| `kpi_target` | < $50 (stretch ~$38) |
+| `kpi_target` | < $60 (stretch ~$38) |
 | `cpl_target` | Cost Per Install < $10 (current: $6.50) |
 | `kpi_secondary` | Cost Per Install |
 | `kpi_secondary_target` | < $10 |

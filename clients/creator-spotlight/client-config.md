@@ -1,5 +1,5 @@
 # Creator Spotlight — Client Config
-<!-- Last updated: March 15, 2026 -->
+<!-- Last updated: March 21, 2026 -->
 <!-- Skills reference: /system/skills.md -->
 
 ---
@@ -18,7 +18,7 @@
 
 | Field | Value |
 |-------|-------|
-| `gm_name` | Natalie Rose |
+| `gm_name` | Kinte Otieno |
 | `media_buyer_name` | Rabii Elhaouat |
 
 ---
@@ -27,7 +27,7 @@
 
 | `contacts` | |
 |------------|---|
-| Primary | Francis Zierer (transitioning) → Natalie Rose — GM — N/A |
+| Primary | Francis Zierer — Client-Side Lead — N/A |
 | Secondary | Brian Kudler — Growth Stakeholder — N/A |
 | Secondary | Tony Varghese — Growth Stakeholder — N/A |
 
@@ -63,8 +63,8 @@
 
 | Field | Value |
 |-------|-------|
-| `monthly_budget` | ~$16,000 (~$3,800–$3,900/week) |
-| `budget_pacing_target` | ~$550/day |
+| `monthly_budget` | ~$8,000 ($2,000/week hard ceiling per Francis directive 3/9) |
+| `budget_pacing_target` | ~$285/day |
 | `budget_notes` | Francis will cap spend on low-quality ads even if CPL is efficient. Quality over cost. |
 
 ---
@@ -97,7 +97,7 @@
 | `report_format` | Bi-weekly report with CPL, OR, CTR, CVR, MAR data, top creatives, and quality metrics. Must include MAR and sponsor engagement data — raw CPL alone is insufficient for this client. |
 | `report_destination` | Slack #thefeed-creatorspotlight |
 | `report_cadence` | weekly (Friday) + bi-weekly (client calls) |
-| `report_owner` | Natalie Rose |
+| `report_owner` | Kinte Otieno |
 
 ---
 
@@ -139,6 +139,6 @@
 
 | Field | Value |
 |-------|-------|
-| `relationship_health` | Strong with Francis; unestablished with Natalie — highest-risk transition period |
+| `relationship_health` | Stable — Budget Reduction + GM Transition (Kinte took over from Natalie mid-March 2026) |
 | `sync_cadence` | Bi-weekly |
-| `biggest_risk` | Natalie handover from Francis must internalize brand standards ASAP. Francis disengaging (response times waning). MAR plateau at 207-221K despite list growth. Audience saturation at frequency of 3 over 90 days. |
+| `biggest_risk` | Budget cut from $3,800 to $2,000/week. Kinte's first GM transition — needs to internalize brand standards. Francis disengaging (response times waning). MAR plateau at 207-221K despite list growth. Audience saturation at frequency of 3 over 90 days. |

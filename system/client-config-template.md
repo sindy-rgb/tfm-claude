@@ -1,4 +1,7 @@
 # {Client Name} — Client Config
+
+> **NOTE (March 2026):** Core client metadata (status, GM, media buyer, ESP, CPL target, risk level, sentiment) has migrated to **YAML frontmatter** in each client's intelligence file (`clients/[slug]/[slug].md`). This config template remains relevant for **extended variables** needed by `/skills` commands (Meta account IDs, campaign IDs, budget details, creative naming, UTM formats) that do not fit in frontmatter. For new clients, populate the frontmatter first, then fill in this config for skill-command variables as needed.
+
 <!-- This config file provides all variables referenced by /skills commands. -->
 <!-- Fill in every field. Use "N/A" for fields that don't apply to this client. -->
 <!-- Fields marked [REQUIRED] must be populated for core commands to work. -->

@@ -18,7 +18,7 @@
 
 | Field | Value |
 |-------|-------|
-| `gm_name` | Luiz |
+| `gm_name` | Luiz Pekelman |
 | `media_buyer_name` | Rabii Elhaouat |
 
 ---

@@ -1,5 +1,5 @@
 # Experiential Hospitality — Client Config
-<!-- Last updated: March 15, 2026 -->
+<!-- Last updated: March 21, 2026 -->
 <!-- Skills reference: /system/skills.md -->
 
 ---
@@ -72,10 +72,10 @@
 
 | Field | Value |
 |-------|-------|
-| `esp` | TBD |
+| `esp` | GoHighLevel |
 | `esp_api_access` | TBD |
 | `esp_dashboard_url` | N/A |
-| `esp_metrics` | N/A |
+| `esp_metrics` | calls_booked, opportunity_tracking, appointment_reports |
 
 ---
 
@@ -138,6 +138,6 @@
 
 | Field | Value |
 |-------|-------|
-| `relationship_health` | Cautious-Positive — Isaac remains engaged but ROAS concerns are active |
+| `relationship_health` | Positive — Improving |
 | `sync_cadence` | Bi-weekly |
 | `biggest_risk` | Attribution gaps are the largest operational risk. 30-day ROAS dropped to 0.8 (Isaac's threshold is 2.5x). Mariely is the primary relationship holder — continuity risk if she's unavailable. Do not conflate marketing and sales metrics in client conversations. |

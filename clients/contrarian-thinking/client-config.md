@@ -18,7 +18,7 @@
 
 | Field | Value |
 |-------|-------|
-| `gm_name` | Luiz |
+| `gm_name` | Luiz Pekelman |
 | `media_buyer_name` | Rabii Elhaouat |
 
 ---
@@ -138,6 +138,6 @@
 
 | Field | Value |
 |-------|-------|
-| `relationship_health` | Cautious — Behind Schedule (30+ days into 90-day trial with zero live ads) |
+| `relationship_health` | Cautiously Optimistic — Momentum Building. Ads live since ~Mar 12. |
 | `sync_cadence` | TBD (30/60/90 day check-ins planned) |
-| `biggest_risk` | Nearly 1 month into 90-day trial (Feb 16 - May 16) with ZERO ads live. Slow creative approval cycle (Codie is final approver with limited availability). Historical churn — CT kept Meta in-house in Aug 2025; this is the second engagement attempt. Funnel structural weakness flagged internally ("extremely broad newsletter" without proper funnel to high-ticket offers). Friday reports missing (0/2 on-time). |
+| `biggest_risk` | 90-day trial (Feb 16 - May 16) — ads finally live ~Mar 12. CPL at $4.96 vs $5-6 target. Slow creative approval cycle (Codie is final approver). Historical churn — CT kept Meta in-house in Aug 2025; this is second engagement. Teresa Day departure caused earlier delays. |

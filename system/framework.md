@@ -64,7 +64,25 @@ Use these inline flags throughout client files:
 
 ## File Header Format
 
-Every client file must start with:
+Every client file must start with **YAML frontmatter** followed by the markdown header:
+
+```yaml
+---
+client: "Client Display Name"
+slug: "client-slug"
+status: Active | Onboarding | At Risk | Paused
+gm: "GM Name"
+media_buyer: "Rabii"
+esp: "beehiiv | Substack | Kit | Mailchimp | etc."
+cpl_target: "$X.XX"
+current_cpl: "$X.XX"
+risk_level: LOW | MEDIUM | HIGH
+sentiment: "Description"
+last_enriched: YYYY-MM-DD
+---
+```
+
+Below the frontmatter:
 
 ```
 # [CLIENT NAME] — Client Intelligence
@@ -75,3 +93,18 @@ Every client file must start with:
 **Slack Internal:** #[channel-name]
 **Slack External:** #[channel-name]
 ```
+
+---
+
+## Deep Enrichment Files
+
+For clients with extensive intelligence, a separate deep enrichment file may exist at:
+`clients/[client-name]/[client-name]-deep-enrichment.md`
+
+These files contain extended analysis (sales call transcripts, audience research, competitive intelligence) that supplements the core 6-category file without bloating it.
+
+---
+
+## Source of Truth: Google Drive
+
+Ad scripts, creative briefs, and designer-facing documents live in Google Drive as the shared source of truth. The client intelligence files in this repo track strategy and context; Google Drive holds the production assets and approved scripts that designers and editors work from.

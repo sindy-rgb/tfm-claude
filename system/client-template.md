@@ -1,23 +1,45 @@
+---
+client: "[CLIENT DISPLAY NAME]"
+slug: "[client-slug]"
+status: Onboarding
+gm: "[GM Name]"
+media_buyer: Rabii
+esp: "[ESP]"
+cpl_target: "[Target]"
+current_cpl: TBD
+risk_level: LOW
+sentiment: "New - Honeymoon Phase"
+last_enriched: YYYY-MM-DD
+---
+
 # [CLIENT NAME] — Client Intelligence
-**Last Updated:** [Month Year]
-**Status:** Active | Onboarding | At Risk | Paused
-**Day AI:** [URL]
-**Notion:** [URL]
-**Slack Internal:** #[channel-name]
-**Slack External:** #[channel-name]
 
 ---
 
 ## 1. CLIENT OVERVIEW
 
-**Primary Contact:** [Name] — [email]  
-**Secondary Contact:** [Name] — [email]  
-**GM (Growth Manager):** [Name]  
-**Media Buyer:** [Name]  
-**Internal Stakeholders (TFM):** [Names]  
-**Kickoff Date:** [Date]  
-**Funnel Type:** Sponsor Monetized | B2B Services | Info Product | Subscription | Affiliate | Niche B2B  
-**ESP:** [Platform]  
+**Client:** [Display Name]
+**Domain:** [website]
+**Industry:** [industry]
+**Business Model:** [model]
+
+**Status:** Onboarding
+
+**TFM Internal Team:**
+- **GM:** [Name]
+- **Media Buyer:** Rabii Elhaouat
+
+**Key Client Stakeholders:**
+| Name | Role | Email | Stance |
+|------|------|-------|--------|
+
+**Slack Channels:**
+- Internal: #internal-[slug]
+- External: #thefeed-[slug]
+
+**Kickoff Date:** [Date]
+**Funnel Type:** Sponsor Monetized | B2B Services | Info Product | Subscription | Affiliate | Niche B2B
+**ESP:** [Platform]
 **Ad Account Type:** Partner | Owned  
 
 ---

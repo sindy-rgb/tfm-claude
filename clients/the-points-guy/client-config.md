@@ -1,5 +1,5 @@
 # The Points Guy — Client Config
-<!-- Last updated: March 15, 2026 -->
+<!-- Last updated: March 21, 2026 -->
 <!-- Skills reference: /system/skills.md -->
 
 ---
@@ -18,8 +18,8 @@
 
 | Field | Value |
 |-------|-------|
-| `gm_name` | Natalie Rose |
-| `media_buyer_name` | Rabii Elhaouat |
+| `gm_name` | Jay Warner |
+| `media_buyer_name` | Jay Warner / Rabii Elhaouat |
 
 ---
 
@@ -98,7 +98,7 @@
 | `report_format` | CPL, 6-week ROAS, annualized ROAS, top creatives by ROAS contribution, spend allocation. ROAS is the renewal metric — CPL alone is insufficient. Post-call recaps must go out IMMEDIATELY after calls. |
 | `report_destination` | TBD |
 | `report_cadence` | weekly (Friday) + Thursday client calls (Nathan runs) |
-| `report_owner` | Natalie Rose (with Kinte support) |
+| `report_owner` | Jay Warner (with Kinte support) |
 
 ---
 
@@ -140,6 +140,6 @@
 
 | Field | Value |
 |-------|-------|
-| `relationship_health` | Positive but in Transition. Strong 12-month relationship. Client gives significant creative freedom. Performance data supports renewal (2.4x annualized ROAS). |
+| `relationship_health` | Positive — Handover Complete. Jay leading. Strong 12-month relationship. Performance data supports renewal (2.11x lifetime ROAS on $3.93M spend). |
 | `sync_cadence` | Weekly — Thursday client calls (Nathan runs), Tuesday internal briefings |
 | `biggest_risk` | CONTRACT RENEWAL IS ACTIVE. Humza → Jay handover (March 2026), Humza departing April. 12 March concepts ALL stuck in Concept stage — OVERDUE. Post-call recaps repeatedly delayed (Nathan escalated twice). March budgets cut 50%. Must defend $3.8M investment generating ~$9.5M revenue / ~$5.7M contribution profit. |

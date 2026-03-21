@@ -1,5 +1,5 @@
 # Open Source CEO — Client Config
-<!-- Last updated: March 15, 2026 -->
+<!-- Last updated: March 21, 2026 -->
 <!-- Skills reference: /system/skills.md -->
 
 ---
@@ -50,8 +50,8 @@
 | Field | Value |
 |-------|-------|
 | `kpi_primary` | High-quality subscribers (engagement relative to CPL) |
-| `kpi_target` | Sub-$3.00 CPL with strong engagement |
-| `cpl_target` | < $3.00 (currently $3.39–$4.26 — above target) |
+| `kpi_target` | Sub-$3.50 CPL with strong engagement |
+| `cpl_target` | < $3.50 (currently ~$3.50+ — trending down) |
 | `kpi_secondary` | CTR |
 | `kpi_secondary_target` | 2.0%+ (recovered to 2.10% in late Feb) |
 | `quality_definition` | Subscribers who actively open and click. Best cohort: 65% open rate, 6% CTR (DCT_108). Target ICP: Series A–C/D founders, NOT early-stage wantrepreneurs. |

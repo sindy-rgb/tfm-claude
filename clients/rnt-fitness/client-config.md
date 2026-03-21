@@ -1,5 +1,5 @@
 # RNT Fitness — Client Config
-<!-- Last updated: March 15, 2026 -->
+<!-- Last updated: March 21, 2026 -->
 <!-- Skills reference: /system/skills.md -->
 
 ---
@@ -18,7 +18,7 @@
 
 | Field | Value |
 |-------|-------|
-| `gm_name` | Kinte |
+| `gm_name` | Kinte Otieno |
 | `media_buyer_name` | Rabii Elhaouat |
 
 ---

@@ -1,6 +1,6 @@
 # The Feed Media — Skills Library (Slash Commands)
 
-Master skills definitions for Claude Chat client projects. Each command uses variables from the client's config file (`client-config.md`). Commands are generic — they work across all 19 clients when the config is populated.
+Master skills definitions for Claude Chat client projects. Each command uses variables from the client's config file (`client-config.md`). Commands are generic — they work across all 25 clients when the config is populated.
 
 ---
 

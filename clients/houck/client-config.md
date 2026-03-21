@@ -18,7 +18,7 @@
 
 | Field | Value |
 |-------|-------|
-| `gm_name` | Luiz |
+| `gm_name` | Luiz Pekelman |
 | `media_buyer_name` | Rabii Elhaouat |
 
 ---
@@ -138,6 +138,6 @@
 
 | Field | Value |
 |-------|-------|
-| `relationship_health` | POSITIVE but PATIENCE-TESTED. Houck is engaged, validated March concepts, strong Nathan-Houck personal rapport. |
+| `relationship_health` | Cautiously Positive — Momentum Building. Houck is engaged, validated March concepts, strong Nathan-Houck personal rapport. |
 | `sync_cadence` | Bi-weekly (inconsistent — flagged as risk) |
 | `biggest_risk` | Lead magnet delays (4 months) tested patience. Lead magnets finally delivered March 4 — next 30 days are critical to prove funnels work. Open rate gap (30% vs 40% target). Missing bi-weekly cadence. Funnel tech setup is the last blocker before scale. |
