@@ -38,7 +38,7 @@
 |-------|-------|
 | `meta_account_id` | act_601589271801820 |
 | `campaign_ids` | 120238584953010261 (Active — Pitch Deck), 120200529584720261 (Active — US Scaling) |
-| `tfm_campaign_ids` | 120238584953010261 (The Feed Media - Pitch Deck), 120200529584720261 (GL - Acquisition - ABO - US Scaling) |
+| `tfm_campaign_ids` | 120238584953010261 (Active — The Feed Media - Pitch Deck, $275/day) |
 | `competitor_name` | N/A |
 | `competitor_campaign_ids` | N/A |
 | `ad_account_type` | TFM-managed |

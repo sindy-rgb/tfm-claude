@@ -51,7 +51,7 @@
 |-------|-------|
 | `kpi_primary` | CPL |
 | `kpi_target` | <= $2.50 |
-| `cpl_target` | <= $2.50 (current: $3.63 — 56% above target) |
+| `cpl_target` | <= $2.50 (current: $3.27 — 31% above target, improving) |
 | `kpi_secondary` | Subscriber Quality |
 | `kpi_secondary_target` | Open rate >50%, Click rate >5% within first 15 days |
 | `quality_definition` | Subscribers who open (>50%) and click (>5%) within first 15 days. Competition rules for how CPL vs quality are weighted remain ambiguous — Armando has not clarified. |
@@ -140,4 +140,4 @@
 |-------|-------|
 | `relationship_health` | Cautious — Under Competitive Pressure (3rd place in bake-off on CPL and quality) |
 | `sync_cadence` | Bi-weekly |
-| `biggest_risk` | This is a 3-agency bake-off (Feb 1 - Mar 31). TFM is currently last on CPL ($3.63 vs BG $2.32 and GL $3.10) AND quality. 23 days remain. March concept pipeline stalled (all 5 DCTs in Concept stage). Friday reports missing (0% on-time rate). Must close CPL gap and exploit quality data opening before April decision. |
+| `biggest_risk` | 3-agency bake-off (Feb 1 - Mar 31). TFM CPL improved to $3.27 (was $3.63) but still above BG and GL. 10 days remain. CRITICAL: 92.6% of TFM subscribers never received a Delivra broadcast — quality comparison is meaningless until this is fixed. The 58 TFM subs who DO receive email show 84.8% open rates (best of all agencies). Armando committed to audit but has gone silent since Mar 18. |

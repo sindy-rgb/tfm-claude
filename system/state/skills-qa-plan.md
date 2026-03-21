@@ -1,7 +1,7 @@
 # Skills QA & Improvement Plan
 **Created:** 2026-03-21
 **Author:** Claude Code (post-build review)
-**Status:** Draft — awaiting Jay's review before any edits are made
+**Status:** APPLIED — all P0, P1, and most P2 fixes applied on 2026-03-21
 
 ---
 

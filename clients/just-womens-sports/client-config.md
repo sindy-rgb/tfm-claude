@@ -18,7 +18,7 @@
 
 | Field | Value |
 |-------|-------|
-| `gm_name` | TBD — reassignment pending |
+| `gm_name` | Lays Paiva (covering) |
 | `media_buyer_name` | Rabii Elhaouat |
 
 ---

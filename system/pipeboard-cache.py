@@ -101,6 +101,21 @@ def init_db():
     print(f"Database initialized at {DB_PATH}")
 
 
+# Client-specific conversion event overrides.
+# These take priority over the default list because different clients
+# track different primary conversion events in Meta.
+CLIENT_CONVERSION_OVERRIDES = {
+    "experiential-hospitality": "offsite_conversion.fb_pixel_custom",  # GHL webinar registrations
+    "stocks-news": "mobile_app_install",  # app installs (primary KPI)
+    "status-news": "offsite_conversion.fb_pixel_custom",  # Qualified Carrd sign-ups
+    "points-path": "offsite_conversion.fb_pixel_custom",  # NewsletterSignup custom event
+    "big-desk-energy": "offsite_conversion.fb_pixel_custom",  # subscribe events
+    "quartz": "offsite_conversion.fb_pixel_custom",  # subscribe events
+    # open-source-ceo: uses custom beehiiv event (offsite_conversion.custom.889821167133951) — needs investigation
+    # rnt-fitness: uses custom beehiiv events — pixel fires on wrong page per Kinte (3/20)
+}
+
+
 def ingest_response(json_str, client_slug, level="campaign", snapshot_date=None):
     """Ingest a Pipeboard API response into the cache."""
     if snapshot_date is None:
@@ -120,6 +135,16 @@ def ingest_response(json_str, client_slug, level="campaign", snapshot_date=None)
     conn = get_db()
     cursor = conn.cursor()
 
+    # Check for existing snapshot (prevent duplicates)
+    existing = cursor.execute(
+        "SELECT id FROM snapshots WHERE client_slug = ? AND snapshot_date = ? AND level = ? AND date_start = ?",
+        (client_slug, snapshot_date, level, records[0].get("date_start"))
+    ).fetchone()
+    if existing:
+        print(f"Snapshot already exists for {client_slug} on {snapshot_date} ({level}-level, date_start={records[0].get('date_start')}). Skipping.")
+        conn.close()
+        return
+
     # Create snapshot
     cursor.execute(
         "INSERT INTO snapshots (snapshot_date, client_slug, level, date_start, date_stop) VALUES (?, ?, ?, ?, ?)",
@@ -134,19 +159,33 @@ def ingest_response(json_str, client_slug, level="campaign", snapshot_date=None)
         cpl = None
         conv_type = None
 
-        # Priority order for conversion events
+        # Check for client-specific override first
+        override = CLIENT_CONVERSION_OVERRIDES.get(client_slug)
+
+        # Default priority order (reordered: lead/registration first for newsletter clients)
         conv_priorities = [
-            "onsite_web_lead", "offsite_conversion.fb_pixel_lead",
+            "lead", "offsite_conversion.fb_pixel_lead",
             "complete_registration", "offsite_conversion.fb_pixel_complete_registration",
-            "offsite_conversion.fb_pixel_custom", "lead",
+            "onsite_web_lead",
+            "offsite_conversion.fb_pixel_custom",
             "mobile_app_install"
         ]
 
-        for action in record.get("actions", []):
-            if action["action_type"] in conv_priorities:
-                if conv_type is None or conv_priorities.index(action["action_type"]) < conv_priorities.index(conv_type):
-                    conv_type = action["action_type"]
+        if override:
+            # Use the override event if present in the data
+            for action in record.get("actions", []):
+                if action["action_type"] == override:
+                    conv_type = override
                     conversions = int(action["value"])
+                    break
+
+        # Fall back to priority list if no override match
+        if conv_type is None:
+            for action in record.get("actions", []):
+                if action["action_type"] in conv_priorities:
+                    if conv_type is None or conv_priorities.index(action["action_type"]) < conv_priorities.index(conv_type):
+                        conv_type = action["action_type"]
+                        conversions = int(action["value"])
 
         for cost in record.get("cost_per_action_type", []):
             if cost["action_type"] == conv_type:
@@ -227,7 +266,7 @@ def show_freshness():
 
 def show_summary():
     conn = get_db()
-    # Get latest snapshot per client
+    # Get latest snapshot date per client, then sum ALL campaigns from that date
     rows = conn.execute("""
         SELECT cm.client_slug,
                SUM(cm.spend) as total_spend,
@@ -239,10 +278,11 @@ def show_summary():
                cm.date_start, cm.date_stop
         FROM campaign_metrics cm
         INNER JOIN (
-            SELECT client_slug, MAX(snapshot_id) as max_snap
-            FROM campaign_metrics
+            SELECT client_slug, MAX(snapshot_date) as max_date
+            FROM snapshots
             GROUP BY client_slug
-        ) latest ON cm.client_slug = latest.client_slug AND cm.snapshot_id = latest.max_snap
+        ) latest ON cm.client_slug = latest.client_slug
+        INNER JOIN snapshots s ON cm.snapshot_id = s.id AND s.snapshot_date = latest.max_date
         GROUP BY cm.client_slug
         ORDER BY total_spend DESC
     """).fetchall()

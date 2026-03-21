@@ -140,4 +140,4 @@
 |-------|-------|
 | `relationship_health` | Positive (8.5/10) — Ruben is hands-off on creative and trusts the team |
 | `sync_cadence` | Bi-weekly |
-| `biggest_risk` | CPL trending above $2.00 target ($3.47 current). Landing page CVR drop needs monitoring. 5 March concepts still in initial stage. |
+| `biggest_risk` | CPL improved from $3.47 to $2.28 (March 2026) — now within target range. Landing page CVR drop needs monitoring. 5 March concepts still in initial stage. |

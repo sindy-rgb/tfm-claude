@@ -51,7 +51,7 @@
 |-------|-------|
 | `kpi_primary` | Cost Per Lead (CPL) — email newsletter signups |
 | `kpi_target` | Best performer: $1.21 CPL (DCT 109) |
-| `cpl_target` | TBD (no explicit target stated — benchmarking against DCT 109 at $1.21) |
+| `cpl_target` | $1.50-$2.00 (benchmarking against DCT 109 best at $1.21) |
 | `kpi_secondary` | Signup-to-Extension-Install Conversion Rate |
 | `kpi_secondary_target` | > 6-7% (currently ~6-7% — key bottleneck) |
 | `quality_definition` | A quality lead signs up for the newsletter AND installs the Chrome/Safari browser extension. Paid-sourced reader LTV ~$5 (still being refined). |

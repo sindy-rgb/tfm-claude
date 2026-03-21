@@ -40,7 +40,7 @@
 - 2026-03-21: Adopted GSD-style context management (state files + sub-agents)
 - 2026-03-21: Creative QA hook runs BEFORE audit trail hook on Slack sends (gate first, log second)
 - 2026-03-21: Portfolio pulse uses `lead` or `complete_registration` or `fb_pixel_custom` as CPL event depending on client
-- 2026-03-21: TPG ($179K/week) excluded from TFM-managed spend calculations (RV account, TFM is creative/strategy only)
+- 2026-03-21: TPG filtered to TFM campaign IDs only (120216387459500663 active, 120239047814670663 paused Andromeda) — account total is $179K/week but TFM manages ~$24K/week
 - 2026-03-21: Status News $29 CPL flagged as likely tracking/pixel issue, not real performance
 
 ## Next Steps
