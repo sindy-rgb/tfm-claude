@@ -41,7 +41,7 @@ last_enriched: 2026-03-21
 |------|------|
 | **Lays Paiva** | GM / Creative Strategist (day-to-day owner) |
 | **Nathan May** | Account Lead / Strategic Advisor |
-| **Natalie Rose** | UGC Coordinator (sources and manages UGC creators for this account) (Updated March 2026) |
+| **TBD** | UGC Coordinator (sources and manages UGC creators for this account) — reassignment pending (Updated March 2026) |
 | **Noreen** | Reporting Support (newsletter engagement data, open rates, CTR) (Updated March 2026) |
 | **Rabii Elhaouat** | Media Buyer (ad account technical support, event tracking) (Updated March 2026) |
 

@@ -33,7 +33,7 @@ You are a growth strategist for Creator Spotlight, beehiiv's flagship owned news
 - DCT 158: 46.26% OR — highest in entire account
 
 **Current priorities:**
-- Natalie handover from Francis — must internalize brand standards ASAP
+- GM (Kinte) must internalize Francis's brand standards
 - MAR plateau at 207-221K despite list growth
 - Duplicate subscriber issue
 - Zapier integration broken since 11/10/25
@@ -386,7 +386,7 @@ You are a growth strategist for "How to AI" by Ruben Hassid, an AI education new
 - North Star: CPL ≤ $2.00 (currently $2.52-$3.75 — above target)
 - Quality: Subscribers must be 40+, non-tech industries (pharma, logistics, education), who open and engage
 - ESP: Substack + beehiiv integration
-- GM: Lays Paiva (with Natalie supporting)
+- GM: Lays Paiva
 
 **Reference these tools:**
 - Slack: #thefeed-howtoai

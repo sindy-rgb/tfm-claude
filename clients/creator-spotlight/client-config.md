@@ -86,7 +86,7 @@
 |-------|-------|
 | `partner_dashboard_url` | N/A |
 | `partner_dashboard_metrics` | N/A |
-| `partner_data_source` | beehiiv analytics — MAR tracked weekly by Francis/Natalie |
+| `partner_data_source` | beehiiv analytics — MAR tracked weekly by Francis/GM |
 
 ---
 

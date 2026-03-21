@@ -1867,7 +1867,7 @@ utm_content={{ad.id}}
 Create a centralized spreadsheet as the team's single source of truth:
 - Approved values for each parameter in dropdown menus
 - Prevents freeform text entry that creates inconsistencies
-- Share across all team members (Nathan, Sindy, Rabii, Luiz, Natalie, Kinte)
+- Share across all team members (Nathan, Sindy, Rabii, Luiz, Kinte)
 - Schedule monthly UTM audits to catch and fix inconsistencies
 
 ### Linking Ad Names to Analytics

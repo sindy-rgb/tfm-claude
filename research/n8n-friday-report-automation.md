@@ -30,7 +30,7 @@ This workflow automates the Friday weekly ad reports that GMs currently build ma
 
 **Scope:** 20 clients with active Meta ad accounts (5 excluded: Daily Drop has no Meta access, Jay Shetty account not accessible, MDhair no direct access, Student Loan Planner account ID unknown, 1636 Forum/Franklin's Forum no client-config yet).
 
-**Time savings:** ~3-5 hours per Friday across all GMs (Noreen, Mariely, Lays, Luiz, Natalie, Kinte, Aubree, Rabii).
+**Time savings:** ~3-5 hours per Friday across all GMs (Noreen, Mariely, Lays, Luiz, Kinte, Aubree, Rabii).
 
 ---
 
@@ -40,7 +40,7 @@ This workflow automates the Friday weekly ad reports that GMs currently build ma
 
 | Client | Display Name | Meta Account ID | TFM Campaign IDs | Internal Slack | GM |
 |--------|-------------|-----------------|-------------------|----------------|-----|
-| creator-spotlight | Creator Spotlight | `act_727705002666774` | `120216624988160734` | `#internal-creatorspotlight` (C07HZJJMA15) | Natalie |
+| creator-spotlight | Creator Spotlight | `act_727705002666774` | `120216624988160734` | `#internal-creatorspotlight` (C07HZJJMA15) | Kinte |
 | workweek-ihih | Workweek IHIH | `act_3186358998360632` | `120238290253090498, 120208519540300498` | `#internal-workweek` (C09UD5BV2BF) | Lays |
 | workweek-tmm | Workweek TMM | `act_579954186820640` | `120241087157250671` | `#internal-workweek` (C09UD5BV2BF) | Lays |
 | workweek-ftt | Workweek FTT | `act_1079516909306359` | `120238837962440504` | `#internal-workweek` (C09UD5BV2BF) | Lays |
@@ -49,7 +49,7 @@ This workflow automates the Friday weekly ad reports that GMs currently build ma
 | insight-links | Insight Links | `act_507049163040180` | `120237192634290138, 120237192451030138, 120237192398350138` | `#internal-insightlinks` (C0A42KZ2LQJ) | Lays |
 | status-news | Status (News) | `act_455914147435901` | `120243366378750523, 120241815669990523, 120241057099280523, 120239876632620523, 120238873439040523, 120238644813440523, 120235752231100523` | `#internal-status` (C0984JRVDSP) | Mariely |
 | stocks-news | Stocks.News | `act_966430194860576` | `120242193401400071, 120242023971680071, 120241993404490071, 120241992974490071, 120240942718220071` | `#internal-stocksnews` (C0A2ZMQTCFR) | Luiz |
-| the-points-guy | The Points Guy | `act_2130099530351734` | N/A (client-managed, pull all campaigns) | `#internal-thepointsguy` (C0839CZFUUV) | Natalie |
+| the-points-guy | The Points Guy | `act_2130099530351734` | N/A (client-managed, pull all campaigns) | `#internal-thepointsguy` (C0839CZFUUV) | TBD |
 | houck | Houck | `act_601589271801820` | `120238584953010261, 120200529584720261` | `#internal-houck` (C09TT2ZSH32) | Luiz |
 | rnt-fitness | RNT Fitness | `act_537505457933105` | `120240247632280778, 120240119514690778` | `#internal-rntfitness` (C0ACV5VHUPK) | Kinte |
 | open-source-ceo | Open Source CEO | `act_2116667552418074` | `6958020369131, 6950633724531` | TBD | Aubree |
@@ -62,7 +62,7 @@ This workflow automates the Friday weekly ad reports that GMs currently build ma
 | contrarian-thinking | Contrarian Thinking | `act_1329828287615052` | `120240521788490641, 120240516863300641` | `#internal-contrarianthinking` (C0AD4PEDQGL) | Luiz |
 | marketbeat | MarketBeat | `act_1129788478833121` | `120234644644600565` | `#internal-marketbeat` (C09EDCNGFD0) | Rabii |
 | vendry | Vendry | `act_1283376772272478` | TBD -- needs campaign ID lookup | `#internal-vendry` (C08HB4N8WP7) | Aubree |
-| just-womens-sports | Just Women's Sports | Partner ID `730307861597413` | TBD -- needs campaign ID lookup | `#internal-justwsports` | Natalie |
+| just-womens-sports | Just Women's Sports | Partner ID `730307861597413` | TBD -- needs campaign ID lookup | `#internal-justwsports` | TBD |
 
 ### Clients EXCLUDED from automation
 
@@ -179,7 +179,7 @@ const clients = [
     campaignFilter: ["120216624988160734"],
     slackChannel: "C07HZJJMA15",
     cplTarget: 2.25,
-    gm: "Natalie",
+    gm: "Kinte",
     conversionAction: "offsite_conversion.fb_pixel_lead",
     notes: "Shared account with BG -- filter to TFM campaigns only"
   },
@@ -278,7 +278,7 @@ const clients = [
     campaignFilter: [],  // Pull all -- client-managed but TFM tracks
     slackChannel: "C0839CZFUUV",
     cplTarget: 4.00,
-    gm: "Natalie",
+    gm: "TBD",
     conversionAction: "offsite_conversion.fb_pixel_lead",
     notes: "Largest account. Client-managed. 6-week ROAS is real KPI."
   },

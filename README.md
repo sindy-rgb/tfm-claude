@@ -146,7 +146,7 @@ Claude Code connects to external tools via MCP (Model Context Protocol):
 
 ## Onboarding (New Team Members)
 
-If you are new to TFM (this section is written for Lays and future team members):
+If you are new to TFM:
 
 ### 1. Clone the Repo
 

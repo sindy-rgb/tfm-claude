@@ -313,7 +313,7 @@ When I type `/concept`, research what's winning for Jay Shetty's The Daily Wisdo
 **Step 4 — Read #internal-jayshetty (last 14 days)** for:
 - Recent creative decisions — what was launched, paused, killed and WHY
 - Client feedback from Anna — exact quotes matter
-- Creative direction from Lays, Luiz, or Natalie
+- Creative direction from Lays or Luiz
 - Sprint status — what concepts are in pipeline, in review, awaiting approval
 
 **Step 5 — Check the concept database in Notion:**

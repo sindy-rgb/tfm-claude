@@ -34,7 +34,7 @@ last_enriched: 2026-03-21
 - **Luiz Pekelman** — Backup GM for Jay Shetty during Lays's PTO (July 2026). (Updated March 2026)
 - **Rabii** — Media buying support (Sparkloop timezone questions, reporting assistance)
 - **Noreen** — Weekly Friday ad report creation and data QA (Updated March 2026)
-- **Natalie** — Creative strategist (concept sprints, finalizing concepts)
+- **Kinte** — Creative operations, concept sprints (Updated March 2026)
 - **Kinte** — Creative operations (flagging capacity issues, DCT reviews); backup for Lays's other accounts during PTO (Updated March 2026)
 
 **Status:** Active client since October 1, 2025 (kick-off date). Running Meta Ads for newsletter subscriber acquisition. Currently running at ~$600/day budget. (Updated March 2026)
