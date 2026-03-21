@@ -9,6 +9,9 @@ memory/
 # Claude Code local config (per-user)
 .claude/
 
+# Obsidian plugin user data (per-user, causes merge conflicts)
+copilot/
+
 # OS files
 .DS_Store
 **/.DS_Store

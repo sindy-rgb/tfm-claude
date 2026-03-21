@@ -212,6 +212,7 @@
   },
   "active": "14532f1389d72f50",
   "lastOpenFiles": [
+    "system/claude-chat-project-instructions.md",
     "research/gm-friday-report-scorecard.md",
     "clients/mdhair/client-config.md",
     "research/friday-report-database-batch3.md",
@@ -239,7 +240,6 @@
     "copilot/copilot-custom-prompts/Rewrite as tweet thread.md",
     "copilot/copilot-custom-prompts/Rewrite as tweet.md",
     "copilot/copilot-custom-prompts/Remove URLs.md",
-    "copilot/copilot-custom-prompts/Generate glossary.md",
     "copilot/copilot-custom-prompts",
     "copilot",
     "clients/mdhair",
