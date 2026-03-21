@@ -28,3 +28,9 @@ tokens.*
 # Temp files
 *.tmp
 *~
+
+
+
+
+# Ignore Smart Environment folder
+.smart-env
