@@ -1,7 +1,7 @@
 # The Feed Media — Claude Code Project Instructions
 
 ## Identity
-You are assisting **Jay Warner, Director of Growth at The Feed Media**, a newsletter growth agency. TFM runs paid media (primarily Meta Ads) for 15+ newsletter clients, managing creative strategy, media buying, and performance reporting.
+You are assisting **Jay Warner, Director of Growth at The Feed Media**, a newsletter growth agency. TFM runs paid media (primarily Meta Ads) for 25 clients, managing creative strategy, media buying, and performance reporting.
 
 ## On Session Start
 Before answering any client-specific question, read the relevant client file(s):
@@ -23,25 +23,44 @@ Every client file follows the 6-category structure:
 5. **Negative Triggers** — Charged client quotes, patterns to avoid
 6. **Relationship Health** — Sentiment, risk level, continuity concerns
 
-## Active Clients (19)
-creator-spotlight, workweek, insight-links, status-news, stocks-news, the-points-guy, houck, rnt-fitness, daily-drop, open-source-ceo, jay-shetty, how-to-ai, points-path, experiential-hospitality, quartz, big-desk-energy, stocks-and-income, contrarian-thinking, marketbeat
+## Active Clients (25)
+creator-spotlight, workweek, insight-links, status-news, stocks-news, the-points-guy, houck, rnt-fitness, daily-drop, open-source-ceo, jay-shetty, how-to-ai, points-path, experiential-hospitality, quartz, big-desk-energy, stocks-and-income, contrarian-thinking, marketbeat, 1636-forum, franklins-forum, just-womens-sports, vendry, student-loan-planner, mdhair
 
 ## TFM Team
 - **Nathan May** — Agency Principal
 - **Sindy** — Head of Operations
 - **Rabii Elhaouat** — Media Buyer
-- **Luiz Pekelman** — GM
-- **Natalie Rose** — GM (Creator Spotlight, JWS, TPG)
-- **Kinte** — GM (RNT Fitness)
+- **Luiz Pekelman** — GM (MarketBeat, Quartz, Stocks & Income)
+- **Natalie Rose** — GM (JWS, TPG)
+- **Kinte Otieno** — GM (Creator Spotlight, RNT Fitness, TPG support)
+- **Lays Paiva** — GM (WorkWeek, Jay Shetty, How to AI)
+- **Mariely Galindo** — GM (1636 Forum, Franklin's Forum, Points Path, EH, Daily Drop, Status News)
+- **Aubree Clark** — GM (Vendry, Student Loan Planner)
+- **Noreen** — Reporting Analyst (Friday reports, ad account access)
+- **Melvin** — Video Editor
+- **Marc** — Static Designer
 
 ## External Tools & Access
 - **Day.ai** — CRM, meeting recordings, workspace context notes (MCP access)
 - **Notion** — Client pages, SOPs, concepts, creatives, training (MCP access)
 - **Slack** — Internal/external client channels, DMs (MCP access)
 - **Meta Ads** — Via Pipeboard MCP integration
+- **Google Drive** — Creative folders, script spreadsheets, ad reports (MCP access via gdrive)
 - **Google Calendar** — MCP access
 - **Gmail** — MCP access
 - **n8n** — Self-hosted workflow automation at `https://n8n-zwzfv-u62151.vm.elestio.app/`
+- **GitHub** — Private repo at `thefeedmedia/tfm-vault` (synced via Obsidian Git)
+
+## Creative QA Process
+When QA'ing ad concepts:
+1. **Pull scripts from Google Drive** (source of truth for copy)
+2. **Cross-reference with Notion** (status/pipeline tracker)
+3. **Check against client NEVER rules** from intelligence file
+4. **Verify factual claims** (subscriber counts, math, percentages)
+5. **Flag discrepancies** between Drive scripts and Notion entries
+- Google Drive = what the copy actually says
+- Notion = what the status/pipeline says
+- If they disagree, Drive wins and Notion needs updating
 
 ## Media Buying Conventions
 - **DCT** = Dynamic Creative Testing (one concept per ad set)

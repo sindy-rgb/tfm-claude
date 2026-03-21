@@ -9,15 +9,18 @@
 **Revenue:** ~$55M/year
 **Product:** Free financial newsletters (MarketBeat Daily, MarketBeat Week in Review) + premium subscriptions (MarketBeat All Access)
 **Business Model:** Affiliate offers + paid ads in free newsletters + co-registration leads on new subscribers + premium subscriptions
-**Landing Pages:** earlybirdpublishing.com (all LPs — original MarketBeat ad account was banned)
+**Landing Pages:** earlybirdpublishing.com (all LPs — original MarketBeat ad account was banned). (Updated March 2026) Also now running LPs on marketbeat.com domain directly — Matt shared advertorial-style LPs (`marketbeat.com/newsletter/AdvertorialOffer.aspx?v=1-4`) on Mar 16 for TFM to test.
 **Subscriber Base:** Large-scale financial newsletter audience
 **Registration Tracking:** `RegistrationCode=meta-thefeedmedia-dctXXX` (not UTM parameters)
 
 ### Key Stakeholders
 | Name | Role | Notes |
 |------|------|-------|
-| **Matt Paulson** | Founder / Decision-maker | Controls budget allocation between agencies. Data-driven. Promised 2x budget if TFM matches GrowJoy ROAS. |
-| **Maureen Ohm** | Stakeholder | Involved in reporting and performance discussions |
+| **Matt Paulson** | Founder / Decision-maker | Controls budget allocation between agencies. Data-driven. Promised 2x budget if TFM matches GrowJoy ROAS. (Updated March 2026) Responded "congrats" when TFM surpassed GrowJoy ROAS mid-March. Actively shares new LP assets and affiliate VSL links in Slack — engaged and collaborative when performance is strong. |
+| **Maureen Ohm** | Primary Contact | Involved in reporting and performance discussions. (Updated March 2026) Per Day.ai: confirmed primary contact on MarketBeat side. Handles call scheduling and operational coordination. |
+| **Don Miller** | Supporter (via Day.ai) | (Updated March 2026) Identified in Day.ai CRM as a MarketBeat team member with supporter role. Email: don.miller@marketbeatmail.com |
+| **Alix Andal, MFA** | MarketBeat Team | (Updated March 2026) Identified in Day.ai CRM. Email: alix.andal@marketbeatmail.com |
+| **Liz Semrau** | Accounting / Vendor Ops | (Updated March 2026) Per Day.ai action items — handles W-9 and vendor forms for MarketBeat. |
 
 ### TFM Team
 | Name | Role |
@@ -30,8 +33,11 @@
 ### Engagement Structure
 - **Monthly budget:** $60K/month TFM ($2K/day — approved by Matt on Feb 20, 2026) vs. $100K/month GrowJoy
 - **Agency competitor:** GrowJoy (Gunnar Holm) — running simultaneously in same ad account
-- **Budget history:** Started at $1K/day → $1.5K/day (Feb 2) → $2K/day (Feb 20). Matt: "you can go to $2K/day and that will also be the budget for March"
+- **Budget history:** Started at $1K/day -> $1.5K/day (Feb 2) -> $2K/day (Feb 20). Matt: "you can go to $2K/day and that will also be the budget for March"
 - **Bi-weekly calls:** Active; weekly Friday reporting (Rabii owns client-facing reports)
+- **(Updated March 2026) Friday Report Cadence:** 8:30 AM EST delivery. 3/3 on-time rate (100%) per Day.ai tracking. Reports posted in #thefeed-marketbeat by Rabii.
+- **(Updated March 2026) Invoicing:** QuickBooks-based. Accounting correspondence between nathan@thefeedmedia.com and accounting@marketbeatmail.com. Active vendor-client engagement confirmed via Day.ai.
+- **(Updated March 2026) Affiliate VSL Strategy:** Matt shared top affiliate links on Mar 11 in Slack. Brownstone affiliate VSL is "beating everything else by a mile" per Matt. Nathan instructed team to study the framing of SpaceX opportunity in those VSLs and echo it in ad creative.
 
 ---
 
@@ -41,21 +47,45 @@
 **Secondary KPI:** Lead volume — especially SMS opt-ins
 **CPL Target:** Under $14, ideal under $10
 
-### Current Performance (March 1–8, 2026)
+### Current Performance (March 1–20, 2026) (Updated March 2026)
 
 | Metric | TFM | GrowJoy | Gap |
 |--------|-----|---------|-----|
-| **Spend** | $14,965 | $71,942 | GJ 4.8x more |
-| **Revenue** | $5,957 | $31,374 | — |
-| **ROAS** | 39.8% | 43.6% | -3.8 pts |
-| **CPL** | $11.53 | $11.21 | ~even |
-| **Rev/User** | $4.59 | $4.89 | -$0.30 |
-| **Confirmed Sales** | 5 | 32 | — |
-| **SMS Opt-ins** | 216 | 1,529 | GJ 7x more |
+| **Spend** | $39,491 | $189,900 | GJ 4.8x more |
+| **Revenue** | $24,804 | $93,022 | — |
+| **ROAS** | **62.8%** | **49.0%** | **+13.8 pts TFM AHEAD** |
+| **CPL** | **$8.86** | **$12.51** | **TFM $3.65 cheaper** |
+| **Rev/User** | $5.57 | $6.13 | -$0.56 |
+| **Confirmed Sales** | 40 | 176 | — |
+| **SMS Opt-ins** | 885 | 2,379 | GJ 2.7x more (was 7x) |
+| **Revenue Leads** | 4,455 | 15,179 | — |
+| **Meta Website Leads** | 4,048 | 11,358 | — |
 
-**February Final:** TFM 48.7% ROAS vs GrowJoy 53.8% (-5.1 pts)
+### Weekly Performance (March 13–19, 2026) (Updated March 2026)
 
-**CRITICAL:** The ROAS gap is the single metric blocking budget doubling. Nathan flagged this March 8 and called a Wednesday internal meeting.
+| Metric | TFM | GrowJoy |
+|--------|-----|---------|
+| **Spend** | $14,507 | $72,273 |
+| **Website Leads** | 1,931 | 4,051 |
+| **CPL** | **$7.51** (-42.59% WoW) | **$17.84** |
+| **CVR** | **14.82%** (+52.28% WoW) | **5.56%** |
+| **CTR** | 4.86% | 8.60% |
+| **CPM** | $44.47 | $75.16 |
+
+### Best Week Ever: March 14–20 (Updated March 2026)
+
+| Metric | Value |
+|--------|-------|
+| **Weekly Spend** | $14,503 |
+| **Weekly Revenue** | $13,310 |
+| **Weekly ROAS** | **91.8%** |
+
+**CRITICAL SHIFT:** TFM has flipped the ROAS gap from -3.8 pts (Mar 1-8) to **+13.8 pts ahead** (Mar 1-20). Nathan's reaction: "Let's. Fucking. Go!!!" This is a major inflection point for the relationship.
+
+**Previous Performance (for reference):**
+- March 1-8: TFM 39.8% ROAS vs GrowJoy 43.6% (-3.8 pts)
+- March 1-13: TFM 43.0% ROAS vs GrowJoy 46.2% (-3.2 pts)
+- February Final: TFM 48.7% ROAS vs GrowJoy 53.8% (-5.1 pts)
 
 **Client Quote (Matt Paulson):**
 > Budget allocation follows ROAS. Match GrowJoy, get 2x budget.
@@ -65,7 +95,7 @@
 ## 3. BRAND VOICE RULES
 
 ### NEVER Rules
-1. **NEVER use "MarketBeat" in ad creative** — Ads run under Early Bird Publishing due to original account ban
+1. **NEVER use "MarketBeat" in ad creative** — Ads run under Early Bird Publishing due to original account ban. (Updated March 2026) EXCEPTION: The new DCT_156 and DCT_157 briefs (Space race concepts) DO reference "MarketBeat" in the script body — e.g., "MarketBeat is giving away their free report today." This appears to be an approved exception for the Space Stocks LP angle specifically. Confirm with Matt before expanding to other concepts.
 2. **NEVER make specific stock price predictions** — Financial compliance
 3. **NEVER use fear-of-missing-out on specific stocks** — Keep educational framing
 4. **NEVER conflate free newsletter with premium subscription** in ad copy
@@ -78,6 +108,8 @@
   - **Frank (60-70):** Conservative, near retirement, protecting wealth, "don't miss the next dividend king"
   - **Brian (35-45):** Aggressive investor, growth stocks, "what Wall Street insiders are watching"
 - Premium report framing: "$29.97 report — yours free today"
+- (Updated March 2026) **SpaceX IPO urgency framing now a proven winner:** "SpaceX is filing IPO paperwork this month" / "SpaceX may be going public soon" — per DCT_153 and DCT_156/157 briefs. IPO angle drove 128.7% ROAS.
+- (Updated March 2026) **Brownstone affiliate VSL style:** Matt flagged the Brownstone affiliate as top performer. Study the framing of SpaceX opportunity in that VSL and echo in ads (per Nathan's directive, Mar 11).
 
 ---
 
@@ -96,38 +128,77 @@
 - Dynamic date + "$29.97 report free today" urgency
 - Space stocks LP now ready for TFM: `earlybirdpublishing.com/users/PDFoffer.aspx?offer=spacestocks&RegistrationCode=meta-thefeedmedia-dct199`
 
-**Key Insight:** GrowJoy's higher CTR (8.55% vs TFM 4.32%) comes from premium report curiosity hooks. TFM's higher CVR (11.48% vs GrowJoy 4.76%) comes from stronger ad-to-LP alignment. The play is combining TFM's UGC creative strength with GrowJoy's LP strategy.
+**Format 4: SpaceX IPO Angle (Updated March 2026) — NEW TOP PERFORMER**
+- **DCT_153 (The IPO / SpaceX): 128.7% ROAS** — $5,628 revenue on $4,373 spend after just 3 days live. Best ROAS of any active creative in March.
+- IPO ad hit 130% ROAS in first 1.5 days at $4 CPL (per Rabii, Mar 20)
+- Space B-roll (satellites, rocket launches, launch infrastructure) is a reusable asset library for future space-related ads
+- DCT_156 (Free Report) and DCT_157 (Space Race) briefs created Mar 13-15, with multiple hook variants:
+  - "Everyone is waiting to buy SpaceX" (DCT_156)
+  - "SpaceX dropped the cost of space travel by 97%" (DCT_156)
+  - "SpaceX is filing IPO paperwork this month" (DCT_156)
+  - "7 best space stocks to own in 2026" (DCT_157)
+  - "The space race is heating up" (DCT_157)
+  - "SpaceX may be going public soon" (DCT_157)
+- Luiz confirmed (Mar 20) new Anthropic IPO concepts also in development — ready end of next week or beginning of April
+
+**Format 5: AI-Angle Ads (Updated March 2026) — EMERGING**
+- Rabii proposed Anthropic IPO as next IPO angle (Mar 20). Google Trends shows OpenAI/Anthropic combined interest surpassing SpaceX in some periods.
+- AI landing page available for these concepts. Luiz committed to putting concepts together by end of next week / early April.
+
+### Top Performers MTD (March 1–20, 2026) (Updated March 2026)
+
+| DCT | Angle | Revenue | Spend | ROAS | Notes |
+|-----|-------|---------|-------|------|-------|
+| **DCT_153** | SpaceX IPO | $5,628 | $4,373 | **128.7%** | Best performer. 3 days live. Scale immediately. |
+| **DCT_132** | Near Retiree | $4,426 | $5,939 | **74.5%** | Strongest converter to paid subscriptions |
+| **DCT_137** | Politics Proof | $6,251 | $12,860 | **48.6%** | Highest spend, strong sales rate (16 confirmed combined w/ DCT_140) |
+| **DCT_140** | 10 Stocks Checklist | — | — | — | Strong sales rate |
+
+**Key Insight:** GrowJoy's higher CTR (8.55% vs TFM 4.32%) comes from premium report curiosity hooks. TFM's higher CVR (14.82% vs GrowJoy 5.56%, week of Mar 13-19) comes from stronger ad-to-LP alignment. The play is combining TFM's UGC creative strength with GrowJoy's LP strategy. (Updated March 2026) This strategy is now proving out — TFM CVR improved 52.28% WoW while maintaining lower CPMs.
 
 ---
 
 ## 5. NEGATIVE TRIGGERS
 
-1. **Generic "10 Stocks" report fatigue** — TFM was limited to this single LP for months; performance stagnated
-2. **Low SMS opt-in volume** — GrowJoy captures 7x more SMS leads; SMS is a major revenue driver for Matt
-3. **Stale creative rotation** — GrowJoy refreshes themed LPs frequently; TFM must match cadence
+1. **Generic "10 Stocks" report fatigue** — TFM was limited to this single LP for months; performance stagnated. (Updated March 2026) Now resolved: Space Stocks LP active, High-Yield LP available, Advertorial LPs shared by Matt.
+2. **Low SMS opt-in volume** — (Updated March 2026) Gap narrowing: GrowJoy 2.7x more SMS leads (was 7x in early March). TFM SMS opt-ins up to 885 from 216 at Mar 8 checkpoint.
+3. **Stale creative rotation** — GrowJoy refreshes themed LPs frequently; TFM must match cadence. (Updated March 2026) Creative velocity improving: DCT_153-157 all created in March. Sprint target: 5 DCTs for March (all 5 in concept stage per Day.ai).
 4. **Tracking gaps** — Old TFM LPs had attribution issues with RegistrationCode parameters
 5. **Compliance issues** — Any language implying stock recommendations or guaranteed returns
+6. **(Updated March 2026) Luiz communication pacing** — Jay flagged on Mar 18 that Luiz sent a client update before incorporating Jay's feedback. Jay also noted Luiz "buried the headline" in a performance update (76% ROAS day was more compelling than the small monthly gap framing). Coach Luiz on leading with wins in client-facing comms.
 
 ---
 
 ## 6. RELATIONSHIP HEALTH
 
-### Sentiment: NEUTRAL — PROVE-IT PHASE
+### Sentiment: POSITIVE — MOMENTUM PHASE (Updated March 2026)
 
-The relationship hinges entirely on closing the ROAS gap. Matt is data-driven and allocates budget mathematically. There is no relationship cushion — performance is the relationship.
+~~The relationship hinges entirely on closing the ROAS gap.~~ **(Updated March 2026) TFM has SURPASSED GrowJoy on ROAS.** The relationship has shifted from prove-it to momentum. Matt responded "congrats" and "Thanks for the update" to the ROAS flip news. Nathan celebrated internally. The focus now shifts from survival to scaling and locking in the lead.
+
+### Key Milestones (Updated March 2026)
+1. **Mar 11:** Strategy call (Nathan x Jay x Rabii x Luiz) — deep-dive into GrowJoy competitive analysis. Matt shared top affiliate VSL links and Space Stocks LP.
+2. **Mar 12:** Sindy posted strategy call recap in #internal-marketbeat with next steps. Luiz committed to 3 new SpaceX ad concepts using Arc ad format.
+3. **Mar 17:** Rabii confirmed TFM officially passed GrowJoy on ROAS — last 3 days averaged 70%, with one day hitting 76% ROAS and 5 confirmed sales. Nathan reaction: excitement.
+4. **Mar 18:** IPO ad (DCT_153) went live. Exclusion list updated.
+5. **Mar 20:** Best MTD numbers: 62.8% TFM ROAS vs 49.0% GrowJoy (+13.8 pts). Nathan: "Let's. Fucking. Go!!!" Rabii shared Friday report to Matt showing 91.8% weekly ROAS. Matt responded "Thanks for the update."
+6. **Mar 20:** Luiz and Rabii discussing Anthropic IPO as next angle. New concepts expected end of March / early April.
 
 ### Continuity Risks
-1. **ROAS gap is the existential risk** — 3.8 pts in March, 5.1 pts in February
-2. **Budget asymmetry** — GrowJoy at $100K/month vs TFM at $30K creates compounding advantage
-3. **SMS opt-in gap** — GrowJoy 7x more SMS leads; this drives downstream revenue Matt cares about
-4. **Nathan escalated** — March 8 internal meeting called for Wednesday; team must demonstrate strategic response
+1. ~~**ROAS gap is the existential risk**~~ (Updated March 2026) **RESOLVED** — TFM now 13.8 pts ahead. But must sustain performance to earn budget increase.
+2. **Budget asymmetry** — GrowJoy at $100K/month vs TFM at $60K. (Updated March 2026) With sustained ROAS lead, the 2x budget promise from Matt comes back into play. Performance data now supports the ask.
+3. **SMS opt-in gap** — (Updated March 2026) Narrowing significantly (2.7x vs prior 7x) but still a gap. SMS capture improves as Space Stocks LP (which includes SMS checkbox) gets more volume.
+4. ~~**Nathan escalated**~~ (Updated March 2026) **RESOLVED** — Nathan is now celebrating. The Mar 11 strategy call produced concrete results.
+5. **(Updated March 2026) Sustaining the SpaceX IPO angle** — DCT_153 is driving the bulk of the ROAS improvement. If SpaceX IPO news cools, performance could regress. Diversifying with Anthropic IPO and other angles is critical.
+6. **(Updated March 2026) Creative pipeline concentration** — Day.ai shows 5 DCTs in March sprint, all still in "Concept" stage (not yet sent to client). Need to move briefs through production faster.
 
-### Recommended Actions
-1. **IMMEDIATE:** Scale DCT_137 Politics Proof UGC — 70% ROAS early signal, highest Rev/User ($6.27). Create more politics + UGC variants.
-2. **IPO CONCEPT:** Rabii proposed IPO angle (SpaceX, Databricks, Discord, Cerebras, Kraken, Strava) — MarketBeat has IPO list LP.
-3. **SMS STRATEGY:** Prioritize LPs with SMS opt-in flows to close the 6.8x gap
-4. **CREATIVE CADENCE:** Match GrowJoy's themed LP rotation — new offer every 2-3 weeks
-5. **DO NOT** reactivate DCT_149 Nuclear Boom or use nuclear B-roll in any creative — account ban risk per Matt.
+### Recommended Actions (Updated March 2026)
+1. **SCALE DCT_153 (SpaceX IPO)** — Top priority. 128.7% ROAS. Increase budget allocation immediately.
+2. **LAUNCH Anthropic IPO concepts** — Luiz committed to having ads ready by end of next week / early April. Rabii to use AI landing page. Capitalize on high Google Trends interest.
+3. **TEST Advertorial LPs** — Matt shared 4 advertorial-style LPs on Mar 16 (`AdvertorialOffer.aspx?v=1-4`). These are new LP formats TFM hasn't tested yet.
+4. **BUILD MORE SPACE VARIANTS** — DCT_156 and DCT_157 briefs ready. Multiple hook variants written. Push through production.
+5. **REQUEST BUDGET INCREASE** — With sustained 13.8 pt ROAS lead, revisit Matt's promise of 2x budget. Frame as "we've proven performance, here's how we'd deploy additional budget."
+6. **DO NOT** reactivate DCT_149 Nuclear Boom or use nuclear B-roll in any creative — account ban risk per Matt.
+7. **MONITOR Rev/User gap** — TFM Rev/User ($5.57) still trails GrowJoy ($6.13) by $0.56. As Space Stocks LP scales with SMS capture, this should narrow.
 
 ---
 
@@ -145,7 +216,21 @@ The relationship hinges entirely on closing the ROAS gap. Matt is data-driven an
 | Growjoy - Leads Campaign - CBO | GrowJoy | $100/day | Lowest Cost | Mar 5, 2026 |
 | The Feed Media DCT-ACTIVE | TFM | $2,000/day | Lowest Cost | Oct 3, 2025 |
 
-### Performance Comparison (March 1–8, n8n Daily ROAS Reports — Source of Truth)
+### Performance Comparison — LATEST (March 1–20, n8n Daily ROAS Reports) (Updated March 2026)
+
+| Metric | TFM | GrowJoy | Gap |
+|--------|-----|---------|-----|
+| **Spend** | $39,491 | $189,900 | GJ 4.8x |
+| **Revenue** | $24,804 | $93,022 | — |
+| **ROAS** | **62.8%** | **49.0%** | **+13.8 pts TFM** |
+| **Revenue Leads** | 4,455 | 15,179 | — |
+| **Meta Website Leads** | 4,048 | 11,358 | — |
+| **CPL (Revenue Leads)** | **$8.86** | **$12.51** | **TFM $3.65 cheaper** |
+| **Rev/User** | $5.57 | $6.13 | -$0.56 |
+| **Confirmed Sales** | 40 | 176 | — |
+| **SMS Opt-ins** | 885 | 2,379 | GJ 2.7x more |
+
+### Performance Comparison (March 1–8, n8n Daily ROAS Reports — Historical)
 
 | Metric | TFM | GrowJoy | Gap |
 |--------|-----|---------|-----|
@@ -173,7 +258,7 @@ The relationship hinges entirely on closing the ROAS gap. Matt is data-driven an
 | **LP Views** | 9,077 | 59,043 | 311 |
 | **LP CVR (pixel leads/LPV)** | **15.32%** | **8.67%** | 9.97% |
 
-**NOTE ON CPL DISCREPANCY:** Pipeboard shows GrowJoy pixel CPL at $15.47, but the n8n daily ROAS report shows $11.21. This is because the n8n report uses "Revenue Leads" (6,419) — which includes SMS and co-reg attributed leads — while Pipeboard counts only Meta pixel lead events (5,116). GrowJoy's LP strategy generates 1.38 revenue leads per pixel lead (via SMS opt-ins), while TFM generates only 1.03. **The n8n daily ROAS reports are the source of truth for CPL comparisons. CPLs are essentially even ($11.53 vs $11.21).**
+**NOTE ON CPL DISCREPANCY:** Pipeboard shows GrowJoy pixel CPL at $15.47, but the n8n daily ROAS report shows $11.21. This is because the n8n report uses "Revenue Leads" (6,419) — which includes SMS and co-reg attributed leads — while Pipeboard counts only Meta pixel lead events (5,116). GrowJoy's LP strategy generates 1.38 revenue leads per pixel lead (via SMS opt-ins), while TFM generates only 1.03. **The n8n daily ROAS reports are the source of truth for CPL comparisons.**
 
 ### TFM Ad-Level Performance (March 1–9)
 
@@ -186,10 +271,20 @@ The relationship hinges entirely on closing the ROAS gap. Matt is data-driven an
 | DCT_137_Politics Proof | $651 | 46 | $14.15 | 5.04% | **ACTIVE** |
 | DCT_151_Last one to buy | $547 | 50 | **$10.95** | 2.68% | **ACTIVE** — promising CPL |
 | DCT_134_Results Speak | $351 | 22 | $15.96 | 4.10% | PAUSED |
-| DCT_149_Nuclear Boom | $296 | 34 | **$8.70** | 4.09% | PAUSED — **lowest CPL, needs scale** |
+| DCT_149_Nuclear Boom | $296 | 34 | **$8.70** | 4.09% | PAUSED — **KILLED by Matt. Do NOT reactivate.** |
 | DCT_150_Eccentric Millionaire | $216 | 15 | $14.40 | 2.97% | **ACTIVE** — early |
 
-**TFM Winners:** DCT_151 Last One to Buy ($10.95), DCT_131 Sector Rotation ($11.21), DCT_132 Near Retiree ($11.50)
+### TFM Ad-Level Performance — MTD Top 3 (March 1–20) (Updated March 2026)
+
+| DCT | Angle | Revenue | Spend | ROAS | Key Signal |
+|-----|-------|---------|-------|------|------------|
+| **DCT_153** | SpaceX IPO | $5,628 | $4,373 | **128.7%** | 3 days live. Scale priority #1. |
+| **DCT_132** | Near Retiree | $4,426 | $5,939 | **74.5%** | Best converter to paid subs |
+| **DCT_137** | Politics Proof | $6,251 | $12,860 | **48.6%** | Strong sales rate, highest total revenue |
+
+**(Updated March 2026) 3-Day Hot Streak (Mar 14-17):** Spend $8,088, Revenue $5,510, ROAS 68.1%, Rev/User $9.53, 15 confirmed sales, CPL $11.51. This was driven by DCT_132 (Near Retiree) and DCT_137 (Politics Proof) before the IPO ad even launched.
+
+**TFM Winners:** DCT_153 SpaceX IPO (128.7% ROAS), DCT_132 Near Retiree (74.5%), DCT_137 Politics Proof (48.6%)
 **KILLED:** DCT_149 Nuclear Boom — Matt personally paused Mar 6 ("That's the ad that got our old account banned"). Do NOT reactivate or recommend scaling.
 
 ### GrowJoy Ad-Level Performance (March 1–9)
@@ -207,7 +302,7 @@ The relationship hinges entirely on closing the ROAS gap. Matt is data-driven an
 | Feb 24 | $834 | 88 | $9.48 | 12.88% |
 | Feb 25 | $829 | 44 | $18.84 | 19.59% |
 
-**GrowJoy's top 3 ad sets by spend have CPLs of $15.84–$16.98.** They are buying volume at a premium CPL that TFM is not paying.
+**GrowJoy's top 3 ad sets by spend have CPLs of $15.84-$16.98.** They are buying volume at a premium CPL that TFM is not paying.
 
 ### Structural Differences (From Ad Account Data)
 
@@ -220,6 +315,7 @@ The relationship hinges entirely on closing the ROAS gap. Matt is data-driven an
 #### 2. Creative Refresh Cadence
 - **GrowJoy:** Creates new dynamic creative ad sets every 2-5 days (Jan 30, Feb 3, 4, 7, 7v2, 7v2.2, 7v2.3, 9, 9-SP, 12, 17, 18, 24, 25, Mar 5). **28+ ad sets created in ~2 months.**
 - **TFM:** DCT numbering shows ~20 concepts total since October 2025 (DCT_001 through DCT_151, many gaps/paused).
+- **(Updated March 2026)** TFM creative velocity increasing: DCT_153 through DCT_157 all created in March. Luiz also committed to Anthropic IPO concepts for late March/early April. Sprint target: 5 DCTs for March.
 
 **Implication:** GrowJoy's rapid iteration gives Meta's algorithm more signals faster. TFM needs to increase creative velocity.
 
@@ -240,6 +336,10 @@ Both agencies use:
 
 **Implication:** GrowJoy concentrates budget on winners and lets them run. TFM spreads budget thin across more concepts.
 
+#### 5. (Updated March 2026) Creative Format Differences
+- **GrowJoy:** Uses Arcads + AI voiceover in archive-style ads. Text-heavy, report-focused.
+- **TFM:** Uses text-over-video and UGC. Now transitioning to also include archive-style ads (per Mar 12 strategy recap — Luiz committed to Arc ad format for SpaceX concepts).
+
 ### Landing Page Strategy
 GrowJoy rotates **themed premium report landing pages** on earlybirdpublishing.com:
 
@@ -248,69 +348,81 @@ GrowJoy rotates **themed premium report landing pages** on earlybirdpublishing.c
 | Space Stocks | `/PDFoffer.aspx?offer=spacestocks` | Active — highest volume |
 | Top 5 Stocks | `/PDFoffer.aspx?offer=top5` | Active |
 | New Year Stocks | `/PDFoffer.aspx?offer=newyear` | Retired/seasonal |
+| High-Yield Dividend | `/PDFoffer.aspx?offer=highyield` | (Updated March 2026) Active — shared by Luiz in Slack Mar 19 |
+
+**(Updated March 2026) TFM LP Expansion:**
+
+| LP Theme | URL | Status |
+|----------|-----|--------|
+| Space Stocks (earlybirdpublishing) | `earlybirdpublishing.com/users/PDFoffer.aspx?offer=spacestocks` | Active — driving DCT_153 performance |
+| Space Stocks (marketbeat.com) | `marketbeat.com/newsletter/pdfoffer.aspx?offer=spacestocks` | Active — shared by Matt Mar 11 |
+| High-Yield Dividend | `marketbeat.com/newsletter/PDFOffer.aspx?offer=highyield` | Available — shared by Luiz Mar 19 |
+| 10 Best Stocks | `marketbeat.com/newsletter/PDFoffer.aspx?offer=newyear` | Active (legacy) |
+| Advertorial v1-v4 | `marketbeat.com/newsletter/AdvertorialOffer.aspx?v=1-4` | (Updated March 2026) New — shared by Matt Mar 16. Untested by TFM. |
 
 **Every GrowJoy LP includes:**
 - Dynamic date ("March 9, 2026")
 - "$29.97 report — yours FREE today" urgency copy
-- Optional SMS opt-in checkbox (drives their 7x SMS advantage)
+- Optional SMS opt-in checkbox (drives their SMS advantage)
 - Clean, single-purpose design
 
-**TFM was stuck on a single "10 Stocks Report" LP for months.** This is the #1 structural disadvantage. Space stocks LP now ready for TFM: `earlybirdpublishing.com/users/PDFoffer.aspx?offer=spacestocks&RegistrationCode=meta-thefeedmedia-dct199`
+### The ROAS Gap — Root Cause Analysis (Updated March 2026)
 
-### The ROAS Gap — Root Cause Analysis
+**(Updated March 2026) THE GAP HAS FLIPPED.** TFM is now 13.8 pts ahead on ROAS. However, the Rev/User gap persists (-$0.56), meaning GrowJoy still monetizes each lead better. TFM's lead comes from dramatically lower CPL ($8.86 vs $12.51) which more than compensates.
 
-**The gap is NOT CPL.** CPLs are essentially even ($11.53 TFM vs $11.21 GrowJoy).
+**Why TFM is now winning on ROAS:**
+1. **SpaceX IPO creative breakthrough** — DCT_153 at 128.7% ROAS with $4 CPL is an outlier performer
+2. **CPL compression** — TFM CPL dropped from $11.53 (Mar 1-8) to $8.86 (Mar 1-20), a 23% improvement. GrowJoy CPL increased from $11.21 to $12.51.
+3. **CVR improvement** — TFM CVR hit 14.82% in the Mar 13-19 week, up 52% WoW. GrowJoy CVR at 5.56%.
+4. **CPM efficiency maintained** — TFM CPM at $44.47 vs GrowJoy $75.16 (41% cheaper)
 
-**The gap IS downstream revenue per user:**
-- GrowJoy Rev/User: $4.89
-- TFM Rev/User: $4.59
-- Delta: $0.30/user
+**Remaining gap — Rev/User:**
+- GrowJoy Rev/User: $6.13
+- TFM Rev/User: $5.57
+- Delta: $0.56/user (was $0.30 at Mar 8)
+- Root cause: GrowJoy still generates more SMS opt-ins per lead (2.7x gap, down from 7x)
 
-**Why GrowJoy earns more per user:**
-1. **SMS opt-in volume** — GrowJoy's premium report LPs include SMS checkboxes. 1,529 SMS opt-ins vs TFM's 216 in 8 days (7x gap). SMS drives affiliate revenue through blasts.
-2. **Revenue lead amplification** — GrowJoy generates 1.38 revenue leads per pixel lead (6,419 rev leads / 4,647 website leads) vs TFM's 1.03 ratio (1,298 / 1,265). Their LP/SMS strategy creates ~38% more revenue-attributable leads per Meta-tracked conversion.
-3. **Volume advantage** — At $72K spend vs $15K, GrowJoy's revenue attribution has more statistical power and more pixel signals for optimization.
-
-### Where GrowJoy Wins
-1. **Revenue lead amplification** — 1.38 revenue leads per pixel lead vs TFM's 1.03 (SMS/co-reg strategy)
-2. **SMS capture** — 7x more opt-ins (1,529 vs 216) = more downstream affiliate revenue
-3. **Creative velocity** — 28+ ad sets in 2 months vs TFM's ~20 concepts in 5 months
+### Where GrowJoy Wins (Updated March 2026)
+1. **Revenue per user** — $6.13 vs $5.57 (SMS/co-reg strategy still ahead)
+2. **SMS capture** — 2.7x more opt-ins (2,379 vs 885) — down from 7x, narrowing
+3. **Budget/volume** — $190K/month -> more data, more pixel signals
 4. **Dynamic creative** — Lets Meta optimize across multiple variants per ad set
-5. **Budget concentration** — $4K/day on winners vs TFM's $2K/day spread thin
-6. **Volume** — $100K/month → more data, faster optimization, more pixel signals
+5. **Creative velocity** — Still higher iteration rate, though TFM is catching up
 
-### Where TFM Wins
-1. **LP conversion rate** — 15.32% vs 8.67% (1.8x better pixel CVR)
-2. **CPM efficiency** — $38.55 vs $55.29 (30% cheaper impressions)
-3. **UGC creative** — GrowJoy hasn't tested; TFM has production capability
-4. **Market timing hooks** — January Effect hit 102% ROAS; GrowJoy doesn't do event-driven
-5. **DCT_149 Nuclear Boom** — $8.70 pixel CPL, paused too early, needs reactivation and scale
+### Where TFM Wins (Updated March 2026)
+1. **ROAS** — 62.8% vs 49.0% (+13.8 pts)
+2. **CPL** — $8.86 vs $12.51 (29% cheaper)
+3. **LP conversion rate** — 14.82% vs 5.56% (2.7x better, week of Mar 13-19)
+4. **CPM efficiency** — $44.47 vs $75.16 (41% cheaper)
+5. **SpaceX IPO creative** — 128.7% ROAS, a format GrowJoy hasn't matched
+6. **UGC creative** — GrowJoy hasn't tested; TFM has production capability
+7. **Market timing hooks** — January Effect 102%, SpaceX IPO 128.7% — event-driven is TFM's moat
 
-### Nathan's Wednesday Meeting (March 8 Escalation)
+### Nathan's Wednesday Meeting — COMPLETED (March 11) (Updated March 2026)
 
 **Nathan's message (March 8):**
 > "I'd like to have an internal meeting about this this week where you guys show me the creative / media buying decisions we're making vs. Growjoy. I don't see why we are not able to match them on ROAS when we can see precisely what they are doing in the account and what is driving ROAS."
 
-**Assigned prep:**
-- Jay: Organize meeting
-- Luiz: Creative mix analysis (TFM vs GrowJoy angles, formats, LPs)
-- Rabii: Media buying analysis (targeting, placements, bid strategy)
+**Meeting held Mar 11** — Nathan x Jay x Rabii x Luiz. Key outcomes:
+1. Framed the real gap as Rev/User, not CPL (CPLs were matched)
+2. Identified Space Stocks LP as #1 priority — Matt confirmed "it's all spacex related right now"
+3. Matt shared top affiliate VSL links — Brownstone "beating everything else by a mile"
+4. Nathan directive: study Brownstone VSL framing and echo in ad creative
+5. Luiz committed to 3 new SpaceX Arc-style ad concepts
+6. Action items assigned to Luiz (creative) and Rabii (media buying)
 
-**Nathan's expectation:**
-> "I want the team to have time to collect thoughts on the LPs being used, angles, specific parts of Growjoy copy, etc."
+**Post-meeting results:** The strategy produced a dramatic reversal — TFM went from -4.8 pts to +13.8 pts on ROAS within 10 days.
 
-**Meeting moved to Wednesday by Sindy.**
-
-### Recommended Wednesday Meeting Agenda
-1. **Frame the real gap** — CPLs are even ($11.53 vs $11.21). The gap is ROAS (39.8% vs 43.6%) driven by Rev/User ($4.59 vs $4.89) and SMS volume (216 vs 1,529).
-2. **Revenue lead amplification** — GrowJoy gets 1.38 revenue leads per pixel lead vs TFM's 1.03. Their LP + SMS strategy creates 38% more monetizable leads per conversion.
-3. **Space stocks LP launch plan** — LP is ready (confirmed by Rabii). Luiz creating 4 new creatives. Also: high yield stocks LP available.
-4. **Nathan's conference angles** — SpaceX IPO downstream plays, Porter 1776 offer (NOTE: Nuclear/energy angle KILLED by Matt — do not propose)
-5. **Dynamic creative test** — Propose bundling 3-4 creative variants per ad set like GrowJoy
-6. **Budget concentration** — Kill underperformers, scale DCT_132 (Near Retiree), scale DCT_137 (Politics Proof UGC — 70% ROAS signal)
-7. **Creative velocity commitment** — Match GrowJoy's cadence: new ad set every 3-5 days
-8. **UGC test proposal** — GrowJoy hasn't tested this; TFM competitive moat
+### Recommended Next Steps (Updated March 2026)
+1. **Scale DCT_153 (SpaceX IPO)** — #1 priority per Rabii's Friday report to Matt
+2. **Launch Anthropic IPO concepts** — Luiz building; target late March / early April
+3. **Test Advertorial LPs** — Matt shared 4 variants Mar 16, untested
+4. **Push DCT_156 / DCT_157 through production** — Briefs written, need design completion
+5. **Request budget increase** — Performance now justifies revisiting Matt's 2x budget promise
+6. **Monitor Rev/User convergence** — Track if Space Stocks LP SMS capture narrows the remaining $0.56 gap
+7. **Creative velocity** — Maintain pace of new concepts. March sprint has 5 in concept stage; need to push to launched.
+8. **DO NOT** reactivate DCT_149 Nuclear Boom or use nuclear B-roll — account ban risk
 
 ---
 
-*Sources: Meta Ads Manager via Pipeboard (act_1129788478833121 — campaign, ad set, and ad-level data, March 1-9 2026), Day AI (org records for mattpaulson.com, earlybirdpublishing.com, growjoy.co; meeting recordings; opportunities), Slack (#internal-marketbeat daily ROAS reports Mar 1-8, Nathan Mar 8 escalation thread), Notion (Client OS, Competitors page, Bi-Weekly March 3, Friday Report Feb 27). Last updated: March 9, 2026.*
+*Sources: Meta Ads Manager via Pipeboard (act_1129788478833121 — campaign, ad set, and ad-level data, March 1-9 2026), n8n Daily ROAS Reports (Mar 1-20 2026), Day AI (org records for marketbeatmail.com, analystratings.net; opportunities MB-DCT_001-005; contacts Maureen Ohm, Don Miller, Alix Andal; actions), Slack (#internal-marketbeat daily ROAS reports + weekly ad reports Mar 1-20, #thefeed-marketbeat client-facing Friday reports + Matt Paulson messages, Nathan Mar 8 escalation + Mar 20 celebration), Notion (Strategy Call Mar 11, Competitive Deep-Dive, DCT_156 Brief, DCT_157 Brief, Designer Briefs DB). Last updated: March 21, 2026.*
