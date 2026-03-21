@@ -1,0 +1,240 @@
+{
+  "name": "YouTube Transcript → Vault Pipeline",
+  "nodes": [
+    {
+      "parameters": {
+        "event": "message",
+        "channelId": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        },
+        "options": {
+          "onlyMessage": true
+        }
+      },
+      "id": "node-slack-trigger",
+      "name": "Slack Trigger",
+      "type": "n8n-nodes-base.slackTrigger",
+      "typeVersion": 1,
+      "position": [240, 300],
+      "webhookId": "",
+      "notes": "Watches #ai-stuff for messages containing YouTube URLs. Set the channelId to your #ai-stuff channel ID after import."
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "loose"
+          },
+          "conditions": [
+            {
+              "id": "condition-youtube",
+              "leftValue": "={{ $json.text }}",
+              "rightValue": "youtube.com",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            },
+            {
+              "id": "condition-youtu-be",
+              "leftValue": "={{ $json.text }}",
+              "rightValue": "youtu.be",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "or"
+        }
+      },
+      "id": "node-filter",
+      "name": "Filter YouTube URLs",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2,
+      "position": [460, 300],
+      "notes": "Only passes through messages that contain a YouTube URL."
+    },
+    {
+      "parameters": {
+        "jsCode": "const message = $input.first().json.text || \"\";\n\nconst urlPatterns = [\n  /https?:\\/\\/(?:www\\.)?youtube\\.com\\/watch\\?v=([a-zA-Z0-9_-]+)/,\n  /https?:\\/\\/youtu\\.be\\/([a-zA-Z0-9_-]+)/,\n  /https?:\\/\\/(?:www\\.)?youtube\\.com\\/live\\/([a-zA-Z0-9_-]+)/,\n  /https?:\\/\\/(?:www\\.)?youtube\\.com\\/shorts\\/([a-zA-Z0-9_-]+)/\n];\n\nlet videoId = null;\nlet videoUrl = null;\n\nfor (const pattern of urlPatterns) {\n  const match = message.match(pattern);\n  if (match) {\n    videoId = match[1];\n    videoUrl = match[0];\n    break;\n  }\n}\n\nif (!videoId) {\n  throw new Error(\"No YouTube URL found in message\");\n}\n\nconst today = new Date().toISOString().split(\"T\")[0];\n\nreturn [{\n  json: {\n    videoId,\n    videoUrl,\n    originalMessage: message,\n    user: $input.first().json.user || \"unknown\",\n    timestamp: today\n  }\n}];"
+      },
+      "id": "node-extract-url",
+      "name": "Extract Video ID",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 300],
+      "notes": "Parses the YouTube video ID from the Slack message. Handles youtube.com/watch, youtu.be, /live/, and /shorts/ formats."
+    },
+    {
+      "parameters": {
+        "operation": "getTranscript",
+        "videoId": "={{ $json.videoId }}"
+      },
+      "id": "node-super-data",
+      "name": "Get Transcript",
+      "type": "n8n-nodes-superdata.superData",
+      "typeVersion": 1,
+      "position": [900, 300],
+      "notes": "Pulls the full transcript from YouTube using the Super Data community node. Falls back to auto-detected language if English captions aren't available."
+    },
+    {
+      "parameters": {
+        "jsCode": "const transcript = $input.first().json;\nconst urlData = $('Extract Video ID').first().json;\n\nconst title = transcript.title || \"Untitled Video\";\nconst channel = transcript.channelName || transcript.channel || \"Unknown Channel\";\nconst duration = transcript.duration || \"Unknown\";\nconst rawTranscript = transcript.transcript || transcript.text || \"No transcript available\";\n\n// Generate a clean filename slug\nconst slug = title\n  .toLowerCase()\n  .replace(/[^a-z0-9]+/g, '-')\n  .replace(/^-|-$/g, '')\n  .substring(0, 60);\n\n// Build the markdown file content\nconst fileContent = `---\\ntitle: \"${title.replace(/\"/g, '\\\\\"')}\"\\nchannel: \"${channel.replace(/\"/g, '\\\\\"')}\"\\nurl: \"${urlData.videoUrl}\"\\nduration: \"${duration}\"\\ncaptured: \"${urlData.timestamp}\"\\nprocessed: false\\n---\\n\\n# ${title}\\n**Channel:** ${channel}\\n**URL:** ${urlData.videoUrl}\\n**Duration:** ${duration}\\n**Captured:** ${urlData.timestamp}\\n\\n---\\n\\n## Raw Transcript\\n\\n${rawTranscript}\\n`;\n\nreturn [{\n  json: {\n    fileName: slug + '.md',\n    filePath: 'research/youtube-transcripts/' + slug + '.md',\n    fileContent,\n    commitMessage: 'youtube-transcript: ' + title,\n    title,\n    channel,\n    videoUrl: urlData.videoUrl,\n    slug\n  }\n}];"
+      },
+      "id": "node-format",
+      "name": "Format for Vault",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 300],
+      "notes": "Builds the markdown file with YAML frontmatter (processed: false) and the raw transcript. Generates a clean filename slug."
+    },
+    {
+      "parameters": {
+        "resource": "file",
+        "operation": "create",
+        "owner": "thefeedmedia",
+        "repository": "tfm-vault",
+        "filePath": "={{ $json.filePath }}",
+        "fileContent": "={{ $json.fileContent }}",
+        "commitMessage": "={{ $json.commitMessage }}",
+        "additionalParameters": {
+          "branch": "main"
+        }
+      },
+      "id": "node-github",
+      "name": "Write to GitHub",
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1,
+      "position": [1340, 300],
+      "credentials": {},
+      "notes": "Commits the transcript file to the tfm-vault repo. Obsidian Git will sync it to the local vault on next pull. Set your GitHub credential after import."
+    },
+    {
+      "parameters": {
+        "channel": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        },
+        "text": "={{ '✅ Transcript captured: *' + $json.title + '* (' + $json.channel + ')\\n' + $json.videoUrl + '\\nSaved to `' + $json.filePath + '` — will appear in Obsidian on next sync.\\n\\nProcess it anytime: ask Claude Code to read and extract insights from the transcript.' }}",
+        "otherOptions": {
+          "replyToMessageTs": "={{ $('Slack Trigger').first().json.ts }}"
+        }
+      },
+      "id": "node-slack-confirm",
+      "name": "Confirm in Slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.2,
+      "position": [1560, 300],
+      "credentials": {},
+      "notes": "Posts a confirmation reply in the thread where the URL was shared. Set the channel to #ai-stuff and your Slack credential after import."
+    },
+    {
+      "parameters": {
+        "channel": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        },
+        "text": "={{ '⚠️ YouTube transcript pipeline failed: ' + $json.error?.message || 'Unknown error. Check the workflow execution log.' }}",
+        "otherOptions": {}
+      },
+      "id": "node-error",
+      "name": "Error Alert",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.2,
+      "position": [1120, 520],
+      "credentials": {},
+      "notes": "If anything fails, posts the error to #ai-stuff. Common failures: no captions available, GitHub token expired, Super Data not installed."
+    }
+  ],
+  "connections": {
+    "Slack Trigger": {
+      "main": [
+        [
+          {
+            "node": "Filter YouTube URLs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter YouTube URLs": {
+      "main": [
+        [
+          {
+            "node": "Extract Video ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Video ID": {
+      "main": [
+        [
+          {
+            "node": "Get Transcript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Transcript": {
+      "main": [
+        [
+          {
+            "node": "Format for Vault",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format for Vault": {
+      "main": [
+        [
+          {
+            "node": "Write to GitHub",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Write to GitHub": {
+      "main": [
+        [
+          {
+            "node": "Confirm in Slack",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": ""
+  },
+  "tags": [
+    {
+      "name": "youtube",
+      "id": "tag-youtube"
+    },
+    {
+      "name": "vault",
+      "id": "tag-vault"
+    }
+  ]
+}

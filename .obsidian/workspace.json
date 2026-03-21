@@ -37,12 +37,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "research/claude-extensions-connectors.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "claude-extensions-connectors"
             }
           }
         ],
@@ -246,6 +246,15 @@
   },
   "active": "8498ff5326e43f3c",
   "lastOpenFiles": [
+    "research/friday-report-database-batch3.md",
+    "research/claude-code-power-user-guide.md",
+    "research/gm-friday-report-scorecard.md",
+    "README.md",
+    "research/n8n-youtube-transcript-workflow.json",
+    "research/skills-automation-roadmap.md",
+    "research/n8n-youtube-transcript-pipeline.md",
+    "memory/MEMORY.md",
+    "memory/external-ai-tooling-knowledge.md",
     "CLAUDE.md",
     "Untitled.base",
     "Untitled.canvas",
@@ -267,21 +276,12 @@
     "clients/vendry/claude-chat-project.md",
     "clients/mdhair/deep-enrichment.md",
     "clients/big-desk-energy/deep-enrichment.md",
-    "clients/rnt-fitness/deep-enrichment.md",
-    "clients/just-womens-sports/claude-chat-project.md",
-    "clients/status-news/deep-enrichment.md",
-    "clients/quartz/deep-enrichment.md",
-    "clients/student-loan-planner/deep-enrichment.md",
-    "clients/houck/deep-enrichment.md",
-    "system/client-meeting-database.md",
-    "clients/franklins-forum/claude-chat-project.md",
     "templates",
     "dashboards",
     "copilot/copilot-custom-prompts",
     "copilot",
     "clients/mdhair",
     "clients/vendry",
-    "clients/just-womens-sports",
-    "clients/1636-forum"
+    "clients/just-womens-sports"
   ]
 }
