@@ -51,6 +51,8 @@
 5. Build `/onboard-client` (P3 — new client setup automation)
 6. Investigate Status News pixel/tracking issue
 7. Get Pipeboard access for Vendry, Jay Shetty, JWS
+8. **Unified Performance DB** — ad-level Pipeboard backfill (Tier 2) as fatigue scans run organically; ESP integration as clients connect (Beehiiv first, then Sailthru/custom). Goal: join Meta ad performance with ESP engagement per UTM source.
+9. Add ESP tables to `system/pipeboard-cache.py` (subscriber engagement by UTM source, open rates, click rates)
 
 ## Relevant Files
 - `research/skills-automation-roadmap.md` — Full roadmap with specs

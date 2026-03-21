@@ -38,3 +38,6 @@ tokens.*
 
 # Ignore Smart Environment folder
 .smart-env
+
+# Local performance cache (SQLite) — tracked in git so team has shared data
+# system/data/pipeboard.db

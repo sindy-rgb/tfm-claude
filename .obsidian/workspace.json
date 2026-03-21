@@ -37,12 +37,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "clients/marketbeat/deep-enrichment.md",
+                "file": "system/state/skills-build.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "deep-enrichment"
+              "title": "skills-build"
             }
           }
         ],
@@ -246,6 +246,28 @@
   },
   "active": "8498ff5326e43f3c",
   "lastOpenFiles": [
+    "reports/vault-data-audit-2026-03-21.md",
+    "clients/quartz/delivra-raw/report_10217803_opens.json",
+    "clients/quartz/delivra-raw/report_10217803_sends.json",
+    "clients/quartz/delivra-raw/report_10217799_opens.json",
+    "clients/quartz/delivra-raw/report_10217799_sends.json",
+    "clients/quartz/delivra-raw/report_10216296_opens.json",
+    "clients/quartz/delivra-raw/report_10216296_sends.json",
+    "clients/quartz/delivra-raw/report_10216288_opens.json",
+    "clients/quartz/delivra-raw/report_10216288_sends.json",
+    "clients/quartz/delivra-raw/report_10216287_opens.json",
+    "clients/quartz/delivra-raw/report_10216287_sends.json",
+    "reports/jay-monday-briefing-2026-03-24.md",
+    "system/state/skills-qa-plan.md",
+    "clients/quartz/delivra-export-results.md",
+    "clients/quartz/delivra-api-v2-plan.md",
+    "system/state/README.md",
+    "system/skills.md",
+    "reports/portfolio-pulse-2026-03-21.md",
+    "clients/stocks-and-income/lead-magnet-strategy.md",
+    "clients/marketbeat/marketbeat.md",
+    "clients/marketbeat/growjoy-competitive-analysis-march2026.md",
+    "clients/marketbeat/deep-enrichment.md",
     "templates/meeting-notes.md",
     "README.md",
     "CLIENT-INTELLIGENCE-SUMMARY.md",
@@ -260,28 +282,6 @@
     "memory/MEMORY.md",
     "memory/external-ai-tooling-knowledge.md",
     "memory/claude-memory-index.md",
-    "system/state/README.md",
-    "system/claude-chat-project-instructions.md",
-    "system/client-config-template.md",
-    "system/client-framework-mappings.md",
-    "system/client-meeting-database.md",
-    "system/client-template.md",
-    "system/framework.md",
-    "system/onboarding-prompts.md",
-    "system/portfolio-status.md",
-    "system/skills.md",
-    "system/tfm-creative-frameworks.md",
-    "reports/portfolio-pulse-2026-03-21.md",
-    "reports",
-    "Untitled.canvas",
-    "Untitled.base",
-    "system/state",
-    "research/n8n-youtube-transcript-workflow.json",
-    "copilot/system-prompts",
-    "templates",
-    "dashboards",
-    "copilot/copilot-custom-prompts",
-    "copilot",
-    "clients/mdhair"
+    "Untitled.canvas"
   ]
 }

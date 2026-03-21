@@ -40,7 +40,7 @@
 |-------|-------|
 | `meta_account_id` | act_2130099530351734 |
 | `campaign_ids` | Large account (25+ campaigns). Key active: 120243581177760663 (IssuerMulti CONV), 120243531943670663 (HX Expeditions), 120243458127810663 (Sandals), 120243403779560663 (Chase CSR/CSP), 120243197880070663 (MSC Awards SFV), 120243119734100663 (Capital One CCCA), 120242854301020663 (AMEX Delta Carousel), 120242619114510663 (MSC Best New Ship), 120242409222590663 (Bilt CONV), 120242365532870663 (Frontier Airlines), 120242060399380663 (Capital One SXSW) |
-| `tfm_campaign_ids` | N/A — TPG runs campaigns via Red Ventures internal team; TFM provides creative/strategy support |
+| `tfm_campaign_ids` | 120216387459500663 (Active — The Feed Media \| Newsletter Leads \| Video and image assets — $3,400/day), 120239047814670663 (Paused — The Feed Media \| Newsletter Leads \| Ad set / angle — Andromeda-only campaign, paused ~Mar 2026) |
 | `competitor_name` | N/A |
 | `competitor_campaign_ids` | N/A |
 | `ad_account_type` | client-managed (Red Ventures / FinServ) |
@@ -133,6 +133,21 @@
 |-------|-------|
 | `utm_format` | standard (utm_source=facebookads&utm_medium={{adset.name}}&utm_campaign={{ad.name}}) |
 | `tracking_notes` | Andromeda campaign paused — ROAS degraded at scale. BAU remains primary. DCT 239 (couples angle) capped at 5% until 6-week ROAS matures. |
+
+---
+
+## Scaling Rules (from Mar 17-19 syncs — Nathan/Jay/Rabii)
+
+| Rule | Detail |
+|------|--------|
+| `roas_validation_required` | No ad can scale beyond 5% of total spend until 6-week ROAS is validated via Louisa's cohort dashboard |
+| `min_spend_threshold` | $50-100/day minimum per ad to accelerate learning signals on this size account |
+| `max_unvalidated_spend` | New concepts capped at ~5% of total campaign spend until ROAS data matures (6 weeks from launch) |
+| `top_performer_mix` | Maintain a minimum % allocation to proven ROAS ads (DCT 139.2, 156, 102, 171) — don't let new concepts cannibalize top performers |
+| `kill_criteria` | 3 consecutive months of low ROAS = kill regardless of CPL (DCT 118.2 precedent). Meta optimizing for CPL does NOT mean the ad is good. |
+| `no_friday_launches` | Don't launch new ads on Fridays if unable to monitor over the weekend |
+| `no_automated_rules` | Don't use Meta automated rules — preference for manual account checks and active management |
+| `roas_data_source` | Louisa Nino's cohort-based ROAS dashboard (requested Monday, received Monday/Tuesday) |
 
 ---
 

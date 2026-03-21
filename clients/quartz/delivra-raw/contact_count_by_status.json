@@ -1,0 +1,18 @@
+[
+  {
+    "MemberType_": "unsub",
+    "MemberCount_": 26804
+  },
+  {
+    "MemberType_": "normal",
+    "MemberCount_": 694111
+  },
+  {
+    "MemberType_": "confirm",
+    "MemberCount_": 183
+  },
+  {
+    "MemberType_": "held",
+    "MemberCount_": 40020
+  }
+]
