@@ -23,12 +23,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "research/obsidian-superbrain-research.md",
+                "file": "research/qa-log-v4.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "obsidian-superbrain-research"
+              "title": "qa-log-v4"
             }
           }
         ],
@@ -105,7 +105,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "research/obsidian-superbrain-research.md",
+                "file": "research/qa-log-v4.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for obsidian-superbrain-research"
+              "title": "Backlinks for qa-log-v4"
             }
           },
           {
@@ -212,6 +212,9 @@
   },
   "active": "14532f1389d72f50",
   "lastOpenFiles": [
+    "research/obsidian-superbrain-research.md",
+    "research/qa-log-v4.md",
+    "research/n8n-friday-report-automation.md",
     "templates/bi-weekly-prep.md",
     "templates/new-client.md",
     "templates/friday-report.md",
@@ -241,11 +244,8 @@
     "clients/mdhair",
     "clients/vendry/vendry.md",
     "clients/vendry",
-    "clients/just-womens-sports/just-womens-sports.md",
     "clients/just-womens-sports",
-    "clients/1636-forum/1636-forum.md",
     "clients/1636-forum",
-    "clients/franklins-forum/franklins-forum.md",
     "clients/franklins-forum",
     "clients/student-loan-planner"
   ]
