@@ -234,7 +234,7 @@ WorkWeek operates as a **newsletter collective** rather than a single newsletter
 4. Shared operational costs
 
 ### Competitive Moat
-- **Creator-led** brands (Hebba for IHIH, Alex for TMM) vs. faceless competitors
+- **Creator-led** brands (Hebba for IHIH, Daniel Murray for TMM, Alex Johnson for FTT) vs. faceless competitors
 - **Vertical depth** vs. horizontal breadth of Morning Brew network
 - **$22.9M in funding** provides scaling runway competitors lack
 
