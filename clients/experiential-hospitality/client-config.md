@@ -73,7 +73,7 @@
 | Field | Value |
 |-------|-------|
 | `esp` | GoHighLevel |
-| `esp_api_access` | TBD |
+| `esp_api_access` | GHL PIT active (2026-03-22). LocationId: `xgJoJRhNhnTWYxeTEFtK` |
 | `esp_dashboard_url` | N/A |
 | `esp_metrics` | calls_booked, opportunity_tracking, appointment_reports |
 

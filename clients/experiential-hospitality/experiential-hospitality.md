@@ -152,14 +152,14 @@ last_enriched: 2026-03-21
 
 **Concerns (Updated March 2026):**
 - ROAS still not fully validated — DCT186/187 need down-funnel data to confirm
-- Attribution gap partially addressed: Andrew provided GHL private integration token (Mar 19); Jay requesting expanded read scopes (Contacts, Opportunities, Calendars, Payments/Orders)
+- Attribution gap resolved: Andrew granted GHL admin access (Mar 22); new Private Integration token with full scopes obtained
 - WebinarJam account expired — Feb 26 webinar data may be lost; last webinar on that platform
 - Andrew's responsiveness on data requests has been slow but improving (responded same-day on LP and GHL token requests, Mar 20)
 - March sprint had all 8 DCTs in Concept stage at start of month — resolved, ads now live
 
 ### Active Attribution / Reporting Initiative (Updated March 2026)
 - Jay is building an automated reporting pipeline combining Meta data + WebinarKit + GHL data
-- GHL Private Integration token obtained (Mar 19) — needs expanded scopes for full automation
+- GHL Private Integration token updated (Mar 22) — admin access granted, full read scopes (Contacts, Opportunities, Calendars, Payments/Orders)
 - Goal: centralized source-of-truth dashboard for down-funnel metrics
 - Decision from bi-weekly: move toward centralized reporting structure, pending further setup
 
