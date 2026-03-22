@@ -12,24 +12,30 @@ description: >
 
 You detect creative fatigue across The Feed Media's (TFM) client ad accounts. You pull 14 days of ad-level data, compare week-over-week performance trajectories, and produce actionable kill/scale/iterate recommendations.
 
-## Local Performance Cache
+## Local Performance Database (Primary Data Source)
 
-A SQLite database at `system/data/pipeboard.db` caches all Pipeboard pulls. **Always use this workflow:**
+A SQLite database at `system/data/pipeboard.db` stores all ad performance data. **This is the primary data source — Pipeboard live pulls are the fallback.**
 
-1. **Check cache freshness first:** `python3 system/pipeboard-cache.py freshness`
-2. **If data is <24 hours old for this client**, use cached data instead of re-pulling from Pipeboard
-3. **If data is stale or missing**, pull from Pipeboard, then **ingest into cache:**
+**Tables:**
+- `ad_metrics` — 30 days of ad-level data: spend, impressions, clicks, cpc, cpm, ctr, conversions, cpl, frequency, reach per ad per client per day
+- `account_mapping` — maps client slugs to Meta account IDs and conversion types
+- `snapshots` — ingestion metadata with `created_at` timestamps for freshness checks
+
+**Standard workflow:**
+
+1. **Query the DB directly** for the client's 14-day ad data (see Phase 2, Step 0)
+2. **If data is <48 hours old**, use it — skip Pipeboard entirely
+3. **If data is stale or missing**, fall back to Pipeboard live pull, then **ingest into cache:**
    ```bash
-   # After pulling from Pipeboard, pipe the response into the cache
    echo '<pipeboard_json>' | python3 system/pipeboard-cache.py ingest <client-slug> ad [YYYY-MM-DD]
    ```
-4. **For historical trends**, query the cache directly:
+4. **For historical trends**, query the DB directly:
    ```bash
    python3 system/pipeboard-cache.py trends <ad_id>
    python3 system/pipeboard-cache.py query "SELECT * FROM ad_metrics WHERE client_slug='the-points-guy' ORDER BY date_start"
    ```
 
-This means over time, the cache builds a full history. A fatigue scan run 4 weeks from now can compare against today's data without re-fetching it.
+Over time, the DB builds a full history. A fatigue scan run 4 weeks from now can compare against today's data without re-fetching it.
 
 ## Usage
 
@@ -39,7 +45,7 @@ This means over time, the cache builds a full history. A fatigue scan run 4 week
 
 ## Step-by-Step Process
 
-### Phase 0: Load Client Context (MANDATORY — before any Pipeboard pull)
+### Phase 0: Load Client Context (MANDATORY — before any data pull)
 
 For each client being scanned:
 1. Read `clients/[slug]/[slug].md` — extract:
@@ -47,16 +53,21 @@ For each client being scanned:
    - Current strategic context (what's being tested, paused, restructured)
    - Risk level and relationship context
    - Per-DCT performance data already documented in the vault
-2. Read `clients/[slug]/client-config.md` — extract:
+2. Read `clients/[slug]/deep-enrichment.md` — extract:
+   - **Funnel structure** — what conversion event defines "fatigue" for this client (newsletter signup vs webinar registration vs app install vs trial start). A CTR drop on a webinar funnel means something different than on a newsletter signup funnel.
+   - **Competitive context** — seasonal patterns, market shifts, or platform changes that could explain performance dips (not everything is fatigue)
+   - **DCT performance history** — what concepts have been tested before, what creative angles are proven, what's been retired. This prevents recommending iterations on angles that already failed.
+   - **Google Drive creative audit** — current creative inventory and pipeline status
+3. Read `clients/[slug]/client-config.md` — extract:
    - `kpi_primary` and `kpi_secondary` — determines whether CPL, ROAS, V-CAC, or Cost Per Trial is the fatigue signal
    - `tfm_campaign_ids` — determines what to pull
    - Full Scaling Rules section if present (e.g., TPG has ROAS validation thresholds, spend caps)
    - `budget_notes` for scaling guardrails
-3. If `kpi_primary` or `kpi_secondary` mentions ROAS:
+4. If `kpi_primary` or `kpi_secondary` mentions ROAS:
    - Search the intel file for ROAS data (6-week ROAS, per-DCT ROAS, ROAS trends)
    - Check `kpi_primary` and `kpi_secondary` in client-config.md. If either mentions ROAS, apply the ROAS analysis rules in Phase 3b. Do not maintain a hardcoded list — client KPIs change.
    - Include vault ROAS data in the fatigue report even if Pipeboard can't provide it
-4. Store all context. **The fatigue report should LEAD with strategic context, then layer metrics on top.**
+5. Store all context. **The fatigue report should LEAD with strategic context, then layer metrics on top.**
 
 ### Pagination Protocol
 
@@ -89,6 +100,44 @@ If "all":
 | All others | 1 account each | Standard pull |
 
 ### Phase 2: Pull 14-Day Ad-Level Data
+
+#### Step 0: Check Local DB First (before any Pipeboard call)
+
+The SQLite database at `system/data/pipeboard.db` is the **primary data source**. Only fall back to live Pipeboard if the DB data is stale.
+
+**Query for ad-level data:**
+```sql
+SELECT * FROM ad_metrics
+WHERE client_slug = '[slug]'
+  AND date_start >= date('now', '-14 days')
+ORDER BY date_start, ad_id;
+```
+
+**Freshness check:**
+```sql
+SELECT MAX(created_at) as last_ingested
+FROM snapshots
+WHERE client_slug = '[slug]'
+  AND level = 'ad';
+```
+
+**Decision logic:**
+- If `last_ingested` is **<48 hours old** → use DB data. Skip the Pipeboard pull entirely for this client.
+- If `last_ingested` is **>48 hours old** or no rows returned → fall back to Pipeboard live pull (Step 1 below), then ingest the results into the cache for next time.
+- If DB returns data but covers **fewer than 10 of the last 14 days**, treat as incomplete and supplement with a Pipeboard pull for the missing date range.
+
+**Account mapping (if needed):**
+```sql
+SELECT account_id, conversion_type
+FROM account_mapping
+WHERE client_slug = '[slug]';
+```
+
+The DB has all the fields the fatigue scan needs: `spend`, `impressions`, `clicks`, `cpc`, `cpm`, `ctr`, `conversions`, `cpl`, `frequency`, `reach`, `ad_name`, `ad_id`, `campaign_id`, `date_start`, `date_stop`.
+
+When DB data is used, log: "Data source: local DB (last ingested: [timestamp])". When Pipeboard is used, log: "Data source: Pipeboard live pull (DB was stale: [timestamp])".
+
+#### Step 1: Pipeboard Live Pull (fallback only)
 
 **CRITICAL: Only pull ads from TFM-managed campaigns.** Use `tfm_campaign_ids` from client config — never pull at account level. Most clients have non-TFM campaigns running in their accounts.
 

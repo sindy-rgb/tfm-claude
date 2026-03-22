@@ -340,7 +340,7 @@
         "documentId": {
           "__rl": true,
           "mode": "id",
-          "value": "EH_CONSOLIDATED_SHEET_ID"
+          "value": "13NUfiz-VB_LFNJWW9tJFELkGV9E4W05Q7lEgpgOwNVg"
         },
         "sheetName": {
           "__rl": true,
@@ -379,14 +379,14 @@
           "name": "Google Sheets OAuth"
         }
       },
-      "notes": "Appends each closed deal as a row to the 'Closed Deals' tab. Columns: Close Date, Contact Name, Email, Revenue, DCT Number, TFM Attributed (boolean), UTM Source/Medium/Campaign, Webinar Tag, Tags, Contact Date Added, Opportunity ID, Contact ID. Replace 'EH_CONSOLIDATED_SHEET_ID' with actual spreadsheet ID after creating the Google Sheet. Create a tab named 'Closed Deals' with these column headers in Row 1."
+      "notes": "Appends each closed deal as a row to the 'Closed Deals' tab. Columns: Close Date, Contact Name, Email, Revenue, DCT Number, TFM Attributed (boolean), UTM Source/Medium/Campaign, Webinar Tag, Tags, Contact Date Added, Opportunity ID, Contact ID. Replace '13NUfiz-VB_LFNJWW9tJFELkGV9E4W05Q7lEgpgOwNVg' with actual spreadsheet ID after creating the Google Sheet. Create a tab named 'Closed Deals' with these column headers in Row 1."
     },
     {
       "parameters": {
         "documentId": {
           "__rl": true,
           "mode": "id",
-          "value": "EH_CONSOLIDATED_SHEET_ID"
+          "value": "13NUfiz-VB_LFNJWW9tJFELkGV9E4W05Q7lEgpgOwNVg"
         },
         "sheetName": {
           "__rl": true,
@@ -432,7 +432,7 @@
           "name": "Google Sheets OAuth"
         }
       },
-      "notes": "Appends one row per week to the 'Weekly Funnel' tab. Full funnel view: Meta (spend, registrations, CPL, impressions, clicks, CTR) → GHL (discovery calls booked/showed/no-show, setter calls booked/showed) → Closes (count, revenue, close rate, ROAS). Replace 'EH_CONSOLIDATED_SHEET_ID' with actual spreadsheet ID. Create a tab named 'Weekly Funnel' with these column headers in Row 1."
+      "notes": "Appends one row per week to the 'Weekly Funnel' tab. Full funnel view: Meta (spend, registrations, CPL, impressions, clicks, CTR) → GHL (discovery calls booked/showed/no-show, setter calls booked/showed) → Closes (count, revenue, close rate, ROAS). Replace '13NUfiz-VB_LFNJWW9tJFELkGV9E4W05Q7lEgpgOwNVg' with actual spreadsheet ID. Create a tab named 'Weekly Funnel' with these column headers in Row 1."
     },
     {
       "parameters": {
