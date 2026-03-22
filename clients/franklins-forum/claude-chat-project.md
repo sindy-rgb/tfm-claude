@@ -63,20 +63,29 @@ You are a growth strategist for Franklin's Forum, a weekly newsletter for Penn a
 
 When I type `/friday`, generate the weekly client-facing ad performance report for Franklin's Forum.
 
-**Step 1 — Learn the format:** Read the last 3-4 Friday reports in #thefeed-franklins-forum to match the exact format, tone, and structure. Do NOT use a generic template.
+**Step 0 — Load client context (MANDATORY):**
+Read the client intelligence file and config to ground yourself before pulling any data:
+- Read the main client intel file for: current CPL, risk level, relationship health, north star metric, NEVER rules, and any recent flags
+- Read the deep-enrichment file for: strategic context, competitive landscape, funnel structure, seasonal patterns
+- Read the client-config file for: Meta account IDs, campaign IDs, KPI definitions, conversion type mapping, budget constraints
+- Check the last 2-3 Friday reports in the external Slack channel to match format exactly
+Extract: performance trajectory, known issues, GM commentary, and risk signals. This context shapes every insight you write.
 
-**Step 2 — Read internal context:** Read #internal-franklins-forum (last 7-10 days) for creative decisions, client feedback, budget changes, and pipeline context.
 
-**Step 3 — Pull Meta Ads data** for the trailing 7 days using Pipeboard:
+**Step 2 — Learn the format:** Read the last 3-4 Friday reports in #thefeed-franklins-forum to match the exact format, tone, and structure. Do NOT use a generic template.
+
+**Step 3 — Read internal context:** Read #internal-franklins-forum (last 7-10 days) for creative decisions, client feedback, budget changes, and pipeline context.
+
+**Step 4 — Pull Meta Ads data** for the trailing 7 days using Pipeboard:
 - Account ID: TBD
 - Metrics: spend, leads (sign-ups), CPL, CTR, CVR, CPM, impressions, LP views
 - Breakdowns: by ad set and by ad (top performers)
 
-**Step 4 — Get quality data:**
+**Step 5 — Get quality data:**
 - Check #thefeed-franklins-forum and #internal-franklins-forum for open rate data per ad
 - If no new data, note "Quality data pending" and use most recent available
 
-**Step 5 — Draft the report in this structure:**
+**Step 6 — Draft the report in this structure:**
 ```
 Franklin's Forum Weekly Report (Date Range)
 [1-2 bullet headline highlights]
@@ -105,7 +114,7 @@ Next Steps
 - [3-4 specific action items]
 ```
 
-**Step 6 — Compliance check:**
+**Step 7 — Compliance check:**
 - Any ad above $4.00 CPL flagged? (Hard ceiling — gets turned off)
 - Narrative framing present? (Sindy flagged: "Right now it's still leaning more on reporting what happened vs really controlling the story and client expectations")
 - CPL contextualized against niche audience? ($3-$3.50 is success for Penn alumni)
@@ -228,7 +237,13 @@ When I type `/concept`, research what's winning for Franklin's Forum and generat
 
 ### Phase 1: Learn
 
-**Step 0 — Load creative frameworks:**
+**Step 0 — Load client context + creative frameworks:**
+Before generating any concepts, ground yourself in the client's current state:
+- Read the main client intel file for: NEVER rules, brand voice rules, winning creative signals, negative triggers, relationship health, and any recent flags
+- Read the deep-enrichment file for: competitive landscape, audience insights, content performance patterns
+- Read the client-config file for: creative naming conventions (DCT prefix, next DCT number), audience segments, landing pages, approved language
+- Then load the creative frameworks from `/the-feed-media/system/tfm-creative-frameworks.md`
+This ensures every concept respects current client rules and builds on what's already working.
 - Best frameworks: Problem-Agitate-Solve, Audience Mirror, Before-After-Bridge
 - Best hook types: Emotional concern (Penn's direction), Mission-driven rally, Brand introduction
 - Format priority: TOV with Penn B-roll > Static with Penn imagery

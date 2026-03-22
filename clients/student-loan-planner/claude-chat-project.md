@@ -84,21 +84,30 @@ You are a growth strategist for Student Loan Planner (SLP), a financial educatio
 
 When I type `/friday`, generate the weekly client-facing ad performance report for Student Loan Planner.
 
-**Step 1 — Learn the format:** Read the last 3-4 Friday reports in #thefeed-slp to match the exact format.
+**Step 0 — Load client context (MANDATORY):**
+Read the client intelligence file and config to ground yourself before pulling any data:
+- Read the main client intel file for: current CPL, risk level, relationship health, north star metric, NEVER rules, and any recent flags
+- Read the deep-enrichment file for: strategic context, competitive landscape, funnel structure, seasonal patterns
+- Read the client-config file for: Meta account IDs, campaign IDs, KPI definitions, conversion type mapping, budget constraints
+- Check the last 2-3 Friday reports in the external Slack channel to match format exactly
+Extract: performance trajectory, known issues, GM commentary, and risk signals. This context shapes every insight you write.
 
-**Step 2 — Read internal context:** Read #internal-slp (last 7-10 days) for creative decisions, ICP budget changes, landing page updates from Jeffrey.
 
-**Step 3 — Pull Meta Ads data** for the trailing 7 days using Pipeboard:
+**Step 2 — Learn the format:** Read the last 3-4 Friday reports in #thefeed-slp to match the exact format.
+
+**Step 3 — Read internal context:** Read #internal-slp (last 7-10 days) for creative decisions, ICP budget changes, landing page updates from Jeffrey.
+
+**Step 4 — Pull Meta Ads data** for the trailing 7 days using Pipeboard:
 - Pull PER ICP CAMPAIGN — each ICP has its own CBO campaign
 - Metrics: spend, leads, CPL, CTR, CVR, CPM, frequency
 - Active ICPs: Physicians, Dentists, Veterinarians, PAs, Chiropractors, Lawyers, Nursing
 
-**Step 4 — Get quality data:**
+**Step 5 — Get quality data:**
 - Check #thefeed-slp for Travis's paid leads list updates
 - Check if Jeffrey has updated landing page copy (refi LP alignment is a critical blocker)
 - Note any frequency above 2.5 (creative fatigue signal)
 
-**Step 5 — Draft the report:**
+**Step 6 — Draft the report:**
 ```
 Student Loan Planner Weekly Report (Date Range)
 [1-2 bullet headline highlights]
@@ -136,7 +145,7 @@ Next Steps
 - [3-4 specific action items]
 ```
 
-**Step 6 — Compliance check:**
+**Step 7 — Compliance check:**
 - Per-ICP breakdown included? (REQUIRED — Travis tracks each profession separately)
 - Frequency monitored? (Dentists hit 3 in Feb — fatigue signal)
 - CVR flagged if below 15%? (Current critical bottleneck)
@@ -264,7 +273,13 @@ When I type `/concept`, research what's winning across SLP's ICP segments and ge
 
 ### Phase 1: Learn
 
-**Step 0 — Load creative frameworks:**
+**Step 0 — Load client context + creative frameworks:**
+Before generating any concepts, ground yourself in the client's current state:
+- Read the main client intel file for: NEVER rules, brand voice rules, winning creative signals, negative triggers, relationship health, and any recent flags
+- Read the deep-enrichment file for: competitive landscape, audience insights, content performance patterns
+- Read the client-config file for: creative naming conventions (DCT prefix, next DCT number), audience segments, landing pages, approved language
+- Then load the creative frameworks from `/the-feed-media/system/tfm-creative-frameworks.md`
+This ensures every concept respects current client rules and builds on what's already working.
 - Best frameworks: Pain-Agitate-Solve, Identity Challenge, Specificity Ladder, Contrast ("While other...")
 - Best hook types: Anxiety + FOMO ("While other dentists are guessing..."), Universal scroll-stop ("This is your sign"), Belief disruption ("You're supposed to be freaking out")
 - Format priority: Text-over-B-roll > Static meme > UGC testimonial

@@ -107,23 +107,32 @@ This is the single most important context for every task on this account.
 
 When I type `/friday`, generate the weekly client-facing ad performance report for MarketBeat.
 
-**Step 1 — Learn the format:** Read the last 3-4 Friday reports in #thefeed-marketbeat to match the exact format, tone, and structure. The report MUST mirror Rabii's established format (ROAS-first, MTD comparisons vs GrowJoy, top ads by Rev/User and ROAS). Do NOT use a generic template.
+**Step 0 — Load client context (MANDATORY):**
+Read the client intelligence file and config to ground yourself before pulling any data:
+- Read the main client intel file for: current CPL, risk level, relationship health, north star metric, NEVER rules, and any recent flags
+- Read the deep-enrichment file for: strategic context, competitive landscape, funnel structure, seasonal patterns
+- Read the client-config file for: Meta account IDs, campaign IDs, KPI definitions, conversion type mapping, budget constraints
+- Check the last 2-3 Friday reports in the external Slack channel to match format exactly
+Extract: performance trajectory, known issues, GM commentary, and risk signals. This context shapes every insight you write.
 
-**Step 2 — Read internal context:** Read #internal-marketbeat (last 7-10 days) for n8n daily ROAS reports (source of truth), creative decisions (paused/launched/killed ads and why), client feedback, budget changes, and ROAS gap updates.
 
-**Step 3 — Pull Meta Ads data** for the trailing 7 days using Pipeboard:
+**Step 2 — Learn the format:** Read the last 3-4 Friday reports in #thefeed-marketbeat to match the exact format, tone, and structure. The report MUST mirror Rabii's established format (ROAS-first, MTD comparisons vs GrowJoy, top ads by Rev/User and ROAS). Do NOT use a generic template.
+
+**Step 3 — Read internal context:** Read #internal-marketbeat (last 7-10 days) for n8n daily ROAS reports (source of truth), creative decisions (paused/launched/killed ads and why), client feedback, budget changes, and ROAS gap updates.
+
+**Step 4 — Pull Meta Ads data** for the trailing 7 days using Pipeboard:
 - TFM Campaign: 120234644644600565
 - GrowJoy Campaigns: 120226438970390565, 120242548982060565
 - Metrics: spend, leads, CPL, CTR, CVR, CPM, impressions, LP views
 - Breakdowns: by ad set and by ad (top performers)
 
-**Step 4 — Pull n8n daily ROAS report data:**
+**Step 5 — Pull n8n daily ROAS report data:**
 - Source: #internal-marketbeat daily posts
 - Key metrics: Revenue, ROAS, Revenue Leads, CPL (revenue leads), Rev/User, Confirmed Sales, SMS Opt-ins
 - MUST include both TFM and GrowJoy columns — Matt compares these directly
 - n8n reports are the source of truth for ROAS and revenue metrics (not Pipeboard alone)
 
-**Step 5 — Draft the report in this structure:**
+**Step 6 — Draft the report in this structure:**
 ```
 MarketBeat Weekly Report (Date Range)
 [1-2 bullet headline highlights — ROAS first]
@@ -159,7 +168,7 @@ Next Steps
 - [3-4 specific action items]
 ```
 
-**Step 6 — Compliance check:**
+**Step 7 — Compliance check:**
 - ROAS comparison vs GrowJoy included? (REQUIRED — Matt allocates budget on this)
 - Rev/User tracked? (This is the root cause metric)
 - SMS opt-in volume noted? (Structural disadvantage — must track)
@@ -392,8 +401,13 @@ When I type `/concept`, research what's winning across MarketBeat ads, analyze t
 
 ### Phase 1: Learn (What's working and what the brand needs)
 
-**Step 0 — Load creative frameworks:**
-- Review the **TFM Creative Frameworks** knowledge file (uploaded separately to this project)
+**Step 0 — Load client context + creative frameworks:**
+Before generating any concepts, ground yourself in the client's current state:
+- Read the main client intel file for: NEVER rules, brand voice rules, winning creative signals, negative triggers, relationship health, and any recent flags
+- Read the deep-enrichment file for: competitive landscape, audience insights, content performance patterns
+- Read the client-config file for: creative naming conventions (DCT prefix, next DCT number), audience segments, landing pages, approved language
+- Then load the creative frameworks from `/the-feed-media/system/tfm-creative-frameworks.md`
+This ensures every concept respects current client rules and builds on what's already working.
 - Focus on these frameworks for MarketBeat: Pattern Interrupt, Offer Architecture, Specificity Ladder, Creative Iteration System
 - Best hook types: Curiosity gap (market timing/breaking news: "January Effect"), Identity challenge (two ICPs: Frank 60-70 conservative vs. Brian 35-45 aggressive), Emotional trigger (premium report: "$29.97 report — yours free today")
 - Format priority: TOV (UGC-style with financial data overlays) > Static (themed report hooks) > Dynamic creative bundles (test to match GrowJoy) — market timing hooks massively outperform evergreen

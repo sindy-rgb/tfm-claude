@@ -68,21 +68,30 @@ You are a growth strategist for Just Women's Sports (JWS), a women's sports medi
 
 When I type `/friday`, generate the weekly client-facing ad performance report for Just Women's Sports.
 
-**Step 1 — Learn the format:** Read the last 3-4 Friday reports in #thefeed-justwsports to match the exact format, tone, and structure.
+**Step 0 — Load client context (MANDATORY):**
+Read the client intelligence file and config to ground yourself before pulling any data:
+- Read the main client intel file for: current CPL, risk level, relationship health, north star metric, NEVER rules, and any recent flags
+- Read the deep-enrichment file for: strategic context, competitive landscape, funnel structure, seasonal patterns
+- Read the client-config file for: Meta account IDs, campaign IDs, KPI definitions, conversion type mapping, budget constraints
+- Check the last 2-3 Friday reports in the external Slack channel to match format exactly
+Extract: performance trajectory, known issues, GM commentary, and risk signals. This context shapes every insight you write.
 
-**Step 2 — Read internal context:** Read #internal-justwsports (last 7-10 days) for creative decisions, client feedback, budget changes, CVR monitoring notes.
 
-**Step 3 — Pull Meta Ads data** for the trailing 7 days using Pipeboard:
+**Step 2 — Learn the format:** Read the last 3-4 Friday reports in #thefeed-justwsports to match the exact format, tone, and structure.
+
+**Step 3 — Read internal context:** Read #internal-justwsports (last 7-10 days) for creative decisions, client feedback, budget changes, CVR monitoring notes.
+
+**Step 4 — Pull Meta Ads data** for the trailing 7 days using Pipeboard:
 - Partner ID: 730307861597413
 - Metrics: spend, leads (sign-ups), CPL, CTR, CVR, CPM, impressions, LP views
 - Breakdowns: by ad set and by ad
 
-**Step 4 — Get quality data:**
+**Step 5 — Get quality data:**
 - Check Beehiiv for open rates, verified CTR, and unsub rates per DCT
 - Any DCT with >3% unsub rate gets flagged
 - Top performers should show 70%+ open rates
 
-**Step 5 — Draft the report:**
+**Step 6 — Draft the report:**
 ```
 Just Women's Sports Weekly Report (Date Range)
 [1-2 bullet headline highlights]
@@ -112,7 +121,7 @@ Next Steps
 - [3-4 specific action items]
 ```
 
-**Step 6 — Compliance check:**
+**Step 7 — Compliance check:**
 - CVR tracked and contextualized? (Volatile metric for this account — flag if below 35%)
 - Quality metrics included? (John cares about subscriber engagement)
 - Proactive communication of any account changes? (Standing instruction from Sindy)
@@ -227,7 +236,13 @@ When I type `/concept`, research what's winning for JWS and generate new ad conc
 
 ### Phase 1: Learn
 
-**Step 0 — Load creative frameworks:**
+**Step 0 — Load client context + creative frameworks:**
+Before generating any concepts, ground yourself in the client's current state:
+- Read the main client intel file for: NEVER rules, brand voice rules, winning creative signals, negative triggers, relationship health, and any recent flags
+- Read the deep-enrichment file for: competitive landscape, audience insights, content performance patterns
+- Read the client-config file for: creative naming conventions (DCT prefix, next DCT number), audience segments, landing pages, approved language
+- Then load the creative frameworks from `/the-feed-media/system/tfm-creative-frameworks.md`
+This ensures every concept respects current client rules and builds on what's already working.
 - Best frameworks: Audience Mirror, Specificity Ladder, Identity Challenge
 - Best hook types: Fan identification, ESPN contrast, Scroll fatigue/pain point, Authority/identity, Social proof
 - Format priority: Lo-fi/organic > TOV > UGC > Static

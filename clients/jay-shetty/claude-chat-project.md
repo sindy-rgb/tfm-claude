@@ -70,17 +70,26 @@ When I type `/friday`, generate the weekly client-facing ad performance report f
 
 **IMPORTANT: No Pipeboard access.** This account is managed under Jay Shetty's Business Manager, not TFM's. All Meta data must be sourced from Notion reports, Slack updates in #internal-jayshetty, or manual exports.
 
-**Step 1 — Learn the format:** Read the last 3-4 Friday reports or bi-weekly updates in #internal-jayshetty to match the exact format, tone, and structure. The report MUST mirror the established format. Do NOT use a generic template.
+**Step 0 — Load client context (MANDATORY):**
+Read the client intelligence file and config to ground yourself before pulling any data:
+- Read the main client intel file for: current CPL, risk level, relationship health, north star metric, NEVER rules, and any recent flags
+- Read the deep-enrichment file for: strategic context, competitive landscape, funnel structure, seasonal patterns
+- Read the client-config file for: Meta account IDs, campaign IDs, KPI definitions, conversion type mapping, budget constraints
+- Check the last 2-3 Friday reports in the external Slack channel to match format exactly
+Extract: performance trajectory, known issues, GM commentary, and risk signals. This context shapes every insight you write.
 
-**Step 2 — Read internal context:** Read #internal-jayshetty (last 7-10 days) for recent creative decisions (paused/launched/killed ads and why), client feedback from Anna, budget changes, and pipeline context.
 
-**Step 3 — Gather performance data** from available sources:
+**Step 2 — Learn the format:** Read the last 3-4 Friday reports or bi-weekly updates in #internal-jayshetty to match the exact format, tone, and structure. The report MUST mirror the established format. Do NOT use a generic template.
+
+**Step 3 — Read internal context:** Read #internal-jayshetty (last 7-10 days) for recent creative decisions (paused/launched/killed ads and why), client feedback from Anna, budget changes, and pipeline context.
+
+**Step 4 — Gather performance data** from available sources:
 - Check #internal-jayshetty for the most recent performance exports or screenshots
 - Check Notion Strategic Insights & Analysis page for the latest data
 - If no current data is available, note "Performance data pending — awaiting latest export" and use the most recent available numbers with the date they're from
 - Do NOT fabricate performance numbers
 
-**Step 4 — Draft the report in this structure:**
+**Step 5 — Draft the report in this structure:**
 ```
 Jay Shetty — The Daily Wisdom Weekly Report (Date Range)
 [1-2 bullet headline highlights]
@@ -115,7 +124,7 @@ Next Steps
 - [3-4 specific action items]
 ```
 
-**Step 5 — Compliance check:**
+**Step 6 — Compliance check:**
 - Quality metrics included (engaged rate, open rate, verified CTR, unsub rate)? (REQUIRED — CPL is well below target so quality is the differentiator)
 - DCT 105 fatigue status addressed?
 - Any creative freshness concerns flagged?
@@ -276,8 +285,13 @@ Decisions made
 
 When I type `/concept`, research what's winning for Jay Shetty's The Daily Wisdom, analyze the brand context, and generate new ad concept ideas with copy, visual direction, voice clone script options, and iterations. This is TFM's concept engine — built for Lays, Luiz, and Kinte to run when they need fresh concepts for a sprint.
 
-**Step 0 — Load creative frameworks:**
-- Review the **TFM Creative Frameworks** knowledge file (uploaded separately to this project)
+**Step 0 — Load client context + creative frameworks:**
+Before generating any concepts, ground yourself in the client's current state:
+- Read the main client intel file for: NEVER rules, brand voice rules, winning creative signals, negative triggers, relationship health, and any recent flags
+- Read the deep-enrichment file for: competitive landscape, audience insights, content performance patterns
+- Read the client-config file for: creative naming conventions (DCT prefix, next DCT number), audience segments, landing pages, approved language
+- Then load the creative frameworks from `/the-feed-media/system/tfm-creative-frameworks.md`
+This ensures every concept respects current client rules and builds on what's already working.
 - Focus on these frameworks for Jay Shetty: Before-After-Bridge, Value Inversion, Audience Mirror, Social Proof Cascade
 - Best hook types: Emotional trigger (personal moment, calm reflection), Identity challenge (soft authority intro: "Hi, I'm Jay Shetty"), Curiosity gap (hypnotic scroll/pattern interrupt)
 - Format priority: Video (Jay recorded + text overlay) > Reels (native video) > TOV (text-motion/hypnotic scroll) > Static — Jay's face and voice are the creative engine

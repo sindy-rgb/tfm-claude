@@ -87,19 +87,28 @@ When I type `/friday`, generate the weekly client-facing ad performance report f
 
 ### Pre-Launch Mode (use this while zero or few ads are live)
 
-**Step 1 — Read #internal-contrarianthinking and #thefeed-contrarianthinking (last 7 days)** for:
+**Step 0 — Load client context (MANDATORY):**
+Read the client intelligence file and config to ground yourself before pulling any data:
+- Read the main client intel file for: current CPL, risk level, relationship health, north star metric, NEVER rules, and any recent flags
+- Read the deep-enrichment file for: strategic context, competitive landscape, funnel structure, seasonal patterns
+- Read the client-config file for: Meta account IDs, campaign IDs, KPI definitions, conversion type mapping, budget constraints
+- Check the last 2-3 Friday reports in the external Slack channel to match format exactly
+Extract: performance trajectory, known issues, GM commentary, and risk signals. This context shapes every insight you write.
+
+
+**Step 2 — Read #internal-contrarianthinking and #thefeed-contrarianthinking (last 7 days)** for:
 - Creative pipeline status (which DCTs moved forward, which are blocked)
 - Client feedback from Nicole/Teresa/Codie
 - Tech setup progress (Typeform, exclusion lists, beehiiv integration)
 - Any new blockers or approvals
 
-**Step 2 — Check Meta Ads via Pipeboard:**
+**Step 3 — Check Meta Ads via Pipeboard:**
 - Account: act_1329828287615052
 - TFM Campaigns: 120240521788490641 (BAU), 120240516863300641 (Leads)
 - If ads are live: pull spend, leads, CPL, CTR, CVR, CPM, impressions, LP views for trailing 7 days
 - If no ads live: confirm status and note it
 
-**Step 3 — Calculate trial window status:**
+**Step 4 — Calculate trial window status:**
 - Trial start: Feb 16, 2026
 - Trial end: May 16, 2026
 - Days elapsed: [calculate from today]
@@ -107,7 +116,7 @@ When I type `/friday`, generate the weekly client-facing ad performance report f
 - Days with ads live: [count]
 - Effective trial utilization: [days with ads live / days elapsed]
 
-**Step 4 — Draft the report:**
+**Step 5 — Draft the report:**
 
 ```
 Contrarian Thinking Weekly Report (Date Range)
@@ -149,7 +158,7 @@ Next Steps
 - [3-4 specific action items — always include the most urgent blocker to getting/keeping ads live]
 ```
 
-**Step 5 — Compliance check:**
+**Step 6 — Compliance check:**
 - Trial window countdown included? (REQUIRED)
 - Creative pipeline status accurate? (Check against most recent Slack messages)
 - No recommending launch of unapproved creative?
@@ -322,8 +331,13 @@ When I type `/concept`, research what's winning (or expected to win based on bra
 
 ### Phase 1: Learn (What the brand needs and what survives approval)
 
-**Step 0 — Load creative frameworks:**
-- Review the **TFM Creative Frameworks** knowledge file (uploaded separately to this project)
+**Step 0 — Load client context + creative frameworks:**
+Before generating any concepts, ground yourself in the client's current state:
+- Read the main client intel file for: NEVER rules, brand voice rules, winning creative signals, negative triggers, relationship health, and any recent flags
+- Read the deep-enrichment file for: competitive landscape, audience insights, content performance patterns
+- Read the client-config file for: creative naming conventions (DCT prefix, next DCT number), audience segments, landing pages, approved language
+- Then load the creative frameworks from `/the-feed-media/system/tfm-creative-frameworks.md`
+This ensures every concept respects current client rules and builds on what's already working.
 - Focus on these frameworks for Contrarian Thinking: Before-After-Bridge, Audience Mirror, Value Inversion, Social Proof Cascade
 - Best hook types: Cognitive dissonance (ownership > employment), Identity challenge (aspiring business buyers, NOT wantrepreneurs), Emotional trigger (conviction, strong POVs with real numbers)
 - Format priority: Video (Codie on-camera + Austin B-roll) > Static (OWN framework build, brand fonts) > UGC (in production) — Codie's personal brand is central but ads run from Contrarian Thinking channel, NOT personal pages

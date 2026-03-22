@@ -59,22 +59,31 @@ When I type `/friday`, generate the weekly Creative Performance Review for Daily
 
 **IMPORTANT: This is NOT a standard ad report.** TFM does not run Daily Drop's media buying and has no Pipeboard access. This is a review of how TFM's concepts performed using data the client shares.
 
-**Step 1 — Learn the format:** Read the last 3-4 Friday reports in #internal-dailydrop to match the exact format, tone, and structure. The report MUST mirror the established format. Do NOT use a generic template.
+**Step 0 — Load client context (MANDATORY):**
+Read the client intelligence file and config to ground yourself before pulling any data:
+- Read the main client intel file for: current CPL, risk level, relationship health, north star metric, NEVER rules, and any recent flags
+- Read the deep-enrichment file for: strategic context, competitive landscape, funnel structure, seasonal patterns
+- Read the client-config file for: Meta account IDs, campaign IDs, KPI definitions, conversion type mapping, budget constraints
+- Check the last 2-3 Friday reports in the external Slack channel to match format exactly
+Extract: performance trajectory, known issues, GM commentary, and risk signals. This context shapes every insight you write.
 
-**Step 2 — Read internal context:** Read #internal-dailydrop (last 7-10 days) for:
+
+**Step 2 — Learn the format:** Read the last 3-4 Friday reports in #internal-dailydrop to match the exact format, tone, and structure. The report MUST mirror the established format. Do NOT use a generic template.
+
+**Step 3 — Read internal context:** Read #internal-dailydrop (last 7-10 days) for:
 - Performance data Emily/Isaac have shared on TFM concepts
 - ROI data from client's down-funnel reporting
 - Creative decisions (paused/launched/killed concepts and why)
 - Any client feedback or direction changes
 - Meta policy issues (credit card ad rejections)
 
-**Step 3 — Compile performance data from client-shared sources:**
+**Step 4 — Compile performance data from client-shared sources:**
 - NO Pipeboard pull — we do not have ad account access
 - Use whatever performance data Emily, Isaac, or Andrew have shared via Slack, email, or call recordings
 - Metrics to track per TFM concept: Spend allocated, Leads, CPL, ROI (weighted), CTR, placement breakdown (IG vs FB)
 - If ROI data is not available for this week, note "ROI data pending from client" — do not fabricate
 
-**Step 4 — Draft the report in this structure:**
+**Step 5 — Draft the report in this structure:**
 ```
 Daily Drop Creative Performance Review (Date Range)
 [1-2 bullet headline highlights — lead with ROI, not CPL]
@@ -114,7 +123,7 @@ Next Steps
 - [2-3 specific action items]
 ```
 
-**Step 5 — Compliance check:**
+**Step 6 — Compliance check:**
 - ROI included for every concept where data is available? (REQUIRED)
 - No credit card language violations in any active concepts?
 - IG placement performance flagged? (IG > FB for monetization)
@@ -266,8 +275,13 @@ Next call: [date]
 
 When I type `/concept`, generate new ad concept ideas for Daily Drop with full copy, visual direction, compliance checks, and IG-optimized formats. **This is the PRIMARY skill for Daily Drop — concept delivery IS the deliverable.**
 
-**Step 0 — Load creative frameworks:**
-- Review the **TFM Creative Frameworks** knowledge file (uploaded separately to this project)
+**Step 0 — Load client context + creative frameworks:**
+Before generating any concepts, ground yourself in the client's current state:
+- Read the main client intel file for: NEVER rules, brand voice rules, winning creative signals, negative triggers, relationship health, and any recent flags
+- Read the deep-enrichment file for: competitive landscape, audience insights, content performance patterns
+- Read the client-config file for: creative naming conventions (DCT prefix, next DCT number), audience segments, landing pages, approved language
+- Then load the creative frameworks from `/the-feed-media/system/tfm-creative-frameworks.md`
+This ensures every concept respects current client rules and builds on what's already working.
 - Focus on these frameworks for Daily Drop: Value Inversion, Specificity Ladder, Social Proof Cascade, Pattern Interrupt
 - Best hook types: Curiosity gap ("Most people don't realize..."), Identity challenge (couples/travelers with good credit), Cognitive dissonance ("5 minutes a day" micro-commitment)
 - Format priority: TOV (POV + couple identity) > UGC (partnership/creator content) > Static (high credit score hook) — always prioritize IG placements over FB

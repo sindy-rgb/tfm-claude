@@ -67,23 +67,32 @@ When I type `/friday`, generate the weekly client-facing ad performance report f
 
 **Context for Mariely:** n8n already posts base weekly data to #internal-bigdeskenergy automatically. This skill adds the analytical narrative, creative-level insights, and OR tracking that Tyler cares about. The n8n data is a starting point — your job is to tell the story.
 
-**Step 1 — Learn the format:** Read the last 3-4 Friday reports in #growth-for-tyler (external) and #internal-bigdeskenergy (internal) to match the exact format, tone, and structure. The report MUST mirror the established format. Do NOT use a generic template.
+**Step 0 — Load client context (MANDATORY):**
+Read the client intelligence file and config to ground yourself before pulling any data:
+- Read the main client intel file for: current CPL, risk level, relationship health, north star metric, NEVER rules, and any recent flags
+- Read the deep-enrichment file for: strategic context, competitive landscape, funnel structure, seasonal patterns
+- Read the client-config file for: Meta account IDs, campaign IDs, KPI definitions, conversion type mapping, budget constraints
+- Check the last 2-3 Friday reports in the external Slack channel to match format exactly
+Extract: performance trajectory, known issues, GM commentary, and risk signals. This context shapes every insight you write.
 
-**Step 2 — Read internal context:** Read #internal-bigdeskenergy (last 7-10 days) for recent creative decisions (paused/launched/killed ads and why), client feedback from Tyler, budget changes, OR flags, and any notes from Humza or Mariely about the account.
 
-**Step 3 — Pull Meta Ads data** for the trailing 7 days using Pipeboard:
+**Step 2 — Learn the format:** Read the last 3-4 Friday reports in #growth-for-tyler (external) and #internal-bigdeskenergy (internal) to match the exact format, tone, and structure. The report MUST mirror the established format. Do NOT use a generic template.
+
+**Step 3 — Read internal context:** Read #internal-bigdeskenergy (last 7-10 days) for recent creative decisions (paused/launched/killed ads and why), client feedback from Tyler, budget changes, OR flags, and any notes from Humza or Mariely about the account.
+
+**Step 4 — Pull Meta Ads data** for the trailing 7 days using Pipeboard:
 - Campaign: 120209659764470257 (DCT Campaign CPR)
 - Metrics: spend, leads (sign-ups), CPL, CTR, CVR, CPM, impressions, LP views
 - Breakdowns: by ad set and by ad (top performers)
 - CRITICAL: For each ad, also note the Open Rate — this is available from the n8n weekly report data or beehiiv. If OR data isn't available for a specific ad, flag it.
 
-**Step 4 — Pull OR and Click Score data:**
+**Step 5 — Pull OR and Click Score data:**
 - FIRST: Check the n8n weekly report bot post in #internal-bigdeskenergy — it contains CPL, sign-ups, spend, CTR, CVR, and Click Score
 - Click Score is manually added by Noreen — if missing, note "Click Score pending (Noreen)"
 - Open Rate data comes from beehiiv — cross-reference with the n8n data or check #internal-bigdeskenergy for the most recent OR figures
 - Do not fabricate OR numbers — if data isn't available, say so and use the most recent available
 
-**Step 5 — Draft the report in this structure:**
+**Step 6 — Draft the report in this structure:**
 ```
 Big Desk Energy Weekly Report (Date Range)
 [1-2 bullet headline highlights — lead with CPL and OR, Tyler cares about both]
@@ -119,7 +128,7 @@ Next Steps
 - [3-4 specific action items]
 ```
 
-**Step 6 — Compliance check:**
+**Step 7 — Compliance check:**
 - OR included for every top creative? (REQUIRED — Tyler will ask if missing)
 - Any ads below 25% OR flagged for review/kill?
 - Creative concentration risk noted? (DCT231.1 drives ~85% of spend — if it fatigues, CPL spikes)
@@ -257,8 +266,13 @@ When I type `/concept`, research what's winning for BDE, analyze the brand conte
 
 ### Phase 1: Learn (What's working and what the brand needs)
 
-**Step 0 — Load creative frameworks:**
-- Review the **TFM Creative Frameworks** knowledge file (uploaded separately to this project)
+**Step 0 — Load client context + creative frameworks:**
+Before generating any concepts, ground yourself in the client's current state:
+- Read the main client intel file for: NEVER rules, brand voice rules, winning creative signals, negative triggers, relationship health, and any recent flags
+- Read the deep-enrichment file for: competitive landscape, audience insights, content performance patterns
+- Read the client-config file for: creative naming conventions (DCT prefix, next DCT number), audience segments, landing pages, approved language
+- Then load the creative frameworks from `/the-feed-media/system/tfm-creative-frameworks.md`
+This ensures every concept respects current client rules and builds on what's already working.
 - Focus on these frameworks for Big Desk Energy: Value Inversion, Social Proof Cascade, Pattern Interrupt, Specificity Ladder
 - Best hook types: Curiosity gap ("gatekept" information: seed deck, internal processes), Identity challenge (aspiring entrepreneurs, side-project launchers), Emotional trigger (freedom > growth, quitting the 9-5)
 - Format priority: Static (direct-to-newsletter) > TOV > Lead magnet (seed deck hook) — Tyler's personal brand is central
