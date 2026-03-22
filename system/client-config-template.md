@@ -70,6 +70,24 @@
 
 ---
 
+## Quality Data Join
+
+<!-- MANDATORY for skills that rank ads or report CPL. If kpi_primary is anything other than -->
+<!-- raw "CPL", this section MUST be filled in. Skills (/friday, /fatigue-scan, /portfolio-pulse) -->
+<!-- will REFUSE to output ad rankings without this data or will flag reports as "Raw CPL only". -->
+<!-- This section tells skills WHERE to get quality data and HOW to join it to Meta spend data. -->
+
+| Field | Value |
+|-------|-------|
+| `quality_metric` [REQUIRED if kpi_primary ≠ CPL] | <!-- The client's primary quality KPI. e.g., "Qualified CPL", "V-CAC", "ROAS", "MAR >4", "Cost Per Trial", "CAC". Use "N/A" if raw CPL is the real KPI. --> |
+| `quality_data_source` [REQUIRED if kpi_primary ≠ CPL] | <!-- Where quality data lives. e.g., "Sailthru verification rates via n8n", "beehiiv engagement (MAR >4)", "n8n daily ROAS report to Slack", "GHL pipeline data", "partner cohort dashboard" --> |
+| `quality_join_key` [REQUIRED if kpi_primary ≠ CPL] | <!-- How to join Meta ad data to quality data. e.g., "utm_campaign maps to DCT name in ad_name", "RegistrationCode param maps to DCT number", "ad_name contains DCT number that matches ROAS report rows" --> |
+| `raw_cpl_acceptable` [REQUIRED] | <!-- "true" if raw CPL alone is sufficient for this client (no quality overlay needed). "false" if quality join is mandatory before any ad ranking or CPL reporting. --> |
+| `quality_data_freshness` [OPTIONAL] | <!-- How often quality data updates. e.g., "daily via n8n", "weekly partner report", "6-week cohort lag". Skills use this to know if quality data might be stale. --> |
+| `quality_fallback_note` [OPTIONAL] | <!-- What to say when quality data is unavailable. e.g., "Use vault ROAS data from last bi-weekly report", "Escalate to Luiz — ROAS data is critical for this client" --> |
+
+---
+
 ## Budget
 
 <!-- Monthly budget and pacing targets -->
@@ -213,6 +231,17 @@ Below is a completed config for reference. Delete this section when creating a n
 | `kpi_secondary` | SMS Opt-ins |
 | `kpi_secondary_target` | Close gap with GrowJoy (currently 7x behind) |
 | `quality_definition` | Revenue-generating subscriber — measured by Rev/User and confirmed sales |
+
+## Quality Data Join
+
+| Field | Value |
+|-------|-------|
+| `quality_metric` | ROAS |
+| `quality_data_source` | n8n daily ROAS report (posted to #internal-marketbeat) + Matt's partner dashboard |
+| `quality_join_key` | RegistrationCode param maps to DCT number in ROAS report rows |
+| `raw_cpl_acceptable` | false |
+| `quality_data_freshness` | Daily via n8n automated report |
+| `quality_fallback_note` | Use vault ROAS data from last bi-weekly report. Escalate to Luiz if >1 week stale. |
 
 ## Budget
 

@@ -207,6 +207,47 @@ If the DB data is >48 hours old for a client:
 
 ---
 
+### Phase 1.5: MANDATORY Quality Data Join (CANNOT BE SKIPPED)
+
+**FAIL CONDITION: DO NOT output any ad rankings or CPL numbers without completing this step. If you skip this, the report is invalid.**
+
+Before generating any insights, rankings, or CPL comparisons:
+
+1. **Check `kpi_primary` from the client config** (loaded in Phase 0c).
+2. **If `kpi_primary` is anything other than raw "CPL"** — e.g., "Qualified CPL", "V-CAC", "MAR >4", "ROAS", "CAC", "Cost Per Trial", or any quality-adjusted metric — you MUST join the ESP/quality data source before ranking any ads or reporting any CPL numbers.
+3. **Identify the quality data source:**
+   - Check `quality_data_source` in client-config.md (if the Quality Data Join section exists)
+   - Check the deep-enrichment file for funnel structure and verification steps
+   - Check `partner_dashboard_url` / `partner_data_source` in client-config.md
+   - Check the intel file for documented quality metrics (e.g., per-DCT ROAS, V-CAC, MAR scores)
+   - Common sources: beehiiv engagement data, Sailthru verification rates, n8n ROAS reports, GHL conversion data, partner dashboards
+4. **Perform the join:**
+   - Match Meta ad performance (by DCT name, ad name, or UTM) to the quality metric from the client's data source
+   - Calculate the quality-adjusted KPI (e.g., V-CAC = spend / verified subscribers, Qualified CPL = spend / qualified leads)
+   - Rank ads by the quality-adjusted metric, NOT raw CPL
+5. **If quality data is unavailable** (source is down, data is stale, no access):
+   - **You MUST explicitly state in the report:** "Raw CPL only — quality data unavailable ([reason]). Rankings may not reflect true performance."
+   - This disclaimer must appear in the Performance Summary section AND before any Top/Bottom Performers list
+   - Do NOT silently fall back to raw CPL without the disclaimer
+6. **If `raw_cpl_acceptable` is `true` in the Quality Data Join config section**, raw CPL is sufficient for this client and no join is needed.
+
+**Why this matters:** An ad with a $3 raw CPL that produces junk subscribers is worse than a $6 CPL ad that produces engaged readers. Without the quality join, the report actively misleads the GM into making bad scaling decisions. Workweek, Creator Spotlight, MarketBeat, and other quality-first clients have been burned by raw-CPL-only reporting.
+
+**Quick reference — clients known to require quality joins (as of March 2026):**
+| Client | Quality Metric | Source |
+|--------|---------------|--------|
+| Workweek (all 5) | V-CAC | Sailthru verification rates |
+| Creator Spotlight | MAR >4 | beehiiv engagement (Monthly Active Readers) |
+| MarketBeat | ROAS | n8n daily ROAS report / partner dashboard |
+| The Points Guy | 6-week ROAS | Partner cohort dashboard |
+| Stocks.News | Cost Per Trial | App install + trial start tracking |
+| Status News | Qualified CPL | Qualified Carrd sign-up pixel |
+| EH | Webinar → attendee CVR | GHL pipeline data |
+
+This list is NOT exhaustive. Always check the client config — new clients may have quality metrics not listed here.
+
+---
+
 ### Phase 2: Generate Contextual Insights (The Whole Point)
 
 This is where V3 earns its keep. For each metric movement, connect it to something you learned in Phase 0.
