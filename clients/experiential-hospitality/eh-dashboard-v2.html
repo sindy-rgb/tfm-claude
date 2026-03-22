@@ -1,0 +1,1851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experiential Hospitality — Performance Dashboard V2</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+/* ─── Reset & Base ─── */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0b0d14;--surface:#12141f;--card:#171a28;--border:#1f2235;--border-hover:#2a2d45;
+  --text:#e4e4ec;--text-muted:#7c7e96;--text-dim:#4e5068;
+  --green:#4ade80;--green-bg:rgba(74,222,128,.12);--red:#f87171;--red-bg:rgba(248,113,113,.12);
+  --amber:#fbbf24;--amber-bg:rgba(251,191,36,.12);--blue:#60a5fa;--blue-bg:rgba(96,165,250,.12);
+  --cyan:#22d3ee;--purple:#a78bfa;--purple-bg:rgba(167,139,250,.12);
+  --accent:#6366f1;--accent-glow:rgba(99,102,241,.25);
+}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Inter,Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.5;min-height:100vh}
+a{color:var(--blue);text-decoration:none}
+
+/* ─── Header ─── */
+.header{background:linear-gradient(135deg,#13152a 0%,#161933 50%,#1a1535 100%);padding:28px 40px 0;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;backdrop-filter:blur(12px)}
+.header-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;flex-wrap:wrap;gap:12px}
+.header h1{font-size:26px;font-weight:700;color:#fff;letter-spacing:-.3px}
+.header h1 span{background:linear-gradient(135deg,var(--green),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.header .subtitle{color:var(--text-muted);font-size:13px;margin-top:4px}
+.header-controls{display:flex;gap:10px;align-items:center}
+.filter-select{background:var(--surface);border:1px solid var(--border);color:var(--text);padding:7px 12px;border-radius:8px;font-size:13px;cursor:pointer;outline:none}
+.filter-select:focus{border-color:var(--accent)}
+
+/* ─── Tabs ─── */
+.tabs{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{padding:10px 20px;font-size:13px;font-weight:600;color:var(--text-muted);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap;user-select:none}
+.tab:hover{color:var(--text)}
+.tab.active{color:#fff;border-bottom-color:var(--accent)}
+
+/* ─── Content ─── */
+.content{padding:24px 40px 40px;max-width:1400px;margin:0 auto}
+.tab-panel{display:none;animation:fadeIn .3s ease}
+.tab-panel.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* ─── Grid ─── */
+.grid{display:grid;gap:20px;margin-bottom:20px}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:1fr 1fr}
+.g1-2{grid-template-columns:1fr 2fr}
+.g2-1{grid-template-columns:2fr 1fr}
+@media(max-width:1024px){.g4,.g3{grid-template-columns:repeat(2,1fr)}.g1-2,.g2-1{grid-template-columns:1fr}}
+@media(max-width:640px){.g4,.g3,.g2{grid-template-columns:1fr}}
+
+/* ─── Cards ─── */
+.card{background:var(--card);border-radius:14px;padding:24px;border:1px solid var(--border);transition:border-color .2s}
+.card:hover{border-color:var(--border-hover)}
+.card h3{font-size:11px;text-transform:uppercase;letter-spacing:1.6px;color:var(--text-muted);margin-bottom:8px;font-weight:600}
+.card .value{font-size:34px;font-weight:800;color:#fff;letter-spacing:-.5px}
+.card .sub{font-size:13px;color:var(--text-muted);margin-top:4px}
+.section-title{font-size:17px;font-weight:700;color:#fff;margin-bottom:16px}
+
+/* ─── KPI Sparkline Cards ─── */
+.kpi-card{position:relative;overflow:hidden}
+.kpi-card .sparkline-bg{position:absolute;bottom:0;left:0;right:0;height:50px;opacity:.15}
+.kpi-trend{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:600;padding:2px 8px;border-radius:6px;margin-top:6px}
+.trend-up{background:var(--green-bg);color:var(--green)}
+.trend-down{background:var(--red-bg);color:var(--red)}
+.trend-flat{background:var(--amber-bg);color:var(--amber)}
+
+/* ─── Colors ─── */
+.green{color:var(--green)}.red{color:var(--red)}.amber{color:var(--amber)}.blue{color:var(--blue)}.cyan{color:var(--cyan)}.purple{color:var(--purple)}
+
+/* ─── Badges ─── */
+.badge{display:inline-block;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700;letter-spacing:.3px}
+.badge-green{background:var(--green-bg);color:var(--green)}
+.badge-red{background:var(--red-bg);color:var(--red)}
+.badge-amber{background:var(--amber-bg);color:var(--amber)}
+.badge-blue{background:var(--blue-bg);color:var(--blue)}
+.badge-purple{background:var(--purple-bg);color:var(--purple)}
+
+/* ─── Chart Container ─── */
+.chart-container{position:relative;height:300px}
+.chart-sm{height:220px}
+.chart-lg{height:380px}
+
+/* ─── Tables ─── */
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{text-align:left;padding:10px 14px;color:var(--text-muted);font-size:11px;text-transform:uppercase;letter-spacing:1px;border-bottom:2px solid var(--border);cursor:pointer;user-select:none;white-space:nowrap;position:relative}
+thead th:hover{color:var(--text)}
+thead th .sort-arrow{margin-left:4px;font-size:9px;opacity:.5}
+thead th.sorted .sort-arrow{opacity:1;color:var(--accent)}
+tbody td{padding:10px 14px;border-bottom:1px solid rgba(31,34,53,.6)}
+tbody tr{transition:background .15s}
+tbody tr:hover{background:rgba(99,102,241,.06)}
+.text-right{text-align:right}
+.text-center{text-align:center}
+.mono{font-family:'SF Mono',Monaco,monospace;font-size:12px}
+
+/* ─── Search ─── */
+.search-box{background:var(--surface);border:1px solid var(--border);color:var(--text);padding:10px 16px;border-radius:10px;font-size:14px;width:100%;max-width:400px;outline:none;margin-bottom:16px}
+.search-box:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
+.search-box::placeholder{color:var(--text-dim)}
+
+/* ─── Funnel Visualization ─── */
+.funnel-visual{display:flex;flex-direction:column;gap:4px}
+.funnel-row{display:flex;align-items:center;gap:12px;padding:10px 0}
+.funnel-label{width:140px;font-size:13px;font-weight:600;flex-shrink:0}
+.funnel-bar-container{flex:1;height:32px;background:var(--surface);border-radius:8px;overflow:hidden;position:relative}
+.funnel-bar-fill{height:100%;border-radius:8px;transition:width .8s ease;display:flex;align-items:center;justify-content:flex-end;padding-right:10px;font-size:12px;font-weight:700;color:#fff;min-width:40px}
+.funnel-value{width:80px;text-align:right;font-weight:700;font-size:15px;flex-shrink:0}
+.funnel-rate{width:70px;text-align:right;font-size:12px;color:var(--text-muted);flex-shrink:0}
+
+/* ─── Insight Cards ─── */
+.insight{padding:14px 18px;background:var(--surface);border-radius:10px;margin-bottom:10px;border-left:3px solid var(--green);font-size:14px;line-height:1.6}
+.insight.warn{border-left-color:var(--amber)}
+.insight.action{border-left-color:var(--blue)}
+.insight.critical{border-left-color:var(--red)}
+.insight strong{color:#fff}
+
+/* ─── Expandable Row ─── */
+.expandable{cursor:pointer}
+.expandable td:first-child::before{content:'';display:inline-block;width:0;height:0;border-left:5px solid var(--text-muted);border-top:4px solid transparent;border-bottom:4px solid transparent;margin-right:8px;transition:transform .2s}
+.expandable.expanded td:first-child::before{transform:rotate(90deg)}
+.expand-detail{display:none;background:var(--surface);border-radius:10px;padding:16px 20px;margin:4px 14px 12px}
+.expand-detail.show{display:block;animation:fadeIn .3s ease}
+.detail-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.detail-item{font-size:12px}
+.detail-item .label{color:var(--text-muted);margin-bottom:2px}
+.detail-item .val{font-weight:700;font-size:15px;color:#fff}
+
+/* ─── Pipeline Stage Bar ─── */
+.stage-bar{display:flex;height:40px;border-radius:10px;overflow:hidden;margin:12px 0}
+.stage-segment{display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;transition:flex .5s ease}
+
+/* ─── Footer ─── */
+.footer{text-align:center;padding:32px 40px;color:var(--text-dim);font-size:12px;border-top:1px solid var(--border);margin-top:40px}
+.footer span{color:var(--text-muted)}
+
+/* ─── Print ─── */
+@media print{
+  body{background:#fff;color:#222}
+  .header{position:static;background:#f8f8f8;border-bottom:2px solid #ddd}
+  .header h1 span{-webkit-text-fill-color:#2563eb}
+  .card{border:1px solid #ddd;background:#fff}
+  .tab-panel{display:block!important;page-break-inside:avoid;margin-bottom:24px}
+  .tabs,.header-controls,.filter-select{display:none}
+  .chart-container{height:250px}
+  .footer{border-top:1px solid #ddd}
+  .insight{background:#f5f5f5;border-left-width:4px}
+  tbody tr:hover{background:transparent}
+  .funnel-bar-container{background:#eee}
+  table{font-size:11px}
+}
+
+/* ─── Tooltip override for charts ─── */
+.chart-tooltip{font-family:inherit}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:var(--border-hover)}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════ HEADER ═══════════════════════ -->
+<div class="header">
+  <div class="header-top">
+    <div>
+      <h1>Experiential Hospitality <span>Performance Dashboard</span></h1>
+      <div class="subtitle">Full-Funnel Attribution | Meta Ads + GoHighLevel + WebinarKit | Updated March 22, 2026</div>
+    </div>
+    <div class="header-controls">
+      <select class="filter-select" id="dateFilter" onchange="applyDateFilter()">
+        <option value="all">All Time (Jun 2025 - Mar 2026)</option>
+        <option value="90d">Last 90 Days</option>
+        <option value="30d">Last 30 Days</option>
+      </select>
+    </div>
+  </div>
+  <div class="tabs" id="tabNav">
+    <div class="tab active" data-tab="overview">Overview</div>
+    <div class="tab" data-tab="webinars">Webinar Cycles</div>
+    <div class="tab" data-tab="adperf">Ad Performance</div>
+    <div class="tab" data-tab="creative">Creative ROAS</div>
+    <div class="tab" data-tab="pipeline">Pipeline</div>
+    <div class="tab" data-tab="deals">Closed Deals</div>
+    <div class="tab" data-tab="insights">Insights & Recommendations</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ TAB: OVERVIEW ═══════════════════════ -->
+<div class="content">
+<div class="tab-panel active" id="panel-overview">
+
+  <!-- KPI Row -->
+  <div class="grid g4" id="kpi-cards">
+    <div class="card kpi-card">
+      <h3>Total Revenue (TFM Attributed)</h3>
+      <div class="value green" id="kpi-revenue">$455,668</div>
+      <div class="sub" id="kpi-revenue-sub">76 closed deals across 10 months</div>
+      <div class="kpi-trend trend-up" id="kpi-revenue-trend">+$59K last 90d</div>
+    </div>
+    <div class="card kpi-card">
+      <h3>Total Ad Spend</h3>
+      <div class="value" id="kpi-spend">$253,904</div>
+      <div class="sub" id="kpi-spend-sub">$25,390/mo average</div>
+      <div class="kpi-trend trend-flat" id="kpi-spend-trend">$69K in Mar (pacing)</div>
+    </div>
+    <div class="card kpi-card">
+      <h3>Blended ROAS</h3>
+      <div class="value blue" id="kpi-roas">1.79x</div>
+      <div class="sub" id="kpi-roas-sub">$201,764 profit over ad spend</div>
+      <div class="kpi-trend trend-up" id="kpi-roas-trend">Every $1 returns $1.79</div>
+    </div>
+    <div class="card kpi-card">
+      <h3>Cost Per Acquisition</h3>
+      <div class="value amber" id="kpi-cpa">$2,191</div>
+      <div class="sub" id="kpi-cpa-sub">Avg deal: $5,996 | 63.5% margin</div>
+      <div class="kpi-trend trend-up" id="kpi-cpa-trend">$3,805 net per close</div>
+    </div>
+  </div>
+
+  <!-- Charts Row 1: Revenue + CPL -->
+  <div class="grid g2">
+    <div class="card">
+      <div class="section-title">Monthly Revenue & Deals</div>
+      <div class="chart-container"><canvas id="overviewRevenueChart"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="section-title">CPL Trend (Weekly)</div>
+      <div class="chart-container"><canvas id="overviewCplChart"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Funnel + ROAS Donut -->
+  <div class="grid g2">
+    <div class="card">
+      <div class="section-title">Full-Funnel Waterfall</div>
+      <div class="funnel-visual">
+        <div class="funnel-row">
+          <div class="funnel-label">Registrants</div>
+          <div class="funnel-bar-container"><div class="funnel-bar-fill" style="width:100%;background:linear-gradient(90deg,#6366f1,#818cf8)">21,665</div></div>
+          <div class="funnel-value">21,665</div>
+          <div class="funnel-rate">100%</div>
+        </div>
+        <div class="funnel-row">
+          <div class="funnel-label">Live Attendees</div>
+          <div class="funnel-bar-container"><div class="funnel-bar-fill" style="width:22.6%;background:linear-gradient(90deg,#4ade80,#22d3ee)">4,902</div></div>
+          <div class="funnel-value">4,902</div>
+          <div class="funnel-rate">22.6%</div>
+        </div>
+        <div class="funnel-row">
+          <div class="funnel-label">+ Replay Views</div>
+          <div class="funnel-bar-container"><div class="funnel-bar-fill" style="width:7.2%;background:linear-gradient(90deg,#22d3ee,#06b6d4)">1,566</div></div>
+          <div class="funnel-value">1,566</div>
+          <div class="funnel-rate">7.2%</div>
+        </div>
+        <div class="funnel-row">
+          <div class="funnel-label">Calls Booked</div>
+          <div class="funnel-bar-container"><div class="funnel-bar-fill" style="width:4.8%;background:linear-gradient(90deg,var(--amber),#f97316)">779</div></div>
+          <div class="funnel-value">779</div>
+          <div class="funnel-rate"><span class="badge badge-amber">3.6%</span></div>
+        </div>
+        <div class="funnel-row">
+          <div class="funnel-label">Calls Showed</div>
+          <div class="funnel-bar-container"><div class="funnel-bar-fill" style="width:2.8%;background:linear-gradient(90deg,#a78bfa,#8b5cf6)">458</div></div>
+          <div class="funnel-value">458</div>
+          <div class="funnel-rate"><span class="badge badge-green">58.8%</span></div>
+        </div>
+        <div class="funnel-row">
+          <div class="funnel-label">Closes (TFM)</div>
+          <div class="funnel-bar-container"><div class="funnel-bar-fill" style="width:1.4%;background:linear-gradient(90deg,var(--green),#16a34a);min-width:50px">76</div></div>
+          <div class="funnel-value green" style="font-size:18px">76</div>
+          <div class="funnel-rate">0.35%</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="section-title">Revenue by Funnel Type</div>
+      <div class="chart-container chart-sm"><canvas id="overviewRoasDonut"></canvas></div>
+      <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border)">
+          <span style="display:flex;align-items:center;gap:8px"><span style="width:10px;height:10px;border-radius:50%;background:var(--green);display:inline-block"></span> Live Webinar</span>
+          <span><strong class="green">1.83x</strong> &nbsp;|&nbsp; $369K / $202K spend</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border)">
+          <span style="display:flex;align-items:center;gap:8px"><span style="width:10px;height:10px;border-radius:50%;background:var(--cyan);display:inline-block"></span> 7-Day ECC</span>
+          <span><strong class="cyan">1.94x</strong> &nbsp;|&nbsp; $47K / $25K spend</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border)">
+          <span style="display:flex;align-items:center;gap:8px"><span style="width:10px;height:10px;border-radius:50%;background:var(--purple);display:inline-block"></span> VSL/Evergreen</span>
+          <span><strong class="purple">1.70x</strong> &nbsp;|&nbsp; $32K / $19K spend</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0">
+          <span style="display:flex;align-items:center;gap:8px"><span style="width:10px;height:10px;border-radius:50%;background:var(--red);display:inline-block"></span> Aus/NZ</span>
+          <span><strong class="red">0.78x</strong> &nbsp;|&nbsp; $6.5K / $8.3K spend</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Funnel Economics + Quick Stats -->
+  <div class="grid g2">
+    <div class="card">
+      <div class="section-title">Funnel Economics</div>
+      <table>
+        <tbody>
+          <tr><td>Cost per registrant</td><td class="text-right mono"><strong>$5.63</strong></td></tr>
+          <tr><td>Cost per live attendee</td><td class="text-right mono"><strong>$24.91</strong></td></tr>
+          <tr><td>Cost per call booked</td><td class="text-right mono"><strong>$156</strong></td></tr>
+          <tr><td>Cost per call showed</td><td class="text-right mono"><strong>$266</strong></td></tr>
+          <tr><td>Cost per close (CAC)</td><td class="text-right mono"><strong class="amber">$2,191</strong></td></tr>
+          <tr><td>Revenue per close</td><td class="text-right mono"><strong class="green">$5,996</strong></td></tr>
+          <tr><td>Net profit per close</td><td class="text-right mono"><strong class="green">$3,805</strong></td></tr>
+          <tr><td>Revenue per registrant</td><td class="text-right mono"><strong>$21.03</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <div class="section-title">Spend vs Revenue (Monthly)</div>
+      <div class="chart-container"><canvas id="overviewSpendVsRev"></canvas></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ TAB: WEBINAR CYCLES ═══════════════════════ -->
+<div class="tab-panel" id="panel-webinars">
+  <div class="grid g3" style="margin-bottom:20px">
+    <div class="card">
+      <h3>Total Cycles Completed</h3>
+      <div class="value">12</div>
+      <div class="sub">3 additional cycles in March (in-progress)</div>
+    </div>
+    <div class="card">
+      <h3>Best ROAS Cycle</h3>
+      <div class="value green">8.13x</div>
+      <div class="sub">Nov 18 cycle — $38,979 from $4,794 spend</div>
+    </div>
+    <div class="card">
+      <h3>Highest Revenue Cycle</h3>
+      <div class="value green">$87,952</div>
+      <div class="sub">Dec 22 — 10 closes, biggest spend test</div>
+    </div>
+  </div>
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <div class="section-title" style="margin-bottom:0">All 15 Webinar Cycles</div>
+      <div style="font-size:12px;color:var(--text-muted)">Click column headers to sort &middot; Click a row to expand</div>
+    </div>
+    <div style="overflow-x:auto">
+      <table id="webinarTable">
+        <thead>
+          <tr>
+            <th data-sort="date" class="sorted">Date <span class="sort-arrow">&#9660;</span></th>
+            <th data-sort="spend" class="text-right">Spend <span class="sort-arrow">&#9660;</span></th>
+            <th data-sort="regs" class="text-right">Regs <span class="sort-arrow">&#9660;</span></th>
+            <th data-sort="cpl" class="text-right">CPL <span class="sort-arrow">&#9660;</span></th>
+            <th data-sort="shows" class="text-right">Shows <span class="sort-arrow">&#9660;</span></th>
+            <th data-sort="showrate" class="text-right">Show % <span class="sort-arrow">&#9660;</span></th>
+            <th data-sort="calls" class="text-right">Calls <span class="sort-arrow">&#9660;</span></th>
+            <th data-sort="closes" class="text-right">Closes <span class="sort-arrow">&#9660;</span></th>
+            <th data-sort="revenue" class="text-right">Revenue <span class="sort-arrow">&#9660;</span></th>
+            <th data-sort="roas" class="text-right">ROAS <span class="sort-arrow">&#9660;</span></th>
+          </tr>
+        </thead>
+        <tbody id="webinarTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+  <div class="grid g2" style="margin-top:20px">
+    <div class="card">
+      <div class="section-title">Webinar Cycle ROAS Comparison</div>
+      <div class="chart-container"><canvas id="webinarRoasCompare"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="section-title">Call Show Rate Trend</div>
+      <div class="chart-container"><canvas id="webinarShowRate"></canvas></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ TAB: AD PERFORMANCE ═══════════════════════ -->
+<div class="tab-panel" id="panel-adperf">
+  <div class="grid g4" style="margin-bottom:20px">
+    <div class="card">
+      <h3>Total 13-Week Spend</h3>
+      <div class="value">$111,636</div>
+      <div class="sub">Dec 28, 2025 - Mar 22, 2026</div>
+    </div>
+    <div class="card">
+      <h3>Total Registrations</h3>
+      <div class="value">17,269</div>
+      <div class="sub">Avg 1,328/week</div>
+    </div>
+    <div class="card">
+      <h3>Avg CPL (13wk)</h3>
+      <div class="value cyan">$6.11</div>
+      <div class="sub">Target: $5.00 &middot; Range: $5.02-$7.89</div>
+    </div>
+    <div class="card">
+      <h3>Avg LP CVR</h3>
+      <div class="value green">8.9%</div>
+      <div class="sub">Best: 11.9% (wk 3/1) &middot; Low: 4.8%</div>
+    </div>
+  </div>
+  <div class="grid g2">
+    <div class="card">
+      <div class="section-title">Weekly CPL Trend</div>
+      <div class="chart-container"><canvas id="adCplChart"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="section-title">Weekly Spend Trend</div>
+      <div class="chart-container"><canvas id="adSpendChart"></canvas></div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:20px">
+    <div class="section-title">Weekly Ad Performance (13 Weeks)</div>
+    <div style="overflow-x:auto">
+      <table id="adTable">
+        <thead>
+          <tr>
+            <th data-sort="week">Week <span class="sort-arrow">&#9660;</span></th>
+            <th data-sort="spend" class="text-right">Spend <span class="sort-arrow">&#9660;</span></th>
+            <th data-sort="regs" class="text-right">Regs <span class="sort-arrow">&#9660;</span></th>
+            <th data-sort="cpl" class="text-right">CPL <span class="sort-arrow">&#9660;</span></th>
+            <th data-sort="clicks" class="text-right">Clicks <span class="sort-arrow">&#9660;</span></th>
+            <th data-sort="cpm" class="text-right">CPM <span class="sort-arrow">&#9660;</span></th>
+            <th data-sort="ctr" class="text-right">CTR <span class="sort-arrow">&#9660;</span></th>
+            <th data-sort="cvr" class="text-right">LP CVR <span class="sort-arrow">&#9660;</span></th>
+            <th data-sort="wowSpend" class="text-right">WoW Spend <span class="sort-arrow">&#9660;</span></th>
+            <th data-sort="wowCpl" class="text-right">WoW CPL <span class="sort-arrow">&#9660;</span></th>
+          </tr>
+        </thead>
+        <tbody id="adTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+  <div class="grid g2" style="margin-top:20px">
+    <div class="card">
+      <div class="section-title">Clicks & CTR</div>
+      <div class="chart-container"><canvas id="adClicksChart"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="section-title">Landing Page CVR Trend</div>
+      <div class="chart-container"><canvas id="adCvrChart"></canvas></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ TAB: CREATIVE ROAS ═══════════════════════ -->
+<div class="tab-panel" id="panel-creative">
+  <div class="grid g3" style="margin-bottom:20px">
+    <div class="card">
+      <h3>DCTs with Revenue Attribution</h3>
+      <div class="value">27</div>
+      <div class="sub">Out of 31 tracked creative tests</div>
+    </div>
+    <div class="card">
+      <h3>Top Performer</h3>
+      <div class="value green">DCT 107</div>
+      <div class="sub">14 deals &middot; $80,469 &middot; 7 active months</div>
+    </div>
+    <div class="card">
+      <h3>Avg Deal Size</h3>
+      <div class="value">$5,996</div>
+      <div class="sub">Range: $500 - $9,997</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="section-title">Top 10 DCTs by Revenue</div>
+    <div class="chart-container chart-lg"><canvas id="dctBarChart"></canvas></div>
+  </div>
+  <div class="card" style="margin-top:20px">
+    <div class="section-title">Complete DCT Breakdown (31 Creatives)</div>
+    <div style="overflow-x:auto">
+      <table id="dctTable">
+        <thead>
+          <tr>
+            <th data-sort="dct">DCT <span class="sort-arrow">&#9660;</span></th>
+            <th data-sort="desc">Description <span class="sort-arrow">&#9660;</span></th>
+            <th data-sort="format">Format <span class="sort-arrow">&#9660;</span></th>
+            <th data-sort="deals" class="text-right">Deals <span class="sort-arrow">&#9660;</span></th>
+            <th data-sort="revenue" class="text-right">Revenue <span class="sort-arrow">&#9660;</span></th>
+            <th data-sort="avg" class="text-right">Avg Deal <span class="sort-arrow">&#9660;</span></th>
+            <th data-sort="months" class="text-right">Months <span class="sort-arrow">&#9660;</span></th>
+          </tr>
+        </thead>
+        <tbody id="dctTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+  <div class="grid g2" style="margin-top:20px">
+    <div class="card">
+      <div class="section-title">Revenue by Creative Format</div>
+      <div class="chart-container"><canvas id="formatDonut"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="section-title">Deals by Creative Format</div>
+      <div class="chart-container"><canvas id="formatDealsDonut"></canvas></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ TAB: PIPELINE ═══════════════════════ -->
+<div class="tab-panel" id="panel-pipeline">
+  <div class="grid g4" style="margin-bottom:20px">
+    <div class="card">
+      <h3>GHL Won Opportunities</h3>
+      <div class="value green">255</div>
+      <div class="sub">$1,655,137 total pipeline revenue</div>
+    </div>
+    <div class="card">
+      <h3>GHL Lost</h3>
+      <div class="value red">101</div>
+      <div class="sub">Win rate: 71.6%</div>
+    </div>
+    <div class="card">
+      <h3>Total Calls Booked</h3>
+      <div class="value blue">1,435</div>
+      <div class="sub">754 confirmed upcoming</div>
+    </div>
+    <div class="card">
+      <h3>Call Show Rate</h3>
+      <div class="value green">78.9%</div>
+      <div class="sub">266 showed / 337 completed</div>
+    </div>
+  </div>
+
+  <!-- Pipeline Visualization -->
+  <div class="card">
+    <div class="section-title">Pipeline Win/Loss Distribution</div>
+    <div class="stage-bar">
+      <div class="stage-segment" style="flex:255;background:linear-gradient(90deg,var(--green),#16a34a)">Won: 255 (71.6%)</div>
+      <div class="stage-segment" style="flex:101;background:linear-gradient(90deg,var(--red),#dc2626)">Lost: 101 (28.4%)</div>
+    </div>
+  </div>
+
+  <div class="grid g2" style="margin-top:20px">
+    <div class="card">
+      <div class="section-title">Won by Pipeline</div>
+      <div class="chart-container"><canvas id="pipelineWonChart"></canvas></div>
+      <div style="margin-top:16px">
+        <table>
+          <tbody>
+            <tr><td>Setter Pipeline</td><td class="text-right"><strong>137 deals</strong></td><td class="text-right mono">$874,055</td></tr>
+            <tr><td>NetRev Sales</td><td class="text-right"><strong>118 deals</strong></td><td class="text-right mono">$781,082</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="section-title">Calendar Breakdown</div>
+      <div class="chart-container"><canvas id="calendarChart"></canvas></div>
+      <div style="margin-top:16px">
+        <table>
+          <thead>
+            <tr><th>Calendar</th><th class="text-right">Total</th><th class="text-right">Confirmed</th><th class="text-right">Showed</th><th class="text-right">No-Show</th><th class="text-right">Cancelled</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Discovery Call</td><td class="text-right">1,368</td><td class="text-right">709</td><td class="text-right green">259</td><td class="text-right red">70</td><td class="text-right amber">330</td></tr>
+            <tr><td>Strategy (Brendan)</td><td class="text-right">40</td><td class="text-right">29</td><td class="text-right green">2</td><td class="text-right red">0</td><td class="text-right amber">9</td></tr>
+            <tr><td>Strategy (Ryan)</td><td class="text-right">27</td><td class="text-right">16</td><td class="text-right green">5</td><td class="text-right red">1</td><td class="text-right amber">5</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid g2" style="margin-top:20px">
+    <div class="card">
+      <div class="section-title">Lost by Pipeline</div>
+      <table>
+        <tbody>
+          <tr><td>NetRev Sales</td><td class="text-right"><strong class="red">99</strong></td></tr>
+          <tr><td>Setter Pipeline</td><td class="text-right"><strong class="red">2</strong></td></tr>
+        </tbody>
+      </table>
+      <div style="margin-top:16px">
+        <div class="insight warn">99 of 101 losses come from the NetRev Sales pipeline. Setter pipeline has a near-perfect conversion rate once they engage.</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="section-title">Pipeline Stage Snapshot</div>
+      <table>
+        <thead><tr><th>Stage</th><th class="text-right">Count</th></tr></thead>
+        <tbody>
+          <tr><td>NetRev > New Leads</td><td class="text-right"><strong>1,376</strong></td></tr>
+          <tr><td>NetRev > Booked Call</td><td class="text-right"><strong>11</strong></td></tr>
+          <tr><td>NetRev > Canceled</td><td class="text-right"><strong>10</strong></td></tr>
+          <tr><td>Setter > New Responses</td><td class="text-right"><strong>3</strong></td></tr>
+        </tbody>
+      </table>
+      <div style="margin-top:16px">
+        <div class="insight action">1,376 leads sitting in New Leads that haven't been contacted yet. These represent potential revenue if the setter team can work through the backlog.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ TAB: CLOSED DEALS ═══════════════════════ -->
+<div class="tab-panel" id="panel-deals">
+  <div class="grid g4" style="margin-bottom:20px">
+    <div class="card">
+      <h3>Total Closed (TFM)</h3>
+      <div class="value green">76</div>
+      <div class="sub">Meta Ads attributed</div>
+    </div>
+    <div class="card">
+      <h3>Total Revenue</h3>
+      <div class="value green">$455,668</div>
+      <div class="sub">Average: $5,996 per deal</div>
+    </div>
+    <div class="card">
+      <h3>Largest Deal</h3>
+      <div class="value">$9,997</div>
+      <div class="sub">Multiple premium closes</div>
+    </div>
+    <div class="card">
+      <h3>Attribution Rate</h3>
+      <div class="value green">92%</div>
+      <div class="sub">70/76 deals have DCT attribution</div>
+    </div>
+  </div>
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:12px">
+      <div class="section-title" style="margin-bottom:0">All 76 Closed Deals</div>
+      <input type="text" class="search-box" id="dealSearch" placeholder="Search by name, email, DCT, or funnel..." style="max-width:350px;margin-bottom:0">
+    </div>
+    <div style="overflow-x:auto">
+      <table id="dealsTable">
+        <thead>
+          <tr>
+            <th data-sort="name">Name <span class="sort-arrow">&#9660;</span></th>
+            <th data-sort="revenue" class="text-right">Revenue <span class="sort-arrow">&#9660;</span></th>
+            <th data-sort="dct">DCT Attribution <span class="sort-arrow">&#9660;</span></th>
+            <th data-sort="date">Close Date <span class="sort-arrow">&#9660;</span></th>
+            <th data-sort="funnel">Funnel <span class="sort-arrow">&#9660;</span></th>
+            <th data-sort="attributed">TFM <span class="sort-arrow">&#9660;</span></th>
+          </tr>
+        </thead>
+        <tbody id="dealsTableBody"></tbody>
+      </table>
+    </div>
+    <div style="margin-top:12px;font-size:12px;color:var(--text-muted)" id="dealCount">Showing 76 of 76 deals</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ TAB: INSIGHTS ═══════════════════════ -->
+<div class="tab-panel" id="panel-insights">
+  <div class="grid g2">
+    <div class="card">
+      <div class="section-title">Key Performance Insights</div>
+      <div class="insight"><strong>DCT 107 is the all-time champion</strong> — 14 deals, $80,469 revenue across 7 months. Every UGC webinar iteration of this creative closes deals.</div>
+      <div class="insight"><strong>December was the peak month</strong> — $91,713 from 14 deals. Scaling spend to $16K proved higher spend = proportionally more closes without CPL degradation.</div>
+      <div class="insight"><strong>CPL recovering after Feb spike</strong> — From $7.89 peak back down to $5.95. Pacing strategy and creative refresh working.</div>
+      <div class="insight"><strong>7-Day ECC has the highest ROAS</strong> (1.94x) — The email course pre-qualifies buyers better than webinar alone. Only 8 deals though, so scale opportunity is massive.</div>
+      <div class="insight"><strong>Replay rate improving</strong> — Jumped to 12.2% in Feb cycle. Secondary conversion path gaining strength as more registrants watch replays.</div>
+      <div class="insight"><strong>Call show rate (78.9% via GHL)</strong> exceeds the cycle-level 63.6% — Isaac's follow-up sequences are elite and closing the gap between booked and showed.</div>
+      <div class="insight warn"><strong>Registration to call booking (3.6%)</strong> is the single biggest funnel leak. Fixing this from 3.6% to 5% = $180K additional revenue at current rates.</div>
+      <div class="insight warn"><strong>6 deals (~$35K) have broken/missing UTM attribution.</strong> Two show raw {{adset.name}} macro. Fix the template in Ads Manager to improve tracking.</div>
+      <div class="insight warn"><strong>February and March ROAS declining</strong> — 0.73x in Feb, 0.14x in March (early/lagging). Attribution lag typical for high-ticket (30-60 day close cycle).</div>
+    </div>
+    <div class="card">
+      <div class="section-title">Strategic Recommendations</div>
+      <div class="insight action"><strong>SCALE: Increase to $20-25K per webinar cycle.</strong> December proved higher spend = more closes. The current $15K cap leaves revenue on the table. The funnel economics support 2.5x+ return at scale.</div>
+      <div class="insight action"><strong>DOUBLE DOWN on DCT 107:</strong> Create 3-4 new UGC iterations with fresh hooks. This creative family has proven ROAS across 7 months and 14 deals. Protect it with constant iteration.</div>
+      <div class="insight action"><strong>FIX THE CALL BOOK LEAK:</strong> The 3.6% call book rate is the #1 bottleneck. Test: stronger webinar CTA, post-webinar email optimization, SMS nudges, and retargeting registrants who didn't book within 48h.</div>
+      <div class="insight action"><strong>INVEST IN ECC FUNNEL:</strong> Highest ROAS (1.94x) but only 8 deals. Dedicate 20% of budget to scaling ECC ads for higher-quality pipeline.</div>
+      <div class="insight action"><strong>FIX UTMs IMMEDIATELY:</strong> Two active deals show raw {{adset.name}}. Update the UTM template in Ads Manager to close the attribution gap before the next cycle.</div>
+      <div class="insight action"><strong>WORK THE 1,376 LEAD BACKLOG:</strong> GHL shows 1,376 leads sitting in "New Leads" stage untouched. Even a 2% close rate on those = 27 deals = ~$162K in revenue.</div>
+    </div>
+  </div>
+
+  <!-- Scaling Scenarios -->
+  <div class="card" style="margin-top:20px">
+    <div class="section-title">Scaling Scenario Projections</div>
+    <div style="overflow-x:auto">
+      <table>
+        <thead>
+          <tr>
+            <th>Scenario</th>
+            <th class="text-right">Monthly Spend</th>
+            <th class="text-right">Est. Registrants</th>
+            <th class="text-right">Est. Calls</th>
+            <th class="text-right">Est. Closes</th>
+            <th class="text-right">Est. Revenue</th>
+            <th class="text-right">Projected ROAS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="badge badge-blue">Current</span></td>
+            <td class="text-right mono">$25,390</td>
+            <td class="text-right">4,510</td>
+            <td class="text-right">162</td>
+            <td class="text-right">7.6</td>
+            <td class="text-right mono">$45,567</td>
+            <td class="text-right"><strong>1.79x</strong></td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-green">Fix Call Book (5%)</span></td>
+            <td class="text-right mono">$25,390</td>
+            <td class="text-right">4,510</td>
+            <td class="text-right">226</td>
+            <td class="text-right">10.6</td>
+            <td class="text-right mono green">$63,540</td>
+            <td class="text-right"><strong class="green">2.50x</strong></td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-green">Scale Spend ($35K)</span></td>
+            <td class="text-right mono">$35,000</td>
+            <td class="text-right">6,220</td>
+            <td class="text-right">224</td>
+            <td class="text-right">10.5</td>
+            <td class="text-right mono green">$62,958</td>
+            <td class="text-right"><strong>1.80x</strong></td>
+          </tr>
+          <tr style="background:var(--green-bg)">
+            <td><span class="badge badge-green">Both: Scale + Fix</span></td>
+            <td class="text-right mono">$35,000</td>
+            <td class="text-right">6,220</td>
+            <td class="text-right">311</td>
+            <td class="text-right">14.6</td>
+            <td class="text-right mono green"><strong>$87,541</strong></td>
+            <td class="text-right"><strong class="green">2.50x</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top:12px;font-size:12px;color:var(--text-muted)">Projections based on current funnel conversion rates. "Fix Call Book" assumes improving from 3.6% to 5% book rate. Scale assumes proportional performance.</div>
+  </div>
+</div>
+
+</div><!-- end .content -->
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<div class="footer">
+  Powered by <span>The Feed Media</span> | Data: Meta Ads + GoHighLevel + WebinarKit | Auto-refreshed weekly
+</div>
+
+<!-- ═══════════════════════ JAVASCRIPT ═══════════════════════ -->
+<script>
+// ────────────────────────────────────────────────────────────
+// DATA
+// ────────────────────────────────────────────────────────────
+
+const WEBINAR_DATA = [
+  {date:'2025-10-27',spend:4175,regs:721,cpl:5.79,shows:125,showRate:17.3,replay:40,replayRate:5.6,engaged:165,engagedRate:22.9,calls:31,bookRate:4.3,callShows:19,callShowRate:61.3,closes:4,closeRate:12.9,revenue:26000,costClose:1044,roas:6.23,revPerReg:36.06},
+  {date:'2025-11-06',spend:2690,regs:520,cpl:5.17,shows:null,showRate:null,replay:null,replayRate:null,engaged:null,engagedRate:null,calls:47,bookRate:9.0,callShows:28,callShowRate:59.6,closes:2,closeRate:4.3,revenue:12994,costClose:1345,roas:4.83,revPerReg:24.99},
+  {date:'2025-11-18',spend:4794,regs:1009,cpl:4.75,shows:306,showRate:30.3,replay:85,replayRate:8.4,engaged:391,engagedRate:38.8,calls:31,bookRate:3.1,callShows:19,callShowRate:61.3,closes:6,closeRate:19.4,revenue:38979,costClose:799,roas:8.13,revPerReg:38.63},
+  {date:'2025-12-01',spend:4366,regs:1032,cpl:4.23,shows:262,showRate:25.4,replay:67,replayRate:6.5,engaged:329,engagedRate:31.9,calls:52,bookRate:5.0,callShows:32,callShowRate:61.5,closes:4,closeRate:7.7,revenue:25988,costClose:1092,roas:5.95,revPerReg:25.18},
+  {date:'2025-12-11',spend:9252,regs:1669,cpl:5.54,shows:305,showRate:18.3,replay:82,replayRate:4.9,engaged:387,engagedRate:23.2,calls:46,bookRate:2.8,callShows:35,callShowRate:76.1,closes:8,closeRate:17.4,revenue:52476,costClose:1157,roas:5.67,revPerReg:31.44},
+  {date:'2025-12-22',spend:15861,regs:2965,cpl:5.35,shows:549,showRate:18.5,replay:201,replayRate:6.8,engaged:750,engagedRate:25.3,calls:75,bookRate:2.5,callShows:68,callShowRate:90.7,closes:10,closeRate:13.3,revenue:87952,costClose:1586,roas:5.55,revPerReg:29.66},
+  {date:'2026-01-05',spend:10460,regs:2420,cpl:4.32,shows:577,showRate:23.8,replay:136,replayRate:5.6,engaged:713,engagedRate:29.5,calls:76,bookRate:3.1,callShows:38,callShowRate:50.0,closes:4,closeRate:5.3,revenue:28485,costClose:2615,roas:2.72,revPerReg:11.77},
+  {date:'2026-01-15',spend:13519,regs:2395,cpl:5.64,shows:504,showRate:29.1,replay:137,replayRate:6.6,engaged:641,engagedRate:26.8,calls:55,bookRate:2.3,callShows:20,callShowRate:36.4,closes:5,closeRate:9.1,revenue:48979,costClose:2704,roas:3.62,revPerReg:20.45},
+  {date:'2026-01-27',spend:9178,regs:1704,cpl:5.39,shows:698,showRate:41.0,replay:158,replayRate:9.3,engaged:856,engagedRate:50.2,calls:60,bookRate:3.5,callShows:22,callShowRate:36.7,closes:6,closeRate:10.0,revenue:38735,costClose:1530,roas:4.22,revPerReg:22.73},
+  {date:'2026-02-05',spend:15459,regs:2541,cpl:6.08,shows:707,showRate:27.8,replay:279,replayRate:11.0,engaged:986,engagedRate:38.8,calls:50,bookRate:2.0,callShows:23,callShowRate:46.0,closes:4,closeRate:8.0,revenue:30241,costClose:3865,roas:1.96,revPerReg:11.90},
+  {date:'2026-02-16',spend:14081,regs:1785,cpl:7.89,shows:305,showRate:17.1,replay:218,replayRate:12.2,engaged:523,engagedRate:29.3,calls:99,bookRate:5.5,callShows:63,callShowRate:63.6,closes:3,closeRate:3.0,revenue:32094,costClose:4694,roas:2.28,revPerReg:17.98},
+  {date:'2026-02-26',spend:14493,regs:1900,cpl:7.63,shows:null,showRate:null,replay:null,replayRate:null,engaged:null,engagedRate:null,calls:null,bookRate:null,callShows:null,callShowRate:null,closes:4,closeRate:null,revenue:39988,costClose:3623,roas:2.76,revPerReg:21.05},
+  {date:'2026-03-09',spend:null,regs:null,cpl:null,shows:null,showRate:null,replay:null,replayRate:null,engaged:null,engagedRate:null,calls:null,bookRate:null,callShows:null,callShowRate:null,closes:null,closeRate:null,revenue:null,costClose:null,roas:null,revPerReg:null},
+  {date:'2026-03-19',spend:null,regs:null,cpl:null,shows:null,showRate:null,replay:null,replayRate:null,engaged:null,engagedRate:null,calls:null,bookRate:null,callShows:null,callShowRate:null,closes:null,closeRate:null,revenue:null,costClose:null,roas:null,revPerReg:null},
+  {date:'2026-03-31',spend:null,regs:186,cpl:null,shows:null,showRate:null,replay:null,replayRate:null,engaged:null,engagedRate:null,calls:null,bookRate:null,callShows:null,callShowRate:null,closes:null,closeRate:null,revenue:null,costClose:null,roas:null,revPerReg:null}
+];
+
+const AD_DATA = [
+  {week:'12/28',spend:3439.89,regs:438,cpl:7.85,clicks:6999,cpm:23.83,ctr:4.84,cvr:6.3,wowSpend:null,wowCpl:null},
+  {week:'01/04',spend:6770.44,regs:863,cpl:7.85,clicks:14795,cpm:20.96,ctr:4.35,cvr:5.8,wowSpend:96.8,wowCpl:0.0},
+  {week:'01/11',spend:8919.33,regs:1776,cpl:5.02,clicks:16453,cpm:26.43,ctr:4.53,cvr:10.8,wowSpend:31.7,wowCpl:-36.1},
+  {week:'01/18',spend:6669.65,regs:1328,cpl:5.02,clicks:13428,cpm:23.41,ctr:4.32,cvr:9.9,wowSpend:-25.2,wowCpl:0.0},
+  {week:'01/25',spend:7912.86,regs:1576,cpl:5.02,clicks:19018,cpm:20.33,ctr:5.05,cvr:8.3,wowSpend:18.6,wowCpl:0.0},
+  {week:'02/01',spend:8622.15,regs:1717,cpl:5.02,clicks:17338,cpm:22.81,ctr:4.59,cvr:9.9,wowSpend:9.0,wowCpl:0.0},
+  {week:'02/08',spend:9696.59,regs:1407,cpl:6.89,clicks:29457,cpm:21.34,ctr:6.48,cvr:4.8,wowSpend:12.5,wowCpl:37.3},
+  {week:'02/15',spend:12944.62,regs:1878,cpl:6.89,clicks:19979,cpm:30.46,ctr:4.70,cvr:9.4,wowSpend:33.5,wowCpl:0.0},
+  {week:'02/22',spend:6310.14,regs:916,cpl:6.89,clicks:8196,cpm:39.49,ctr:5.13,cvr:11.2,wowSpend:-51.3,wowCpl:0.0},
+  {week:'03/01',spend:10417.84,regs:1512,cpl:6.89,clicks:12702,cpm:36.52,ctr:4.45,cvr:11.9,wowSpend:65.1,wowCpl:0.0},
+  {week:'03/08',spend:9243.38,regs:1552,cpl:5.96,clicks:16078,cpm:33.96,ctr:5.91,cvr:9.7,wowSpend:-11.3,wowCpl:-13.5},
+  {week:'03/15',spend:10914.57,regs:1833,cpl:5.95,clicks:20085,cpm:29.43,ctr:5.42,cvr:9.1,wowSpend:18.1,wowCpl:-0.2},
+  {week:'03/22',spend:8775.01,regs:1473,cpl:5.96,clicks:14861,cpm:28.24,ctr:4.78,cvr:9.9,wowSpend:-19.6,wowCpl:0.2}
+];
+
+const DCT_DATA = [
+  {dct:'DCT 107',desc:'UGC Webinar',format:'UGC',deals:14,revenue:80468.96,avg:5747.78,firstClose:'2025-06-28',lastClose:'2025-12-15',months:7},
+  {dct:'DCT 142',desc:'Webinar Iteration',format:'Mixed',deals:6,revenue:38235.01,avg:6372.50,firstClose:'2025-11-20',lastClose:'2025-12-20',months:2},
+  {dct:'DCT 152',desc:'Copy Testing',format:'Mixed',deals:5,revenue:31736.50,avg:6347.30,firstClose:'2025-12-27',lastClose:'2026-01-09',months:2},
+  {dct:'DCT 122',desc:'TOV Webinar 7-Day',format:'TOV',deals:4,revenue:25488.92,avg:6372.23,firstClose:'2025-07-29',lastClose:'2025-10-09',months:4},
+  {dct:'DCT 103',desc:'UGC 7-Day Free Course',format:'UGC',deals:3,revenue:20994.00,avg:6998.00,firstClose:'2025-08-06',lastClose:'2025-11-18',months:4},
+  {dct:'DCT 169',desc:'USA/Hybrid Webinar',format:'Mixed',deals:3,revenue:20747.00,avg:6915.67,firstClose:'2026-02-05',lastClose:'2026-03-01',months:2},
+  {dct:'DCT 127',desc:'UGC VSL',format:'UGC',deals:3,revenue:19491.00,avg:6497.00,firstClose:'2025-09-21',lastClose:'2025-10-09',months:2},
+  {dct:'DCT 128',desc:'Static VSL',format:'Static',deals:3,revenue:19491.00,avg:6497.00,firstClose:'2025-10-20',lastClose:'2026-01-13',months:4},
+  {dct:'(paid)',desc:'No DCT Attribution',format:'Unknown',deals:3,revenue:18991.00,avg:6330.33,firstClose:'2025-12-31',lastClose:'2026-01-14',months:0},
+  {dct:'(broken UTM)',desc:'{{adset.name}}',format:'Unknown',deals:2,revenue:16497.00,avg:8248.50,firstClose:'2026-02-05',lastClose:'2026-02-27',months:0},
+  {dct:'DCT 111',desc:'Static 7-Day',format:'Static',deals:3,revenue:13492.96,avg:4497.65,firstClose:'2025-07-11',lastClose:'2025-08-30',months:2},
+  {dct:'DCT 139',desc:'UGC Iteration (107 variant)',format:'UGC',deals:2,revenue:12994.00,avg:6497.00,firstClose:'2025-10-29',lastClose:'2025-11-03',months:2},
+  {dct:'DCT 109',desc:'UGC Webinar General',format:'UGC',deals:2,revenue:12992.96,avg:6496.48,firstClose:'2025-06-22',lastClose:'2025-08-13',months:3},
+  {dct:'DCT 112',desc:'Static Ad Webinar',format:'Static',deals:2,revenue:12992.96,avg:6496.48,firstClose:'2025-07-17',lastClose:'2025-08-22',months:2},
+  {dct:'DCT 165',desc:'USA Webinar',format:'Mixed',deals:2,revenue:12497.00,avg:6248.50,firstClose:'2026-01-31',lastClose:'2026-02-07',months:2},
+  {dct:'DCT 167',desc:'USA Webinar',format:'Mixed',deals:2,revenue:12494.00,avg:6247.00,firstClose:'2026-02-04',lastClose:'2026-02-09',months:1},
+  {dct:'DCT 143',desc:'Webinar Iteration',format:'Mixed',deals:2,revenue:11997.00,avg:5998.50,firstClose:'2025-12-19',lastClose:'2026-01-02',months:2},
+  {dct:'DCT 160',desc:'Webinar Iteration',format:'Mixed',deals:1,revenue:9997.00,avg:9997.00,firstClose:'',lastClose:'',months:0},
+  {dct:'DCT 106',desc:'Static Ad Webinar',format:'Static',deals:2,revenue:8997.00,avg:4498.50,firstClose:'2025-06-29',lastClose:'2025-06-29',months:1},
+  {dct:'DCT 124',desc:'Static VSL',format:'Static',deals:1,revenue:6597.00,avg:6597.00,firstClose:'2026-01-31',lastClose:'2026-01-31',months:1},
+  {dct:'(Lead Magnet)',desc:'Lead Magnet',format:'Unknown',deals:1,revenue:6597.00,avg:6597.00,firstClose:'2026-02-24',lastClose:'2026-02-24',months:0},
+  {dct:'DCT 140',desc:'Iteration',format:'Mixed',deals:1,revenue:6500.00,avg:6500.00,firstClose:'2026-01-16',lastClose:'2026-01-16',months:1},
+  {dct:'DCT 135',desc:'VSL Live',format:'VSL',deals:1,revenue:6497.02,avg:6497.02,firstClose:'2025-11-21',lastClose:'2025-11-21',months:1},
+  {dct:'DCT 005',desc:'Webinar Iteration',format:'Mixed',deals:1,revenue:6497.00,avg:6497.00,firstClose:'2025-12-05',lastClose:'2025-12-05',months:1},
+  {dct:'DCT 100',desc:'UGC 7-Day Free Course',format:'UGC',deals:1,revenue:6497.00,avg:6497.00,firstClose:'2026-01-06',lastClose:'2026-01-06',months:1},
+  {dct:'DCT 104',desc:'Static 7-Day Free Course',format:'Static',deals:1,revenue:6497.00,avg:6497.00,firstClose:'2025-12-04',lastClose:'2025-12-04',months:1},
+  {dct:'DCT 137',desc:'VSL TOV',format:'TOV',deals:1,revenue:6497.00,avg:6497.00,firstClose:'2025-11-03',lastClose:'2025-11-03',months:1},
+  {dct:'DCT 148',desc:'Australia',format:'Mixed',deals:1,revenue:6497.00,avg:6497.00,firstClose:'2025-12-23',lastClose:'2025-12-23',months:1},
+  {dct:'DCT 154',desc:'Webinar Iteration',format:'Mixed',deals:1,revenue:6497.00,avg:6497.00,firstClose:'2025-12-15',lastClose:'2025-12-15',months:1},
+  {dct:'DCT 162',desc:'USA Webinar',format:'Mixed',deals:1,revenue:6497.00,avg:6497.00,firstClose:'2026-01-31',lastClose:'2026-01-31',months:1},
+  {dct:'DCT 171',desc:'Webinar Iteration',format:'Mixed',deals:1,revenue:6497.00,avg:6497.00,firstClose:'2026-02-20',lastClose:'2026-02-20',months:1}
+];
+
+const DEALS_DATA = [
+  {name:'Kevin Venardos',email:'kevin@venardoscircus.com',revenue:6497,dct:'DCT 107_UGC_Webinar_Iterations_June25',date:'2025-06-28',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Corey McKeon',email:'corhoyt@gmail.com',revenue:5997,dct:'DCT_106_StaticAd_Iteration_June25',date:'2025-06-29',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Matt Santacroce',email:'matthewrsantacroce@gmail.com',revenue:3000,dct:'DCT 107_UGC_Webinar_Iterations_June25',date:'2025-06-30',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Pam Westra',email:'pam@tinydigshotel.com',revenue:6497,dct:'DCT_109_Webinar_General_UGC',date:'2025-06-22',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Brent Comstock',email:'bcomstock524@proton.me',revenue:6497,dct:'DCT 107_UGC_Webinar_Iterations_June25',date:'2025-07-02',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Elsa Mehary',email:'elsamehary@mac.com',revenue:500,dct:'DCT 107_UGC_Webinar_Iterations_June25',date:'2025-07-11',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Kerian Jones',email:'keriancowart@gmail.com',revenue:500,dct:'DCT 111_Static Ad_7 Day',date:'2025-07-11',funnel:'7-Day ECC',attributed:'Yes'},
+  {name:'YJ Tung',email:'youngjohntung@gmail.com',revenue:6496,dct:'DCT 111_Static Ad_7 Day',date:'2025-07-16',funnel:'7-Day ECC',attributed:'Yes'},
+  {name:'Scott Salvigsen',email:'scottsalvigsen@yahoo.com',revenue:6496,dct:'DCT 112_Webinar_Static Ad_july15',date:'2025-07-17',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Kandy Weader',email:'kweader@comcast.net',revenue:6496,dct:'DCT_122_TOV_Webinar',date:'2025-07-29',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Jared Pfaff',email:'jaredpfaff@pfaffconstruction.net',revenue:6000,dct:'DCT_122_TOV_Webinar',date:'2025-08-05',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Tenzin Gyaltsen',email:'t@omsteadproperties.com',revenue:6496,dct:'DCT_122_TOV_Webinar',date:'2025-08-05',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Natasha Walters',email:'natashawalters@gmail.com',revenue:7997,dct:'DTC_103_UGC_7day_Free_Course',date:'2025-08-06',funnel:'7-Day ECC',attributed:'Yes'},
+  {name:'Sam Lapinski',email:'sam@certusgroupinc.com',revenue:6496,dct:'DCT 109_Webinar_General_UGC',date:'2025-08-13',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Ardyn Wolfe',email:'zenhausbnb@gmail.com',revenue:6000,dct:'DCT_107_Webinar_UGC_Aug14',date:'2025-08-15',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Jacki DiMaggio',email:'midwesttraveling@gmail.com',revenue:6496,dct:'DCT_107_Webinar_UGC_Aug14',date:'2025-08-19',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Matthew Trattner',email:'matthew@tradewisecapital.com',revenue:6497,dct:'DCT 112_Webinar_Static_Aug26',date:'2025-08-22',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Tonja Waring',email:'tonjawaring@gmail.com',revenue:6497,dct:'DCT_107_UGC_Aug14_DescTest',date:'2025-08-26',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Don Carlton',email:'donaldjcarlton@gmail.com',revenue:6000,dct:'DCT_107_Webinar_UGC_Aug14',date:'2025-08-28',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Ericka Rostran',email:'bluefields2022@gmail.com',revenue:6497,dct:'DCT 111_Static Ad_7 Day',date:'2025-08-30',funnel:'7-Day ECC',attributed:'Yes'},
+  {name:'Maja Serve',email:'mserve888@aol.com',revenue:6497,dct:'DCT 107_UGC_Webinar_June25',date:'2025-09-05',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Carol St John',email:'csj421@gmail.com',revenue:6497,dct:'DCT_127_UGC_VSL_Sep11',date:'2025-09-21',funnel:'VSL/Evergreen',attributed:'Yes'},
+  {name:'Jake Kopriva',email:'jakekopriva@gmail.com',revenue:6497,dct:'DCT_127_UGC_VSL_Sep11',date:'2025-09-24',funnel:'VSL/Evergreen',attributed:'Yes'},
+  {name:'Martine Jackson',email:'martine@b-omi.com',revenue:6497,dct:'DCT 107_UGC_Webinar_June25',date:'2025-09-24',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Debbie Romero',email:'atmydreamnow@gmail.com',revenue:6497,dct:'DCT_127_UGC_VSL_Oct6',date:'2025-10-09',funnel:'VSL/Evergreen',attributed:'Yes'},
+  {name:'Jenny Toste',email:'jenny@realtyconcepts.com',revenue:6497,dct:'DCT_107_UGC_Sept25',date:'2025-10-09',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Chris Cioffi',email:'cioffi42@gmail.com',revenue:6497,dct:'DCT_122_TOV_Webinar',date:'2025-10-09',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Jeremy Wilson',email:'jeremydwilson@icloud.com',revenue:6497,dct:'DCT_107_UGC_Sept25',date:'2025-10-09',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'ALEX SARIFE',email:'asarife@gmail.com',revenue:5000,dct:'DTC_103_UGC_7day_Free_Course',date:'2025-10-16',funnel:'7-Day ECC',attributed:'Yes'},
+  {name:'Christopher Thomas',email:'muldoon202@gmail.com',revenue:6497,dct:'DCT_128_StaticAD_VSL_Oct6',date:'2025-10-20',funnel:'VSL/Evergreen',attributed:'Yes'},
+  {name:'Fernando Rico',email:'fernando@evander.org',revenue:6497,dct:'DCT_139_DCT_107_Oct27',date:'2025-10-29',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Ben Watkins',email:'watkins.ben.m@gmail.com',revenue:6497,dct:'DCT_139_DCT_107_Oct27',date:'2025-11-03',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Marta Brown',email:'marta@thenorthforkestate.com',revenue:6497,dct:'DCT_137_VSL_TOV',date:'2025-11-03',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Nate Yeomans',email:'nateyeomans@gmail.com',revenue:7997,dct:'DTC_103_UGC_7day_Free_Course',date:'2025-11-18',funnel:'7-Day ECC',attributed:'Yes'},
+  {name:'Autumn Hinds',email:'autumnthinds@gmail.com',revenue:6497,dct:'DCT_142_Nov18th',date:'2025-11-20',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Jennifer Stephens',email:'jennstephens24@gmail.com',revenue:6497,dct:'DCT_142_Nov18th',date:'2025-11-21',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Patrick Singley',email:'psingley5@yahloo.com',revenue:6497,dct:'DCT_135_VSl_Live_V1',date:'2025-11-21',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Austin Elder',email:'austinelder90@gmail.com',revenue:3250,dct:'DCT_142_Nov18th',date:'2025-11-28',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Bradley Watson',email:'watson1974@hotmail.com',revenue:6497,dct:'DTC_104_Static_7day_Free',date:'2025-12-04',funnel:'7-Day ECC',attributed:'Yes'},
+  {name:'Craig Anthony',email:'mcraiganthony@gmail.com',revenue:6497,dct:'DCT_005_Dec1st',date:'2025-12-05',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Jeffrey Hoffman',email:'jjh.hoffman.85@gmail.com',revenue:6497,dct:'DCT_142_Dec11_NewCopy',date:'2025-12-12',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Wade Ivy',email:'wadeivy1@gmail.com',revenue:6497,dct:'DCT_107_Dec11_UGC',date:'2025-12-15',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Jennifer Johnson',email:'jennifer@gatecas.com',revenue:6497,dct:'DCT_142_Dec11_NewCopy',date:'2025-12-15',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Elaine Cha',email:'iamjihyun@gmail.com',revenue:6497,dct:'DCT_154_Dec11th',date:'2025-12-15',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Ty Terrell',email:'ty@indianahomesteadconsultant.com',revenue:5500,dct:'DCT_143_Dec1st',date:'2025-12-19',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Floyd Fajardo',email:'floyd@yellowdoorinvestors.com',revenue:8997,dct:'DCT_142_Dec11_NewCopy',date:'2025-12-20',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Melanie Cabral',email:'melanie@premiertennis.com.au',revenue:6497,dct:'DCT_148_Australia',date:'2025-12-23',funnel:'Aus/NZ',attributed:'Yes'},
+  {name:'Nancy Bittinger',email:'nbittinger@comcast.net',revenue:6497,dct:'DCT_152_Dec22_CopyTest',date:'2025-12-27',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Edward Bennett',email:'ed@netprospectors.biz',revenue:8997,dct:'DCT_152_Dec22_CopyTest',date:'2025-12-29',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Sally Shore',email:'sbsss@live.com',revenue:6497,dct:'FB Ad (no DCT)',date:'2025-12-31',funnel:'Live Webinar',attributed:'Unknown'},
+  {name:'Karen Coffey',email:'karencoffeyblunt@gmail.com',revenue:3249,dct:'DCT_152_Dec22_CopyTest',date:'2025-12-31',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Sheri Rosenthal',email:'sheripod@aol.com',revenue:5997,dct:'FB Ad (no DCT)',date:'2026-01-01',funnel:'Live Webinar',attributed:'Unknown'},
+  {name:'Scott Johnson',email:'scott@highergroundlinebuilders.com',revenue:6497,dct:'DCT_143_Dec1st',date:'2026-01-02',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'David Reynolds',email:'dbreynolds06@gmail.com',revenue:6497,dct:'DCT_152_Dec22_CopyTest',date:'2026-01-04',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Michael Vilanova',email:'mvilan@att.net',revenue:6497,dct:'DTC_100_UGC_7day_Free',date:'2026-01-06',funnel:'7-Day ECC',attributed:'Yes'},
+  {name:'Jennifer Wright',email:'jennifer.wright@clubpilates.com',revenue:6497,dct:'DCT_152_Jan5th',date:'2026-01-09',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Alena Makarycheva',email:'alenamakarycheva35@gmail.com',revenue:6497,dct:'DCT_128_StaticAD_VSL_Oct6',date:'2026-01-13',funnel:'VSL/Evergreen',attributed:'Yes'},
+  {name:'Henry Pardo',email:'hjaypardo@gmail.com',revenue:6497,dct:'FB Ad (no DCT)',date:'2026-01-14',funnel:'Live Webinar',attributed:'Unknown'},
+  {name:'Kevin Klenke',email:'kevgk@aol.com',revenue:6500,dct:'DCT_140_Iteration_Nov6th',date:'2026-01-16',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Kim Tran',email:'trankimkhanh93@gmail.com',revenue:6497,dct:'DCT_165_USA_Jan27th',date:'2026-01-31',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Chaya Hunt',email:'chaya.rain@gmail.com',revenue:6497,dct:'DCT_162_USA_Jan27th',date:'2026-01-31',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Laurie Pearson',email:'wilsonxander@yahoo.com',revenue:6597,dct:'DCT_124_StaticAD_VSL_Aug28',date:'2026-01-31',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Branden Bestgen',email:'branden@bestgen.com',revenue:9997,dct:'DCT_160_Jan15th',date:'2026-01-15',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Jonas Oatis',email:'jonasandbri@gmail.com',revenue:6497,dct:'DCT_167_USA_Jan27th',date:'2026-02-04',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Bethann James',email:'hello@visitechovalley.com',revenue:6750,dct:'DCT_169_US_Feb5th',date:'2026-02-05',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'John Young',email:'jwesyoun@gmail.com',revenue:9997,dct:'FB Ad (broken UTM)',date:'2026-02-05',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Hollister Jones',email:'joycewpearson@gmail.com',revenue:6000,dct:'DCT_165_USA_Jan27th',date:'2026-02-07',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Benita Chan',email:'chan.w.benita@gmail.com',revenue:5997,dct:'DCT_167_USA_Jan27th',date:'2026-02-09',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Leslie White',email:'leslie@lesliecoleweddings.com',revenue:6497,dct:'DCT_171_Feb16th',date:'2026-02-20',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Jill Endres',email:'jill.a.endres@gmail.com',revenue:4000,dct:'DCT_169_Feb16th',date:'2026-02-23',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Mason Smith',email:'mpsmith600@gmail.com',revenue:6597,dct:'Lead Magnet',date:'2026-02-24',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Alex Fuller',email:'fullerlights@gmail.com',revenue:6500,dct:'FB Ad (broken UTM)',date:'2026-02-27',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Michael Antolini',email:'mantolini@alumni.wvsom.edu',revenue:9997,dct:'DCT_169_HybridAd_Feb26',date:'2026-03-01',funnel:'Live Webinar',attributed:'Yes'}
+];
+
+const MONTHLY_DATA = [
+  {month:'Jun 2025',spend:16304,regs:6107,cpl:2.67,deals:5,revenue:24991,roas:1.53,avgDeal:4998.20,costClose:3260.80,revPerReg:4.09},
+  {month:'Jul 2025',spend:14217,regs:5753,cpl:2.47,deals:6,revenue:26985,roas:1.90,avgDeal:4497.48,costClose:2369.50,revPerReg:4.69},
+  {month:'Aug 2025',spend:12880,regs:4176,cpl:3.08,deals:10,revenue:64976,roas:5.04,avgDeal:6497.59,costClose:1287.98,revPerReg:15.56},
+  {month:'Sep 2025',spend:17630,regs:3654,cpl:4.82,deals:4,revenue:25988,roas:1.47,avgDeal:6497.00,costClose:4407.50,revPerReg:7.11},
+  {month:'Oct 2025',spend:24866,regs:4483,cpl:5.55,deals:7,revenue:43982,roas:1.77,avgDeal:6283.14,costClose:3552.29,revPerReg:9.81},
+  {month:'Nov 2025',spend:8707,regs:2264,cpl:3.85,deals:7,revenue:43732,roas:5.02,avgDeal:6247.43,costClose:1243.86,revPerReg:19.32},
+  {month:'Dec 2025',spend:16031,regs:3666,cpl:4.37,deals:14,revenue:91713,roas:5.72,avgDeal:6550.89,costClose:1145.06,revPerReg:25.02},
+  {month:'Jan 2026',spend:65792,regs:12150,cpl:5.41,deals:12,revenue:77567,roas:1.18,avgDeal:6463.92,costClose:5482.67,revPerReg:6.38},
+  {month:'Feb 2026',spend:80712,regs:11138,cpl:7.25,deals:9,revenue:58835,roas:0.73,avgDeal:6537.22,costClose:8968.00,revPerReg:5.28},
+  {month:'Mar 2026',spend:69175,regs:9625,cpl:7.19,deals:1,revenue:9997,roas:0.14,avgDeal:9997.00,costClose:69174.68,revPerReg:1.04}
+];
+
+const GHL_SUMMARY = {
+  totalWon:255,totalLost:101,totalRevenue:1655137,totalCalls:1435,
+  callsConfirmed:754,callsShowed:266,callsNoShow:71,callsCancelled:344,
+  wonSetter:{count:137,revenue:874055},wonNetRev:{count:118,revenue:781082},
+  lostNetRev:99,lostSetter:2,
+  stages:{newLeads:1376,bookedCall:11,cancelled:10,setterNew:3},
+  calendars:{
+    discovery:{total:1368,confirmed:709,showed:259,noshow:70,cancelled:330},
+    brendan:{total:40,confirmed:29,showed:2,noshow:0,cancelled:9},
+    ryan:{total:27,confirmed:16,showed:5,noshow:1,cancelled:5}
+  }
+};
+
+// ────────────────────────────────────────────────────────────
+// CHART.JS GLOBAL CONFIG
+// ────────────────────────────────────────────────────────────
+Chart.defaults.color = '#7c7e96';
+Chart.defaults.borderColor = 'rgba(31,34,53,0.6)';
+Chart.defaults.font.family = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif";
+Chart.defaults.plugins.tooltip.backgroundColor = '#1a1d2e';
+Chart.defaults.plugins.tooltip.borderColor = '#2a2d45';
+Chart.defaults.plugins.tooltip.borderWidth = 1;
+Chart.defaults.plugins.tooltip.cornerRadius = 8;
+Chart.defaults.plugins.tooltip.padding = 10;
+Chart.defaults.plugins.tooltip.titleFont = {weight:'600',size:13};
+Chart.defaults.plugins.tooltip.bodyFont = {size:12};
+
+const chartInstances = {};
+
+// ────────────────────────────────────────────────────────────
+// TAB NAVIGATION
+// ────────────────────────────────────────────────────────────
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    const panel = document.getElementById('panel-' + tab.dataset.tab);
+    panel.classList.add('active');
+    // Resize charts for the new tab
+    setTimeout(() => {
+      Object.values(chartInstances).forEach(c => { if(c && c.resize) c.resize(); });
+    }, 50);
+  });
+});
+
+// ────────────────────────────────────────────────────────────
+// UTILITY FUNCTIONS
+// ────────────────────────────────────────────────────────────
+function fmt(n) { return n == null ? '—' : '$' + n.toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:0}); }
+function fmtK(n) { return n == null ? '—' : '$' + (n/1000).toFixed(1) + 'K'; }
+function fmtDec(n, d) { return n == null ? '—' : '$' + n.toFixed(d || 2); }
+function fmtPct(n) { return n == null ? '—' : n.toFixed(1) + '%'; }
+function fmtX(n) { return n == null ? '—' : n.toFixed(2) + 'x'; }
+function fmtNum(n) { return n == null ? '—' : n.toLocaleString(); }
+function colorVal(val, good, bad) {
+  if (val == null) return '';
+  if (val >= good) return 'green';
+  if (val <= bad) return 'red';
+  return 'amber';
+}
+function roasColor(r) { return r >= 2 ? 'green' : r >= 1 ? 'amber' : 'red'; }
+function parseDate(d) { return d ? new Date(d) : null; }
+function shortDate(d) {
+  if (!d) return '—';
+  const dt = new Date(d);
+  return (dt.getMonth()+1) + '/' + dt.getDate() + '/' + (dt.getFullYear()+'').slice(2);
+}
+
+// ────────────────────────────────────────────────────────────
+// DATE FILTER
+// ────────────────────────────────────────────────────────────
+function applyDateFilter() {
+  const val = document.getElementById('dateFilter').value;
+  // The filter visually adjusts KPI cards
+  let totalRev = 0, totalSpend = 0, totalDeals = 0;
+  const now = new Date('2026-03-22');
+  const cutoff90 = new Date('2025-12-22');
+  const cutoff30 = new Date('2026-02-20');
+
+  let filteredMonths = MONTHLY_DATA;
+  if (val === '90d') {
+    filteredMonths = MONTHLY_DATA.filter(m => {
+      const parts = m.month.split(' ');
+      const yr = parseInt(parts[1]);
+      const moNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      const moIdx = moNames.indexOf(parts[0]);
+      const dt = new Date(yr, moIdx, 1);
+      return dt >= cutoff90;
+    });
+  } else if (val === '30d') {
+    filteredMonths = MONTHLY_DATA.filter(m => {
+      const parts = m.month.split(' ');
+      const yr = parseInt(parts[1]);
+      const moNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      const moIdx = moNames.indexOf(parts[0]);
+      const dt = new Date(yr, moIdx, 1);
+      return dt >= cutoff30;
+    });
+  }
+
+  filteredMonths.forEach(m => { totalRev += m.revenue; totalSpend += m.spend; totalDeals += m.deals; });
+
+  const roas = totalSpend > 0 ? totalRev / totalSpend : 0;
+  const cpa = totalDeals > 0 ? totalSpend / totalDeals : 0;
+  const avgDeal = totalDeals > 0 ? totalRev / totalDeals : 0;
+  const margin = avgDeal > 0 ? ((avgDeal - cpa) / avgDeal * 100) : 0;
+
+  document.getElementById('kpi-revenue').textContent = fmt(totalRev);
+  document.getElementById('kpi-revenue-sub').textContent = totalDeals + ' closed deals' + (val === 'all' ? ' across 10 months' : '');
+  document.getElementById('kpi-spend').textContent = fmt(totalSpend);
+  document.getElementById('kpi-roas').textContent = fmtX(roas);
+  document.getElementById('kpi-roas-sub').textContent = fmt(totalRev - totalSpend) + ' profit over ad spend';
+  document.getElementById('kpi-cpa').textContent = fmt(Math.round(cpa));
+  document.getElementById('kpi-cpa-sub').textContent = 'Avg deal: ' + fmt(Math.round(avgDeal)) + ' | ' + margin.toFixed(1) + '% margin';
+}
+
+// ────────────────────────────────────────────────────────────
+// OVERVIEW CHARTS
+// ────────────────────────────────────────────────────────────
+function initOverviewCharts() {
+  // Revenue & Deals combo
+  const mLabels = MONTHLY_DATA.map(m => m.month.replace('20',''));
+  chartInstances.overviewRevenue = new Chart(document.getElementById('overviewRevenueChart'), {
+    type: 'bar',
+    data: {
+      labels: mLabels,
+      datasets: [{
+        label: 'Revenue',
+        data: MONTHLY_DATA.map(m => m.revenue),
+        backgroundColor: MONTHLY_DATA.map(m => m.roas >= 2 ? 'rgba(74,222,128,0.7)' : m.roas >= 1 ? 'rgba(251,191,36,0.5)' : 'rgba(248,113,113,0.5)'),
+        borderRadius: 8,
+        yAxisID: 'y'
+      },{
+        label: 'Deals',
+        data: MONTHLY_DATA.map(m => m.deals),
+        type: 'line',
+        borderColor: '#60a5fa',
+        borderWidth: 3,
+        pointRadius: 5,
+        pointBackgroundColor: '#60a5fa',
+        pointBorderColor: '#12141f',
+        pointBorderWidth: 2,
+        yAxisID: 'y1',
+        tension: 0.35
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: '#7c7e96', usePointStyle: true, pointStyle: 'circle' } },
+        tooltip: { callbacks: { label: ctx => ctx.dataset.label === 'Revenue' ? fmt(ctx.raw) : ctx.raw + ' deals' } }
+      },
+      scales: {
+        x: { ticks: { color: '#6b6b7e' }, grid: { display: false } },
+        y: { position: 'left', ticks: { color: '#6b6b7e', callback: v => '$'+Math.round(v/1000)+'K' }, grid: { color: 'rgba(31,34,53,0.5)' } },
+        y1: { position: 'right', ticks: { color: '#60a5fa' }, grid: { display: false }, min: 0, max: 18 }
+      }
+    }
+  });
+
+  // CPL Trend
+  chartInstances.overviewCpl = new Chart(document.getElementById('overviewCplChart'), {
+    type: 'line',
+    data: {
+      labels: AD_DATA.map(a => a.week),
+      datasets: [{
+        label: 'CPL',
+        data: AD_DATA.map(a => a.cpl),
+        borderColor: '#22d3ee',
+        borderWidth: 3,
+        fill: true,
+        backgroundColor: 'rgba(34,211,238,0.08)',
+        tension: 0.4,
+        pointRadius: 5,
+        pointBackgroundColor: '#22d3ee',
+        pointBorderColor: '#12141f',
+        pointBorderWidth: 2,
+        pointHoverRadius: 7
+      },{
+        label: 'Target ($5.00)',
+        data: Array(13).fill(5),
+        borderColor: 'rgba(248,113,113,0.5)',
+        borderWidth: 2,
+        borderDash: [6,4],
+        pointRadius: 0,
+        fill: false
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: '#7c7e96', usePointStyle: true } },
+        tooltip: { callbacks: { label: ctx => ctx.dataset.label === 'CPL' ? '$' + ctx.raw.toFixed(2) : ctx.dataset.label } }
+      },
+      scales: {
+        x: { ticks: { color: '#6b6b7e' }, grid: { display: false } },
+        y: { ticks: { color: '#6b6b7e', callback: v => '$'+v.toFixed(2) }, grid: { color: 'rgba(31,34,53,0.5)' }, min: 3, max: 10 }
+      }
+    }
+  });
+
+  // ROAS Donut
+  chartInstances.overviewDonut = new Chart(document.getElementById('overviewRoasDonut'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Live Webinar','7-Day ECC','VSL/Evergreen','Aus/NZ'],
+      datasets: [{
+        data: [369205,47481,32485,6497],
+        backgroundColor: ['#4ade80','#22d3ee','#a78bfa','#f87171'],
+        borderWidth: 0,
+        hoverOffset: 8
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      cutout: '65%',
+      plugins: {
+        legend: { position: 'bottom', labels: { color: '#7c7e96', padding: 14, usePointStyle: true, pointStyle: 'circle' } },
+        tooltip: { callbacks: { label: ctx => ctx.label + ': ' + fmt(ctx.raw) + ' (' + (ctx.raw/455668*100).toFixed(1) + '%)' } }
+      }
+    }
+  });
+
+  // Spend vs Revenue
+  chartInstances.overviewSpendRev = new Chart(document.getElementById('overviewSpendVsRev'), {
+    type: 'line',
+    data: {
+      labels: mLabels,
+      datasets: [{
+        label: 'Revenue',
+        data: MONTHLY_DATA.map(m => m.revenue),
+        borderColor: '#4ade80',
+        backgroundColor: 'rgba(74,222,128,0.08)',
+        borderWidth: 3,
+        fill: true,
+        tension: 0.35,
+        pointRadius: 5,
+        pointBackgroundColor: '#4ade80',
+        pointBorderColor: '#12141f',
+        pointBorderWidth: 2
+      },{
+        label: 'Ad Spend',
+        data: MONTHLY_DATA.map(m => m.spend),
+        borderColor: '#f87171',
+        backgroundColor: 'rgba(248,113,113,0.08)',
+        borderWidth: 3,
+        fill: true,
+        tension: 0.35,
+        pointRadius: 5,
+        pointBackgroundColor: '#f87171',
+        pointBorderColor: '#12141f',
+        pointBorderWidth: 2
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: '#7c7e96', usePointStyle: true, pointStyle: 'circle' } },
+        tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': ' + fmt(ctx.raw) } }
+      },
+      scales: {
+        x: { ticks: { color: '#6b6b7e' }, grid: { display: false } },
+        y: { ticks: { color: '#6b6b7e', callback: v => '$'+Math.round(v/1000)+'K' }, grid: { color: 'rgba(31,34,53,0.5)' } }
+      }
+    }
+  });
+}
+
+// ────────────────────────────────────────────────────────────
+// WEBINAR TABLE & CHARTS
+// ────────────────────────────────────────────────────────────
+let webinarSortCol = 'date';
+let webinarSortAsc = false;
+
+function renderWebinarTable() {
+  const tbody = document.getElementById('webinarTableBody');
+  const sorted = [...WEBINAR_DATA].sort((a, b) => {
+    let av = a[webinarSortCol], bv = b[webinarSortCol];
+    if (av == null && bv == null) return 0;
+    if (av == null) return 1;
+    if (bv == null) return -1;
+    if (webinarSortCol === 'date') { av = new Date(av); bv = new Date(bv); }
+    return webinarSortAsc ? (av > bv ? 1 : -1) : (av < bv ? 1 : -1);
+  });
+
+  tbody.innerHTML = sorted.map((w, i) => {
+    const isPending = !w.spend && !w.revenue;
+    const cls = isPending ? 'style="opacity:0.4"' : '';
+    const roasC = w.roas ? roasColor(w.roas) : '';
+    return `<tr class="expandable" data-idx="${i}" ${cls} onclick="toggleWebinarDetail(this, ${JSON.stringify(w).replace(/"/g,'&quot;')})">
+      <td>${shortDate(w.date)}</td>
+      <td class="text-right mono">${w.spend ? fmt(w.spend) : '—'}</td>
+      <td class="text-right">${fmtNum(w.regs)}</td>
+      <td class="text-right mono">${w.cpl ? fmtDec(w.cpl) : '—'}</td>
+      <td class="text-right">${w.shows != null ? fmtNum(w.shows) : '—'}</td>
+      <td class="text-right">${w.showRate != null ? fmtPct(w.showRate) : '—'}</td>
+      <td class="text-right">${w.calls != null ? fmtNum(w.calls) : '—'}</td>
+      <td class="text-right"><strong>${w.closes != null ? w.closes : '—'}</strong></td>
+      <td class="text-right mono"><strong class="${roasC}">${w.revenue ? fmt(w.revenue) : '—'}</strong></td>
+      <td class="text-right"><span class="${roasC}">${w.roas ? fmtX(w.roas) : '—'}</span></td>
+    </tr>`;
+  }).join('');
+}
+
+function toggleWebinarDetail(row, data) {
+  const existing = row.nextElementSibling;
+  if (existing && existing.classList.contains('expand-detail-row')) {
+    existing.remove();
+    row.classList.remove('expanded');
+    return;
+  }
+  // Remove any other expanded
+  document.querySelectorAll('.expand-detail-row').forEach(r => r.remove());
+  document.querySelectorAll('.expandable.expanded').forEach(r => r.classList.remove('expanded'));
+
+  row.classList.add('expanded');
+  const detailRow = document.createElement('tr');
+  detailRow.className = 'expand-detail-row';
+  detailRow.innerHTML = `<td colspan="10" style="padding:0;border:none">
+    <div class="expand-detail show">
+      <div class="detail-grid">
+        <div class="detail-item"><div class="label">Replay Views</div><div class="val">${data.replay != null ? fmtNum(data.replay) : '—'}</div></div>
+        <div class="detail-item"><div class="label">Replay Rate</div><div class="val">${data.replayRate != null ? fmtPct(data.replayRate) : '—'}</div></div>
+        <div class="detail-item"><div class="label">Total Engaged</div><div class="val">${data.engaged != null ? fmtNum(data.engaged) : '—'}</div></div>
+        <div class="detail-item"><div class="label">Engaged Rate</div><div class="val">${data.engagedRate != null ? fmtPct(data.engagedRate) : '—'}</div></div>
+        <div class="detail-item"><div class="label">Book Rate</div><div class="val">${data.bookRate != null ? fmtPct(data.bookRate) : '—'}</div></div>
+        <div class="detail-item"><div class="label">Call Show Rate</div><div class="val">${data.callShowRate != null ? fmtPct(data.callShowRate) : '—'}</div></div>
+        <div class="detail-item"><div class="label">Close Rate</div><div class="val">${data.closeRate != null ? fmtPct(data.closeRate) : '—'}</div></div>
+        <div class="detail-item"><div class="label">Cost/Close</div><div class="val">${data.costClose ? fmt(data.costClose) : '—'}</div></div>
+        <div class="detail-item"><div class="label">Rev/Registrant</div><div class="val">${data.revPerReg ? fmtDec(data.revPerReg) : '—'}</div></div>
+      </div>
+    </div>
+  </td>`;
+  row.after(detailRow);
+}
+
+function initWebinarCharts() {
+  const completed = WEBINAR_DATA.filter(w => w.roas != null);
+  const labels = completed.map(w => shortDate(w.date));
+
+  // ROAS Comparison
+  chartInstances.webinarRoas = new Chart(document.getElementById('webinarRoasCompare'), {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'ROAS',
+        data: completed.map(w => w.roas),
+        backgroundColor: completed.map(w => w.roas >= 4 ? 'rgba(74,222,128,0.7)' : w.roas >= 2 ? 'rgba(34,211,238,0.6)' : w.roas >= 1 ? 'rgba(251,191,36,0.5)' : 'rgba(248,113,113,0.5)'),
+        borderRadius: 6
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: ctx => 'ROAS: ' + ctx.raw.toFixed(2) + 'x' } }
+      },
+      scales: {
+        x: { ticks: { color: '#6b6b7e', maxRotation: 45 }, grid: { display: false } },
+        y: { ticks: { color: '#6b6b7e', callback: v => v + 'x' }, grid: { color: 'rgba(31,34,53,0.5)' },
+          afterDataLimits: scale => { scale.max = Math.max(scale.max, 10); }
+        }
+      }
+    }
+  });
+
+  // Call Show Rate trend
+  const showRateData = WEBINAR_DATA.filter(w => w.callShowRate != null);
+  chartInstances.webinarShow = new Chart(document.getElementById('webinarShowRate'), {
+    type: 'line',
+    data: {
+      labels: showRateData.map(w => shortDate(w.date)),
+      datasets: [{
+        label: 'Call Show Rate',
+        data: showRateData.map(w => w.callShowRate),
+        borderColor: '#a78bfa',
+        backgroundColor: 'rgba(167,139,250,0.08)',
+        borderWidth: 3,
+        fill: true,
+        tension: 0.35,
+        pointRadius: 6,
+        pointBackgroundColor: showRateData.map(w => w.callShowRate >= 60 ? '#4ade80' : w.callShowRate >= 40 ? '#fbbf24' : '#f87171'),
+        pointBorderColor: '#12141f',
+        pointBorderWidth: 2,
+        pointHoverRadius: 8
+      },{
+        label: 'Benchmark (60%)',
+        data: Array(showRateData.length).fill(60),
+        borderColor: 'rgba(251,191,36,0.4)',
+        borderWidth: 1,
+        borderDash: [5,5],
+        pointRadius: 0,
+        fill: false
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: '#7c7e96', usePointStyle: true } },
+        tooltip: { callbacks: { label: ctx => ctx.dataset.label === 'Call Show Rate' ? ctx.raw.toFixed(1) + '%' : ctx.dataset.label } }
+      },
+      scales: {
+        x: { ticks: { color: '#6b6b7e', maxRotation: 45 }, grid: { display: false } },
+        y: { ticks: { color: '#6b6b7e', callback: v => v + '%' }, grid: { color: 'rgba(31,34,53,0.5)' }, min: 20, max: 100 }
+      }
+    }
+  });
+}
+
+// ────────────────────────────────────────────────────────────
+// AD PERFORMANCE
+// ────────────────────────────────────────────────────────────
+let adSortCol = 'week';
+let adSortAsc = true;
+
+function renderAdTable() {
+  const tbody = document.getElementById('adTableBody');
+  tbody.innerHTML = AD_DATA.map(a => {
+    const cplC = a.cpl <= 5 ? 'green' : a.cpl <= 7 ? 'amber' : 'red';
+    const wowCplC = a.wowCpl == null ? '' : a.wowCpl < 0 ? 'green' : a.wowCpl > 10 ? 'red' : '';
+    const wowSpendC = '';
+    return `<tr>
+      <td class="mono">${a.week}</td>
+      <td class="text-right mono">${fmt(Math.round(a.spend))}</td>
+      <td class="text-right">${fmtNum(a.regs)}</td>
+      <td class="text-right mono"><span class="${cplC}">${fmtDec(a.cpl)}</span></td>
+      <td class="text-right">${fmtNum(a.clicks)}</td>
+      <td class="text-right mono">${fmtDec(a.cpm)}</td>
+      <td class="text-right">${fmtPct(a.ctr)}</td>
+      <td class="text-right">${fmtPct(a.cvr)}</td>
+      <td class="text-right"><span class="${wowSpendC}">${a.wowSpend != null ? (a.wowSpend > 0 ? '+' : '') + a.wowSpend.toFixed(1) + '%' : '—'}</span></td>
+      <td class="text-right"><span class="${wowCplC}">${a.wowCpl != null ? (a.wowCpl > 0 ? '+' : '') + a.wowCpl.toFixed(1) + '%' : '—'}</span></td>
+    </tr>`;
+  }).join('');
+}
+
+function initAdCharts() {
+  const labels = AD_DATA.map(a => a.week);
+
+  // CPL
+  chartInstances.adCpl = new Chart(document.getElementById('adCplChart'), {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [{
+        label: 'CPL',
+        data: AD_DATA.map(a => a.cpl),
+        borderColor: '#22d3ee',
+        borderWidth: 3,
+        fill: true,
+        backgroundColor: 'rgba(34,211,238,0.08)',
+        tension: 0.35,
+        pointRadius: 5,
+        pointBackgroundColor: AD_DATA.map(a => a.cpl <= 5 ? '#4ade80' : a.cpl <= 7 ? '#fbbf24' : '#f87171'),
+        pointBorderColor: '#12141f',
+        pointBorderWidth: 2
+      },{
+        label: 'Target ($5.00)',
+        data: Array(labels.length).fill(5),
+        borderColor: 'rgba(248,113,113,0.4)',
+        borderWidth: 2,
+        borderDash: [6,4],
+        pointRadius: 0,
+        fill: false
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: '#7c7e96', usePointStyle: true } },
+        tooltip: { callbacks: { label: ctx => ctx.dataset.label === 'CPL' ? '$' + ctx.raw.toFixed(2) : ctx.dataset.label } }
+      },
+      scales: {
+        x: { ticks: { color: '#6b6b7e' }, grid: { display: false } },
+        y: { ticks: { color: '#6b6b7e', callback: v => '$'+v.toFixed(2) }, grid: { color: 'rgba(31,34,53,0.5)' }, min: 3, max: 10 }
+      }
+    }
+  });
+
+  // Spend trend
+  chartInstances.adSpend = new Chart(document.getElementById('adSpendChart'), {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Weekly Spend',
+        data: AD_DATA.map(a => a.spend),
+        backgroundColor: 'rgba(99,102,241,0.6)',
+        borderRadius: 6
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: ctx => fmt(Math.round(ctx.raw)) } }
+      },
+      scales: {
+        x: { ticks: { color: '#6b6b7e' }, grid: { display: false } },
+        y: { ticks: { color: '#6b6b7e', callback: v => '$'+Math.round(v/1000)+'K' }, grid: { color: 'rgba(31,34,53,0.5)' } }
+      }
+    }
+  });
+
+  // Clicks & CTR
+  chartInstances.adClicks = new Chart(document.getElementById('adClicksChart'), {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Clicks',
+        data: AD_DATA.map(a => a.clicks),
+        backgroundColor: 'rgba(96,165,250,0.5)',
+        borderRadius: 6,
+        yAxisID: 'y'
+      },{
+        label: 'CTR',
+        data: AD_DATA.map(a => a.ctr),
+        type: 'line',
+        borderColor: '#fbbf24',
+        borderWidth: 2,
+        pointRadius: 4,
+        pointBackgroundColor: '#fbbf24',
+        yAxisID: 'y1',
+        tension: 0.3
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: '#7c7e96', usePointStyle: true } },
+        tooltip: { callbacks: { label: ctx => ctx.dataset.label === 'Clicks' ? fmtNum(ctx.raw) + ' clicks' : ctx.raw.toFixed(2) + '% CTR' } }
+      },
+      scales: {
+        x: { ticks: { color: '#6b6b7e' }, grid: { display: false } },
+        y: { position: 'left', ticks: { color: '#6b6b7e', callback: v => (v/1000).toFixed(0)+'K' }, grid: { color: 'rgba(31,34,53,0.5)' } },
+        y1: { position: 'right', ticks: { color: '#fbbf24', callback: v => v+'%' }, grid: { display: false }, min: 3, max: 8 }
+      }
+    }
+  });
+
+  // LP CVR
+  chartInstances.adCvr = new Chart(document.getElementById('adCvrChart'), {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [{
+        label: 'LP CVR',
+        data: AD_DATA.map(a => a.cvr),
+        borderColor: '#4ade80',
+        borderWidth: 3,
+        fill: true,
+        backgroundColor: 'rgba(74,222,128,0.08)',
+        tension: 0.35,
+        pointRadius: 5,
+        pointBackgroundColor: AD_DATA.map(a => a.cvr >= 10 ? '#4ade80' : a.cvr >= 7 ? '#fbbf24' : '#f87171'),
+        pointBorderColor: '#12141f',
+        pointBorderWidth: 2
+      },{
+        label: 'Benchmark (8%)',
+        data: Array(labels.length).fill(8),
+        borderColor: 'rgba(167,139,250,0.4)',
+        borderWidth: 1,
+        borderDash: [5,5],
+        pointRadius: 0,
+        fill: false
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: '#7c7e96', usePointStyle: true } },
+        tooltip: { callbacks: { label: ctx => ctx.dataset.label === 'LP CVR' ? ctx.raw.toFixed(1) + '%' : ctx.dataset.label } }
+      },
+      scales: {
+        x: { ticks: { color: '#6b6b7e' }, grid: { display: false } },
+        y: { ticks: { color: '#6b6b7e', callback: v => v + '%' }, grid: { color: 'rgba(31,34,53,0.5)' }, min: 2, max: 14 }
+      }
+    }
+  });
+}
+
+// ────────────────────────────────────────────────────────────
+// CREATIVE ROAS
+// ────────────────────────────────────────────────────────────
+function renderDctTable() {
+  const tbody = document.getElementById('dctTableBody');
+  const sorted = [...DCT_DATA].sort((a, b) => b.revenue - a.revenue);
+  tbody.innerHTML = sorted.map(d => {
+    const isUnknown = d.format === 'Unknown';
+    return `<tr${isUnknown ? ' style="opacity:0.6"' : ''}>
+      <td><strong>${d.dct}</strong></td>
+      <td>${d.desc}</td>
+      <td><span class="badge badge-${d.format === 'UGC' ? 'green' : d.format === 'Static' ? 'blue' : d.format === 'TOV' ? 'purple' : d.format === 'VSL' ? 'amber' : 'amber'}">${d.format}</span></td>
+      <td class="text-right"><strong>${d.deals}</strong></td>
+      <td class="text-right mono"><strong class="${d.revenue >= 20000 ? 'green' : ''}">${fmt(Math.round(d.revenue))}</strong></td>
+      <td class="text-right mono">${fmt(Math.round(d.avg))}</td>
+      <td class="text-right">${d.months || '—'}</td>
+    </tr>`;
+  }).join('');
+}
+
+function initCreativeCharts() {
+  // Top 10 horizontal bar
+  const top10 = [...DCT_DATA].sort((a, b) => b.revenue - a.revenue).slice(0, 10);
+  chartInstances.dctBar = new Chart(document.getElementById('dctBarChart'), {
+    type: 'bar',
+    data: {
+      labels: top10.map(d => d.dct + ' — ' + d.desc),
+      datasets: [{
+        label: 'Revenue',
+        data: top10.map(d => d.revenue),
+        backgroundColor: top10.map((d, i) => {
+          const colors = ['rgba(74,222,128,0.8)','rgba(74,222,128,0.7)','rgba(34,211,238,0.7)','rgba(34,211,238,0.6)','rgba(167,139,250,0.6)','rgba(167,139,250,0.5)','rgba(96,165,250,0.5)','rgba(96,165,250,0.4)','rgba(251,191,36,0.4)','rgba(251,191,36,0.3)'];
+          return colors[i];
+        }),
+        borderRadius: 6
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: ctx => fmt(Math.round(ctx.raw)) + ' (' + top10[ctx.dataIndex].deals + ' deals)' } }
+      },
+      scales: {
+        x: { ticks: { color: '#6b6b7e', callback: v => '$'+Math.round(v/1000)+'K' }, grid: { color: 'rgba(31,34,53,0.5)' } },
+        y: { ticks: { color: '#e4e4ec', font: { size: 11 } }, grid: { display: false } }
+      }
+    }
+  });
+
+  // Format revenue donut
+  const formatAgg = {};
+  DCT_DATA.forEach(d => {
+    if (!formatAgg[d.format]) formatAgg[d.format] = { revenue: 0, deals: 0 };
+    formatAgg[d.format].revenue += d.revenue;
+    formatAgg[d.format].deals += d.deals;
+  });
+  const fmtLabels = Object.keys(formatAgg);
+  const fmtColors = {'UGC':'#4ade80','Mixed':'#60a5fa','Static':'#22d3ee','TOV':'#a78bfa','VSL':'#fbbf24','Unknown':'#6b6b7e'};
+
+  chartInstances.formatDonut = new Chart(document.getElementById('formatDonut'), {
+    type: 'doughnut',
+    data: {
+      labels: fmtLabels,
+      datasets: [{
+        data: fmtLabels.map(f => Math.round(formatAgg[f].revenue)),
+        backgroundColor: fmtLabels.map(f => fmtColors[f] || '#6b6b7e'),
+        borderWidth: 0,
+        hoverOffset: 6
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      cutout: '60%',
+      plugins: {
+        legend: { position: 'bottom', labels: { color: '#7c7e96', padding: 12, usePointStyle: true, pointStyle: 'circle' } },
+        tooltip: { callbacks: { label: ctx => ctx.label + ': ' + fmt(ctx.raw) } }
+      }
+    }
+  });
+
+  chartInstances.formatDeals = new Chart(document.getElementById('formatDealsDonut'), {
+    type: 'doughnut',
+    data: {
+      labels: fmtLabels,
+      datasets: [{
+        data: fmtLabels.map(f => formatAgg[f].deals),
+        backgroundColor: fmtLabels.map(f => fmtColors[f] || '#6b6b7e'),
+        borderWidth: 0,
+        hoverOffset: 6
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      cutout: '60%',
+      plugins: {
+        legend: { position: 'bottom', labels: { color: '#7c7e96', padding: 12, usePointStyle: true, pointStyle: 'circle' } },
+        tooltip: { callbacks: { label: ctx => ctx.label + ': ' + ctx.raw + ' deals' } }
+      }
+    }
+  });
+}
+
+// ────────────────────────────────────────────────────────────
+// PIPELINE CHARTS
+// ────────────────────────────────────────────────────────────
+function initPipelineCharts() {
+  // Won by Pipeline
+  chartInstances.pipelineWon = new Chart(document.getElementById('pipelineWonChart'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Setter Pipeline','NetRev Sales'],
+      datasets: [{
+        data: [137, 118],
+        backgroundColor: ['#4ade80','#60a5fa'],
+        borderWidth: 0,
+        hoverOffset: 6
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      cutout: '60%',
+      plugins: {
+        legend: { position: 'bottom', labels: { color: '#7c7e96', padding: 12, usePointStyle: true, pointStyle: 'circle' } },
+        tooltip: { callbacks: { label: ctx => ctx.label + ': ' + ctx.raw + ' deals' } }
+      }
+    }
+  });
+
+  // Calendar stacked bar
+  const calData = GHL_SUMMARY.calendars;
+  chartInstances.calendar = new Chart(document.getElementById('calendarChart'), {
+    type: 'bar',
+    data: {
+      labels: ['Discovery Call','Strategy (Brendan)','Strategy (Ryan)'],
+      datasets: [
+        { label: 'Showed', data: [calData.discovery.showed, calData.brendan.showed, calData.ryan.showed], backgroundColor: 'rgba(74,222,128,0.7)', borderRadius: 4 },
+        { label: 'Confirmed', data: [calData.discovery.confirmed, calData.brendan.confirmed, calData.ryan.confirmed], backgroundColor: 'rgba(96,165,250,0.5)', borderRadius: 4 },
+        { label: 'Cancelled', data: [calData.discovery.cancelled, calData.brendan.cancelled, calData.ryan.cancelled], backgroundColor: 'rgba(251,191,36,0.4)', borderRadius: 4 },
+        { label: 'No-Show', data: [calData.discovery.noshow, calData.brendan.noshow, calData.ryan.noshow], backgroundColor: 'rgba(248,113,113,0.5)', borderRadius: 4 }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { labels: { color: '#7c7e96', usePointStyle: true, pointStyle: 'circle' } }
+      },
+      scales: {
+        x: { stacked: true, ticks: { color: '#6b6b7e' }, grid: { display: false } },
+        y: { stacked: true, ticks: { color: '#6b6b7e' }, grid: { color: 'rgba(31,34,53,0.5)' } }
+      }
+    }
+  });
+}
+
+// ────────────────────────────────────────────────────────────
+// DEALS TABLE (SEARCHABLE + SORTABLE)
+// ────────────────────────────────────────────────────────────
+let dealsSortCol = 'date';
+let dealsSortAsc = false;
+
+function renderDealsTable(filter) {
+  const tbody = document.getElementById('dealsTableBody');
+  let data = [...DEALS_DATA];
+
+  if (filter) {
+    const q = filter.toLowerCase();
+    data = data.filter(d =>
+      d.name.toLowerCase().includes(q) ||
+      d.email.toLowerCase().includes(q) ||
+      d.dct.toLowerCase().includes(q) ||
+      d.funnel.toLowerCase().includes(q)
+    );
+  }
+
+  data.sort((a, b) => {
+    let av = a[dealsSortCol], bv = b[dealsSortCol];
+    if (dealsSortCol === 'date') { av = new Date(av); bv = new Date(bv); }
+    if (dealsSortCol === 'revenue') { av = +av; bv = +bv; }
+    return dealsSortAsc ? (av > bv ? 1 : -1) : (av < bv ? 1 : -1);
+  });
+
+  tbody.innerHTML = data.map(d => {
+    const attBadge = d.attributed === 'Yes' ? 'badge-green' : d.attributed === 'Unknown' ? 'badge-amber' : 'badge-red';
+    const isBroken = d.dct.includes('broken') || d.dct.includes('no DCT');
+    return `<tr>
+      <td><strong>${d.name}</strong><div style="font-size:11px;color:var(--text-dim)">${d.email}</div></td>
+      <td class="text-right mono"><strong class="green">${fmt(d.revenue)}</strong></td>
+      <td style="max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap${isBroken ? ';color:var(--amber)' : ''}" title="${d.dct}">${d.dct}</td>
+      <td class="mono">${shortDate(d.date)}</td>
+      <td><span class="badge badge-${d.funnel === 'Live Webinar' ? 'green' : d.funnel === '7-Day ECC' ? 'blue' : d.funnel === 'VSL/Evergreen' ? 'purple' : 'red'}">${d.funnel}</span></td>
+      <td class="text-center"><span class="badge ${attBadge}">${d.attributed}</span></td>
+    </tr>`;
+  }).join('');
+
+  document.getElementById('dealCount').textContent = `Showing ${data.length} of ${DEALS_DATA.length} deals`;
+}
+
+document.getElementById('dealSearch').addEventListener('input', function() {
+  renderDealsTable(this.value);
+});
+
+// ────────────────────────────────────────────────────────────
+// SORTABLE TABLE HEADERS
+// ────────────────────────────────────────────────────────────
+function makeSortable(tableId, renderFn, sortState) {
+  document.querySelectorAll(`#${tableId} thead th[data-sort]`).forEach(th => {
+    th.addEventListener('click', () => {
+      const col = th.dataset.sort;
+      if (sortState.col === col) {
+        sortState.asc = !sortState.asc;
+      } else {
+        sortState.col = col;
+        sortState.asc = true;
+      }
+      // Update arrow display
+      document.querySelectorAll(`#${tableId} thead th`).forEach(h => h.classList.remove('sorted'));
+      th.classList.add('sorted');
+      th.querySelector('.sort-arrow').innerHTML = sortState.asc ? '&#9650;' : '&#9660;';
+      renderFn();
+    });
+  });
+}
+
+// Override sort in webinar render
+function webinarSortAndRender() {
+  const tbody = document.getElementById('webinarTableBody');
+  const colMap = { date:'date', spend:'spend', regs:'regs', cpl:'cpl', shows:'shows', showrate:'showRate', calls:'calls', closes:'closes', revenue:'revenue', roas:'roas' };
+  const sorted = [...WEBINAR_DATA].sort((a, b) => {
+    let av = a[colMap[webinarSortState.col] || webinarSortState.col];
+    let bv = b[colMap[webinarSortState.col] || webinarSortState.col];
+    if (av == null && bv == null) return 0;
+    if (av == null) return 1;
+    if (bv == null) return -1;
+    if (webinarSortState.col === 'date') { av = new Date(av); bv = new Date(bv); }
+    return webinarSortState.asc ? (av > bv ? 1 : -1) : (av < bv ? 1 : -1);
+  });
+
+  tbody.innerHTML = sorted.map((w, i) => {
+    const isPending = !w.spend && !w.revenue;
+    const cls = isPending ? 'style="opacity:0.4"' : '';
+    const roasC = w.roas ? roasColor(w.roas) : '';
+    const wJson = JSON.stringify(w).replace(/"/g, '&quot;');
+    return `<tr class="expandable" ${cls} onclick="toggleWebinarDetail(this, ${wJson})">
+      <td>${shortDate(w.date)}</td>
+      <td class="text-right mono">${w.spend ? fmt(w.spend) : '—'}</td>
+      <td class="text-right">${w.regs != null ? fmtNum(w.regs) : '—'}</td>
+      <td class="text-right mono">${w.cpl ? fmtDec(w.cpl) : '—'}</td>
+      <td class="text-right">${w.shows != null ? fmtNum(w.shows) : '—'}</td>
+      <td class="text-right">${w.showRate != null ? fmtPct(w.showRate) : '—'}</td>
+      <td class="text-right">${w.calls != null ? fmtNum(w.calls) : '—'}</td>
+      <td class="text-right"><strong>${w.closes != null ? w.closes : '—'}</strong></td>
+      <td class="text-right mono"><strong class="${roasC}">${w.revenue ? fmt(w.revenue) : '—'}</strong></td>
+      <td class="text-right"><span class="${roasC}">${w.roas ? fmtX(w.roas) : '—'}</span></td>
+    </tr>`;
+  }).join('');
+}
+
+const webinarSortState = { col: 'date', asc: false };
+const adSortState = { col: 'week', asc: true };
+const dctSortState = { col: 'revenue', asc: false };
+const dealsSortState = { col: 'date', asc: false };
+
+function adSortAndRender() {
+  const tbody = document.getElementById('adTableBody');
+  const sorted = [...AD_DATA].sort((a, b) => {
+    let av = a[adSortState.col], bv = b[adSortState.col];
+    if (av == null) return 1; if (bv == null) return -1;
+    return adSortState.asc ? (av > bv ? 1 : -1) : (av < bv ? 1 : -1);
+  });
+  tbody.innerHTML = sorted.map(a => {
+    const cplC = a.cpl <= 5 ? 'green' : a.cpl <= 7 ? 'amber' : 'red';
+    const wowCplC = a.wowCpl == null ? '' : a.wowCpl < 0 ? 'green' : a.wowCpl > 10 ? 'red' : '';
+    return `<tr>
+      <td class="mono">${a.week}</td>
+      <td class="text-right mono">${fmt(Math.round(a.spend))}</td>
+      <td class="text-right">${fmtNum(a.regs)}</td>
+      <td class="text-right mono"><span class="${cplC}">${fmtDec(a.cpl)}</span></td>
+      <td class="text-right">${fmtNum(a.clicks)}</td>
+      <td class="text-right mono">${fmtDec(a.cpm)}</td>
+      <td class="text-right">${fmtPct(a.ctr)}</td>
+      <td class="text-right">${fmtPct(a.cvr)}</td>
+      <td class="text-right">${a.wowSpend != null ? (a.wowSpend > 0 ? '+' : '') + a.wowSpend.toFixed(1) + '%' : '—'}</td>
+      <td class="text-right"><span class="${wowCplC}">${a.wowCpl != null ? (a.wowCpl > 0 ? '+' : '') + a.wowCpl.toFixed(1) + '%' : '—'}</span></td>
+    </tr>`;
+  }).join('');
+}
+
+function dctSortAndRender() {
+  const tbody = document.getElementById('dctTableBody');
+  const colMap = { dct:'dct', desc:'desc', format:'format', deals:'deals', revenue:'revenue', avg:'avg', months:'months' };
+  const sorted = [...DCT_DATA].sort((a, b) => {
+    let av = a[colMap[dctSortState.col]], bv = b[colMap[dctSortState.col]];
+    if (av == null) return 1; if (bv == null) return -1;
+    if (typeof av === 'string') { av = av.toLowerCase(); bv = bv.toLowerCase(); }
+    return dctSortState.asc ? (av > bv ? 1 : -1) : (av < bv ? 1 : -1);
+  });
+  tbody.innerHTML = sorted.map(d => {
+    const isUnknown = d.format === 'Unknown';
+    return `<tr${isUnknown ? ' style="opacity:0.6"' : ''}>
+      <td><strong>${d.dct}</strong></td>
+      <td>${d.desc}</td>
+      <td><span class="badge badge-${d.format === 'UGC' ? 'green' : d.format === 'Static' ? 'blue' : d.format === 'TOV' ? 'purple' : d.format === 'VSL' ? 'amber' : 'amber'}">${d.format}</span></td>
+      <td class="text-right"><strong>${d.deals}</strong></td>
+      <td class="text-right mono"><strong class="${d.revenue >= 20000 ? 'green' : ''}">${fmt(Math.round(d.revenue))}</strong></td>
+      <td class="text-right mono">${fmt(Math.round(d.avg))}</td>
+      <td class="text-right">${d.months || '—'}</td>
+    </tr>`;
+  }).join('');
+}
+
+function dealsSortAndRender() {
+  renderDealsTable(document.getElementById('dealSearch').value);
+}
+
+// ────────────────────────────────────────────────────────────
+// INITIALIZE
+// ────────────────────────────────────────────────────────────
+function init() {
+  initOverviewCharts();
+  renderWebinarTable();
+  initWebinarCharts();
+  renderAdTable();
+  initAdCharts();
+  renderDctTable();
+  initCreativeCharts();
+  initPipelineCharts();
+  renderDealsTable();
+
+  // Make tables sortable
+  makeSortable('webinarTable', webinarSortAndRender, webinarSortState);
+  makeSortable('adTable', adSortAndRender, adSortState);
+  makeSortable('dctTable', dctSortAndRender, dctSortState);
+
+  // Deals table sorting
+  document.querySelectorAll('#dealsTable thead th[data-sort]').forEach(th => {
+    th.addEventListener('click', () => {
+      const col = th.dataset.sort;
+      if (dealsSortState.col === col) {
+        dealsSortState.asc = !dealsSortState.asc;
+      } else {
+        dealsSortState.col = col;
+        dealsSortState.asc = col === 'date' ? false : true;
+      }
+      document.querySelectorAll('#dealsTable thead th').forEach(h => h.classList.remove('sorted'));
+      th.classList.add('sorted');
+      th.querySelector('.sort-arrow').innerHTML = dealsSortState.asc ? '&#9650;' : '&#9660;';
+
+      // Override dealsSortCol and dealsSortAsc for renderDealsTable
+      dealsSortCol = col;
+      dealsSortAsc = dealsSortState.asc;
+      renderDealsTable(document.getElementById('dealSearch').value);
+    });
+  });
+}
+
+init();
+</script>
+</body>
+</html>

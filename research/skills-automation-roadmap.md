@@ -8,16 +8,16 @@
 
 | Priority | Skill | Impact | Effort | What It Solves |
 |----------|-------|--------|--------|----------------|
-| **P0** | `/friday-autopilot` | Highest | Medium | Friday reports 0% on-time across multiple accounts |
-| **P0** | `/creative-qa` hook | High | Medium | No QA gate before creative goes to client |
-| **P1** | `/fatigue-scan` | High | Simple | Creative fatigue detection is manual |
-| **P1** | `/vault-integrity` | High | Simple | Frontmatter drift degrades all other skills |
-| **P1** | `/action-tracker` | High | Medium | Action items lost between meetings |
-| **P2** | `/lp-monitor` | Medium | Medium | Silent landing page CVR drops |
-| **P2** | `/portfolio-pulse` | Medium | Medium | No single-glance portfolio view |
-| **P2** | n8n Self-Healer | Medium | Complex | Cascading automation failures |
-| **P3** | `/competitor-watch` | Medium | Complex | No automated competitor monitoring |
-| **P3** | `/onboard-client` | Low urgency | Medium | New client setup takes hours |
+| **P0** | `/friday-autopilot` | Highest | Medium | Friday reports 0% on-time across multiple accounts | **BUILT** (V3, 2026-03-22) |
+| **P0** | `/creative-qa` hook | High | Medium | No QA gate before creative goes to client | **BUILT** (migrated to vault) |
+| **P1** | `/fatigue-scan` | High | Simple | Creative fatigue detection is manual | **BUILT** (DB-first, 2026-03-22) |
+| **P1** | `/vault-integrity` | High | Simple | Frontmatter drift degrades all other skills | **BUILT** (migrated to vault) |
+| **P1** | `/action-tracker` | High | Medium | Action items lost between meetings | **BUILT** (migrated to vault) |
+| **P2** | `/lp-monitor` | Medium | Medium | Silent landing page CVR drops | Not started |
+| **P2** | `/portfolio-pulse` | Medium | Medium | No single-glance portfolio view | **BUILT** (DB-first, 2026-03-22) |
+| **P2** | n8n Self-Healer | Medium | Complex | Cascading automation failures | Not started |
+| **P3** | `/competitor-watch` | Medium | Complex | No automated competitor monitoring | Not started |
+| **P3** | `/onboard-client` | Low urgency | Medium | New client setup takes hours | Not started |
 
 ---
 

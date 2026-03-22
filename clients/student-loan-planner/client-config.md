@@ -37,12 +37,12 @@
 
 | Field | Value |
 |-------|-------|
-| `meta_account_id` | TBD |
+| `meta_account_id` | Not in Pipeboard DB (account under client's Business Manager with partner access) |
 | `campaign_ids` | Multiple ICP-specific CBO campaigns (Physicians, Dentists, Veterinarians, Lawyers, Nursing, Chiropractors, PAs, Optometrists, Pharmacists, PTs, Psychologists) |
 | `tfm_campaign_ids` | TBD |
 | `competitor_name` | N/A |
 | `competitor_campaign_ids` | N/A |
-| `ad_account_type` | TFM-managed |
+| `ad_account_type` | Partner access (client-owned Business Manager) |
 
 ---
 

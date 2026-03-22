@@ -52,7 +52,7 @@ Every client file follows the same structure:
 | 11 | Jay Shetty | Lays Paiva | Active | LOW-MEDIUM | $3.00 | $0.93 gross | beehiiv | Yes | Yes |
 | 12 | Just Women's Sports | Lays Paiva (covering) | Active | MEDIUM | $1.50 | $2.32 | beehiiv | Yes | Yes |
 | 13 | MarketBeat | Luiz Pekelman | Active | LOW | $10-14 | $7.51 | Custom (in-house) | Yes | Yes |
-| 14 | MDhair | Kinte | Active | MEDIUM | $80 CAC | $130 CAC (testing) | N/A (DTC) | Yes | -- |
+| 14 | MDhair | Kinte | Active | MEDIUM | $80 CAC | $130 CAC (testing) | N/A (DTC) | Yes | Yes |
 | 15 | Open Source CEO | Aubree Clark | Active | LOW-MEDIUM | $3.50 | ~$3.50+ (trending down) | beehiiv | Yes | Yes |
 | 16 | Points Path | Mariely | Active | LOW | $1.50-$2.00 | $1.78 | Kit | Yes | Yes |
 | 17 | Quartz | Mariely | Active | MEDIUM | $2.50 | $3.27 | Delivra | Yes | Yes |
@@ -60,7 +60,7 @@ Every client file follows the same structure:
 | 19 | Status (News) | Mariely | At Risk | HIGH | $1-$2 raw / ICP-Verified | $68.42/qualified (15 qualified/$1,026) | beehiiv | Yes | Yes |
 | 20 | Stocks & Income | Luiz Pekelman | Active | MEDIUM | $2.00 | $3.70 (-15% WoW) | beehiiv | Yes | Yes |
 | 21 | Stocks.News | Luiz Pekelman | Active | LOW-MEDIUM | Cost Per Trial < $60 | $57.38 per trial | N/A (app-based) | Yes | Yes |
-| 22 | Student Loan Planner | Aubree Clark | Active | MEDIUM-HIGH | $15-20 | $18.82 (+60% since Jan) | Kit (ConvertKit) | Yes | -- |
+| 22 | Student Loan Planner | Aubree Clark | Active | MEDIUM-HIGH | $15-20 | $18.82 (+60% since Jan) | Kit (ConvertKit) | Yes | Yes |
 | 23 | The Points Guy | Jay Warner | Active | MODERATE | $3.50-$4.50 | ~$2.80 | N/A (Red Ventures) | Yes | Yes |
 | 24 | Vendry (Case Studied) | Aubree Clark | Active | MEDIUM | $2-6 CAD | DR paused (LP rebuild) / $19.38 (NL) | beehiiv | Yes | Yes |
 | 25 | Workweek | Lays Paiva | Active | LOW | $6-$9.50 Sub CAC | IHIH $6.08 / TMM $6.09 / FTT $5.78 / Hosp $6.30 / GTM $3.60 | Sailthru | Yes | Yes |
@@ -68,7 +68,7 @@ Every client file follows the same structure:
 ### Summary Counts
 - **25 total clients** (24 Active + 1 At Risk)
 - **25 clients with deep-enrichment.md** files (all clients now have deep enrichment)
-- **23 clients with Claude Chat project instructions** (missing: Student Loan Planner, MDhair)
+- **25 clients with Claude Chat project instructions** (all clients now have claude-chat-project.md)
 - **6 clients built from scratch on March 21:** 1636 Forum, Franklin's Forum, Just Women's Sports, Vendry, Student Loan Planner, MDhair
 - **All 25 client files** have YAML frontmatter for Obsidian Bases
 - **QA logs V1-V5** exist documenting data integrity checks across the enrichment process

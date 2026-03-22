@@ -36,7 +36,7 @@
 
 | Field | Value |
 |-------|-------|
-| `meta_account_id` | Partner access via Partner ID 730307861597413 |
+| `meta_account_id` | act_472919260251410 (Partner access via Partner ID 730307861597413) |
 | `campaign_ids` | TBD |
 | `tfm_campaign_ids` | TBD |
 | `competitor_name` | N/A |
@@ -51,7 +51,7 @@
 |-------|-------|
 | `kpi_primary` | Cost Per Lead (CPL) |
 | `kpi_target` | < $1.50 (hard ceiling: $2.00) |
-| `cpl_target` | < $1.50 (current: $1.17) |
+| `cpl_target` | < $1.50 (current: $2.32, up from $1.17 -- above target) |
 | `kpi_secondary` | Email Open Rate |
 | `kpi_secondary_target` | > 40% (target > 50%; top performers 70%+) |
 | `quality_definition` | Subscriber who opens consistently (>40% OR), clicks through (>2% verified CTR), does not unsubscribe within 30 days (<3% unsub rate). Best creatives deliver 70%+ open rates and <1% unsub rates. |

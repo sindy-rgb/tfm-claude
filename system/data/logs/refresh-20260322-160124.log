@@ -1,0 +1,43 @@
+[2026-03-22 16:01:24] === Pipeboard DB Refresh Started ===
+[2026-03-22 16:01:24] DB: /Users/jay/Documents/the vault/the-feed-media/system/data/pipeboard.db
+[2026-03-22 16:01:24] Days: 7
+[2026-03-22 16:01:24] Dry run: true
+[2026-03-22 16:01:24] Date range: 2026-03-15 to 2026-03-22
+[2026-03-22 16:01:24] Found 25 clients in account_mapping
+[2026-03-22 16:01:24] 
+[2026-03-22 16:01:24] --- Current Data Staleness ---
+[2026-03-22 16:01:24]   client_slug      latest_data  days_stale
+[2026-03-22 16:01:24]   ---------------  -----------  ----------
+[2026-03-22 16:01:24]   open-source-ceo  2026-03-21   1.8       
+[2026-03-22 16:01:24] 
+[2026-03-22 16:01:24] --- Clients with NO data ---
+[2026-03-22 16:01:24]   vendry
+[2026-03-22 16:01:24] 
+[2026-03-22 16:01:24] DRY RUN — would refresh these clients for 2026-03-15 to 2026-03-22:
+[2026-03-22 16:01:24]   big-desk-energy | act_1402347147137781 | conversion: offsite_conversion.fb_pixel_custom
+[2026-03-22 16:01:24]   contrarian-thinking | act_1329828287615052 | conversion: lead
+[2026-03-22 16:01:24]   creator-spotlight | act_727705002666774 | conversion: offsite_conversion.fb_pixel_custom
+[2026-03-22 16:01:24]   daily-drop | act_593626712597229 | conversion: lead
+[2026-03-22 16:01:24]   experiential-hospitality | act_1644253359451312 | conversion: offsite_conversion.fb_pixel_custom
+[2026-03-22 16:01:24]   franklins-forum | act_1870272053696920 | conversion: offsite_conversion.custom.2133776527360217
+[2026-03-22 16:01:24]   houck | act_601589271801820 | conversion: lead
+[2026-03-22 16:01:24]   how-to-ai | act_816391071105542 | conversion: complete_registration
+[2026-03-22 16:01:24]   insight-links | act_507049163040180 | conversion: lead
+[2026-03-22 16:01:24]   just-womens-sports | act_472919260251410 | conversion: lead
+[2026-03-22 16:01:24]   marketbeat | act_1129788478833121 | conversion: lead
+[2026-03-22 16:01:24]   open-source-ceo | act_2116667552418074 | conversion: offsite_conversion.custom.889821167133951
+[2026-03-22 16:01:24]   points-path | act_1308877270502995 | conversion: offsite_conversion.fb_pixel_custom
+[2026-03-22 16:01:24]   quartz | act_757128750591828 | conversion: lead
+[2026-03-22 16:01:24]   rnt-fitness | act_537505457933105 | conversion: offsite_conversion.fb_pixel_custom
+[2026-03-22 16:01:24]   status-news | act_455914147435901 | conversion: offsite_conversion.fb_pixel_custom
+[2026-03-22 16:01:24]   stocks-and-income | act_24102682642704582 | conversion: lead
+[2026-03-22 16:01:24]   stocks-news | act_966430194860576 | conversion: mobile_app_install
+[2026-03-22 16:01:24]   the-points-guy | act_2130099530351734 | conversion: lead
+[2026-03-22 16:01:24]   vendry | act_1283376772272478 | conversion: lead
+[2026-03-22 16:01:24]   workweek-ftt | act_1079516909306359 | conversion: lead
+[2026-03-22 16:01:24]   workweek-gtm | act_4673797136057796 | conversion: lead
+[2026-03-22 16:01:24]   workweek-hospitalogy | act_718612189266939 | conversion: lead
+[2026-03-22 16:01:24]   workweek-ihih | act_3186358998360632 | conversion: lead
+[2026-03-22 16:01:24]   workweek-tmm | act_579954186820640 | conversion: lead
+[2026-03-22 16:01:24] 
+[2026-03-22 16:01:24] DRY RUN complete. No data was modified.

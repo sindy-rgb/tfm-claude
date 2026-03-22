@@ -36,7 +36,7 @@
 
 | Field | Value |
 |-------|-------|
-| `meta_account_id` | TBD |
+| `meta_account_id` | act_1870272053696920 |
 | `campaign_ids` | TBD |
 | `tfm_campaign_ids` | TBD |
 | `competitor_name` | N/A |
