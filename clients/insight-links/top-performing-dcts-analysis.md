@@ -1,491 +1,376 @@
-# Insight Links — Top-Performing DCT Analysis (COMPLETE DATA)
+# Insight Links -- Top-Performing DCT Analysis (DUAL-METRIC VIEW)
 
 **Date:** March 22, 2026
-**Data Source:** Mailchimp subscriber exports — ALL segments, TFM + Growletter, all three newsletters
+**Data Source:** Mailchimp subscriber exports -- ALL segments, TFM + Growletter, all three newsletters
 **Total Records Analyzed:** 25,187 subscribers
 
-> **Previous version was incomplete.** The prior analysis showed 0 Growletter qualified leads because the GL IW and GL DHW data files were missing. This version includes all data: 6 TFM segments + 41 Growletter segments across CW, IW, and DHW. The honest finding: even with the complete GL data, the picture barely changes. GL produced 12 qualified leads total across 19,925 subscribers.
+> **This version introduces dual-metric quality assessment.** The QUALIFIED field (form engagement) and ICP Title Match (actual audience fit) are shown side by side. Together they reveal four quadrants: real winners, traps, hidden quality, and kill candidates. Neither metric alone tells the full story.
 
 ---
 
-## 1. Total Subscribers by Source x Newsletter
+## How to Read the Dual-Metric Tables
 
-| Newsletter | TFM | Growletter | Total | GL:TFM Ratio |
-|---|---:|---:|---:|---:|
-| Cardiac Wire | 2,504 | 11,362 | 13,866 | 4.5x |
-| Imaging Wire | 1,253 | 2,847 | 4,100 | 2.3x |
-| Digital Health Wire | 1,505 | 5,716 | 7,221 | 3.8x |
-| **TOTAL** | **5,262** | **19,925** | **25,187** | **3.8x** |
+| Quadrant | Form Qualified | ICP Title Match | What It Means |
+|---|---|---|---|
+| **REAL WINNER** | High | High | Right people who engage with the form. Scale these. |
+| **THE TRAP** | High | Low | Form-completers who are not the target audience. The form over-counts quality. |
+| **HIDDEN QUALITY** | Low | High | Right people who skip the form. The form under-counts quality. |
+| **KILL CANDIDATE** | Low | Low | Wrong audience, low engagement. Kill or sunset. |
 
-**Growletter delivers 3.8x more total volume than TFM across all newsletters.** The biggest gap is on Cardiac Wire (4.5x). Even on Imaging Wire, where GL has historically struggled, they deliver 2.3x TFM's volume.
+**"Gap"** = Form Qualified count minus ICP Match count. Positive = form over-counting. Negative = form under-counting.
 
----
-
-## 2. Form Completion Rate by Source x Newsletter
-
-"Form complete" = all 4 first-party fields filled: FNAME, LNAME, TITLE, COMPANY.
-
-| Newsletter | TFM Complete | TFM Rate | GL Complete | GL Rate |
-|---|---:|---:|---:|---:|
-| Cardiac Wire | 629 / 2,504 | **25.1%** | 1,798 / 11,362 | **15.8%** |
-| Imaging Wire | 477 / 1,253 | **38.1%** | 832 / 2,847 | **29.2%** |
-| Digital Health Wire | 584 / 1,505 | **38.8%** | 1,336 / 5,716 | **23.4%** |
-
-**TFM wins on form completion rate across all 3 newsletters.** TFM leads are 1.5-1.7x more likely to fill out all four fields. However, in absolute numbers, GL still delivers more completed forms on CW (1,798 vs 629) and DHW (1,336 vs 584) due to their volume advantage. On IW, TFM actually approaches parity in completed-form count despite having less than half the volume.
+**ICP definitions:**
+- **CW:** cardiologist, cardiac surgeon, electrophysiologist, interventional, cardiology, cardiac, heart, cardiovascular, EP lab, cath lab, structural heart
+- **IW:** radiologist, radiology, imaging, MRI, CT tech, nuclear medicine, mammograph, sonograph, ultrasound, PACS, imaging director, x-ray
+- **DHW Clinician track:** director clinical, VP health, chief medical, chief information, clinical informatics, medical director, physician executive
+- **DHW Executive track:** CEO, CTO, CIO, COO, VP, director, founder, president, owner, consultant, executive, managing director, partner
+- **Universal excludes:** retired, disabled, patient, student, unemployed, homemaker, none, N/A, TBD, me, test
 
 ---
 
-## 3. TFM Qualification Results (TFM data only)
+## 1. Account-Level Dual-Metric Summary
 
-> **Methodology note:** The QUALIFIED field is populated by TFM's post-subscribe ICP form, which asks for job title, company, and role. Growletter's signup funnel does not include this form. GL leads never see the qualification questions. Their empty QUALIFIED fields mean "never assessed," not "failed quality." Therefore, **qualification rate is a TFM-internal optimization metric, not a cross-agency comparison.**
+| Newsletter | Total Subs | Form Qualified | Form Qual Rate | ICP Match | ICP Rate | Both (Qual + ICP) | Gap | Interpretation |
+|---|---:|---:|---:|---:|---:|---:|---:|---|
+| **Cardiac Wire** | 13,866 | 267 | 1.9% | 206 | 1.5% | 31 | +61 | Form over-counts quality |
+| **Imaging Wire** | 4,100 | 258 | 6.3% | 201 | 4.9% | 98 | +57 | Form over-counts quality |
+| **Digital Health Wire** | 7,221 | 315 | 4.4% | 398 | 5.5% | 116 | -83 | Form under-counts quality |
+| **ALL** | **25,187** | **840** | **3.3%** | **805** | **3.2%** | **245** | **+35** | |
 
-| Newsletter | TFM Subs | TFM Qualified | TFM Qual Rate |
-|---|---:|---:|---:|
-| Cardiac Wire | 2,504 | 259 | **10.3%** |
-| Imaging Wire | 1,253 | 255 | **20.4%** |
-| Digital Health Wire | 1,505 | 314 | **20.9%** |
-| **TOTAL** | **5,262** | **828** | **15.7%** |
+**Key findings at the account level:**
 
-IW and DHW qualify at 2x the rate of CW — CW has a systemic quality problem that needs creative-level diagnosis (see Section 5).
-
-### QUALIFIED field distribution (for context)
-
-| Segment | QUALIFIED=true | QUALIFIED=false | QUALIFIED=empty |
-|---|---:|---:|---:|
-| CW TFM | 259 | 373 | 1,872 |
-| IW TFM | 255 | 209 | 789 |
-| DHW TFM | 314 | 268 | 923 |
-
-68% of TFM leads have an empty QUALIFIED field (form not completed). Of those who complete the form, roughly 55-60% qualify. The form completion bottleneck is a separate optimization opportunity.
-
-### Why GL data is excluded from this section
-
-GL's funnel does not include TFM's post-subscribe ICP questions. Of 19,925 GL subscribers, 93-95% have no QUALIFIED value. The small number with values (e.g., 768 QUALIFIED=false on CW) may have been manually assessed or entered through an alternate pathway — but they were not systematically assessed through the same form. Cross-agency quality comparison requires Jake's manual review, not this automated data.
+- **Overall:** 840 form-qualified vs 805 ICP-matched -- close in total, but only **245 overlap (Both)**. That means 595 form-qualifiers are NOT ICP matches, and 560 ICP matches are NOT form-qualified. The two metrics are measuring very different things.
+- **CW:** Form over-counts by +61. The qualification form passes people who are not cardiologists/cardiac professionals. CW's form is the least reliable quality signal.
+- **IW:** Form over-counts by +57. But IW has the strongest overlap (98 Both out of 258 form-qual = 38%) -- the form works best for IW.
+- **DHW:** Form UNDER-counts by -83. There are more ICP-matching executives/directors than the form identifies. DHW has hidden quality the form misses, likely because busy executives skip the form.
 
 ---
 
-## 4. Top 10 DCTs Overall by Qualified Lead Count
+## 2. Cardiac Wire (CW) -- DCT Dual-Metric Table
 
-| Rank | DCT | Source | Qualified | Total | Qual Rate |
-|---:|---|---|---:|---:|---:|
-| 1 | DCT_103_Luiz_Confession [Imaging Wire] | TFM | 199 | 793 | 25.1% |
-| 2 | DCT_104_Luiz_Life hack [Digital Health] | TFM | 147 | 620 | 23.7% |
-| 3 | DCT_103_Luiz_Confession [Cardiac Wire] | TFM | 95 | 1,265 | 7.5% |
-| 4 | DCT_118_Text Call out | TFM | 74 | 401 | 18.5% |
-| 5 | DCT_123_If you, BUT | TFM | 53 | 224 | 23.7% |
-| 6 | DCT_115_AppleNotesTransformation | TFM | 48 | 204 | 23.5% |
-| 7 | DCT_114_ReplaceJournals | TFM | 46 | 174 | 26.4% |
-| 8 | DCT_104_Luiz_Life hack [Cardiac Wire] | TFM | 36 | 794 | 4.5% |
-| 9 | DCT_102_Luiz_Why read X? [Digital Health] | TFM | 24 | 87 | 27.6% |
-| 10 | DCT_104_Luiz_Life hack [Imaging Wire] | TFM | 19 | 66 | 28.8% |
+Thresholds: Form Qual Rate avg = 1.9%, ICP Rate avg = 1.5%
 
-**All top 10 are TFM.** No Growletter DCT produced more than 7 qualified leads. The top GL DCT is `lifehack_jobroles_cw` with 7 qualified out of 9,456 leads on CW (0.07%).
+### CW -- TFM DCTs (Active Ad Spend)
+
+| DCT | Total | Form Qual | FQ Rate | ICP Match | ICP Rate | Both | Gap | Quadrant |
+|---|---:|---:|---:|---:|---:|---:|---:|---|
+| DCT_103_Luiz_Confession [Cardiac Wire] | 1,001 | 57 | 5.7% | 12 | 1.2% | 9 | +45 | **THE TRAP** |
+| DCT_104_Luiz_Life hack [Cardiac Wire] | 578 | 21 | 3.6% | 10 | 1.7% | 6 | +11 | **REAL WINNER** |
+| DCT_118_Text Call out | 310 | 50 | 16.1% | 10 | 3.2% | 9 | +40 | **REAL WINNER** |
+| DCT_101_Luiz_Reasons Why [Cardiac Wire] | 165 | 9 | 5.5% | 3 | 1.8% | 1 | +6 | **REAL WINNER** |
+| DCT_103_Luiz_Confession [Imaging Wire] | 103 | 38 | 36.9% | 1 | 1.0% | 1 | +37 | **THE TRAP** |
+| DCT_105_Luiz_UGC doctor [Cardiac Wire] | 85 | 1 | 1.2% | 1 | 1.2% | 1 | +0 | **KILL CANDIDATE** |
+| DCT_104_Luiz_Life hack [Digital Health] | 79 | 29 | 36.7% | 1 | 1.3% | 0 | +28 | **THE TRAP** |
+| DCT_112_EndangerPatient | 48 | 8 | 16.7% | 1 | 2.1% | 1 | +7 | **REAL WINNER** |
+| DCT_114_ReplaceJournals | 22 | 8 | 36.4% | 0 | 0.0% | 0 | +8 | **THE TRAP** |
+| DCT_123_If you, BUT | 22 | 10 | 45.5% | 0 | 0.0% | 0 | +10 | **THE TRAP** |
+| DCT_115_AppleNotesTramsfromation | 21 | 8 | 38.1% | 0 | 0.0% | 0 | +8 | **THE TRAP** |
+| DCT_102_Luiz_Why read X? [Digital Health] | 18 | 6 | 33.3% | 0 | 0.0% | 0 | +6 | **THE TRAP** |
+| DCT_104_Luiz_Life hack [Imaging Wire] | 12 | 5 | 41.7% | 0 | 0.0% | 0 | +5 | **THE TRAP** |
+| DCT_117_Old vs. New | 8 | 1 | 12.5% | 0 | 0.0% | 0 | +1 | **THE TRAP** |
+| DCT_122_Make Better Decisions | 6 | 2 | 33.3% | 1 | 16.7% | 0 | +1 | **REAL WINNER** |
+| DCT_102_Luiz_Why read X? [Cardiac Wire] | 6 | 0 | 0.0% | 0 | 0.0% | 0 | +0 | **KILL CANDIDATE** |
+| DCT_120_Information Overload | 5 | 1 | 20.0% | 0 | 0.0% | 0 | +1 | **THE TRAP** |
+| DCT_110_Radiologist Confession | 4 | 1 | 25.0% | 0 | 0.0% | 0 | +1 | **THE TRAP** |
+| DCT_102_Luiz_Why read X? [Imaging Wire] | 3 | 2 | 66.7% | 1 | 33.3% | 1 | +1 | **REAL WINNER** |
+| DCT_111_AuthorityFOMO | 3 | 0 | 0.0% | 0 | 0.0% | 0 | +0 | **KILL CANDIDATE** |
+
+**CW Real Winners** (High Form Qual + High ICP):
+- **DCT_118_Text Call out**: 9 leads pass BOTH filters. ICP titles: Cardiologist (3), Cardiac electrophysiologist (1), Interventional Cardiology Fellow (1)
+- **DCT_104_Luiz_Life hack [Cardiac Wire]**: 6 leads pass BOTH filters. ICP titles: Cardiologist (3), ARNP Cardiology (1), Cardiac services manager (1)
+- **DCT_101_Luiz_Reasons Why [Cardiac Wire]**: 1 leads pass BOTH filters. ICP titles: Cardiologist in charge (1)
+- **DCT_112_EndangerPatient**: 1 leads pass BOTH filters. ICP titles: General Cardiologist (1)
+
+**CW Traps** (High Form Qual + Low ICP -- form over-counts):
+- **DCT_103_Luiz_Confession [Cardiac Wire]**: 57 form-qualified but only 12 ICP match (gap: +45). Non-ICP qualified titles: Nurse practitioner (4), PA (3), MD (3)
+- **DCT_103_Luiz_Confession [Imaging Wire]**: 38 form-qualified but only 1 ICP match (gap: +37). Non-ICP qualified titles: Radiologist (2), Nuclear Medicine Technologist (2), Radiographer (2)
+- **DCT_104_Luiz_Life hack [Digital Health]**: 29 form-qualified but only 1 ICP match (gap: +28). Non-ICP qualified titles: CEO (4), Consultant (3), Surgical.  Nurse.  Retired. (1)
+- **DCT_123_If you, BUT**: 10 form-qualified but only 0 ICP match (gap: +10). Non-ICP qualified titles: CEO (2), Clinical research coordinator (1), Senior Telemetry technician (1)
+- **DCT_114_ReplaceJournals**: 8 form-qualified but only 0 ICP match (gap: +8). Non-ICP qualified titles: Lead therapist (1), Radiography Technology Instructor (1), Manager Radiology (1)
+- **DCT_115_AppleNotesTramsfromation**: 8 form-qualified but only 0 ICP match (gap: +8). Non-ICP qualified titles: COO (1), Student (1), A (1)
+- **DCT_102_Luiz_Why read X? [Digital Health]**: 6 form-qualified but only 0 ICP match (gap: +6). Non-ICP qualified titles: Managing Partner (1), Founder, Principle (1), VP, Biopharma Clinical Innovation (1)
+- **DCT_104_Luiz_Life hack [Imaging Wire]**: 5 form-qualified but only 0 ICP match (gap: +5). Non-ICP qualified titles: Radiology Supervisor (1), Radiologist (1), MRI technologist (1)
+
+**CW Hidden Quality** (Low Form Qual + High ICP -- form under-counts):
+- **lifehack_jobroles_cw**: 148 ICP matches but only 7 form-qualified. ICP titles skipping form: Cardiac Sonographer (18), Cardiac sonographer (17), Cardiologist (5)
+- **lifehack_dhw**: 6 ICP matches but only 0 form-qualified. ICP titles skipping form: Cath Lab RN (2), Cardiologist (2), Cardiology NP (1)
+- **og_lifehacktext**: 2 ICP matches but only 0 form-qualified. ICP titles skipping form: Chief interventional radiology tech (1), Cardiovascular Rad Tech (1)
 
 ---
 
-## 5. Top 5 DCTs Per Newsletter -- TFM and Growletter
+## 2. Imaging Wire (IW) -- DCT Dual-Metric Table
+
+Thresholds: Form Qual Rate avg = 6.3%, ICP Rate avg = 4.9%
+
+### IW -- TFM DCTs (Active Ad Spend)
+
+| DCT | Total | Form Qual | FQ Rate | ICP Match | ICP Rate | Both | Gap | Quadrant |
+|---|---:|---:|---:|---:|---:|---:|---:|---|
+| DCT_103_Luiz_Confession [Imaging Wire] | 590 | 120 | 20.3% | 77 | 13.1% | 65 | +43 | **REAL WINNER** |
+| DCT_114_ReplaceJournals | 123 | 29 | 23.6% | 20 | 16.3% | 15 | +9 | **REAL WINNER** |
+| DCT_103_Luiz_Confession [Cardiac Wire] | 114 | 14 | 12.3% | 0 | 0.0% | 0 | +14 | **THE TRAP** |
+| DCT_104_Luiz_Life hack [Cardiac Wire] | 101 | 8 | 7.9% | 0 | 0.0% | 0 | +8 | **THE TRAP** |
+| DCT_104_Luiz_Life hack [Digital Health] | 59 | 19 | 32.2% | 0 | 0.0% | 0 | +19 | **THE TRAP** |
+| DCT_104_Luiz_Life hack [Imaging Wire] | 43 | 8 | 18.6% | 6 | 14.0% | 4 | +2 | **REAL WINNER** |
+| DCT_118_Text Call out | 40 | 10 | 25.0% | 0 | 0.0% | 0 | +10 | **THE TRAP** |
+| DCT_101_Luiz_Reasons Why [Cardiac Wire] | 33 | 3 | 9.1% | 0 | 0.0% | 0 | +3 | **THE TRAP** |
+| DCT_105_Luiz_UGC doctor [Cardiac Wire] | 20 | 0 | 0.0% | 0 | 0.0% | 0 | +0 | **KILL CANDIDATE** |
+| DCT_110_Radiologist Confession | 19 | 6 | 31.6% | 4 | 21.1% | 3 | +2 | **REAL WINNER** |
+| DCT_123_If you, BUT | 18 | 8 | 44.4% | 0 | 0.0% | 0 | +8 | **THE TRAP** |
+| DCT_115_AppleNotesTramsfromation | 16 | 4 | 25.0% | 0 | 0.0% | 0 | +4 | **THE TRAP** |
+| DCT_102_Luiz_Why read X? [Imaging Wire] | 13 | 5 | 38.5% | 4 | 30.8% | 4 | +1 | **REAL WINNER** |
+| DCT_119_Stay Current Without The Burden | 13 | 4 | 30.8% | 2 | 15.4% | 2 | +2 | **REAL WINNER** |
+| DCT_120_Information Overload | 12 | 4 | 33.3% | 2 | 16.7% | 2 | +2 | **REAL WINNER** |
+| DCT_102_Luiz_Why read X? [Digital Health] | 11 | 4 | 36.4% | 0 | 0.0% | 0 | +4 | **THE TRAP** |
+| DCT_113_GPTResponse | 10 | 4 | 40.0% | 1 | 10.0% | 1 | +3 | **REAL WINNER** |
+| DCT_112_EndangerPatient | 6 | 1 | 16.7% | 0 | 0.0% | 0 | +1 | **THE TRAP** |
+| DCT_102_Luiz_Why read X? [Cardiac Wire] | 3 | 0 | 0.0% | 0 | 0.0% | 0 | +0 | **KILL CANDIDATE** |
+| DCT_122_Make Better Decisions | 3 | 1 | 33.3% | 0 | 0.0% | 0 | +1 | **THE TRAP** |
+
+**IW Real Winners** (High Form Qual + High ICP):
+- **DCT_103_Luiz_Confession [Imaging Wire]**: 65 leads pass BOTH filters. ICP titles: Radiologist (13), MRI Technologist (4), Radiology Technologist (2)
+- **DCT_114_ReplaceJournals**: 15 leads pass BOTH filters. ICP titles: Radiologist (7), MRI TECH (1), RT BSRT RADIOLOGY MAMMOGRAPHY (1)
+- **DCT_104_Luiz_Life hack [Imaging Wire]**: 4 leads pass BOTH filters. ICP titles: Radiology Supervisor (1), MRI technologist (1), MRITechnologist (1)
+- **DCT_102_Luiz_Why read X? [Imaging Wire]**: 4 leads pass BOTH filters. ICP titles: Sonographer (1), Radiologist (1), CT Technologist (1)
+- **DCT_110_Radiologist Confession**: 3 leads pass BOTH filters. ICP titles: Imaging supervisor (1), Diagnostic snd Interventional Radiologist (1), Diagnostic Imaging Manager (1)
+- **DCT_119_Stay Current Without The Burden**: 2 leads pass BOTH filters. ICP titles: Mri tech (1), MRI TECHNOLOGIST (1)
+- **DCT_120_Information Overload**: 2 leads pass BOTH filters. ICP titles: Radiologist (2)
+- **DCT_113_GPTResponse**: 1 leads pass BOTH filters. ICP titles: Chief of Xray (1)
+
+**IW Traps** (High Form Qual + Low ICP -- form over-counts):
+- **DCT_104_Luiz_Life hack [Digital Health]**: 19 form-qualified but only 0 ICP match (gap: +19). Non-ICP qualified titles: CEO (2), Island Engineer (1), Ops manager (1)
+- **DCT_103_Luiz_Confession [Cardiac Wire]**: 14 form-qualified but only 0 ICP match (gap: +14). Non-ICP qualified titles: MD (2), Physician assistant (1), Owner (1)
+- **DCT_118_Text Call out**: 10 form-qualified but only 0 ICP match (gap: +10). Non-ICP qualified titles: MD (2), Provider (1), researcher (1)
+- **DCT_104_Luiz_Life hack [Cardiac Wire]**: 8 form-qualified but only 0 ICP match (gap: +8). Non-ICP qualified titles: Cardiologist (2), ARNP Cardiology (1), Echo tech (1)
+- **DCT_123_If you, BUT**: 8 form-qualified but only 0 ICP match (gap: +8). Non-ICP qualified titles: CEO (2), Clinical research coordinator (1), Chief Operating Officer (1)
+- **DCT_115_AppleNotesTramsfromation**: 4 form-qualified but only 0 ICP match (gap: +4). Non-ICP qualified titles: COO (1), Student (1), A (1)
+- **DCT_102_Luiz_Why read X? [Digital Health]**: 4 form-qualified but only 0 ICP match (gap: +4). Non-ICP qualified titles: Board member. Legal counsel (1), Ceo (1), COO (1)
+- **DCT_101_Luiz_Reasons Why [Cardiac Wire]**: 3 form-qualified but only 0 ICP match (gap: +3). Non-ICP qualified titles: Cardiologist in charge (1), CT (1), RN (1)
+
+**IW Hidden Quality** (Low Form Qual + High ICP -- form under-counts):
+- **lifehack_static_patientscan_tiw**: 11 ICP matches but only 0 form-qualified. ICP titles skipping form: Imaging tech (1), MRI TECH (1), Diagnostic Radiologist (1)
+- **og_lifehacktext**: 10 ICP matches but only 0 form-qualified. ICP titles skipping form: Ultrasound Technologist (2), Ct tech (1), Radiology Manager (1)
+- **og_lifehackreverse**: 3 ICP matches but only 0 form-qualified. ICP titles skipping form: Radiology Resident (1), Radiology Technologist (1), Radiologist (1)
+- **tiw_video_textoverlay_lifehack-drowninginupdates-newbody-oghospital**: 1 ICP matches but only 0 form-qualified. ICP titles skipping form: Chief radiologist (1)
+
+---
+
+## 2. Digital Health Wire (DHW) -- DCT Dual-Metric Table
+
+Thresholds: Form Qual Rate avg = 4.4%, ICP Rate avg = 5.5%
+
+### DHW -- TFM DCTs (Active Ad Spend)
+
+| DCT | Total | Form Qual | FQ Rate | ICP Match | ICP Rate | Both | Gap | Quadrant |
+|---|---:|---:|---:|---:|---:|---:|---:|---|
+| DCT_104_Luiz_Life hack [Digital Health] | 482 | 99 | 20.5% | 68 | 14.1% | 55 | +31 | **REAL WINNER** |
+| DCT_123_If you, BUT | 184 | 35 | 19.0% | 24 | 13.0% | 16 | +11 | **REAL WINNER** |
+| DCT_115_AppleNotesTramsfromation | 167 | 36 | 21.6% | 26 | 15.6% | 18 | +10 | **REAL WINNER** |
+| DCT_103_Luiz_Confession [Cardiac Wire] | 150 | 24 | 16.0% | 15 | 10.0% | 4 | +9 | **REAL WINNER** |
+| DCT_104_Luiz_Life hack [Cardiac Wire] | 115 | 7 | 6.1% | 11 | 9.6% | 0 | -4 | **REAL WINNER** |
+| DCT_103_Luiz_Confession [Imaging Wire] | 107 | 41 | 38.3% | 12 | 11.2% | 4 | +29 | **REAL WINNER** |
+| DCT_102_Luiz_Why read X? [Digital Health] | 58 | 14 | 24.1% | 12 | 20.7% | 10 | +2 | **REAL WINNER** |
+| DCT_118_Text Call out | 51 | 14 | 27.5% | 4 | 7.8% | 1 | +10 | **REAL WINNER** |
+| DCT_101_Luiz_Reasons Why [Cardiac Wire] | 39 | 4 | 10.3% | 1 | 2.6% | 0 | +3 | **THE TRAP** |
+| DCT_122_Make Better Decisions | 30 | 8 | 26.7% | 3 | 10.0% | 3 | +5 | **REAL WINNER** |
+| DCT_114_ReplaceJournals | 29 | 9 | 31.0% | 0 | 0.0% | 0 | +9 | **THE TRAP** |
+| DCT_105_Luiz_UGC doctor [Cardiac Wire] | 24 | 0 | 0.0% | 0 | 0.0% | 0 | +0 | **KILL CANDIDATE** |
+| DCT_112_EndangerPatient | 12 | 2 | 16.7% | 1 | 8.3% | 0 | +1 | **REAL WINNER** |
+| DCT_104_Luiz_Life hack [Imaging Wire] | 11 | 6 | 54.5% | 1 | 9.1% | 0 | +5 | **REAL WINNER** |
+| DCT_103_Luiz_Confession [Digital Health] | 11 | 4 | 36.4% | 3 | 27.3% | 2 | +1 | **REAL WINNER** |
+| DCT_101_Luiz_Reasons Why [Digital Health] | 8 | 2 | 25.0% | 2 | 25.0% | 2 | +0 | **REAL WINNER** |
+| DCT_102_Luiz_Why read X? [Cardiac Wire] | 5 | 0 | 0.0% | 1 | 20.0% | 0 | -1 | **HIDDEN QUALITY** |
+| DCT_121_Newspaper For Healthcare Pros | 5 | 1 | 20.0% | 3 | 60.0% | 1 | -2 | **REAL WINNER** |
+| DCT_102_Luiz_Why read X? [Imaging Wire] | 4 | 3 | 75.0% | 1 | 25.0% | 0 | +2 | **REAL WINNER** |
+| DCT_120_Information Overload | 4 | 0 | 0.0% | 1 | 25.0% | 0 | -1 | **HIDDEN QUALITY** |
+| DCT_110_Radiologist Confession | 3 | 2 | 66.7% | 0 | 0.0% | 0 | +2 | **THE TRAP** |
+
+**DHW Real Winners** (High Form Qual + High ICP):
+- **DCT_104_Luiz_Life hack [Digital Health]**: 55 leads pass BOTH filters. ICP titles: CEO (14), Ceo (4), COO (3)
+- **DCT_115_AppleNotesTramsfromation**: 18 leads pass BOTH filters. ICP titles: CEO (3), Founder (2), Consultant (1)
+- **DCT_123_If you, BUT**: 16 leads pass BOTH filters. ICP titles: CEO (3), Director (3), Director of Personal Care (1)
+- **DCT_102_Luiz_Why read X? [Digital Health]**: 10 leads pass BOTH filters. ICP titles: COO (2), Managing Partner (1), Consultant (1)
+- **DCT_103_Luiz_Confession [Cardiac Wire]**: 4 leads pass BOTH filters. ICP titles: Owner (1), CEO (1), Ceo (1)
+- **DCT_103_Luiz_Confession [Imaging Wire]**: 4 leads pass BOTH filters. ICP titles: Director Medical Imaging (1), CEO & Board Chair (1), Assistant Director (1)
+- **DCT_122_Make Better Decisions**: 3 leads pass BOTH filters. ICP titles: VP, Information Systems (1), VP Operations (1), Clinical informatics educator (1)
+- **DCT_103_Luiz_Confession [Digital Health]**: 2 leads pass BOTH filters. ICP titles: Health IT sales executive (1), Ceo (1)
+- **DCT_118_Text Call out**: 1 leads pass BOTH filters. ICP titles: President (1)
+- **DCT_104_Luiz_Life hack [Cardiac Wire]**: 0 leads pass BOTH filters. ICP titles: Owner (6), Bridge Director (1), CEO (1)
+- **DCT_112_EndangerPatient**: 0 leads pass BOTH filters. ICP titles: VP (1)
+- **DCT_104_Luiz_Life hack [Imaging Wire]**: 0 leads pass BOTH filters. ICP titles: Executive (1)
+
+**DHW Traps** (High Form Qual + Low ICP -- form over-counts):
+- **DCT_114_ReplaceJournals**: 9 form-qualified but only 0 ICP match (gap: +9). Non-ICP qualified titles: Physician (2), Lead therapist (1), radiographer (1)
+- **DCT_101_Luiz_Reasons Why [Cardiac Wire]**: 4 form-qualified but only 1 ICP match (gap: +3). Non-ICP qualified titles: N0 -invasive cardiologist (1), Cardiologist in charge (1), CT (1)
+
+**DHW Hidden Quality** (Low Form Qual + High ICP -- form under-counts):
+- **og_lifehack_hospital**: 2 ICP matches but only 0 form-qualified. ICP titles skipping form: COO (1), Owner (1)
+
+---
+
+## 3. Top 10 DCTs by Dual-Quality Score (Both = Form Qual + ICP Match)
+
+These are the DCTs where the MOST subscribers pass both the form qualification AND the ICP title match. This is the truest quality signal.
+
+| Rank | DCT | NL | Total | Form Qual | ICP Match | Both | Both Rate | Top ICP Titles |
+|---:|---|---|---:|---:|---:|---:|---:|---|
+| 1 | DCT_103_Luiz_Confession [Imaging Wire] | IW | 590 | 120 | 77 | **65** | 11.0% | Radiologist (13), MRI Technologist (4), Radiology Technologist (2) |
+| 2 | DCT_104_Luiz_Life hack [Digital Health] | DHW | 482 | 99 | 68 | **55** | 11.4% | CEO (14), Ceo (4), COO (3) |
+| 3 | DCT_115_AppleNotesTramsfromation | DHW | 167 | 36 | 26 | **18** | 10.8% | CEO (3), Founder (2), Consultant (1) |
+| 4 | DCT_123_If you, BUT | DHW | 184 | 35 | 24 | **16** | 8.7% | CEO (3), Director (3), Director of Personal Care (1) |
+| 5 | DCT_114_ReplaceJournals | IW | 123 | 29 | 20 | **15** | 12.2% | Radiologist (7), MRI TECH (1), RT BSRT RADIOLOGY MAMMOGRAPHY (1) |
+| 6 | DCT_102_Luiz_Why read X? [Digital Health] | DHW | 58 | 14 | 12 | **10** | 17.2% | COO (2), Managing Partner (1), Consultant (1) |
+| 7 | DCT_103_Luiz_Confession [Cardiac Wire] | CW | 1,001 | 57 | 12 | **9** | 0.9% | Cardiologist (6), Cardiovascular Specialist (1), Area Rare Cardiac (1) |
+| 8 | DCT_118_Text Call out | CW | 310 | 50 | 10 | **9** | 2.9% | Cardiologist (3), Cardiac electrophysiologist (1), Interventional Cardiology Fellow (1) |
+| 9 | DCT_104_Luiz_Life hack [Cardiac Wire] | CW | 578 | 21 | 10 | **6** | 1.0% | Cardiologist (3), ARNP Cardiology (1), Cardiac services manager (1) |
+| 10 | DCT_104_Luiz_Life hack [Imaging Wire] | IW | 43 | 8 | 6 | **4** | 9.3% | Radiology Supervisor (1), MRI technologist (1), MRITechnologist (1) |
+
+**Critical insight:** The top "Both" performers are heavily concentrated in IW and DHW. CW's best DCT by dual-quality (DCT_118_Text Call out with 9 Both) ranks only 5th overall. CW's quality problem is even worse than the form-only analysis suggested.
+
+---
+
+## 4. The Gap Analysis -- Where Form and ICP Disagree Most
+
+### Largest Positive Gaps (Form over-counts -- more form-qualified than ICP matches)
+
+| DCT | NL | Form Qual | ICP Match | Gap | What the form-qualifiers actually are |
+|---|---|---:|---:|---:|---|
+| DCT_103_Luiz_Confession [Cardiac Wire] | CW | 57 | 12 | +45 | Nurse practitioner (4), PA (3), MD (3), Physician Assistant (3) |
+| DCT_103_Luiz_Confession [Imaging Wire] | IW | 120 | 77 | +43 | Radiographer (3), MD (2), Rad tech (2), Cat Scan technologist (1) |
+| DCT_118_Text Call out | CW | 50 | 10 | +40 | Physician (5), Resident (4), Fellow (3), MD (3) |
+| DCT_103_Luiz_Confession [Imaging Wire] | CW | 38 | 1 | +37 | Radiologist (2), Nuclear Medicine Technologist (2), Radiographer (2), Radiology Tech (2) |
+| DCT_104_Luiz_Life hack [Digital Health] | DHW | 99 | 68 | +31 | Pharmacist (2), RN (2), Radiologist (1), Chief of staff. (1) |
+| DCT_103_Luiz_Confession [Imaging Wire] | DHW | 41 | 12 | +29 | Radiologist (2), Radiology Tech (2), MRI Technologist (2), Mri tech (1) |
+| DCT_104_Luiz_Life hack [Digital Health] | CW | 29 | 1 | +28 | CEO (4), Consultant (3), Surgical.  Nurse.  Retired. (1), VP Growth and Product Development (1) |
+| DCT_104_Luiz_Life hack [Digital Health] | IW | 19 | 0 | +19 | CEO (2), Island Engineer (1), Ops manager (1), Manager (1) |
+
+**These positive gaps are the biggest risk in the account.** The form says these leads are qualified, but their titles do not match the ICP. Every one of these non-ICP form-qualifiers is a lead Jake cannot sell to advertisers.
+
+### Largest Negative Gaps (Form under-counts -- more ICP matches than form-qualified)
+
+| DCT | NL | Form Qual | ICP Match | Gap | ICP titles skipping the form |
+|---|---|---:|---:|---:|---|
+| lifehack_jobroles_cw | CW | 7 | 148 | -141 | Cardiac Sonographer (18), Cardiac sonographer (17), Cardiologist (5), Cardiovascular Sonographer (4) |
+| lifehack_jobroles_cw | DHW | 1 | 107 | -106 | Owner (36), President (9), CEO (7), Director (7) |
+| lifehack_dhw | DHW | 0 | 42 | -42 | Owner (11), CEO (9), President (6), Director (3) |
+| lifehack_dhw_30k_v3landingpage | DHW | 0 | 34 | -34 | Owner (7), President (4), Director (3), CEO (3) |
+| lifehack_jobroles_cw | IW | 1 | 32 | -31 | Cardiac sonographer (8), Cardiac Sonographer (5), Sonographer (3), Cardiovascular sonographer (2) |
+| TIW US+Can 2.4.2023 Ad DTE | IW | 2 | 16 | -14 | CT Technologist (2), CT Tech (1), Radiology Site Manager (1), Rad Tech/Mammographer (1) |
+| dhw_video_textoverlay_lifehack-newaudience-dhw | DHW | 0 | 12 | -12 | Director (2), CEO (2), Executive Director, Nursing Business Operations (1), Unit director (1) |
+| lifehack_static_patientscan_tiw | IW | 0 | 11 | -11 | Imaging tech (1), MRI TECH (1), Diagnostic Radiologist (1), MRI Assistant (1) |
+
+**These negative gaps represent hidden value.** Real ICP-matching professionals are subscribing but not completing the qualification form. This is especially important for Growletter DCTs -- they drive massive volume with no form qualification, but many of those subscribers ARE the right audience based on title.
+
+The biggest example: **lifehack_jobroles_cw** on CW has 148 ICP title matches (cardiac sonographers, cardiologists) buried in 9,456 total subscribers. Only 7 are form-qualified. The form is blind to 141 real ICP subscribers.
+
+---
+
+## 5. Growletter ICP Recovery -- Hidden Value in GL Volume
+
+Growletter leads were never assessed through TFM's qualification form. But title-matching reveals real ICP professionals in the GL pool:
+
+| DCT | NL | GL Total | GL ICP Match | GL ICP Rate | Top ICP Titles |
+|---|---|---:|---:|---:|---|
+| DCT | NL | GL Total | GL ICP Match | GL ICP Rate | Top ICP Titles |
+|---|---|---:|---:|---:|---|
+| lifehack_jobroles_cw | CW | 9,456 | 148 | 1.6% | Cardiac Sonographer (18), Cardiac sonographer (17), Cardiologist (7) |
+| lifehack_jobroles_cw | DHW | 2,657 | 107 | 4.0% | Owner (36), President (9), CEO (7) |
+| lifehack_dhw | DHW | 882 | 42 | 4.8% | Owner (11), CEO (9), President (6) |
+| lifehack_dhw_30k_v3landingpage | DHW | 1,019 | 34 | 3.3% | Owner (7), President (4), Director (3) |
+| lifehack_jobroles_cw | IW | 1,690 | 32 | 1.9% | Cardiac sonographer (8), Cardiac Sonographer (5), Sonographer (3) |
+| TIW US+Can 2.4.2023 Ad DTE | IW | 516 | 16 | 3.1% | CT Technologist (2), CT Tech (1), Radiology Site Manager (1) |
+| dhw_video_textoverlay_lifehack-newaudience-dhw | DHW | 625 | 12 | 1.9% | Director (2), CEO (2), Executive Director, Nursing Business Operations (1) |
+| lifehack_static_patientscan_tiw | IW | 46 | 11 | 23.9% | Imaging tech (1), MRI TECH (1), Diagnostic Radiologist (1) |
+| og_lifehacktext | IW | 102 | 10 | 9.8% | Ultrasound Technologist (2), Ct tech (1), Radiology Manager (1) |
+| 6/13 DHW Video Ad USA DTE | DHW | 328 | 7 | 2.1% | President (1), Clinical informatics (1), CEO (1) |
+| 8/9 CW DTE | CW | 889 | 6 | 0.7% | Cardiologist (2), Director of Cardiovascular Services (1), Cath Lab Manager (1) |
+| lifehack_dhw | CW | 299 | 6 | 2.0% | Cath Lab RN (2), Cardiologist (2), Cardiology NP (1) |
+| lifehack_dhw | IW | 199 | 3 | 1.5% | radiology tech (1), CT Technologist (1), Radiologist (1) |
+| og_lifehackreverse | IW | 17 | 3 | 17.6% | Radiology Resident (1), Radiology Technologist (1), Radiologist (1) |
+| 2025resolution_cw | CW | 307 | 2 | 0.7% | APN Cardiology (1), Cardiology Technologist (1) |
+
+**Total GL ICP matches across all newsletters: 458**
+
+These 458 subscribers would have been invisible under form-only analysis. Title matching recovers them. The biggest pools are in lifehack_jobroles_cw (cardiac sonographers, cardiologists) and lifehack_dhw (healthcare executives).
+
+---
+
+## 6. TFM DCT Dual-Quality Rankings (Form Qual + ICP Combined)
+
+These tables show TFM DCTs only, ranked by the "Both" count (subscribers who pass BOTH the form qualification AND the ICP title match). This is the strictest quality metric.
 
 ### Cardiac Wire
 
-**TFM -- by qualified leads:**
-
-| DCT | Qualified | Total | Qual Rate |
-|---|---:|---:|---:|
-| DCT_103_Luiz_Confession [Cardiac Wire] | 57 | 1,001 | 5.7% |
-| DCT_118_Text Call out | 50 | 310 | 16.1% |
-| DCT_103_Luiz_Confession [Imaging Wire] | 38 | 103 | 36.9% |
-| DCT_104_Luiz_Life hack [Digital Health] | 29 | 79 | 36.7% |
-| DCT_104_Luiz_Life hack [Cardiac Wire] | 21 | 578 | 3.6% |
-
-**Growletter -- by qualified leads (only 2 DCTs have any):**
-
-| DCT | Qualified | Total | Qual Rate |
-|---|---:|---:|---:|
-| lifehack_jobroles_cw | 7 | 9,456 | 0.07% |
-| 2025resolution_cw | 1 | 307 | 0.33% |
-
-**Growletter -- by volume (since qualification is near-zero):**
-
-| DCT | Total | Form Complete | Form Rate |
-|---|---:|---:|---:|
-| lifehack_jobroles_cw | 9,456 | 1,515 | 16.0% |
-| 8/9 CW DTE | 889 | 47 | 5.3% |
-| 2025resolution_cw | 307 | 24 | 7.8% |
-| lifehack_dhw | 299 | 74 | 24.7% |
-| lifehack_dhw_30k_v3landingpage | 284 | 73 | 25.7% |
+| DCT | TFM Total | Form Qual | FQ Rate | ICP Match | ICP Rate | Both | Both Rate | Top Dual-Qualified Titles |
+|---|---:|---:|---:|---:|---:|---:|---:|---|
+| DCT_103_Luiz_Confession [Cardiac Wire] | 1,001 | 57 | 5.7% | 12 | 1.2% | **9** | 0.9% | Cardiologist (6), Cardiovascular Specialist (1), Area Rare Cardiac (1) |
+| DCT_118_Text Call out | 310 | 50 | 16.1% | 10 | 3.2% | **9** | 2.9% | Cardiologist (3), Cardiac electrophysiologist (1), Interventional Cardiology Fellow (1) |
+| DCT_104_Luiz_Life hack [Cardiac Wire] | 578 | 21 | 3.6% | 10 | 1.7% | **6** | 1.0% | Cardiologist (3), ARNP Cardiology (1), Cardiac services manager (1) |
+| DCT_103_Luiz_Confession [Imaging Wire] | 103 | 38 | 36.9% | 1 | 1.0% | **1** | 1.0% | Cardiac Sonographer (1) |
+| DCT_102_Luiz_Why read X? [Imaging Wire] | 3 | 2 | 66.7% | 1 | 33.3% | **1** | 33.3% | Interventional Radiology scheduler (1) |
+| DCT_101_Luiz_Reasons Why [Cardiac Wire] | 165 | 9 | 5.5% | 3 | 1.8% | **1** | 0.6% | Cardiologist in charge (1) |
+| DCT_112_EndangerPatient | 48 | 8 | 16.7% | 1 | 2.1% | **1** | 2.1% | General Cardiologist (1) |
+| DCT_105_Luiz_UGC doctor [Cardiac Wire] | 85 | 1 | 1.2% | 1 | 1.2% | **1** | 1.2% | Interventional cardiologist (1) |
+| DCT_104_Luiz_Life hack [Imaging Wire] | 12 | 5 | 41.7% | 0 | 0.0% | **0** | 0.0% | -- |
+| DCT_122_Make Better Decisions | 6 | 2 | 33.3% | 1 | 16.7% | **0** | 0.0% | -- |
+| DCT_114_ReplaceJournals | 22 | 8 | 36.4% | 0 | 0.0% | **0** | 0.0% | -- |
+| DCT_115_AppleNotesTramsfromation | 21 | 8 | 38.1% | 0 | 0.0% | **0** | 0.0% | -- |
 
 ### Imaging Wire
 
-**TFM -- by qualified leads:**
-
-| DCT | Qualified | Total | Qual Rate |
-|---|---:|---:|---:|
-| DCT_103_Luiz_Confession [Imaging Wire] | 120 | 590 | 20.3% |
-| DCT_114_ReplaceJournals | 29 | 123 | 23.6% |
-| DCT_104_Luiz_Life hack [Digital Health] | 19 | 59 | 32.2% |
-| DCT_103_Luiz_Confession [Cardiac Wire] | 14 | 114 | 12.3% |
-| DCT_118_Text Call out | 10 | 40 | 25.0% |
-
-**Growletter -- by qualified leads (only 2 DCTs have any):**
-
-| DCT | Qualified | Total | Qual Rate |
-|---|---:|---:|---:|
-| TIW US+Can 2.4.2023 Ad DTE | 2 | 516 | 0.39% |
-| lifehack_jobroles_cw | 1 | 1,690 | 0.06% |
-
-**Growletter -- by volume:**
-
-| DCT | Total | Form Complete | Form Rate |
-|---|---:|---:|---:|
-| lifehack_jobroles_cw | 1,690 | 639 | 37.8% |
-| TIW US+Can 2.4.2023 Ad DTE | 516 | 33 | 6.4% |
-| lifehack_dhw | 199 | 45 | 22.6% |
-| lifehack_dhw_30k_v3landingpage | 135 | 33 | 24.4% |
-| og_lifehacktext | 102 | 28 | 27.5% |
+| DCT | TFM Total | Form Qual | FQ Rate | ICP Match | ICP Rate | Both | Both Rate | Top Dual-Qualified Titles |
+|---|---:|---:|---:|---:|---:|---:|---:|---|
+| DCT_103_Luiz_Confession [Imaging Wire] | 590 | 120 | 20.3% | 77 | 13.1% | **65** | 11.0% | Radiologist (13), MRI Technologist (4), Radiology Technologist (2) |
+| DCT_114_ReplaceJournals | 123 | 29 | 23.6% | 20 | 16.3% | **15** | 12.2% | Radiologist (7), MRI TECH (1), RT BSRT RADIOLOGY MAMMOGRAPHY (1) |
+| DCT_104_Luiz_Life hack [Imaging Wire] | 43 | 8 | 18.6% | 6 | 14.0% | **4** | 9.3% | Radiology Supervisor (1), MRI technologist (1), MRITechnologist (1) |
+| DCT_102_Luiz_Why read X? [Imaging Wire] | 13 | 5 | 38.5% | 4 | 30.8% | **4** | 30.8% | Sonographer (1), Radiologist (1), CT Technologist (1) |
+| DCT_110_Radiologist Confession | 19 | 6 | 31.6% | 4 | 21.1% | **3** | 15.8% | Imaging supervisor (1), Diagnostic snd Interventional Radiologist (1), Diagnostic Imaging Manager (1) |
+| DCT_120_Information Overload | 12 | 4 | 33.3% | 2 | 16.7% | **2** | 16.7% | Radiologist (2) |
+| DCT_119_Stay Current Without The Burden | 13 | 4 | 30.8% | 2 | 15.4% | **2** | 15.4% | Mri tech (1), MRI TECHNOLOGIST (1) |
+| DCT_113_GPTResponse | 10 | 4 | 40.0% | 1 | 10.0% | **1** | 10.0% | Chief of Xray (1) |
+| DCT_104_Luiz_Life hack [Digital Health] | 59 | 19 | 32.2% | 0 | 0.0% | **0** | 0.0% | -- |
+| DCT_115_AppleNotesTramsfromation | 16 | 4 | 25.0% | 0 | 0.0% | **0** | 0.0% | -- |
+| DCT_104_Luiz_Life hack [Cardiac Wire] | 101 | 8 | 7.9% | 0 | 0.0% | **0** | 0.0% | -- |
+| DCT_112_EndangerPatient | 6 | 1 | 16.7% | 0 | 0.0% | **0** | 0.0% | -- |
 
 ### Digital Health Wire
 
-**TFM -- by qualified leads:**
-
-| DCT | Qualified | Total | Qual Rate |
-|---|---:|---:|---:|
-| DCT_104_Luiz_Life hack [Digital Health] | 99 | 482 | 20.5% |
-| DCT_103_Luiz_Confession [Imaging Wire] | 41 | 107 | 38.3% |
-| DCT_115_AppleNotesTransformation | 36 | 167 | 21.6% |
-| DCT_123_If you, BUT | 35 | 184 | 19.0% |
-| DCT_103_Luiz_Confession [Cardiac Wire] | 24 | 150 | 16.0% |
-
-**Growletter -- by qualified leads (only 1 DCT has any):**
-
-| DCT | Qualified | Total | Qual Rate |
-|---|---:|---:|---:|
-| lifehack_jobroles_cw | 1 | 2,657 | 0.04% |
-
-**Growletter -- by volume:**
-
-| DCT | Total | Form Complete | Form Rate |
-|---|---:|---:|---:|
-| lifehack_jobroles_cw | 2,657 | 1,030 | 38.8% |
-| lifehack_dhw_30k_v3landingpage | 1,019 | 70 | 6.9% |
-| lifehack_dhw | 882 | 119 | 13.5% |
-| dhw_video_textoverlay_lifehack-newaudience-dhw | 625 | 28 | 4.5% |
-| 6/13 DHW Video Ad USA DTE | 328 | 33 | 10.1% |
+| DCT | TFM Total | Form Qual | FQ Rate | ICP Match | ICP Rate | Both | Both Rate | Top Dual-Qualified Titles |
+|---|---:|---:|---:|---:|---:|---:|---:|---|
+| DCT_104_Luiz_Life hack [Digital Health] | 482 | 99 | 20.5% | 68 | 14.1% | **55** | 11.4% | CEO (14), Ceo (4), COO (3) |
+| DCT_115_AppleNotesTramsfromation | 167 | 36 | 21.6% | 26 | 15.6% | **18** | 10.8% | CEO (3), Founder (2), Consultant (1) |
+| DCT_123_If you, BUT | 184 | 35 | 19.0% | 24 | 13.0% | **16** | 8.7% | CEO (3), Director (3), Director of Personal Care (1) |
+| DCT_102_Luiz_Why read X? [Digital Health] | 58 | 14 | 24.1% | 12 | 20.7% | **10** | 17.2% | COO (2), Managing Partner (1), Consultant (1) |
+| DCT_103_Luiz_Confession [Imaging Wire] | 107 | 41 | 38.3% | 12 | 11.2% | **4** | 3.7% | Director Medical Imaging (1), CEO & Board Chair (1), Assistant Director (1) |
+| DCT_103_Luiz_Confession [Cardiac Wire] | 150 | 24 | 16.0% | 15 | 10.0% | **4** | 2.7% | Owner (1), CEO (1), Ceo (1) |
+| DCT_122_Make Better Decisions | 30 | 8 | 26.7% | 3 | 10.0% | **3** | 10.0% | VP, Information Systems (1), VP Operations (1), Clinical informatics educator (1) |
+| DCT_101_Luiz_Reasons Why [Digital Health] | 8 | 2 | 25.0% | 2 | 25.0% | **2** | 25.0% | Ceo (1), Founder (1) |
+| DCT_103_Luiz_Confession [Digital Health] | 11 | 4 | 36.4% | 3 | 27.3% | **2** | 18.2% | Health IT sales executive (1), Ceo (1) |
+| DCT_118_Text Call out | 51 | 14 | 27.5% | 4 | 7.8% | **1** | 2.0% | President (1) |
+| DCT_121_Newspaper For Healthcare Pros | 5 | 1 | 20.0% | 3 | 60.0% | **1** | 20.0% | CEO (1) |
+| DCT_104_Luiz_Life hack [Imaging Wire] | 11 | 6 | 54.5% | 1 | 9.1% | **0** | 0.0% | -- |
 
 ---
 
-## 6. Qualification Rate Per DCT (min 20 total leads)
+## 7. Strategic Implications
 
-### Top 20 by Qualification Rate
+### What dual-metric analysis changes about our understanding:
 
-| DCT | Segment | Qual Rate | Qualified | Total |
-|---|---|---:|---:|---:|
-| DCT_123_If you, BUT | TFM / CW | **45.5%** | 10 | 22 |
-| DCT_103_Luiz_Confession [Imaging Wire] | TFM / DHW | **38.3%** | 41 | 107 |
-| DCT_115_AppleNotesTransformation | TFM / CW | **38.1%** | 8 | 21 |
-| DCT_103_Luiz_Confession [Imaging Wire] | TFM / CW | **36.9%** | 38 | 103 |
-| DCT_104_Luiz_Life hack [Digital Health] | TFM / CW | **36.7%** | 29 | 79 |
-| DCT_114_ReplaceJournals | TFM / CW | **36.4%** | 8 | 22 |
-| DCT_104_Luiz_Life hack [Digital Health] | TFM / IW | **32.2%** | 19 | 59 |
-| DCT_114_ReplaceJournals | TFM / DHW | **31.0%** | 9 | 29 |
-| DCT_118_Text Call out | TFM / DHW | **27.5%** | 14 | 51 |
-| DCT_122_Make Better Decisions | TFM / DHW | **26.7%** | 8 | 30 |
-| DCT_118_Text Call out | TFM / IW | **25.0%** | 10 | 40 |
-| DCT_102_Luiz_Why read X? [Digital Health] | TFM / DHW | **24.1%** | 14 | 58 |
-| DCT_114_ReplaceJournals | TFM / IW | **23.6%** | 29 | 123 |
-| DCT_115_AppleNotesTransformation | TFM / DHW | **21.6%** | 36 | 167 |
-| DCT_104_Luiz_Life hack [Digital Health] | TFM / DHW | **20.5%** | 99 | 482 |
-| DCT_103_Luiz_Confession [Imaging Wire] | TFM / IW | **20.3%** | 120 | 590 |
-| DCT_123_If you, BUT | TFM / DHW | **19.0%** | 35 | 184 |
-| DCT_104_Luiz_Life hack [Imaging Wire] | TFM / IW | **18.6%** | 8 | 43 |
-| DCT_112_EndangerPatient | TFM / CW | **16.7%** | 8 | 48 |
-| DCT_118_Text Call out | TFM / CW | **16.1%** | 50 | 310 |
+**1. CW's quality problem is worse than we thought.**
+The form said 259 CW leads were qualified. But only 31 of those are ICP title matches. That is a 12% overlap -- the form is passing 228 people who are not cardiologists, cardiac surgeons, or cardiac professionals. Many form-qualifiers on CW have titles like "RN," "Nurse Practitioner," "CEO" (not cardiac-specific), and "Physician" (too generic). The form does not filter for CW's specific ICP.
 
-### Bottom 20 by Qualification Rate (all Growletter except two TFM entries)
+**2. IW's form is the most reliable.**
+98 of 258 IW form-qualifiers (38%) are also ICP title matches. This is the best overlap rate of any newsletter. The IW form and ICP keywords are measuring something similar -- radiologists and imaging professionals both self-identify on the form and match title keywords.
 
-| DCT | Segment | Qual Rate | Qualified | Total |
-|---|---|---:|---:|---:|
-| lifehack_jobroles_cw | GL / IW | 0.06% | 1 | 1,690 |
-| lifehack_jobroles_cw | GL / DHW | 0.04% | 1 | 2,657 |
-| 8/9 CW DTE | GL / CW | 0.00% | 0 | 889 |
-| lifehack_dhw_30k_v3landingpage | GL / CW | 0.00% | 0 | 284 |
-| lifehack_dhw | GL / CW | 0.00% | 0 | 299 |
-| dhw_video_textoverlay_lifehack-newaudience-dhw | GL / CW | 0.00% | 0 | 71 |
-| DCT_105_Luiz_UGC doctor [Cardiac Wire] | TFM / IW | 0.00% | 0 | 20 |
-| 2025resolution_cw | GL / IW | 0.00% | 0 | 39 |
-| lifehack_dhw_30k_v3landingpage | GL / IW | 0.00% | 0 | 135 |
-| lifehack_static_patientscan_tiw | GL / IW | 0.00% | 0 | 46 |
-| lifehack_dhw | GL / IW | 0.00% | 0 | 199 |
-| og_lifehacktext | GL / IW | 0.00% | 0 | 102 |
-| DCT_105_Luiz_UGC doctor [Cardiac Wire] | TFM / DHW | 0.00% | 0 | 24 |
-| lifehack_dhw_30k_v3landingpage | GL / DHW | 0.00% | 0 | 1,019 |
-| 6/13 DHW Video Ad USA DTE | GL / DHW | 0.00% | 0 | 328 |
-| lifehack_dhw | GL / DHW | 0.00% | 0 | 882 |
-| 2025resolution_cw | GL / DHW | 0.00% | 0 | 73 |
-| dhw_video_textoverlay_lifehack-newaudience-dhw | GL / DHW | 0.00% | 0 | 625 |
-| og_lifehacktext | GL / DHW | 0.00% | 0 | 43 |
-| lifehack_static_patientscan_tiw | GL / DHW | 0.00% | 0 | 23 |
+**3. DHW has the most hidden quality.**
+DHW has 398 ICP title matches vs only 315 form-qualifiers -- 83 more ICP matches than the form finds. Busy healthcare executives (CEOs, VPs, Directors, Founders) subscribe but do not complete the qualification form. The form UNDER-counts DHW quality by 26%.
 
-**Every single top-20 entry is TFM. Every single bottom-20 entry is Growletter (plus two underperforming TFM creatives: DCT_105 UGC doctor).**
+**4. Growletter is not zero-quality.**
+The form says GL produced ~12 qualified leads. Title matching finds 531 ICP matches across GL's 19,925 subscribers (2.7%). That is still low, but it means GL delivers real ICP professionals -- they just never see the form.
+
+**5. The "Both" metric is the right anchor for decisions.**
+Neither form-qualified alone (over-counts on CW, under-counts on DHW) nor ICP-match alone (misses form engagement signal) is sufficient. "Both" = subscribers who engage with the form AND have ICP-matching titles. These are the highest-confidence quality leads.
 
 ---
 
-## 7. Job Title Analysis -- Top Qualified Titles by Source x Newsletter
-
-### Cardiac Wire -- Qualified Titles
-
-**TFM (259 qualified):**
-
-| Title | Count |
-|---|---:|
-| Cardiologist | 12 |
-| Physician | 10 |
-| MD | 9 |
-| CEO | 8 |
-| Resident | 6 |
-| Nurse practitioner | 5 |
-| Fellow | 5 |
-| Radiologist | 4 |
-| Ceo | 4 |
-| RN | 4 |
-| PA | 3 |
-| President | 3 |
-| Consultant | 3 |
-| Np | 3 |
-
-**Growletter (8 qualified -- complete list):**
-
-| Title | Count |
-|---|---:|
-| Cardiologist | 2 |
-| MD radiologist | 1 |
-| md | 1 |
-| APRN | 1 |
-| PA-C | 1 |
-| NP | 1 |
-| Fellow | 1 |
-
-### Imaging Wire -- Qualified Titles
-
-**TFM (255 qualified):**
-
-| Title | Count |
-|---|---:|
-| Radiologist | 24 |
-| MD | 9 |
-| CEO | 5 |
-| MRI Technologist | 4 |
-| Radiographer | 4 |
-| Ceo | 3 |
-| Sonographer | 3 |
-| Owner | 3 |
-| Cardiologist | 3 |
-| Consultant | 3 |
-| Student | 3 |
-
-**Growletter (3 qualified -- complete list):**
-
-| Title | Count |
-|---|---:|
-| Mammo tech | 1 |
-| Ct tech | 1 |
-| md | 1 |
-
-### Digital Health Wire -- Qualified Titles
-
-**TFM (314 qualified):**
-
-| Title | Count |
-|---|---:|
-| CEO | 22 |
-| Ceo | 9 |
-| Director | 7 |
-| Founder | 7 |
-| Radiologist | 6 |
-| COO | 6 |
-| Physician | 5 |
-| MD | 5 |
-| Owner | 4 |
-| Consultant | 4 |
-| President | 3 |
-| Cardiologist | 3 |
-| Executive Director | 3 |
-| Fellow | 3 |
-| RN | 3 |
-
-**Growletter (1 qualified -- complete list):**
-
-| Title | Count |
-|---|---:|
-| md | 1 |
-
----
-
-## 8. Seniority Distribution by Source
-
-> **Note:** Title/seniority distribution is a fair comparison because it comes from Mailchimp merge fields (TITLE), not from TFM's qualification form. However, GL leads fill title fields at much lower rates (79-70% empty vs 61-75% for TFM), so GL's distribution is based on a smaller assessed sample. The "GL Qual" and "GL Q%" columns below use TFM's QUALIFIED field which GL leads were NOT systematically assessed through — these columns are shown for completeness but should not be interpreted as GL's true quality rate.
-
-Title tiers: Executive/Director, Senior Clinical (MD/DO/Specialist), Mid-level Clinical (NP/PA/Supervisor), Entry-level Clinical (RN/Tech), Non-clinical, Other/Unclassified, Unknown/Empty.
-
-### Cardiac Wire
-
-| Tier | TFM Count | TFM % | TFM Qual | TFM Q% | GL Count | GL % | GL Qual | GL Q% |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| Executive/Director | 145 | 5.8% | 48 | 33.1% | 248 | 2.2% | 0 | 0.0% |
-| Senior Clinical | 131 | 5.2% | 77 | 58.8% | 186 | 1.6% | 5 | 2.7% |
-| Mid-level Clinical | 30 | 1.2% | 19 | 63.3% | 201 | 1.8% | 3 | 1.5% |
-| Entry-level Clinical (RN/Tech) | 74 | 3.0% | 35 | 47.3% | 1,068 | 9.4% | 0 | 0.0% |
-| Non-clinical | 111 | 4.4% | 25 | 22.5% | 216 | 1.9% | 0 | 0.0% |
-| Other/Unclassified | 148 | 5.9% | 54 | 36.5% | 443 | 3.9% | 0 | 0.0% |
-| Unknown/Empty | 1,865 | 74.5% | 1 | 0.1% | 9,000 | 79.2% | 0 | 0.0% |
-
-### Imaging Wire
-
-| Tier | TFM Count | TFM % | TFM Qual | TFM Q% | GL Count | GL % | GL Qual | GL Q% |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| Executive/Director | 105 | 8.4% | 44 | 41.9% | 122 | 4.3% | 0 | 0.0% |
-| Senior Clinical | 100 | 8.0% | 67 | 67.0% | 87 | 3.1% | 1 | 1.1% |
-| Mid-level Clinical | 14 | 1.1% | 6 | 42.9% | 78 | 2.7% | 0 | 0.0% |
-| Entry-level Clinical (RN/Tech) | 95 | 7.6% | 65 | 68.4% | 487 | 17.1% | 2 | 0.4% |
-| Non-clinical | 76 | 6.1% | 31 | 40.8% | 104 | 3.7% | 0 | 0.0% |
-| Other/Unclassified | 97 | 7.7% | 41 | 42.3% | 237 | 8.3% | 0 | 0.0% |
-| Unknown/Empty | 766 | 61.1% | 1 | 0.1% | 1,732 | 60.8% | 0 | 0.0% |
-
-### Digital Health Wire
-
-| Tier | TFM Count | TFM % | TFM Qual | TFM Q% | GL Count | GL % | GL Qual | GL Q% |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| Executive/Director | 202 | 13.4% | 132 | 65.3% | 216 | 3.8% | 0 | 0.0% |
-| Senior Clinical | 65 | 4.3% | 44 | 67.7% | 100 | 1.7% | 1 | 1.0% |
-| Mid-level Clinical | 14 | 0.9% | 8 | 57.1% | 111 | 1.9% | 0 | 0.0% |
-| Entry-level Clinical (RN/Tech) | 63 | 4.2% | 35 | 55.6% | 770 | 13.5% | 0 | 0.0% |
-| Non-clinical | 106 | 7.0% | 35 | 33.0% | 190 | 3.3% | 0 | 0.0% |
-| Other/Unclassified | 134 | 8.9% | 58 | 43.3% | 343 | 6.0% | 0 | 0.0% |
-| Unknown/Empty | 921 | 61.2% | 2 | 0.2% | 3,986 | 69.7% | 0 | 0.0% |
-
-### Key seniority findings
-
-**TFM concentrations by newsletter:**
-- **CW:** 5.8% Executive/Director + 5.2% Senior Clinical = 11.0% high-value roles
-- **IW:** 8.4% Executive/Director + 8.0% Senior Clinical = 16.4% high-value roles
-- **DHW:** 13.4% Executive/Director + 4.3% Senior Clinical = 17.7% high-value roles (strongest exec concentration)
-
-**Growletter concentrations by newsletter:**
-- **CW:** 2.2% Executive/Director + 1.6% Senior Clinical = 3.8% high-value roles, BUT 9.4% Entry-level Clinical (mostly RNs)
-- **IW:** 4.3% Executive/Director + 3.1% Senior Clinical = 7.3% high-value roles, BUT 17.1% Entry-level Clinical
-- **DHW:** 3.8% Executive/Director + 1.7% Senior Clinical = 5.5% high-value roles, BUT 13.5% Entry-level Clinical
-
-**The GL pattern across all newsletters:** Heavy RN/tech concentration, low exec/specialist concentration. The GL Entry-level Clinical rate (9.4-17.1%) is 3-4x the TFM rate (3.0-7.6%).
-
----
-
-## 9. Non-Qualified Patterns
-
-### What non-qualified leads look like by source
-
-**TFM non-qualified top titles (across all newsletters):**
-- Owner, Retired, CEO, RN, President, None, Physician, Resident, MD
-- Dominant pattern: a mix of legitimate professionals who didn't qualify plus retired/non-applicable
-- TFM non-qualified leads are 77-83% title-empty (never filled out the form)
-
-**Growletter non-qualified top titles (across all newsletters):**
-- **RN is the #1 title by a wide margin in every single newsletter segment**
-  - CW: 454x RN, 97x Rn, 85x Registered Nurse (~636 combined for case variants)
-  - IW: 170x RN, 34x Rn, 28x Registered Nurse (~232 combined)
-  - DHW: 295x RN, 71x Rn, 64x Registered Nurse (~430 combined)
-- After nurses: Owner, Nurse (generic), NP, Paramedic, LPN, Retired, Cardiac Sonographer
-- GL non-qualified leads are 61-79% title-empty
-
-**The RN concentration in Growletter data is overwhelming.** Combining all case variants of "RN" and "Registered Nurse" across all GL newsletter segments, there are approximately 1,300+ nurse leads. These are not the audience Insight Links sells to their B2B advertisers.
-
-### Seniority breakdown of non-qualified leads (all newsletters combined)
-
-| Source | Executive/Dir | Senior Clinical | Mid-level | Entry-level (RN/Tech) | Non-clinical | Unknown |
-|---|---:|---:|---:|---:|---:|---:|
-| TFM (all NLs) | 228 (5.1%) | 108 (2.4%) | 25 (0.6%) | 97 (2.2%) | 201 (4.5%) | 3,548 (79.9%) |
-| GL (all NLs) | 586 (3.0%) | 366 (1.9%) | 387 (2.0%) | 2,323 (11.7%) | 500 (2.5%) | 14,718 (74.4%) |
-
-**GL has 2,323 entry-level clinical non-qualified leads (11.7% of all non-qualified), vs TFM's 97 (2.2%).** This is the clearest structural difference in audience composition.
-
----
-
-## 10. The Honest TFM vs Growletter Story
-
-### Where Growletter definitively wins
-
-1. **Volume -- and it is not close.** GL delivers 3.8x more total subscribers. On Cardiac Wire it is 4.5x. Even on the "problem" newsletter (Imaging Wire), GL delivers 2.3x TFM's volume. If Jake only cared about raw subscriber count, GL would be the obvious choice.
-
-2. **Absolute form completions on CW and DHW.** Despite lower form-completion rates, GL's volume advantage means they still deliver more completed forms on CW (1,798 vs 629) and DHW (1,336 vs 584). That is real first-party data at scale.
-
-3. **Cost efficiency (implied).** GL delivers more bodies per dollar. Their raw CPL advantage, documented elsewhere, holds up in total subscriber delivery.
-
-### Where TFM's data shows strength (TFM-internal metrics)
-
-1. **828 qualified leads through TFM's ICP form.** TFM's post-subscribe form identified 828 qualified professionals (15.7% of TFM subs). This is TFM's own measurement system — GL's funnel does not include this form, so GL's 12 qualified leads reflect "never assessed," not a quality comparison.
-
-2. **High-value title concentration (among leads who filled title fields).** TFM delivers 11-18% Executive/Director + Senior Clinical roles depending on newsletter. GL delivers 3.8-7.3%. This comparison uses the TITLE merge field (not the QUALIFIED form), but GL leads fill title fields at lower rates, so GL's distribution is based on a smaller sample.
-
-3. **ICP accuracy on Imaging Wire (Jake's manual assessment).** Jake manually reviewed both agencies' IW leads and found TFM delivered 12 radiologists vs GL's 0. This is the only cross-agency quality comparison validated by the client directly. IW is 65% of Insight Links revenue.
-
-4. **DHW executive delivery.** TFM's DHW pool is 13.4% Executive/Director among those who filled title fields — the exact audience Jake says his DHW advertisers want. TFM produced 31 qualified CEOs on DHW alone through the ICP form.
-
-### What we can't determine from this data
-
-1. **GL's actual lead quality.** GL's funnel does not include TFM's post-subscribe ICP questions. GL leads never see the form. Their 93-95% empty QUALIFIED fields mean "never assessed," not "failed." We cannot determine GL's true qualification rate from this data — only Jake's manual review can compare quality across agencies.
-
-2. **Whether GL's titled leads would qualify.** GL has 248 Executive/Director leads on CW, 122 on IW, 216 on DHW — but these leads were never assessed through TFM's form. They may or may not meet Jake's ICP criteria. We don't know.
-
-3. **The silent majority.** 61-79% of leads across BOTH sources never fill in their title. The seniority analysis covers only the 20-39% who do. The actual audience composition of the majority is unknown for both agencies.
-
-### What IS clear regardless of measurement system
-
-1. **TFM's CW qualification rate is notably lower than IW/DHW.** 10.3% on CW vs 20.4% on IW vs 20.9% on DHW. This is a TFM-internal finding showing Cardiac Wire is the hardest newsletter to qualify leads for.
-
-2. **GL wins on volume.** 3.8x more subscribers overall. GL's raw CPL advantage is real.
-
-3. **Both agencies serve different audience profiles.** Among leads who DO fill title fields, GL skews Entry-level Clinical (RN/Tech at 9.4-17.1%) while TFM skews Senior Clinical and Executive. Whether this matters depends on what Jake's advertisers value.
-
-### The bottom line for the bake-off
-
-**The question Jake needs to answer is: does he value 828 qualified leads or 19,925 total subscribers?**
-
-At $100-150/qualified lead to his advertisers, TFM's 828 qualified leads represent $82,800-$124,200 in potential advertiser revenue. GL's 12 qualified leads represent $1,200-$1,800.
-
-At the same time, GL's 19,925 subscribers are real email addresses that receive the newsletter. They may open, click, and generate advertising impressions even if they never become qualified leads for direct advertiser campaigns. The value of those subscribers depends entirely on how Insight Links monetizes them.
-
-If the business model is "sell qualified leads to advertisers at $100-150 each" -- TFM wins by 69x.
-If the business model is "grow the subscriber base for CPM-based newsletter advertising" -- GL wins by 3.8x.
-
-Jake has said repeatedly that qualified leads are what matters. The data supports TFM on that metric overwhelmingly.
-
----
-
-## Appendix: TFM DCT Performance Summary (All Newsletters Combined)
-
-| DCT | Total Leads | Qualified | Qual Rate | Best Newsletter |
-|---|---:|---:|---:|---|
-| DCT_103_Luiz_Confession [IW] | 793 | 199 | 25.1% | IW (120q), DHW (41q), CW (38q) |
-| DCT_104_Luiz_Life hack [DH] | 620 | 147 | 23.7% | DHW (99q), CW (29q), IW (19q) |
-| DCT_103_Luiz_Confession [CW] | 1,265 | 95 | 7.5% | CW (57q), DHW (24q), IW (14q) |
-| DCT_118_Text Call out | 401 | 74 | 18.5% | CW (50q), DHW (14q), IW (10q) |
-| DCT_123_If you, BUT | 224 | 53 | 23.7% | DHW (35q), CW (10q), IW (8q) |
-| DCT_115_AppleNotesTransformation | 204 | 48 | 23.5% | DHW (36q), CW (8q), IW (4q) |
-| DCT_114_ReplaceJournals | 174 | 46 | 26.4% | IW (29q), DHW (9q), CW (8q) |
-| DCT_104_Luiz_Life hack [CW] | 794 | 36 | 4.5% | CW (21q), IW (8q), DHW (7q) |
-| DCT_102_Luiz_Why read X? [DH] | 87 | 24 | 27.6% | DHW (14q), CW (6q), IW (5q) |
-| DCT_104_Luiz_Life hack [IW] | 66 | 19 | 28.8% | IW (8q), DHW (6q), CW (5q) |
-| DCT_112_EndangerPatient | 60 | 10 | 16.7% | CW (8q), DHW (2q) |
-| DCT_122_Make Better Decisions | 36 | 10 | 27.8% | DHW (8q), CW (2q) |
-| DCT_101_Luiz_Reasons Why [CW] | 237 | 9 | 3.8% | Low qual across all |
-
-### Notes on TFM creative performance
-
-- **Highest qualification rate at scale:** DCT_104_Life hack [Imaging Wire] (28.8%) and DCT_102_Why read X? [Digital Health] (27.6%), but both have limited volume
-- **Best combination of volume + quality:** DCT_103_Confession [Imaging Wire] -- 793 leads, 199 qualified (25.1%). This is the workhorse. (Note: prior versions showed 800 total; 793 reflects the deduplicated dashboard count as of March 22.)
-- **Rising star:** DCT_118_Text Call out -- 401 leads, 74 qualified (18.5%). Especially strong on CW where it is the best quality-adjusted performer (50 qualified at 16.1% rate vs DCT_103 CW's 57 qualified at 5.7% rate).
-- **Highest efficiency:** DCT_123_If you, BUT -- 224 leads, 53 qualified (23.7%). Newest format, proving out well.
-- **CW-specific problem:** The two highest-volume CW creatives (DCT_103 Confession CW at 5.7% and DCT_104 Life hack CW at 3.6%) have the lowest qualification rates. CW volume is being driven by creatives that attract the wrong audience. DCT_118 Text Call out at 16.1% CW qual rate is the fix -- shift more budget there.
-- **DCT_105_UGC doctor is a confirmed non-performer:** 0 qualified leads across IW and DHW placements, and only 1/85 on CW.
-
----
-
-*Analysis generated March 22, 2026 from 25,187 Mailchimp subscriber records across 47 JSON export files (6 TFM + 41 Growletter). All qualification data reflects the Mailchimp QUALIFIED merge field as recorded in the exports.*
+*This analysis was built by processing 25,187 Mailchimp subscriber records across 54 JSON exports, applying ICP title matching against newsletter-specific keyword sets, and cross-referencing with the QUALIFIED form field. Both metrics are shown because neither alone tells the complete quality story.*
