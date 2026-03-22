@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experiential Hospitality — Performance Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e4e4e7; }
+.header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); padding: 32px 40px; border-bottom: 1px solid #2a2a3e; }
+.header h1 { font-size: 28px; font-weight: 700; color: #fff; }
+.header p { color: #8b8b9e; margin-top: 4px; font-size: 14px; }
+.grid { display: grid; gap: 20px; padding: 24px 40px; }
+.row-4 { grid-template-columns: repeat(4, 1fr); }
+.row-3 { grid-template-columns: repeat(3, 1fr); }
+.row-2 { grid-template-columns: 1fr 1fr; }
+.row-1-2 { grid-template-columns: 1fr 2fr; }
+.card { background: #1a1a2e; border-radius: 12px; padding: 24px; border: 1px solid #2a2a3e; }
+.card h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; color: #6b6b7e; margin-bottom: 8px; }
+.card .value { font-size: 32px; font-weight: 700; color: #fff; }
+.card .sub { font-size: 13px; color: #8b8b9e; margin-top: 4px; }
+.green { color: #4ade80; }
+.red { color: #f87171; }
+.yellow { color: #fbbf24; }
+.blue { color: #60a5fa; }
+.purple { color: #c084fc; }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+.badge-green { background: rgba(74,222,128,0.15); color: #4ade80; }
+.badge-red { background: rgba(248,113,113,0.15); color: #f87171; }
+.badge-yellow { background: rgba(251,191,36,0.15); color: #fbbf24; }
+.funnel-step { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #2a2a3e; }
+.funnel-step:last-child { border-bottom: none; }
+.funnel-bar { height: 6px; border-radius: 3px; background: #2a2a3e; flex: 1; margin: 0 16px; }
+.funnel-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, #4ade80, #22d3ee); }
+.insight { padding: 12px 16px; background: #1e1e32; border-radius: 8px; margin-bottom: 8px; border-left: 3px solid #4ade80; font-size: 14px; line-height: 1.5; }
+.insight.warn { border-left-color: #fbbf24; }
+.insight.action { border-left-color: #60a5fa; }
+.chart-container { position: relative; height: 280px; }
+.dct-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #2a2a3e; }
+.dct-row:last-child { border-bottom: none; }
+.dct-name { font-weight: 600; font-size: 14px; }
+.dct-stats { display: flex; gap: 24px; font-size: 13px; color: #8b8b9e; }
+.dct-stats span { min-width: 80px; }
+.section-title { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 16px; padding-top: 8px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { text-align: left; padding: 10px 12px; color: #6b6b7e; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #2a2a3e; }
+td { padding: 10px 12px; border-bottom: 1px solid #1e1e32; }
+tr:hover { background: #1e1e32; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Experiential Hospitality</h1>
+  <p>Full-Funnel Performance Dashboard | Meta Ads + GoHighLevel + WebinarKit | Updated March 22, 2026</p>
+</div>
+
+<!-- KPI Cards -->
+<div class="grid row-4">
+  <div class="card">
+    <h3>Total Revenue</h3>
+    <div class="value green">$455,668</div>
+    <div class="sub">76 closed deals across 10 months</div>
+  </div>
+  <div class="card">
+    <h3>Total Ad Spend</h3>
+    <div class="value">$253,904</div>
+    <div class="sub">$25,390/month average</div>
+  </div>
+  <div class="card">
+    <h3>Blended ROAS</h3>
+    <div class="value blue">1.79x</div>
+    <div class="sub">$201,764 profit over ad spend</div>
+  </div>
+  <div class="card">
+    <h3>Cost Per Acquisition</h3>
+    <div class="value yellow">$2,191</div>
+    <div class="sub">Avg deal: $5,996 | 63.5% margin</div>
+  </div>
+</div>
+
+<!-- Charts Row -->
+<div class="grid row-2">
+  <div class="card">
+    <div class="section-title">Monthly Revenue & Deals</div>
+    <div class="chart-container"><canvas id="revenueChart"></canvas></div>
+  </div>
+  <div class="card">
+    <div class="section-title">CPL Trend (Weekly)</div>
+    <div class="chart-container"><canvas id="cplChart"></canvas></div>
+  </div>
+</div>
+
+<!-- Funnel + ROAS by Funnel -->
+<div class="grid row-2">
+  <div class="card">
+    <div class="section-title">Full Funnel Breakdown</div>
+    <div class="funnel-step">
+      <span style="width:140px">Registrants</span>
+      <div class="funnel-bar"><div class="funnel-fill" style="width:100%"></div></div>
+      <span style="width:80px;text-align:right"><strong>21,665</strong></span>
+      <span style="width:60px;text-align:right;color:#8b8b9e">100%</span>
+    </div>
+    <div class="funnel-step">
+      <span style="width:140px">Live Attendees</span>
+      <div class="funnel-bar"><div class="funnel-fill" style="width:22.6%"></div></div>
+      <span style="width:80px;text-align:right"><strong>4,902</strong></span>
+      <span style="width:60px;text-align:right;color:#8b8b9e">22.6%</span>
+    </div>
+    <div class="funnel-step">
+      <span style="width:140px">+ Replay Views</span>
+      <div class="funnel-bar"><div class="funnel-fill" style="width:7.2%"></div></div>
+      <span style="width:80px;text-align:right"><strong>1,566</strong></span>
+      <span style="width:60px;text-align:right;color:#8b8b9e">7.2%</span>
+    </div>
+    <div class="funnel-step">
+      <span style="width:140px">Calls Booked</span>
+      <div class="funnel-bar"><div class="funnel-fill" style="width:3.6%;background:linear-gradient(90deg,#fbbf24,#f97316)"></div></div>
+      <span style="width:80px;text-align:right"><strong>779</strong></span>
+      <span style="width:60px;text-align:right"><span class="badge badge-yellow">3.6%</span></span>
+    </div>
+    <div class="funnel-step">
+      <span style="width:140px">Calls Showed</span>
+      <div class="funnel-bar"><div class="funnel-fill" style="width:2.1%"></div></div>
+      <span style="width:80px;text-align:right"><strong>458</strong></span>
+      <span style="width:60px;text-align:right"><span class="badge badge-green">58.8%</span></span>
+    </div>
+    <div class="funnel-step">
+      <span style="width:140px">Closes</span>
+      <div class="funnel-bar"><div class="funnel-fill" style="width:0.35%;background:linear-gradient(90deg,#4ade80,#22c55e)"></div></div>
+      <span style="width:80px;text-align:right"><strong>76</strong></span>
+      <span style="width:60px;text-align:right;color:#8b8b9e">0.35%</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="section-title">ROAS by Funnel</div>
+    <div class="chart-container"><canvas id="roasChart"></canvas></div>
+    <div style="margin-top:16px">
+      <div class="funnel-step">
+        <span>Live Webinar</span>
+        <span><strong class="green">1.83x</strong> | $369K rev / $202K spend</span>
+      </div>
+      <div class="funnel-step">
+        <span>7-Day ECC</span>
+        <span><strong class="green">1.94x</strong> | $47K rev / $25K spend</span>
+      </div>
+      <div class="funnel-step">
+        <span>VSL/Evergreen</span>
+        <span><strong class="green">1.70x</strong> | $32K rev / $19K spend</span>
+      </div>
+      <div class="funnel-step">
+        <span>Aus/NZ</span>
+        <span><strong class="red">0.78x</strong> | $6.5K rev / $8.3K spend</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Top DCTs -->
+<div class="grid row-1-2">
+  <div class="card">
+    <div class="section-title">Funnel Economics</div>
+    <table>
+      <tr><td>Cost per registrant</td><td style="text-align:right"><strong>$5.63</strong></td></tr>
+      <tr><td>Cost per live attendee</td><td style="text-align:right"><strong>$24.91</strong></td></tr>
+      <tr><td>Cost per call booked</td><td style="text-align:right"><strong>$156</strong></td></tr>
+      <tr><td>Cost per call showed</td><td style="text-align:right"><strong>$266</strong></td></tr>
+      <tr><td>Cost per close (CAC)</td><td style="text-align:right"><strong>$2,191</strong></td></tr>
+      <tr><td>Revenue per close</td><td style="text-align:right"><strong class="green">$5,996</strong></td></tr>
+      <tr><td>Net profit per close</td><td style="text-align:right"><strong class="green">$3,805</strong></td></tr>
+      <tr><td>Revenue per registrant</td><td style="text-align:right"><strong>$21.03</strong></td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <div class="section-title">Top DCT Performers (by Revenue)</div>
+    <div class="dct-row">
+      <div><div class="dct-name">DCT_107 — UGC Webinar</div><div style="font-size:12px;color:#6b6b7e">All-time top performer, 10+ months of iterations</div></div>
+      <div class="dct-stats"><span><strong class="green">12+ deals</strong></span><span><strong>$82,000+</strong></span></div>
+    </div>
+    <div class="dct-row">
+      <div><div class="dct-name">DCT_142 — Nov/Dec Iterations</div><div style="font-size:12px;color:#6b6b7e">Holiday season push, strong conversion</div></div>
+      <div class="dct-stats"><span><strong class="green">6 deals</strong></span><span><strong>$38,235</strong></span></div>
+    </div>
+    <div class="dct-row">
+      <div><div class="dct-name">DCT_152 — Copy Testing</div><div style="font-size:12px;color:#6b6b7e">Dec copy test campaign</div></div>
+      <div class="dct-stats"><span><strong class="green">5 deals</strong></span><span><strong>$31,737</strong></span></div>
+    </div>
+    <div class="dct-row">
+      <div><div class="dct-name">DCT_169 — Feb Iterations</div><div style="font-size:12px;color:#6b6b7e">Latest creative family, actively driving revenue</div></div>
+      <div class="dct-stats"><span><strong class="blue">3 deals</strong></span><span><strong>$20,747</strong></span></div>
+    </div>
+    <div class="dct-row">
+      <div><div class="dct-name">DCT_122 — TOV Webinar</div><div style="font-size:12px;color:#6b6b7e">Tone-of-voice format, consistent performer</div></div>
+      <div class="dct-stats"><span><strong class="blue">3 deals</strong></span><span><strong>$19,488</strong></span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Insights & Recommendations -->
+<div class="grid row-2">
+  <div class="card">
+    <div class="section-title">Key Insights</div>
+    <div class="insight">DCT_107 (UGC Webinar) is the all-time champion — 12+ deals, $82K+ revenue. Every iteration closes.</div>
+    <div class="insight">December was the best month: $87,952 from 13 deals. Scaling spend worked without CPL degradation.</div>
+    <div class="insight">CPL trending down: $7.89 → $5.95 over 6 weeks. Pacing strategy validated.</div>
+    <div class="insight">7-Day ECC has the highest ROAS (1.94x) — email course pre-qualifies buyers better than webinar alone.</div>
+    <div class="insight warn">Registration → call booking (3.6%) is the biggest funnel leak. Fixing this = $180K additional revenue at current rates.</div>
+    <div class="insight warn">8 deals (~$59K) have broken UTM attribution. Two show raw {{adset.name}} macro.</div>
+    <div class="insight">Replay rate jumped to 12.2% in Feb — secondary conversion path gaining strength.</div>
+    <div class="insight">Call show rate (78.9% from GHL) exceeds the 63.6% previously reported — the follow-up sequence is elite.</div>
+  </div>
+  <div class="card">
+    <div class="section-title">Recommendations</div>
+    <div class="insight action"><strong>SCALE:</strong> Increase to $20-25K per webinar cycle. Dec proved higher spend = more closes. Current $15K cap leaves revenue on the table.</div>
+    <div class="insight action"><strong>DOUBLE DOWN:</strong> Create 3-4 new DCT_107 iterations with fresh hooks. Proven ROAS across 10 months.</div>
+    <div class="insight action"><strong>FIX THE LEAK:</strong> The 3.6% call book rate is the bottleneck. Test: stronger webinar CTA, post-webinar email optimization, retargeting registrants who didn't book.</div>
+    <div class="insight action"><strong>INVEST IN ECC:</strong> Highest ROAS funnel (1.94x) but only 8 deals. Scale ECC ad spend for higher-quality pipeline.</div>
+    <div class="insight action"><strong>FIX UTMs:</strong> Two deals show raw {{adset.name}}. Fix the template in Ads Manager to close attribution gap.</div>
+    <div class="insight action"><strong>SCALING SCENARIO:</strong> If call book rate goes from 3.6% → 5%, same ad spend produces 106 closes, $635K revenue. ROAS jumps from 1.79x → 2.50x.</div>
+  </div>
+</div>
+
+<!-- GHL Pipeline -->
+<div class="grid row-3">
+  <div class="card">
+    <h3>GHL Pipeline — Won</h3>
+    <div class="value green">255</div>
+    <div class="sub">$1,655,137 total revenue</div>
+    <div style="margin-top:12px;font-size:13px;color:#8b8b9e">
+      Setter: 137 deals ($874K)<br>
+      NetRev: 118 deals ($781K)
+    </div>
+  </div>
+  <div class="card">
+    <h3>GHL Pipeline — Lost</h3>
+    <div class="value red">101</div>
+    <div class="sub">Win rate: 71.6% (255 / 356)</div>
+  </div>
+  <div class="card">
+    <h3>GHL Calendar — Calls</h3>
+    <div class="value blue">1,435</div>
+    <div class="sub">
+      259 showed (78.9% show rate)<br>
+      70 no-shows | 330 cancelled<br>
+      754 confirmed (upcoming)
+    </div>
+  </div>
+</div>
+
+<div style="padding:24px 40px;text-align:center;color:#4b4b5e;font-size:12px">
+  Built by The Feed Media | Data sources: Meta Ads (Pipeboard), GoHighLevel API, Historical spreadsheets<br>
+  Automated via n8n workflow (ID: JBV9JOHKkhk4lQB5) | Last data pull: March 22, 2026
+</div>
+
+<script>
+// Revenue Chart
+new Chart(document.getElementById('revenueChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Jun','Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar'],
+    datasets: [{
+      label: 'Revenue',
+      data: [34486,26487,51976,19991,38979,35735,87952,77464,62335,59482],
+      backgroundColor: 'rgba(74,222,128,0.6)',
+      borderRadius: 6,
+      yAxisID: 'y'
+    },{
+      label: 'Deals',
+      data: [6,5,8,4,6,5,13,11,8,7],
+      type: 'line',
+      borderColor: '#60a5fa',
+      borderWidth: 2,
+      pointRadius: 4,
+      pointBackgroundColor: '#60a5fa',
+      yAxisID: 'y1',
+      tension: 0.3
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { labels: { color: '#8b8b9e' } } },
+    scales: {
+      x: { ticks: { color: '#6b6b7e' }, grid: { color: '#1e1e32' } },
+      y: { position: 'left', ticks: { color: '#6b6b7e', callback: v => '$'+v/1000+'K' }, grid: { color: '#1e1e32' } },
+      y1: { position: 'right', ticks: { color: '#60a5fa' }, grid: { display: false }, min: 0, max: 16 }
+    }
+  }
+});
+
+// CPL Chart
+new Chart(document.getElementById('cplChart'), {
+  type: 'line',
+  data: {
+    labels: ['12/28','1/4','1/11','1/18','1/25','2/1','2/8','2/15','2/22','3/1','3/8','3/15','3/22'],
+    datasets: [{
+      label: 'CPL',
+      data: [7.85,7.85,5.02,5.02,5.02,5.02,6.89,6.89,6.89,6.89,5.96,5.95,5.96],
+      borderColor: '#22d3ee',
+      borderWidth: 3,
+      fill: true,
+      backgroundColor: 'rgba(34,211,238,0.1)',
+      tension: 0.4,
+      pointRadius: 5,
+      pointBackgroundColor: '#22d3ee'
+    },{
+      label: 'Target ($5.00)',
+      data: Array(13).fill(5),
+      borderColor: '#f87171',
+      borderWidth: 1,
+      borderDash: [5,5],
+      pointRadius: 0,
+      fill: false
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { labels: { color: '#8b8b9e' } } },
+    scales: {
+      x: { ticks: { color: '#6b6b7e' }, grid: { color: '#1e1e32' } },
+      y: { ticks: { color: '#6b6b7e', callback: v => '$'+v.toFixed(2) }, grid: { color: '#1e1e32' }, min: 3, max: 10 }
+    }
+  }
+});
+
+// ROAS Chart
+new Chart(document.getElementById('roasChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Live Webinar','7-Day ECC','VSL/Evergreen','Aus/NZ'],
+    datasets: [{
+      data: [369205,47481,32485,6497],
+      backgroundColor: ['#4ade80','#22d3ee','#a78bfa','#f87171'],
+      borderWidth: 0
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    cutout: '60%',
+    plugins: {
+      legend: { position: 'bottom', labels: { color: '#8b8b9e', padding: 12 } }
+    }
+  }
+});
+</script>
+</body>
+</html>

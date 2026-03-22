@@ -50,13 +50,22 @@ creator-spotlight, workweek, insight-links, status-news, stocks-news, the-points
 - **n8n** — Self-hosted workflow automation at `https://n8n-zwzfv-u62151.vm.elestio.app/` **(MCP access via n8n-mcp — full API: build, deploy, activate, debug workflows directly)**. Unlimited executions, no overage charges (Elestio hosting).
 - **Beehiiv** — Subscriber data API (MCP access via beehiiv). Pull subscriber lists, check UTM attribution, audit signup sources.
 - **Playwright** — Browser automation (MCP access). Landing page screenshots, UTM verification, visual QA, competitor scraping.
+- **GHL API** — GoHighLevel for EH (location `xgJoJRhNhnTWYxeTEFtK`, PIT token in client-config). EH Consolidated Dashboard spreadsheet: `13NUfiz-VB_LFNJWW9tJFELkGV9E4W05Q7lEgpgOwNVg`. n8n EH workflow: `JBV9JOHKkhk4lQB5`
 - **GitHub** — Private repo at `thefeedmedia/tfm-vault` (synced via Obsidian Git)
 
 ## Skills & Automation
-- **`/weekly-enrichment`** — Claude Code skill (Sunday): pulls Slack CPLs → updates all 25 client files + summary → Monday morning briefing. See `~/.claude/skills/weekly-enrichment/SKILL.md`
+TFM skills live in `skills/` in the vault (each skill has its own `SKILL.md`).
+- **`/weekly-enrichment`** — Claude Code skill (Sunday): pulls Slack CPLs → updates all 25 client files + summary → Monday morning briefing. See `skills/weekly-enrichment/SKILL.md`
+- **`/friday`** (V3) — Friday autopilot report skill. DB-first metrics pull, per-client conversion mapping, Notion-ready output. See `skills/friday/SKILL.md`
 - **Day.ai Monday skill** — Client Intelligence Updater (9am ET): pulls meeting recordings + Slack → writes to Day.ai org records (qualitative layer)
 - **Day.ai Daily skill** — Jay's morning operational briefing (9am ET): calendar prep, overdue actions, client signals
 - **Skills roadmap** — 10 prioritized skills at `research/skills-automation-roadmap.md`. P0: `/friday-autopilot`, `/creative-qa`. P1: `/fatigue-scan`, `/vault-integrity`, `/action-tracker`.
+
+## Local Performance Database
+- **Path:** `system/data/pipeboard.db` (SQLite)
+- **Tables:** `account_mapping` (25 clients → ad account IDs + conversion types), `campaign_metrics` (90-day rolling), `ad_metrics` (30-day rolling)
+- **Usage pattern:** Skills query DB first; fall back to live Pipeboard MCP calls only when data is stale (>48 hrs)
+- The `account_mapping` table resolves per-client conversion types (e.g. lead vs purchase), so skills don't need to hardcode them
 
 ## Creative QA Process
 When QA'ing ad concepts:

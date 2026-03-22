@@ -37,12 +37,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "reports/lays-obsidian-onboarding.md",
+                "file": "clients/experiential-hospitality/experiential-hospitality.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "lays-obsidian-onboarding"
+              "title": "experiential-hospitality"
             }
           }
         ],
@@ -246,6 +246,15 @@
   },
   "active": "8498ff5326e43f3c",
   "lastOpenFiles": [
+    "clients/experiential-hospitality/webinar-cycle-deep.csv",
+    "clients/experiential-hospitality/eh-dashboard.html",
+    "clients/experiential-hospitality/monthly-funnel-deep.csv",
+    "clients/experiential-hospitality/dct-roas-breakdown.csv",
+    "clients/experiential-hospitality/ghl-full-export.json",
+    "system/data/pipeboard.db-journal",
+    "reports/lays-obsidian-onboarding.md",
+    "clients/experiential-hospitality/ad-performance-backfill.csv",
+    "clients/experiential-hospitality/closed-deals-backfill.csv",
     "clients/experiential-hospitality/n8n-eh-consolidated-workflow.json",
     "skills/weekly-enrichment/SKILL.md",
     "skills/vault-integrity/SKILL.md",
@@ -256,16 +265,7 @@
     "skills/action-tracker/SKILL.md",
     "skills/friday",
     "skills/weekly-enrichment",
-    "skills/vault-integrity",
-    "skills/portfolio-pulse",
-    "skills/fatigue-scan",
-    "skills/creative-qa",
-    "skills/action-tracker",
-    "skills",
-    "lays-obsidian-onboarding.pdf",
     "CLIENT-INTELLIGENCE-SUMMARY.md",
-    "reports/lays-obsidian-onboarding.md",
-    "system/data/pipeboard.db-journal",
     "system/state/README.md",
     "system/skills.md",
     "system/state/skills-build.md",
