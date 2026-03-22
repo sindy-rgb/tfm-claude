@@ -37,12 +37,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "reports/vault-data-audit-2026-03-21.md",
+                "file": "reports/3-day-build-summary-2026-03-19-22.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "vault-data-audit-2026-03-21"
+              "title": "3-day-build-summary-2026-03-19-22"
             }
           }
         ],
@@ -246,6 +246,9 @@
   },
   "active": "8498ff5326e43f3c",
   "lastOpenFiles": [
+    "3-day-build-summary-2026-03-19-22.pdf",
+    "reports/vault-data-audit-2026-03-21.md",
+    "reports/3-day-build-summary-2026-03-19-22.md",
     "reports/mailchimp-n8n-diagnosis.md",
     "clients/quartz/delivra-verification-report.md",
     "system/state/skills-qa-plan.md",
@@ -263,7 +266,6 @@
     "clients/quartz/delivra-raw/report_10235851_sends.json",
     "clients/quartz/delivra-raw/report_10235850_opens.json",
     "clients/quartz/delivra-raw/report_10235850_sends.json",
-    "reports/vault-data-audit-2026-03-21.md",
     "clients/quartz/delivra-export-results.md",
     "clients/quartz/delivra-api-v2-plan.md",
     "system/skills.md",
@@ -280,8 +282,6 @@
     "copilot/copilot-custom-prompts/Clip Web Page.md",
     "copilot/copilot-custom-prompts/Clip YouTube Transcript.md",
     "dashboards/weekly-review.md",
-    "dashboards/creative-pipeline.md",
-    "dashboards/client-portfolio.md",
     "Untitled.canvas"
   ]
 }
