@@ -14,7 +14,7 @@ These frameworks have live performance data on Insight Links campaigns. They are
 
 **Why it works for clinicians:** Medical professionals are trained skeptics. Leading with a vulnerability ("Confession:") bypasses their ad filter because it reads as peer-to-peer honesty, not a sales pitch. The format signals "I'm one of you" before it sells anything.
 
-**Account evidence:** DCT_103_Luiz_Confession was the dominant performer across all three newsletters from January through mid-March 2026. Cardiac Wire: 691 leads L30D at $1.90 CPL. Imaging Wire: 503 leads L30D at $3.03 CPL.
+**Account evidence:** DCT_103_Luiz_Confession was the dominant performer across all three newsletters from January through mid-March 2026. Cardiac Wire: 691 leads L30D at $1.90 raw CPL. Imaging Wire: 503 leads L30D at $3.03 raw CPL.
 
 **April usage notes:**
 - DCT_103 is showing quality fatigue (Jake flagged non-target readers March 19). New Confession concepts must use fresh hooks, not reuse the original.
@@ -34,7 +34,7 @@ These frameworks have live performance data on Insight Links campaigns. They are
 
 **Why it works for clinicians:** This audience processes dense text professionally. A text-heavy static that names their exact frustration — with no visual clutter — reads like a colleague's note, not an ad. It survives the "is this spam?" filter that clinicians apply to everything in their inbox.
 
-**Account evidence:** DCT_118_Text Call out broke out on Cardiac Wire: 318 leads at $1.29 CPL, 4.09% CTR, and 46 qualified leads in one week. It is both a volume AND quality driver — CW qualified leads jumped +53% WoW when DCT_118 dominated spend.
+**Account evidence:** DCT_118_Text Call out broke out on Cardiac Wire: 318 leads at $1.29 raw CPL, 4.09% CTR, and 46 qualified leads in one week. It is both a volume AND quality driver — CW qualified leads jumped +53% WoW when DCT_118 dominated spend.
 
 **April usage notes:**
 - This is Insight Links' most important format right now. Every April batch should include at least 1-2 text callout statics.
@@ -54,7 +54,7 @@ These frameworks have live performance data on Insight Links campaigns. They are
 
 **Why it works for clinicians/executives:** The conditional structure self-selects the right audience before they even click. It says "this is for a specific person" — which appeals to professionals who are used to being targeted with irrelevant mass messaging. The "BUT" creates a micro-curiosity gap.
 
-**Account evidence:** DCT_123_If you BUT delivered the best DHW CPL ever recorded: 143 leads at $1.51 CPL, 3.26% CTR. Jake approved expanding this to non-clinician DHW targeting for healthcare admin/IT buyers.
+**Account evidence:** DCT_123_If you BUT delivered the best DHW CPL ever recorded: 143 leads at $1.51 raw CPL, 3.26% CTR. Jake approved expanding this to non-clinician DHW targeting for healthcare admin/IT buyers.
 
 **April usage notes:**
 - The highest-priority expansion area for April. Jake explicitly approved the "If you work in healthcare BUT you're not a clinician" frame for DHW.
@@ -74,7 +74,7 @@ These frameworks have live performance data on Insight Links campaigns. They are
 
 **Why it works for clinicians:** The visual proof of transformation — from "drowning in journals" to "caught up in 5 minutes" — is concrete and believable. The Apple Notes format signals authenticity (this looks like something a colleague wrote, not a marketing team). This framework has the highest qualification rate in the account.
 
-**Account evidence:** DCT_115_AppleNotesTransformation on DHW: 196 conversions at $3.22 CPL with an 82% qualification rate. DCT_114_ReplaceJournals on IW: 194 leads at $2.39 CPL with a 75% qualification rate.
+**Account evidence:** DCT_115_AppleNotesTransformation on DHW: 196 conversions at $3.22 raw CPL with an 82% qualification rate (L14D, among assessed leads). DCT_114_ReplaceJournals on IW: 194 leads at $2.39 raw CPL with a 75% qualification rate (L14D, among assessed leads).
 
 **April usage notes:**
 - This is the quality benchmark. When you need qualified leads over volume, use this framework.
@@ -95,7 +95,7 @@ These frameworks have live performance data on Insight Links campaigns. They are
 
 **Why it works for clinicians:** Time is the scarcest resource for medical professionals. Framing the newsletter as a "life hack" (something that saves time with no trade-off) lowers the commitment barrier. It works because these professionals genuinely need to stay current but genuinely lack time.
 
-**Account evidence:** DCT_104_Luiz_Life hack on CW: 513 leads L30D at $1.76 CPL, 3.75% CTR. On DHW: 426 leads L30D at $2.80 CPL.
+**Account evidence:** DCT_104_Luiz_Life hack on CW: 513 leads L30D at $1.76 raw CPL, 3.75% CTR. On DHW: 426 leads L30D at $2.80 raw CPL.
 
 **April usage notes:**
 - Use as a volume anchor, not a quality driver. Qualification rates are historically lower with this format.
@@ -210,7 +210,7 @@ These frameworks from the master playbook have not been tested on Insight Links 
 
 ### DO NOT USE: Broad/Vague Hooks Without Role Specificity
 
-**Why:** DCT_120_Information Overload confirmed this anti-pattern: $5.52 CPL, 0.84% CTR, paused after 3 weeks. "Information overload" is a universal pain point that attracts everyone — including non-qualified audiences. Every hook must name the role (radiologist, cardiologist, health IT leader) or the specialty (radiology, cardiology, digital health). Specificity is the qualifying mechanism.
+**Why:** DCT_120_Information Overload confirmed this anti-pattern: $5.52 raw CPL, 0.84% CTR, paused after 3 weeks. "Information overload" is a universal pain point that attracts everyone — including non-qualified audiences. Every hook must name the role (radiologist, cardiologist, health IT leader) or the specialty (radiology, cardiology, digital health). Specificity is the qualifying mechanism.
 
 ---
 

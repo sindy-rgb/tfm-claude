@@ -69,7 +69,7 @@ Jake's quality scoring criteria:
 
 ## 2. Bake-Off Status: TFM vs Growletter
 
-**Risk Level:** MEDIUM (as of March 8 client intelligence audit)
+**Risk Level:** MEDIUM-LOW (updated March 21 — improved from MEDIUM as of March 8)
 
 ### Where TFM Wins
 - **Lead quality**: Jake confirmed *"TFM has a slight edge in lead quality and customer service"*
@@ -137,17 +137,17 @@ Lays committed to: *"Will send you the concepts for the lead magnets by the EOW 
 
 | Newsletter | Qualified CPL | Raw CPL | Top Creative |
 |---|---|---|---|
-| Digital Health Wire | $13.44 | $2.77 | DCT_123 "If you, BUT" (143 leads, $1.51 CPL, 3.26% CTR) |
-| Cardiac Wire | $15.57 | $1.44 | DCT_118 Text Callout (318 leads, $1.29 CPL, 4.09% CTR) |
-| Imaging Wire | $22.36 | $3.96 | DCT_103 Confession (116 leads, $3.57 CPL, 2.65% CTR) |
+| Digital Health Wire | $13.44 | $2.77 (raw) | DCT_123 "If you, BUT" (143 leads, $1.51 raw CPL, 3.26% CTR) |
+| Cardiac Wire | $15.57 | $1.44 (raw) | DCT_118 Text Callout (318 leads, $1.29 raw CPL, 4.09% CTR) |
+| Imaging Wire | $22.36 | $3.96 (raw) | DCT_103 Confession (116 leads, $3.57 raw CPL, 2.65% CTR) |
 | **Blended** | **$16.24** | -- | -- |
 
 ### Creative Winners
 - **DCT_123 "If you, BUT" (DHW)** -- Breakout. Best DHW CPL ever recorded. Conditional-framing hook landing well with health exec audience
-- **DCT_118 Text Callout (CW)** -- Dominant CW volume driver AND qualifying. 318 leads, $1.29 CPL, 4.09% CTR. Jake explicitly praised this one
+- **DCT_118 Text Callout (CW)** -- Dominant CW volume driver AND qualifying. 318 leads, $1.29 raw CPL, 4.09% CTR. Jake explicitly praised this one
 - **DCT_103 Confession (IW)** -- Still the IW anchor but showing fatigue signals on CW specifically (non-target readers)
 - **DCT_114 ReplaceJournals (IW)** -- Steady #2 on IW, strong qualification rates
-- **DCT_119 Stay Current (IW)** -- $1.99 CPL debut on small volume, promising early signal
+- **DCT_119 Stay Current (IW)** -- $1.99 raw CPL debut on small volume, promising early signal
 
 ### Three Proven Angles (No Fatigue Since January)
 1. Confession style
@@ -162,7 +162,7 @@ Lays committed to: *"Will send you the concepts for the lead magnets by the EOW 
 
 ## 5. What's Not Working
 
-- **DCT_120 Information Overload (IW)** -- Confirmed dead. 3 weeks, $55 spend, 10 leads, $5.52 CPL, weak CTR. Recommended pause
+- **DCT_120 Information Overload (IW)** -- Confirmed dead. 3 weeks, $55 spend, 10 leads, $5.52 raw CPL, weak CTR. Recommended pause
 - **DCT_103 Confession on Cardiac Wire** -- Jake flagged: nearly all recent CW subscribers from this creative are non-target readers. Lays shifting budget to DCT_118 instead
 - **Imaging Wire volume compressing** -- Raw leads dropped 14% WoW despite qualified CPL improving. Needs creative refresh
 - **DCT_117 Old vs. New** -- Required revision (daily frequency issue, needs "top cardiologists" wording)

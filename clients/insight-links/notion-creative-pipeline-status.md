@@ -8,20 +8,20 @@
 
 | DCT | Concept Name | Newsletter(s) | Format | Angle | Status | Performance Notes |
 |-----|-------------|---------------|--------|-------|--------|-------------------|
-| DCT_103 | Confession (Luiz) | CW, IW, DHW | Video (TOV) | Confession | LIVE | CW: 691 leads, $1.90 CPL, 3.15% CTR. IW: 503 leads, $3.03 CPL. QUALITY ALERT: Jake flagged Mar 19 "nearly all non-target readers" on recent days. Budget shifting to DCT_118 on CW. Fatigue signal on quality, not volume. |
-| DCT_104 | Life Hack (Luiz) | CW, DHW, IW | Video (TOV) | Life hack | LIVE | CW: 513 leads, $1.76 CPL, 3.75% CTR (best CPL efficiency). DHW: 426 leads, $2.80 CPL, 2.45% CTR. IW: 37 leads, $2.50 CPL. Volume engine but historically low qualification rates on CW (only 2 qualified in L14D). |
-| DCT_115 | AppleNotes Transformation | DHW | Image (Apple Notes) | Before & after | LIVE | 196 conv L14D, $3.22 CPL, 23 qualified (82% qualification rate -- highest in the entire account). Quality champion. |
-| DCT_114 | ReplaceJournals | IW | Video (UGC) | Confession | LIVE | 194 leads L30D, $2.39 CPL, 3.60% CTR, 14 qualified (75% qual rate). Strong IW performer. Together with DCT_103, these two drove 87% of all IW qualified leads. |
-| DCT_101 | Reasons Why | CW | Video | Reasons why | LIVE | 182 leads L30D, $1.83 CPL, 2.67% CTR. 7 qualified in L14D. Consistent secondary performer. |
-| DCT_112 | EndangerPatient | CW | Video | Confession | LIVE | 65 leads L30D, $2.20 CPL, 3.40% CTR. 2 qualified. Early March launcher, needs more time to prove quality. |
-| DCT_105 | UGC Doctor | CW | UGC | -- | LIVE | 84 leads L30D, $2.09 CPL, 6.82% CTR (highest CTR in account). Low volume allocation. |
-| DCT_118 | Text Call out | CW | Image (Static) | This is for you | LIVE (NEW -- Mar 10 batch) | Breakout performer. CW: 318 leads, $1.29 CPL, 4.09% CTR in most recent week. 46 qualified leads that week. Both volume AND quality driver. CW qualified leads jumped +53% WoW when DCT_118 dominated spend. Receiving budget shifted from DCT_103. |
-| DCT_102 | Why Read X? | DHW | Video | -- | LIVE | 31 conv L14D, $4.30 CPL. Adequate on DHW ($4.14 CPL) but tanks on IW ($7.36 CPL). Not a quality driver. |
-| DCT_113 | GPTResponse | IW | -- | -- | LIVE (low spend) | $82 spend, 19 conv, $4.33 CPL. Minor performer. |
-| DCT_110 | Radiologist Confession | IW | -- | Confession | LIVE (low spend) | $70 spend, 17 conv, $4.12 CPL. 4 qualified. Minor performer. |
-| DCT_119 | Stay Current Without The Burden | IW | Video (TOV) | Life hack | LIVE (NEW -- Mar 10 batch) | Early promise: $1.99 CPL debut on IW. Monitoring as DCT_120 replacement. Needs more data. |
-| DCT_122 | Make Better Decisions | DHW | -- | -- | LIVE (NEW -- Mar 10 batch) | Very early: $7 spend, 18 leads at $1.96 CPL in L30D. 1.79% CTR. Too early to read. |
-| DCT_123 | "If you, BUT" | DHW | -- | This is for you | LIVE (NEW) | Strongest creative launch this year. DHW: 143 leads, $1.51 CPL, 3.26% CTR -- best DHW CPL ever recorded. Validated "If you, BUT" conditional framing hook. |
+| DCT_103 | Confession (Luiz) | CW, IW, DHW | Video (TOV) | Confession | LIVE | CW: 691 leads, $1.90 raw CPL, 3.15% CTR (qual CPL: $13.41). IW: 503 leads, $3.03 raw CPL (qual CPL: $7.61). QUALITY ALERT: Jake flagged Mar 19 "nearly all non-target readers" on recent days. Budget shifting to DCT_118 on CW. Fatigue signal on quality, not volume. |
+| DCT_104 | Life Hack (Luiz) | CW, DHW, IW | Video (TOV) | Life hack | LIVE | CW: 513 leads, $1.76 raw CPL, 3.75% CTR (qual CPL: $11.94). DHW: 426 leads, $2.80 raw CPL, 2.45% CTR (qual CPL: $6.07). IW: 37 leads, $2.50 raw CPL. Volume engine but historically low qualification rates on CW (only 2 qualified in L14D). |
+| DCT_115 | AppleNotes Transformation | DHW | Image (Apple Notes) | Before & after | LIVE | 196 conv L14D, $3.22 raw CPL (qual CPL: $17.69), 23 qualified (82% qualification rate, L14D, among assessed leads -- highest in the entire account). Quality champion. |
+| DCT_114 | ReplaceJournals | IW | Video (UGC) | Confession | LIVE | 194 leads L30D, $2.39 raw CPL, 3.60% CTR (qual CPL: $12.10), 14 qualified (75% qualification rate, L14D, among assessed leads). Strong IW performer. Together with DCT_103, these two drove 87% of all IW qualified leads. |
+| DCT_101 | Reasons Why | CW | Video | Reasons why | LIVE | 182 leads L30D, $1.83 raw CPL, 2.67% CTR (qual CPL: $17.48). 7 qualified in L14D. Consistent secondary performer. |
+| DCT_112 | EndangerPatient | CW | Video | Confession | LIVE | 65 leads L30D, $2.20 raw CPL, 3.40% CTR (qual CPL: $17.02). 2 qualified. Early March launcher, needs more time to prove quality. |
+| DCT_105 | UGC Doctor | CW | UGC | -- | LIVE | 84 leads L30D, $2.09 raw CPL, 6.82% CTR (highest CTR in account; qual CPL: $110.03). Low volume allocation. |
+| DCT_118 | Text Call out | CW | Image (Static) | This is for you | LIVE (NEW -- Mar 10 batch) | Breakout performer. CW: 318 leads, $1.29 raw CPL, 4.09% CTR in most recent week (qual CPL: $8.47). 46 qualified leads that week. Both volume AND quality driver. CW qualified leads jumped +53% WoW when DCT_118 dominated spend. Receiving budget shifted from DCT_103. |
+| DCT_102 | Why Read X? | DHW | Video | -- | LIVE | 31 conv L14D, $4.30 raw CPL (qual CPL: $7.23). Adequate on DHW ($4.14 raw CPL) but tanks on IW ($7.36 raw CPL). Not a quality driver. |
+| DCT_113 | GPTResponse | IW | -- | -- | LIVE (low spend) | $82 spend, 19 conv, $4.33 raw CPL (qual CPL: $16.46). Minor performer. |
+| DCT_110 | Radiologist Confession | IW | -- | Confession | LIVE (low spend) | $70 spend, 17 conv, $4.12 raw CPL (qual CPL: $12.55). 4 qualified. Minor performer. |
+| DCT_119 | Stay Current Without The Burden | IW | Video (TOV) | Life hack | LIVE (NEW -- Mar 10 batch) | Early promise: $1.99 raw CPL debut on IW (qual CPL: $7.86). Monitoring as DCT_120 replacement. Needs more data. |
+| DCT_122 | Make Better Decisions | DHW | -- | -- | LIVE (NEW -- Mar 10 batch) | Very early: $7 spend, 18 leads at $1.96 raw CPL in L30D (qual CPL: $11.18). 1.79% CTR. Too early to read. |
+| DCT_123 | "If you, BUT" | DHW | -- | This is for you | LIVE (NEW) | Strongest creative launch this year. DHW: 143 leads, $1.51 raw CPL, 3.26% CTR (qual CPL: $6.41) -- best DHW CPL ever recorded. Validated "If you, BUT" conditional framing hook. |
 
 ---
 
@@ -29,8 +29,8 @@
 
 | DCT | Concept Name | Newsletter | Reason | Final Performance |
 |-----|-------------|------------|--------|-------------------|
-| DCT_120 | Information Overload | IW | Confirmed underperformer after 3 weeks. | $55 spend, 10 leads, $5.52 CPL, 0.84% CTR. Too vague; clinicians need specificity. Paused. |
-| DCT_109 | "The Best Radiologists Newsletter" | IW | Feels like a sales pitch, not peer-to-peer. | $12.15 CPL, 3 leads in 30 days. Killed. |
+| DCT_120 | Information Overload | IW | Confirmed underperformer after 3 weeks. | $55 spend, 10 leads, $5.52 raw CPL, 0.84% CTR. Too vague; clinicians need specificity. Paused. |
+| DCT_109 | "The Best Radiologists Newsletter" | IW | Feels like a sales pitch, not peer-to-peer. | $12.15 raw CPL, 3 leads in 30 days. Killed. |
 | DCT_117 through DCT_121 (others) | Various (Mar 10 batch) | Mixed | "Rabii killed low-qualification ads" per bi-weekly draft. | Specific ones not named beyond DCT_120 being killed. DCT_118, DCT_119, DCT_122 survived from the Mar 10 batch. |
 
 ---

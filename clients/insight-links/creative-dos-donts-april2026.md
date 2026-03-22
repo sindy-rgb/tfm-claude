@@ -17,7 +17,7 @@
 - **Current performance:** $1.44 raw CPL | $15.57 qualified CPL | 47.39% CVR
 
 ### DO's
-- **Lead with the "overwhelmed by reading" pain point.** DCT_118 (Text Callout) is the #1 CW performer ($1.29 CPL, 4.09% CTR, +53% qualified leads WoW) because it directly addresses "feeling you need to read/be on top of everything all the time." This is the winning CW angle.
+- **Lead with the "overwhelmed by reading" pain point.** DCT_118 (Text Callout) is the #1 CW performer ($1.29 raw CPL, 4.09% CTR, +53% qualified leads WoW) because it directly addresses "feeling you need to read/be on top of everything all the time." This is the winning CW angle.
 - **Use text-heavy static formats.** DCT_118 is a text callout static — not a video, not a polished graphic. CW cardiologists respond to direct, clean copy over visual complexity.
 - **Write peer-to-peer.** The confession format works ("Confession: If you're a cardiologist who wants to improve patient outcomes, you need to read this"). It feels like a colleague sharing a tip, not a brand selling a product.
 - **Signal professional filtering explicitly.** DCT_124 (Cardiologist Filter) is in the pipeline specifically to improve CW qualification rates. Hooks that make clear this is FOR cardiologists and NOT for general audiences help pre-qualify. Example direction: "This newsletter exists for one audience: cardiologists who need to stay sharp without drowning in journals."
@@ -26,8 +26,8 @@
 - **Age-target 25-59.** This was a hard-won fix. Early CW campaigns pulled majority 65+ leads (retired, non-practicing), which tanked qualification rates from 4.2% to the current 47.39% after the age targeting correction.
 
 ### DON'Ts
-- **Do NOT use vague "information overload" angles without specificity.** DCT_120 (Information Overload) was killed on CW: $5.52 CPL, 0.84% CTR after 3 weeks. The lesson: "information overload" as a concept is too generic. You must ground it in cardiology-specific context (e.g., "keeping up with ACC guidelines, ESC updates, and clinical trial results" — not just "too much info").
-- **Do NOT use language that sounds like a sales pitch.** DCT_109 ("The Best Radiologists Newsletter") was killed at $12.15 CPL. Superlative claims ("the best," "the #1") feel like marketing to clinicians, not peer recommendation.
+- **Do NOT use vague "information overload" angles without specificity.** DCT_120 (Information Overload) was killed on CW: $5.52 raw CPL, 0.84% CTR after 3 weeks. The lesson: "information overload" as a concept is too generic. You must ground it in cardiology-specific context (e.g., "keeping up with ACC guidelines, ESC updates, and clinical trial results" — not just "too much info").
+- **Do NOT use language that sounds like a sales pitch.** DCT_109 ("The Best Radiologists Newsletter") was killed at $12.15 raw CPL. Superlative claims ("the best," "the #1") feel like marketing to clinicians, not peer recommendation.
 - **Do NOT write copy that could apply to any newsletter.** CW copy must feel cardiology-specific. Generic "stay informed" language without cardiology anchors underperforms.
 - **Do NOT rely solely on DCT_103 (Confession) for CW volume anymore.** Jake flagged on March 19 that DCT_103 is producing "nearly all non-target readers" — creative fatigue is real. Budget is shifting to DCT_118. New CW concepts should build on the Text Callout and Cardiologist Filter angles, not iterate further on Confession.
 - **Do NOT speak to or about patients.** CW creative that could be interpreted as patient-facing will attract non-qualified leads (patients Googling cardiology information). Frame everything around the practitioner's professional workflow.
@@ -49,17 +49,17 @@
 Imaging Wire generates approximately 65% of Insight Links' total revenue. Jake's quote: *"Imaging Wire is the problem. And technically that's like where we still make, shoot, I don't know, 65% of our revenue. So like we need it to work well."* IW underperformance is what triggered the Growletter bake-off. IW is currently the only newsletter above the $20 qualified CPL target. Every IW creative decision carries outsized weight.
 
 ### DO's
-- **Use the "Replace Journals" transformation angle.** DCT_114 (ReplaceJournals) is IW's quality champion: $2.39 CPL, 3.60% CTR, and a 75% qualification rate. The before/after framing — replacing dense RSNA/AJR journals with an accessible 5-minute read — directly addresses a validated radiology pain point.
+- **Use the "Replace Journals" transformation angle.** DCT_114 (ReplaceJournals) is IW's quality champion: $2.39 raw CPL, 3.60% CTR, and a 75% qualification rate (L14D, among assessed leads). The before/after framing — replacing dense RSNA/AJR journals with an accessible 5-minute read — directly addresses a validated radiology pain point.
 - **Show visual proof of value.** The Apple Notes / transformation format (screenshot of notes app with newsletter content) works because it demonstrates rather than claims. If creating IW static creative, show what "catching up on radiology news" actually looks like in practice.
 - **Position against legacy information sources.** IW competitors are AuntMinnie, Radiology Business, Applied Radiology, RSNA Radiology. The differentiator: those are either dense academic journals or community forums. IW is "human voice" curation. Creative should lean into: "written so you actually read it" vs. "another RSNA abstract you bookmark and forget."
 - **Explore the "rounds" metaphor.** DCT_126 (WeeklyRounds) is in the pipeline — a confession-style angle using the familiar "rounds" concept from clinical practice. Radiologists do morning readout sessions; framing the newsletter as "your professional rounds, delivered" could resonate.
-- **Use the "Stay Current Without The Burden" framing.** DCT_119 debuted at $1.99 CPL on IW and is being monitored as the DCT_120 replacement. "Without the burden" is a stronger qualifier than "without the work" — it acknowledges that staying current feels like an obligation, not a task.
+- **Use the "Stay Current Without The Burden" framing.** DCT_119 debuted at $1.99 raw CPL on IW and is being monitored as the DCT_120 replacement. "Without the burden" is a stronger qualifier than "without the work" — it acknowledges that staying current feels like an obligation, not a task.
 - **Signal credibility and domain expertise in every ad.** Reddit audience research surfaced this: *"Summaries worry me unless I know they're done by people who understand the field."* IW creative must signal that the curation is done by people who understand radiology — not a generic AI summary or news aggregator.
 - **Test the "Private Briefing" angle.** DCT_123_PrivateBriefing is in the pipeline for IW: peer pressure + social proof, text-heavy static. The premise: "The briefing 32,000 imaging leaders already read" — social proof works when the number is credible and the audience is niche enough to feel exclusive.
 
 ### DON'Ts
 - **Do NOT let IW creative stagnate.** This is the single most dangerous thing you can do on this account. Jake's exact words about Growletter: *"for like six months... they would say, Imaging Wire is still above target, we're going to try some new things and then the next week just on and on."* That pattern of reporting problems without solving them is what killed the relationship. If IW creatives plateau, new concepts must ship immediately.
-- **Do NOT run generic "Why read X?" angles on IW.** This format hits $7.36 CPL on IW (vs. $4.14 on DHW). The IW audience is more niche and skeptical than DHW. They need specificity, not broad value propositions.
+- **Do NOT run generic "Why read X?" angles on IW.** This format hits $7.36 raw CPL on IW (vs. $4.14 raw CPL on DHW). The IW audience is more niche and skeptical than DHW. They need specificity, not broad value propositions.
 - **Do NOT use "The Best Radiology Newsletter" or similar superlatives.** DCT_109 was killed. Radiologists are evidence-based professionals — a superlative claim with no proof reads as spam.
 - **Do NOT create IW ads that could attract nurses.** In the Growletter bake-off, GL's IW pool was "almost entirely nurses — zero radiologists." TFM delivered 12 actual radiologists at named practices. The quality bar for IW is "actual radiologists at real practices," not "healthcare workers interested in imaging."
 - **Do NOT ignore IW's 34.59% CVR problem.** IW's landing page converts below the 40% benchmark. Until the LP is optimized, creative must do more pre-selling work. Longer primary text that sets expectations and pre-qualifies before the click can compensate for a weaker LP.
@@ -78,11 +78,11 @@ Imaging Wire generates approximately 65% of Insight Links' total revenue. Jake's
 - **Current performance:** $2.77 raw CPL | $13.44 qualified CPL | 47.65% CVR
 
 ### DO's
-- **Use the "If you, BUT" conditional hook for non-clinician targeting.** DCT_123 is DHW's best-ever performer: $1.51 CPL, 3.26% CTR. The conditional framing pre-qualifies the reader. Jake-approved example: *"If you work in healthcare BUT you're not a clinician and instead your job involves EHR systems, clinical software, or health IT, this newsletter is for you."*
+- **Use the "If you, BUT" conditional hook for non-clinician targeting.** DCT_123 is DHW's best-ever performer: $1.51 raw CPL, 3.26% CTR. The conditional framing pre-qualifies the reader. Jake-approved example: *"If you work in healthcare BUT you're not a clinician and instead your job involves EHR systems, clinical software, or health IT, this newsletter is for you."*
 - **Distinguish between clinician and non-clinician creative tracks.** DHW serves two audiences. Clinician-track creative speaks to digital health executives and health tech founders. Non-clinician-track creative speaks to "the guys who BUY the software" — healthcare admin, IT leaders, procurement. Use different hooks for each track.
 - **Use specific health IT terminology for non-clinician ads.** Jake approved: "EHR systems, clinical software, or health IT" as specific language for this audience. Do NOT use generic "healthcare technology" — it is too broad and attracts the wrong people.
-- **Lean into the Apple Notes / Transformation format for quality.** DCT_115 (AppleNotesTransformation) has an 82% qualification rate on DHW — the highest in the entire account. When you need quality over volume, this format is the answer.
-- **Use the "Life Hack" format for volume when quality is already strong.** DCT_104 (Life Hack) delivers $2.80 CPL and 426 leads on DHW. It is a volume play, not a quality play. Pair it with a high-qualifying format to balance the portfolio.
+- **Lean into the Apple Notes / Transformation format for quality.** DCT_115 (AppleNotesTransformation) has an 82% qualification rate (L14D, among assessed leads) on DHW — the highest in the entire account. When you need quality over volume, this format is the answer.
+- **Use the "Life Hack" format for volume when quality is already strong.** DCT_104 (Life Hack) delivers $2.80 raw CPL and 426 leads on DHW. It is a volume play, not a quality play. Pair it with a high-qualifying format to balance the portfolio.
 - **Frame DHW as the filter between hype and signal.** The digital health space is full of AI/tech hype. DHW's value proposition is curation — separating genuinely impactful health tech developments from noise. Use language like: "context for smarter decisions," "what actually matters in health tech."
 - **Iterate further on the "If you, BUT" conditional structure.** Lays and Jake discussed variations. Try: "If you make purchasing decisions for health IT systems BUT you're drowning in vendor pitches and conflicting analyst reports..." The conditional frame is a proven winner; the variable is what goes in the condition.
 
@@ -119,15 +119,15 @@ These are non-negotiable. Violating any of these will damage the client relation
 **Tier 1 — Proven Winners:**
 | Format | Best For | Example DCT | Key Metric | Notes |
 |--------|----------|-------------|------------|-------|
-| Text Callout Static | CW (volume + quality) | DCT_118 | $1.29 CPL, 4.09% CTR | Addresses "pressure to stay on top of everything" |
-| "If you, BUT" Conditional | DHW (non-clinician targeting) | DCT_123 | $1.51 CPL, 3.26% CTR | Pre-qualifies with conditional framing |
-| Transformation / Before-After | IW + DHW (quality) | DCT_114, DCT_115 | 75-82% qualification rate | Highest quality format in the account |
+| Text Callout Static | CW (volume + quality) | DCT_118 | $1.29 raw CPL, 4.09% CTR | Addresses "pressure to stay on top of everything" |
+| "If you, BUT" Conditional | DHW (non-clinician targeting) | DCT_123 | $1.51 raw CPL, 3.26% CTR | Pre-qualifies with conditional framing |
+| Transformation / Before-After | IW + DHW (quality) | DCT_114, DCT_115 | 75-82% qualification rate (L14D, among assessed leads) | Highest quality format in the account |
 
 **Tier 2 — Reliable Performers:**
 | Format | Best For | Example DCT | Key Metric | Notes |
 |--------|----------|-------------|------------|-------|
-| Confession-Style TOV | All 3 (volume) | DCT_103 | $1.90 CPL (CW) | FATIGUING — quality decay flagged by Jake Mar 19 |
-| Life Hack TOV | DHW + CW (volume) | DCT_104 | $1.76-$2.80 CPL | Low qualification rates; use as volume anchor only |
+| Confession-Style TOV | All 3 (volume) | DCT_103 | $1.90 raw CPL (CW) | FATIGUING — quality decay flagged by Jake Mar 19 |
+| Life Hack TOV | DHW + CW (volume) | DCT_104 | $1.76-$2.80 raw CPL | Low qualification rates; use as volume anchor only |
 
 **Tier 3 — In Pipeline (Untested):**
 | Format | Target | Example DCT | Angle |
@@ -141,9 +141,9 @@ These are non-negotiable. Violating any of these will damage the client relation
 **Killed Formats (Do Not Resurrect):**
 | Format | Why It Failed |
 |--------|--------------|
-| "Information Overload" (DCT_120) | Too vague. $5.52 CPL, 0.84% CTR. Clinicians need specificity, not abstract concepts. |
-| "The Best [X] Newsletter" (DCT_109) | Superlative claims feel like a sales pitch. $12.15 CPL. Not peer-to-peer. |
-| Generic "Why read X?" | Works adequately on DHW ($4.14 CPL) but tanks on IW ($7.36 CPL). Not reliable enough to invest in. |
+| "Information Overload" (DCT_120) | Too vague. $5.52 raw CPL, 0.84% CTR. Clinicians need specificity, not abstract concepts. |
+| "The Best [X] Newsletter" (DCT_109) | Superlative claims feel like a sales pitch. $12.15 raw CPL. Not peer-to-peer. |
+| Generic "Why read X?" | Works adequately on DHW ($4.14 raw CPL) but tanks on IW ($7.36 raw CPL). Not reliable enough to invest in. |
 
 ### Voice & Tone Guide
 
@@ -202,7 +202,7 @@ When writing creative for Insight Links, always ask: **"Does this ad attract the
 Jake values quality over volume. He explicitly said he would **double his CPL** if it meant better leads. The copywriter's job is not to minimize CPL — it is to attract the right professionals at a reasonable cost.
 
 **Quality Hierarchy:**
-1. Transformation / Before-After — 75-82% qualification rate
+1. Transformation / Before-After — 75-82% qualification rate (L14D, among assessed leads)
 2. Text Callout Static — high qualification + high volume (rare combination)
 3. "If you, BUT" Conditional — pre-qualifies by design
 4. Confession TOV — medium qualification, declining (creative fatigue)

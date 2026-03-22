@@ -68,7 +68,7 @@ GL's funnel does not include TFM's post-subscribe ICP questions. Of 19,925 GL su
 
 | Rank | DCT | Source | Qualified | Total | Qual Rate |
 |---:|---|---|---:|---:|---:|
-| 1 | DCT_103_Luiz_Confession [Imaging Wire] | TFM | 199 | 800 | 24.9% |
+| 1 | DCT_103_Luiz_Confession [Imaging Wire] | TFM | 199 | 793 | 25.1% |
 | 2 | DCT_104_Luiz_Life hack [Digital Health] | TFM | 147 | 620 | 23.7% |
 | 3 | DCT_103_Luiz_Confession [Cardiac Wire] | TFM | 95 | 1,265 | 7.5% |
 | 4 | DCT_118_Text Call out | TFM | 74 | 401 | 18.5% |
@@ -463,7 +463,7 @@ Jake has said repeatedly that qualified leads are what matters. The data support
 
 | DCT | Total Leads | Qualified | Qual Rate | Best Newsletter |
 |---|---:|---:|---:|---|
-| DCT_103_Luiz_Confession [IW] | 800 | 199 | 24.9% | IW (120q), DHW (41q), CW (38q) |
+| DCT_103_Luiz_Confession [IW] | 793 | 199 | 25.1% | IW (120q), DHW (41q), CW (38q) |
 | DCT_104_Luiz_Life hack [DH] | 620 | 147 | 23.7% | DHW (99q), CW (29q), IW (19q) |
 | DCT_103_Luiz_Confession [CW] | 1,265 | 95 | 7.5% | CW (57q), DHW (24q), IW (14q) |
 | DCT_118_Text Call out | 401 | 74 | 18.5% | CW (50q), DHW (14q), IW (10q) |
@@ -480,7 +480,7 @@ Jake has said repeatedly that qualified leads are what matters. The data support
 ### Notes on TFM creative performance
 
 - **Highest qualification rate at scale:** DCT_104_Life hack [Imaging Wire] (28.8%) and DCT_102_Why read X? [Digital Health] (27.6%), but both have limited volume
-- **Best combination of volume + quality:** DCT_103_Confession [Imaging Wire] -- 800 leads, 199 qualified (24.9%). This is the workhorse.
+- **Best combination of volume + quality:** DCT_103_Confession [Imaging Wire] -- 793 leads, 199 qualified (25.1%). This is the workhorse. (Note: prior versions showed 800 total; 793 reflects the deduplicated dashboard count as of March 22.)
 - **Rising star:** DCT_118_Text Call out -- 401 leads, 74 qualified (18.5%). Especially strong on CW where it is the best quality-adjusted performer (50 qualified at 16.1% rate vs DCT_103 CW's 57 qualified at 5.7% rate).
 - **Highest efficiency:** DCT_123_If you, BUT -- 224 leads, 53 qualified (23.7%). Newest format, proving out well.
 - **CW-specific problem:** The two highest-volume CW creatives (DCT_103 Confession CW at 5.7% and DCT_104 Life hack CW at 3.6%) have the lowest qualification rates. CW volume is being driven by creatives that attract the wrong audience. DCT_118 Text Call out at 16.1% CW qual rate is the fix -- shift more budget there.

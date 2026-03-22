@@ -24,6 +24,8 @@
 
 **Blended qualified CPL: $9.46** — well under Jake's $20 target. This is the best 30-day window we have seen on this account.
 
+> Note: Qualified lead counts reflect the 30-day Meta spend window (Feb 20 - Mar 21). All-time Mailchimp totals (828) differ slightly due to leads attributed outside this window.
+
 **Key finding:** CW drives the most raw volume (1,721 leads) but has the worst qualification rate (8.1%). IW and DHW are both running ~25% qualification rates with qualified CPLs in the $8 range. CW's $12.69 qualified CPL is acceptable but masks some very bad individual ads.
 
 ---
@@ -69,7 +71,9 @@ IW is the most important newsletter for Jake's revenue (65% of total) and it is 
 | DCT_113_GPTResponse | $82 | 19 | $4.33 | 5 | **$16.46** | 41.7% |
 | DCT_119_Stay Current | $39 | 18 | $2.18 | 5 | **$7.86** | 33.3% |
 | DCT_109_Best Radiologists NL | $36 | 3 | $12.15 | 1 | **$36.44** | 50.0% |
-| DCT_102_Why read X? | $0.08 | 0 | N/A | 10 | **$0.01** | 50.0% |
+| DCT_102_Why read X? * | $0.08 | 0 | N/A | 10 | **$0.01** | 50.0% |
+
+> \* Qualified leads attributed from Mailchimp data outside the 30-day Meta spend window. Qualified CPL for these rows is not meaningful.
 
 **Best IW ad by qualified CPL:** DCT_103_Confession [Imaging Wire] at $7.61. This is the workhorse — $1,514 spent, 199 qualified leads, nearly all radiologists and imaging professionals. The confession format works phenomenally for IW because radiologists respond to peer-to-peer vulnerability ("I was falling behind on imaging research..."). Top titles: Radiologist, MRI Technologist, Radiographer, Radiology Tech, Nuclear Medicine Technologist. This is exactly what Jake's advertisers buy.
 
@@ -93,8 +97,10 @@ DHW is the quality story. It has the most efficient qualified CPL after IW and t
 | DCT_102_Why read X? | $174 | 47 | $3.69 | 24 | **$7.23** | 27.6% |
 | DCT_122_Make Better Decisions | $123 | 46 | $2.67 | 11 | **$11.18** | 28.2% |
 | DCT_121_Newspaper For HCPs | $39 | 4 | $9.82 | 1 | **$39.27** | 20.0% |
-| DCT_103_Confession | $0.08 | 0 | N/A | 4 | **$0.02** | 28.6% |
+| DCT_103_Confession * | $0.08 | 0 | N/A | 4 | **$0.02** | 28.6% |
 | DCT_101_Reasons Why | $0.24 | 0 | N/A | 4 | **$0.06** | 40.0% |
+
+> \* Qualified leads attributed from Mailchimp data outside the 30-day Meta spend window. Qualified CPL for these rows is not meaningful.
 
 **Best DHW ad by qualified CPL:** DCT_104_Life hack [Digital Health] at $6.07. This is the best-performing ad in the entire Insight Links account across all three newsletters. 147 qualified leads, top titles are CEO, Consultant, Owner, Founder — exactly the healthcare admin and IT buyer profile Jake's DHW advertisers want. This ad is doing everything right.
 
@@ -282,7 +288,7 @@ The original DCT_101-105 batch for CW has collectively poor qualification rates 
 
 | Ad Name | NL | Spend | Impr | Clicks | CTR | Raw Leads | Raw CPL | MC Total | Qual Leads | Qual CPL | Qual Rate | Top Qualified Titles |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| DCT_103_Confession [IW] | IW | $1,514 | 76,015 | 2,101 | 2.76% | 440 | $3.44 | 800 | 199 | $7.61 | 24.9% | Radiologist, MRI Tech, Radiographer |
+| DCT_103_Confession [IW] | IW | $1,514 | 76,015 | 2,101 | 2.76% | 440 | $3.44 | 793 | 199 | $7.61 | 25.1% | Radiologist, MRI Tech, Radiographer |
 | DCT_103_Confession [CW] | CW | $1,274 | 75,249 | 2,530 | 3.36% | 725 | $1.76 | 1,265 | 95 | $13.41 | 7.5% | Cardiologist, MD, PA, Fellow |
 | DCT_104_Life hack [DHW] | DHW | $892 | 33,452 | 837 | 2.50% | 326 | $2.74 | 620 | 147 | $6.07 | 23.7% | CEO, Consultant, Owner, Founder |
 | DCT_115_AppleNotes [DHW] | DHW | $849 | 53,236 | 949 | 1.78% | 255 | $3.33 | 204 | 48 | $17.69 | 23.5% | Founder, COO, Student, CEO |
