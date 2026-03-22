@@ -1,0 +1,668 @@
+{
+  "name": "EH Consolidated Reporting — Weekly Funnel + Closed Deals",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 6,
+              "triggerAtDay": 1
+            }
+          ]
+        }
+      },
+      "id": "node-schedule-trigger",
+      "name": "Weekly Monday 6AM EST",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 300],
+      "notes": "Fires every Monday at 6 AM. Make sure the n8n instance timezone is set to America/New_York (EST). This gives the team a full weekly report before the Monday standup."
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://services.leadconnectorhq.com/opportunities/search",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "location_id",
+              "value": "xgJoJRhNhnTWYxeTEFtK"
+            },
+            {
+              "name": "status",
+              "value": "won"
+            },
+            {
+              "name": "limit",
+              "value": "100"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "node-ghl-won-opps",
+      "name": "GHL Get Won Opportunities",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [480, 200],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "",
+          "name": "GHL PIT Auth"
+        }
+      },
+      "notes": "Pulls all won opportunities from the NetRev Sales pipeline. After import, create an HTTP Header Auth credential named 'GHL PIT Auth' with Name='Authorization' and Value='Bearer pit-b2ba1c69-a1c1-4d20-b317-f641083541cf'. The Version header is required by GHL API v2."
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://services.leadconnectorhq.com/calendars/events",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "locationId",
+              "value": "xgJoJRhNhnTWYxeTEFtK"
+            },
+            {
+              "name": "calendarId",
+              "value": "SZOeo5oHq54xrIVBAq0P"
+            },
+            {
+              "name": "startTime",
+              "value": "={{ new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0] }}"
+            },
+            {
+              "name": "endTime",
+              "value": "={{ new Date().toISOString().split('T')[0] }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "node-ghl-calendar-events",
+      "name": "GHL Get Discovery Call Bookings",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [480, 500],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "",
+          "name": "GHL PIT Auth"
+        }
+      },
+      "notes": "Gets last 7 days of Discovery Call bookings from the 'Experiential Hospitality Discovery Call' round-robin calendar (SZOeo5oHq54xrIVBAq0P). Used for funnel metrics: booked vs showed."
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://services.leadconnectorhq.com/calendars/events",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "locationId",
+              "value": "xgJoJRhNhnTWYxeTEFtK"
+            },
+            {
+              "name": "calendarId",
+              "value": "fJ7agmQoMMwLAJL53RrW"
+            },
+            {
+              "name": "startTime",
+              "value": "={{ new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0] }}"
+            },
+            {
+              "name": "endTime",
+              "value": "={{ new Date().toISOString().split('T')[0] }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "node-ghl-setter-events",
+      "name": "GHL Get Setter Calendar Events",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [480, 700],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "",
+          "name": "GHL PIT Auth"
+        }
+      },
+      "notes": "Gets last 7 days of Setter Calendar bookings (fJ7agmQoMMwLAJL53RrW). Used to track setter-booked calls separately from organic discovery calls."
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get won opportunities and filter to last 7 days\nconst wonOpps = $('GHL Get Won Opportunities').first().json;\nconst opps = wonOpps.opportunities || wonOpps.data || [];\n\nconst sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);\n\nconst recentWonOpps = opps.filter(opp => {\n  const closeDate = new Date(opp.updatedAt || opp.dateUpdated || opp.createdAt);\n  return closeDate >= sevenDaysAgo;\n});\n\n// Build contact lookup list\nconst contactRequests = recentWonOpps.map(opp => ({\n  contactId: opp.contact?.id || opp.contactId,\n  opportunityId: opp.id,\n  opportunityName: opp.name || 'Unknown',\n  monetaryValue: opp.monetaryValue || 0,\n  pipelineId: opp.pipelineId || '',\n  pipelineStageId: opp.pipelineStageId || '',\n  closeDate: opp.updatedAt || opp.dateUpdated || opp.createdAt,\n  status: opp.status\n}));\n\nif (contactRequests.length === 0) {\n  return [{ json: { contactRequests: [], hasWonOpps: false, wonCount: 0 } }];\n}\n\nreturn [{ json: { contactRequests, hasWonOpps: true, wonCount: contactRequests.length } }];"
+      },
+      "id": "node-filter-won-opps",
+      "name": "Filter Won Opps to Last 7 Days",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [720, 200],
+      "notes": "Filters won opportunities to only those closed in the last 7 days. Extracts contactId for each so we can pull attribution data. Handles both API response shapes (opportunities or data array)."
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "loose"
+          },
+          "conditions": [
+            {
+              "id": "condition-has-opps",
+              "leftValue": "={{ $json.hasWonOpps }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        }
+      },
+      "id": "node-check-won-opps",
+      "name": "Has Won Opps?",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2,
+      "position": [940, 200],
+      "notes": "Only proceeds to contact lookup if there are won opportunities this week. If zero closes, we skip the contact enrichment branch and the Closed Deals sheet write."
+    },
+    {
+      "parameters": {
+        "jsCode": "// Split contactRequests into individual items for batch processing\nconst data = $input.first().json;\nconst requests = data.contactRequests || [];\n\nreturn requests.map(req => ({ json: req }));"
+      },
+      "id": "node-split-contacts",
+      "name": "Split Contact Requests",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1160, 200],
+      "notes": "Splits the array of won opportunity contacts into individual items so we can loop through the GHL contact endpoint for each one."
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "=https://services.leadconnectorhq.com/contacts/{{ $json.contactId }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Version",
+              "value": "2021-07-28"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 5,
+              "batchInterval": 1000
+            }
+          }
+        }
+      },
+      "id": "node-ghl-get-contact",
+      "name": "GHL Get Contact Details",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1380, 200],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "",
+          "name": "GHL PIT Auth"
+        }
+      },
+      "notes": "Fetches full contact record for each won opportunity. Batched at 5 requests per second to respect GHL rate limits. We need the contact's attributions array (UTM data), tags, and dateAdded for the attribution report."
+    },
+    {
+      "parameters": {
+        "jsCode": "// Build attribution record for each won deal\nconst items = $input.all();\nconst oppData = $('Split Contact Requests').all();\n\nconst closedDeals = items.map((item, index) => {\n  const contact = item.json.contact || item.json;\n  const opp = oppData[index]?.json || {};\n  \n  // Extract attribution/UTM data\n  const attributions = contact.attributions || [];\n  let dctNumber = 'Unknown';\n  let utmSource = '';\n  let utmMedium = '';\n  let utmCampaign = '';\n  \n  // Find the fb_ad attribution (TFM-sourced)\n  const fbAttribution = attributions.find(a => \n    a.utmSource === 'fb_ad' || \n    a.utmSource === 'facebookads' ||\n    (a.utmCampaign || '').toLowerCase().includes('feed media')\n  );\n  \n  if (fbAttribution) {\n    utmSource = fbAttribution.utmSource || '';\n    utmMedium = fbAttribution.utmMedium || '';\n    utmCampaign = fbAttribution.utmCampaign || '';\n    \n    // Extract DCT number from utmMedium (e.g., \"DCT_183_ March 31st\")\n    const dctMatch = (utmMedium || '').match(/DCT[_\\s]*(\\d+)/i);\n    if (dctMatch) {\n      dctNumber = 'DCT ' + dctMatch[1];\n    }\n  }\n  \n  // Check if TFM-attributed\n  const isTFMAttributed = !!fbAttribution;\n  \n  // Extract webinar date from tags if available\n  const tags = contact.tags || [];\n  const webinarTag = tags.find(t => \n    (t || '').toLowerCase().includes('webinar') || \n    (t || '').toLowerCase().includes('registered')\n  ) || '';\n  \n  const contactName = [contact.firstName || '', contact.lastName || ''].filter(Boolean).join(' ') || 'Unknown';\n  \n  return {\n    json: {\n      contactName,\n      email: contact.email || '',\n      phone: contact.phone || '',\n      revenue: opp.monetaryValue || 0,\n      dctNumber,\n      utmSource,\n      utmMedium,\n      utmCampaign,\n      isTFMAttributed,\n      closeDate: opp.closeDate || '',\n      contactDateAdded: contact.dateAdded || '',\n      webinarTag,\n      tags: tags.join(', '),\n      opportunityId: opp.opportunityId || '',\n      contactId: contact.id || opp.contactId || ''\n    }\n  };\n});\n\nreturn closedDeals;"
+      },
+      "id": "node-build-attribution",
+      "name": "Build Attribution Records",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1600, 200],
+      "notes": "For each won deal, extracts: contact name, email, revenue (monetaryValue), DCT number from UTM medium, close date, webinar date from tags. Identifies TFM-attributed deals by checking for fb_ad/facebookads UTM source or 'Feed Media' in campaign name. This is the attribution chain: Contact → attributions[] → utmMedium contains DCT number."
+    },
+    {
+      "parameters": {
+        "jsCode": "// Calculate funnel metrics from all data sources\nconst wonOppsRaw = $('GHL Get Won Opportunities').first().json;\nconst discoveryEvents = $('GHL Get Discovery Call Bookings').first().json;\nconst setterEvents = $('GHL Get Setter Calendar Events').first().json;\n\nconst sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);\nconst weekOf = sevenDaysAgo.toISOString().split('T')[0];\nconst weekEnd = new Date().toISOString().split('T')[0];\n\n// --- Won Opportunities ---\nconst allOpps = wonOppsRaw.opportunities || wonOppsRaw.data || [];\nconst recentWonOpps = allOpps.filter(opp => {\n  const d = new Date(opp.updatedAt || opp.dateUpdated || opp.createdAt);\n  return d >= sevenDaysAgo;\n});\nconst totalRevenue = recentWonOpps.reduce((sum, opp) => sum + (parseFloat(opp.monetaryValue) || 0), 0);\nconst closeCount = recentWonOpps.length;\n\n// --- Discovery Call Events ---\nconst discEvents = discoveryEvents.events || discoveryEvents.data || [];\nconst callsBooked = discEvents.length;\nconst callsShowed = discEvents.filter(e => {\n  const status = (e.status || e.appointmentStatus || '').toLowerCase();\n  return status === 'showed' || status === 'completed' || status === 'confirmed';\n}).length;\nconst callsNoShow = discEvents.filter(e => {\n  const status = (e.status || e.appointmentStatus || '').toLowerCase();\n  return status === 'no_show' || status === 'noshow' || status === 'no show';\n}).length;\n\n// --- Setter Calendar Events ---\nconst setEvents = setterEvents.events || setterEvents.data || [];\nconst setterBooked = setEvents.length;\nconst setterShowed = setEvents.filter(e => {\n  const status = (e.status || e.appointmentStatus || '').toLowerCase();\n  return status === 'showed' || status === 'completed' || status === 'confirmed';\n}).length;\n\n// --- Derived metrics (Meta spend/registrations will come from Pipeboard or manual input) ---\n// Placeholder values — these get overwritten if Meta data is available\nlet metaSpend = 0;\nlet metaRegistrations = 0;\nlet metaImpressions = 0;\nlet metaClicks = 0;\nlet metaCPL = 0;\n\n// Calculate ROAS (revenue / spend) — only if spend > 0\nconst roas = metaSpend > 0 ? (totalRevenue / metaSpend).toFixed(2) : 'N/A (no Meta spend data)';\n\n// Show rate\nconst showRate = callsBooked > 0 ? ((callsShowed / callsBooked) * 100).toFixed(1) + '%' : 'N/A';\n\n// Close rate (closes / showed)\nconst closeRate = callsShowed > 0 ? ((closeCount / callsShowed) * 100).toFixed(1) + '%' : 'N/A';\n\nreturn [{\n  json: {\n    weekOf,\n    weekEnd,\n    // Meta metrics (placeholders — update after Pipeboard integration)\n    metaSpend,\n    metaRegistrations,\n    metaImpressions,\n    metaClicks,\n    metaCPL,\n    // GHL funnel metrics\n    discoveryCallsBooked: callsBooked,\n    discoveryCallsShowed: callsShowed,\n    discoveryCallsNoShow: callsNoShow,\n    setterCallsBooked: setterBooked,\n    setterCallsShowed: setterShowed,\n    totalCallsBooked: callsBooked + setterBooked,\n    totalCallsShowed: callsShowed + setterShowed,\n    // Close metrics\n    closes: closeCount,\n    totalRevenue,\n    roas,\n    // Rates\n    showRate,\n    closeRate,\n    // Summary for Slack\n    summaryLine: `Week of ${weekOf}: ${closeCount} closes, $${totalRevenue.toLocaleString()} revenue, ${callsBooked} discovery calls booked (${showRate} show rate), ${setterBooked} setter calls`\n  }\n}];"
+      },
+      "id": "node-calculate-funnel",
+      "name": "Calculate Funnel Metrics",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [720, 500],
+      "notes": "Aggregates all GHL data into weekly funnel metrics: Discovery calls booked/showed/no-show, Setter calls booked/showed, Closes, Revenue, Show rate, Close rate. Meta spend/registrations are placeholder zeros — they get populated once the Pipeboard Meta Ads node is connected (or you can manually enter them). ROAS = revenue / spend."
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://graph.facebook.com/v21.0/act_1644253359451312/insights",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "fields",
+              "value": "spend,impressions,clicks,actions,cost_per_action_type,campaign_name"
+            },
+            {
+              "name": "time_range",
+              "value": "={{ JSON.stringify({since: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], until: new Date().toISOString().split('T')[0]}) }}"
+            },
+            {
+              "name": "filtering",
+              "value": "=[{\"field\":\"campaign.id\",\"operator\":\"IN\",\"value\":[\"120233091829250773\"]}]"
+            },
+            {
+              "name": "level",
+              "value": "campaign"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": []
+        },
+        "options": {}
+      },
+      "id": "node-meta-insights",
+      "name": "Meta Ads Get Weekly Insights",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [480, 900],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "",
+          "name": "Meta Ads Token"
+        }
+      },
+      "notes": "Pulls last 7 days of campaign-level insights from Meta for the active EH campaign (120233091829250773 = 'The Feed Media Leads Campaign Webinar - Copy'). After import, create an HTTP Header Auth credential named 'Meta Ads Token' with Name='Authorization' and Value='Bearer <your_meta_access_token>'. Alternatively, you can replace this node with a Pipeboard MCP call if preferred."
+    },
+    {
+      "parameters": {
+        "jsCode": "// Merge Meta insights into funnel metrics\nconst funnel = $('Calculate Funnel Metrics').first().json;\nconst metaRaw = $('Meta Ads Get Weekly Insights').first().json;\n\n// Parse Meta insights\nconst metaData = metaRaw.data || [metaRaw];\nconst campaign = metaData[0] || {};\n\nconst spend = parseFloat(campaign.spend) || 0;\nconst impressions = parseInt(campaign.impressions) || 0;\nconst clicks = parseInt(campaign.clicks) || 0;\n\n// Find lead/registration actions\nconst actions = campaign.actions || [];\nconst costPerAction = campaign.cost_per_action_type || [];\n\nlet registrations = 0;\nlet cpl = 0;\n\n// Look for lead or complete_registration actions\nconst leadAction = actions.find(a => \n  a.action_type === 'lead' || \n  a.action_type === 'offsite_conversion.fb_pixel_lead' ||\n  a.action_type === 'offsite_conversion.fb_pixel_complete_registration'\n);\nif (leadAction) {\n  registrations = parseInt(leadAction.value) || 0;\n}\n\nconst cplAction = costPerAction.find(a => \n  a.action_type === 'lead' || \n  a.action_type === 'offsite_conversion.fb_pixel_lead' ||\n  a.action_type === 'offsite_conversion.fb_pixel_complete_registration'\n);\nif (cplAction) {\n  cpl = parseFloat(cplAction.value) || 0;\n} else if (registrations > 0 && spend > 0) {\n  cpl = spend / registrations;\n}\n\n// Recalculate ROAS with actual spend\nconst roas = spend > 0 ? (funnel.totalRevenue / spend).toFixed(2) : 'N/A';\n\n// Booking rate (calls booked / registrations)\nconst bookingRate = registrations > 0 ? ((funnel.discoveryCallsBooked / registrations) * 100).toFixed(1) + '%' : 'N/A';\n\nreturn [{\n  json: {\n    ...funnel,\n    metaSpend: spend,\n    metaRegistrations: registrations,\n    metaImpressions: impressions,\n    metaClicks: clicks,\n    metaCPL: Math.round(cpl * 100) / 100,\n    metaCTR: impressions > 0 ? ((clicks / impressions) * 100).toFixed(2) + '%' : 'N/A',\n    roas,\n    bookingRate,\n    summaryLine: `Week of ${funnel.weekOf}: ${funnel.closes} closes, $${funnel.totalRevenue.toLocaleString()} revenue | ${registrations} registrations at $${cpl.toFixed(2)} CPL ($${spend.toFixed(2)} spend) | ${funnel.discoveryCallsBooked} calls booked (${funnel.showRate} show rate) | ROAS: ${roas}`\n  }\n}];"
+      },
+      "id": "node-merge-meta",
+      "name": "Merge Meta + GHL Funnel Data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [720, 900],
+      "notes": "Merges Meta Ads performance data (spend, registrations, CPL, impressions, clicks) with GHL funnel data (calls, closes, revenue). Recalculates ROAS with real spend. Also computes booking rate (calls booked / registrations) and CTR."
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "EH_CONSOLIDATED_SHEET_ID"
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "name",
+          "value": "Closed Deals"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Close Date": "={{ $json.closeDate }}",
+            "Contact Name": "={{ $json.contactName }}",
+            "Email": "={{ $json.email }}",
+            "Revenue": "={{ $json.revenue }}",
+            "DCT Number": "={{ $json.dctNumber }}",
+            "TFM Attributed": "={{ $json.isTFMAttributed }}",
+            "UTM Source": "={{ $json.utmSource }}",
+            "UTM Medium": "={{ $json.utmMedium }}",
+            "UTM Campaign": "={{ $json.utmCampaign }}",
+            "Webinar Tag": "={{ $json.webinarTag }}",
+            "Tags": "={{ $json.tags }}",
+            "Contact Date Added": "={{ $json.contactDateAdded }}",
+            "Opportunity ID": "={{ $json.opportunityId }}",
+            "Contact ID": "={{ $json.contactId }}"
+          }
+        },
+        "options": {}
+      },
+      "id": "node-sheets-closed-deals",
+      "name": "GSheets Append Closed Deals",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [1840, 200],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "",
+          "name": "Google Sheets OAuth"
+        }
+      },
+      "notes": "Appends each closed deal as a row to the 'Closed Deals' tab. Columns: Close Date, Contact Name, Email, Revenue, DCT Number, TFM Attributed (boolean), UTM Source/Medium/Campaign, Webinar Tag, Tags, Contact Date Added, Opportunity ID, Contact ID. Replace 'EH_CONSOLIDATED_SHEET_ID' with actual spreadsheet ID after creating the Google Sheet. Create a tab named 'Closed Deals' with these column headers in Row 1."
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "EH_CONSOLIDATED_SHEET_ID"
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "name",
+          "value": "Weekly Funnel"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Week Of": "={{ $json.weekOf }}",
+            "Week End": "={{ $json.weekEnd }}",
+            "Meta Spend": "={{ $json.metaSpend }}",
+            "Registrations": "={{ $json.metaRegistrations }}",
+            "CPL": "={{ $json.metaCPL }}",
+            "Impressions": "={{ $json.metaImpressions }}",
+            "Clicks": "={{ $json.metaClicks }}",
+            "CTR": "={{ $json.metaCTR }}",
+            "Discovery Calls Booked": "={{ $json.discoveryCallsBooked }}",
+            "Discovery Calls Showed": "={{ $json.discoveryCallsShowed }}",
+            "Discovery Calls No Show": "={{ $json.discoveryCallsNoShow }}",
+            "Setter Calls Booked": "={{ $json.setterCallsBooked }}",
+            "Setter Calls Showed": "={{ $json.setterCallsShowed }}",
+            "Total Calls Booked": "={{ $json.totalCallsBooked }}",
+            "Total Calls Showed": "={{ $json.totalCallsShowed }}",
+            "Show Rate": "={{ $json.showRate }}",
+            "Booking Rate": "={{ $json.bookingRate }}",
+            "Closes": "={{ $json.closes }}",
+            "Revenue": "={{ $json.totalRevenue }}",
+            "Close Rate": "={{ $json.closeRate }}",
+            "ROAS": "={{ $json.roas }}"
+          }
+        },
+        "options": {}
+      },
+      "id": "node-sheets-weekly-funnel",
+      "name": "GSheets Update Weekly Funnel",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [960, 900],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "",
+          "name": "Google Sheets OAuth"
+        }
+      },
+      "notes": "Appends one row per week to the 'Weekly Funnel' tab. Full funnel view: Meta (spend, registrations, CPL, impressions, clicks, CTR) → GHL (discovery calls booked/showed/no-show, setter calls booked/showed) → Closes (count, revenue, close rate, ROAS). Replace 'EH_CONSOLIDATED_SHEET_ID' with actual spreadsheet ID. Create a tab named 'Weekly Funnel' with these column headers in Row 1."
+    },
+    {
+      "parameters": {
+        "channel": {
+          "__rl": true,
+          "mode": "id",
+          "value": "C08Q8MBH0U9"
+        },
+        "text": "=:bar_chart: *EH Weekly Consolidated Report*\n{{ $('Merge Meta + GHL Funnel Data').first().json.summaryLine }}\n\n*Meta Ads (Last 7 Days):*\n• Spend: ${{ $('Merge Meta + GHL Funnel Data').first().json.metaSpend.toFixed(2) }}\n• Registrations: {{ $('Merge Meta + GHL Funnel Data').first().json.metaRegistrations }}\n• CPL: ${{ $('Merge Meta + GHL Funnel Data').first().json.metaCPL.toFixed(2) }}\n• CTR: {{ $('Merge Meta + GHL Funnel Data').first().json.metaCTR }}\n\n*GHL Funnel (Last 7 Days):*\n• Discovery Calls Booked: {{ $('Merge Meta + GHL Funnel Data').first().json.discoveryCallsBooked }}\n• Discovery Calls Showed: {{ $('Merge Meta + GHL Funnel Data').first().json.discoveryCallsShowed }} ({{ $('Merge Meta + GHL Funnel Data').first().json.showRate }} show rate)\n• Setter Calls Booked: {{ $('Merge Meta + GHL Funnel Data').first().json.setterCallsBooked }}\n\n*Closes & Revenue:*\n• Closes This Week: {{ $('Merge Meta + GHL Funnel Data').first().json.closes }}\n• Revenue: ${{ $('Merge Meta + GHL Funnel Data').first().json.totalRevenue.toLocaleString() }}\n• ROAS: {{ $('Merge Meta + GHL Funnel Data').first().json.roas }}\n• Close Rate: {{ $('Merge Meta + GHL Funnel Data').first().json.closeRate }}\n\n_Data written to consolidated Google Sheet. Full funnel + closed deal attribution available there._",
+        "otherOptions": {
+          "unfurlLinks": false,
+          "unfurlMedia": false
+        }
+      },
+      "id": "node-slack-summary",
+      "name": "Slack Post Weekly Summary",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.2,
+      "position": [1200, 900],
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "",
+          "name": "Slack OAuth"
+        }
+      },
+      "notes": "Posts the weekly consolidated report to #internal-experientialhospitality (C08Q8MBH0U9). Includes Meta performance (spend, registrations, CPL, CTR), GHL funnel (calls booked, showed, show rate), and close metrics (count, revenue, ROAS). Set your Slack OAuth credential after import."
+    },
+    {
+      "parameters": {
+        "channel": {
+          "__rl": true,
+          "mode": "id",
+          "value": "C08Q8MBH0U9"
+        },
+        "text": "=:warning: *EH Consolidated Reporting workflow failed*\nError: {{ $json.error?.message || $json.errorMessage || 'Unknown error — check workflow execution log at n8n.' }}\n\nWorkflow: EH Consolidated Reporting\nNode: {{ $json.node || 'Unknown' }}\nTimestamp: {{ new Date().toISOString() }}",
+        "otherOptions": {}
+      },
+      "id": "node-error-alert",
+      "name": "Error Alert to Slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.2,
+      "position": [720, 1100],
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "",
+          "name": "Slack OAuth"
+        }
+      },
+      "notes": "If any node in the workflow fails, posts an error alert to #internal-experientialhospitality. Common failures: GHL token expired (PIT tokens last ~1 year), Meta token expired, Google Sheets permission issue, GHL rate limit."
+    }
+  ],
+  "connections": {
+    "Weekly Monday 6AM EST": {
+      "main": [
+        [
+          {
+            "node": "GHL Get Won Opportunities",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "GHL Get Discovery Call Bookings",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "GHL Get Setter Calendar Events",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Meta Ads Get Weekly Insights",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GHL Get Won Opportunities": {
+      "main": [
+        [
+          {
+            "node": "Filter Won Opps to Last 7 Days",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Won Opps to Last 7 Days": {
+      "main": [
+        [
+          {
+            "node": "Has Won Opps?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has Won Opps?": {
+      "main": [
+        [
+          {
+            "node": "Split Contact Requests",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Contact Requests": {
+      "main": [
+        [
+          {
+            "node": "GHL Get Contact Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GHL Get Contact Details": {
+      "main": [
+        [
+          {
+            "node": "Build Attribution Records",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Attribution Records": {
+      "main": [
+        [
+          {
+            "node": "GSheets Append Closed Deals",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GHL Get Discovery Call Bookings": {
+      "main": [
+        [
+          {
+            "node": "Calculate Funnel Metrics",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GHL Get Setter Calendar Events": {
+      "main": [
+        [
+          {
+            "node": "Calculate Funnel Metrics",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculate Funnel Metrics": {
+      "main": [
+        [
+          {
+            "node": "Merge Meta + GHL Funnel Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Meta Ads Get Weekly Insights": {
+      "main": [
+        [
+          {
+            "node": "Merge Meta + GHL Funnel Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge Meta + GHL Funnel Data": {
+      "main": [
+        [
+          {
+            "node": "GSheets Update Weekly Funnel",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GSheets Update Weekly Funnel": {
+      "main": [
+        [
+          {
+            "node": "Slack Post Weekly Summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": "",
+    "timezone": "America/New_York"
+  },
+  "tags": [
+    {
+      "name": "experiential-hospitality",
+      "id": "tag-eh"
+    },
+    {
+      "name": "reporting",
+      "id": "tag-reporting"
+    },
+    {
+      "name": "ghl",
+      "id": "tag-ghl"
+    }
+  ]
+}
