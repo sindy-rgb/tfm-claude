@@ -1,21 +1,22 @@
-# Insight Links -- Qualified CPL Performance Brief (DUAL-METRIC EDITION)
+# Insight Links -- Qualified CPL Performance Brief (THREE-LAYER EDITION)
 ## Meta Ads x Mailchimp Joined Analysis | 30-Day Window (Feb 20 - Mar 21, 2026)
 
 **Prepared for:** Jake Fishman, Nathan May, Lays, Rabii, Kinte
 **Date:** March 22, 2026
-**Data sources:** Pipeboard MCP (Meta Ads, act_507049163040180) + Mailchimp member exports (QUALIFIED field + ICP TITLE matching)
+**Data sources:** Pipeboard MCP (Meta Ads, act_507049163040180) + Mailchimp member exports (QUALIFIED field + ICP TITLE matching) + Jake's 4-Tier calibration XLS (Mar 1-12 1P scoring)
 
-> **The premise of this report:** Raw CPL is noise. Qualified CPL is signal. But "qualified" itself has two dimensions: form engagement (QUALIFIED field) and audience fit (ICP title match). This report shows BOTH side by side, because they tell different stories.
+> **The premise of this report:** Raw CPL is noise. Qualified CPL is signal. But "qualified" itself has three dimensions: form engagement (QUALIFIED field), audience fit (ICP title match), and advertiser value (Jake's 4-Tier 1P scoring). This report shows ALL THREE side by side, because they tell different stories -- and Layer 3 is the one that matters most.
 
 ---
 
-## How the Dual Metrics Work
+## How the Three Quality Layers Work
 
 | Metric | What It Measures | Strength | Weakness |
 |---|---|---|---|
 | **Form Qualified** | Subscriber completed the ICP qualification form | Measures engagement/intent | Passes non-ICP titles; misses busy professionals who skip forms |
 | **ICP Title Match** | Subscriber's TITLE field matches newsletter-specific ICP keywords | Measures actual audience fit | Title field may be empty or inaccurate; does not measure engagement |
 | **Both (Qual + ICP)** | Passes BOTH filters | Highest-confidence quality signal | Smallest count -- conservative |
+| **Jake's 4-Tier (1P data)** | Jake manually scored subscribers using title + company with first-party data | Ultimate truth -- how the advertiser actually values each lead | 12-day sample window; labor-intensive; only scores subs with 1P data |
 
 **Four quadrants per DCT:**
 - **REAL WINNER** = High Form Qual + High ICP (right people who engage)
@@ -42,12 +43,50 @@
 | **Both (Qual + ICP)** | **29** | **97** | **116** | **242** |
 | **Both CPL** | **$102.41** | **$24.89** | **$20.84** | **$32.24** |
 | Gap (FQ - ICP) | +218 | +138 | +125 | +481 |
+| **Jake's 4-Tier: Scored (1P data)** | **82** | **72** | **52** | **206** |
+| Jake's Target (E+G) | 22 | 25 | 22 | 69 |
+| Jake's Target CPL | $135.00 | $96.56 | $109.91 | $113.07 |
+| Jake's Target Rate (of scored) | 26.8% | 34.7% | 42.3% | 33.5% |
 
 **Headline numbers:**
 - **Form Qualified CPL: $9.42** -- what we have been reporting. Under Jake's $20 target.
 - **ICP Title Match CPL: $22.48** -- actual audience-fit cost. Similar ballpark but measuring different people.
 - **Both CPL: $32.24** -- the strictest quality filter. This is what it truly costs to get a subscriber who BOTH engages with the form AND has an ICP-matching title.
 - **The gap story:** CW and IW form over-count quality (form passes people who are not the ICP). DHW form under-counts (real executives skip the form).
+- **Jake's Target CPL: $113.07** -- what it truly costs per lead that an advertiser would buy. The ultimate accountability metric.
+- **TFM vs GL story:** On CW and IW, TFM delivers 5-7x better quality leads than Growletter. This is the competitive advantage argument for the client.
+
+---
+
+## Jake's 4-Tier Calibration: TFM vs GL (Mar 1-12, 2026)
+
+Jake Fishman manually scored all subscribers with first-party data (title + company) from a 12-day window using four tiers. This is the ultimate quality benchmark — how an advertiser actually values each lead.
+
+**Scoring definitions:**
+- **Excellent** = high-level ICP role within health system or major healthcare provider org
+- **Good** = got 1-2 of three criteria right, or all 3 but low level. Residents count as Good.
+- **Medium** = not exactly ICP but OK to have on the list
+- **Bad** = did not fit any criteria
+- **Target = Excellent + Good** (the leads Jake would sell to advertisers)
+
+### TFM vs GL Quality Comparison
+
+| Metric | CW TFM | CW GL | IW TFM | IW GL | DHW TFM | DHW GL |
+|---|---:|---:|---:|---:|---:|---:|
+| Total Subs | 304 | 457 | 184 | 74 | 184 | 252 |
+| With 1P Data | 82 | 61 | 72 | 20 | 52 | 64 |
+| % With 1P | 27.0% | 13.3% | 39.1% | 27.0% | 28.3% | 25.4% |
+| Excellent | 8 | 0 | 12 | 0 | 5 | 6 |
+| Good | 14 | 3 | 13 | 1 | 17 | 20 |
+| Medium | 18 | 47 | 13 | 4 | 16 | 28 |
+| Bad | 42 | 11 | 34 | 15 | 14 | 10 |
+| **Target (E+G)** | **22** | **3** | **25** | **1** | **22** | **26** |
+| **Target Rate** | **26.8%** | **4.9%** | **34.7%** | **5.0%** | **42.3%** | **40.6%** |
+| **TFM Advantage** | **5.5x** | | **6.9x** | | **1.0x** | |
+
+**The headline:** TFM delivers 5.5x better quality on CW and 6.9x better quality on IW than Growletter. On DHW, quality is roughly equal. This validates our creative strategy and targeting — we are not just getting cheap leads, we are getting the right people.
+
+**Why DHW is equal:** DHW's ICP (healthcare executives, digital health leaders) is a broader audience than CW (cardiologists) or IW (radiologists). Executive-level targeting is harder to differentiate by creative alone — both agencies can reach them.
 
 ---
 
@@ -234,6 +273,9 @@ DHW has 83 more ICP matches than form-qualifiers. These are real executives skip
 ### 4. Weekly ICP title match reporting
 Add ICP title match counts to the Friday report alongside form-qualified counts. Both metrics together prevent blind spots.
 
+### 5. Use Jake's 4-Tier as the gold standard in client conversations
+Present the TFM vs GL comparison at the next call. The 5.5x (CW) and 6.9x (IW) quality advantage is the strongest proof point we have. Raw CPL is noise. Form Qualified is directional. Jake's 4-Tier is truth. Lead with truth.
+
 ---
 
 ## Appendix: Full Ad-Level Dual-Metric Table
@@ -265,4 +307,4 @@ Add ICP title match counts to the Friday report alongside form-qualified counts.
 
 ---
 
-*Raw CPL is noise. Form Qualified CPL is a better signal. ICP Title Match CPL measures actual audience fit. Both CPL is the truest signal. This report was built by joining Meta Ads spend data (Pipeboard MCP) with Mailchimp subscriber data (25,187 records), applying newsletter-specific ICP title matching, and cross-referencing with the QUALIFIED form field. Both metrics are shown because neither alone tells the complete quality story.*
+*Raw CPL is noise. Form Qualified CPL is a better signal. ICP Title Match CPL measures actual audience fit. Both CPL combines the first two layers. Jake's 4-Tier calibration is the ultimate truth -- how the advertiser actually values each lead with first-party data. This report was built by joining three data sources: Meta Ads spend data (Pipeboard MCP), Mailchimp subscriber data (25,187 records with QUALIFIED field + ICP title matching), and Jake Fishman's manual 4-Tier scoring spreadsheet (Mar 1-12 window, 206 scored subscribers). All three layers are shown because no single metric tells the complete quality story.*

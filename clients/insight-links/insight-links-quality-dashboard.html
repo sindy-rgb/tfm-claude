@@ -519,13 +519,14 @@ body {
 <!-- ==================== HEADER ==================== -->
 <div class="header">
   <h1>Insight Links &mdash; TFM Campaign Quality & Optimization Dashboard</h1>
-  <div class="subtitle">Lead Quality Analytics for Campaign Optimization | March 2026</div>
+  <div class="subtitle">Three-Layer Quality View: ICP Qualification + Volume + Jake's 4-Tier Calibration | March 2026</div>
   <div class="date">Data as of March 22, 2026 &middot; Mailchimp export &middot; 25,187 total subscribers across both agencies</div>
   <div class="data-note">
     Methodology note: Quality metrics (QUALIFIED, TITLE, COMPANY) only apply to TFM-sourced leads.
     TFM's signup funnel includes post-subscribe ICP questions that populate these fields.
     Growletter's funnel does not include these questions &mdash; their empty fields mean "never assessed," not "failed."
     Volume is the only metric comparable across agencies.
+    Jake's 4-Tier calibration data (Excellent/Good/Medium/Bad) provides the first direct, apples-to-apples quality comparison between TFM and Growletter.
   </div>
 </div>
 
@@ -1274,6 +1275,114 @@ body {
   </div>
 </div>
 
+<!-- ==================== SECTION 6: JAKE'S 4-TIER CALIBRATION ==================== -->
+<div class="section-header">
+  <span class="section-num">6</span>
+  <h2>Jake's 4-Tier Calibration: TFM vs Growletter</h2>
+</div>
+<div class="section-desc">Jake manually scored subscriber samples from both TFM and Growletter using a 4-tier ICP fit system. This is the first direct, apples-to-apples quality comparison between agencies.</div>
+
+<!-- Advantage hero cards -->
+<div class="nl-grid">
+  <div class="nl-card cw">
+    <h3>Cardiac Wire</h3>
+    <div style="text-align:center;padding:12px 0 8px">
+      <div style="font-size:3rem;font-weight:800;color:var(--accent-cw);line-height:1">5.5x</div>
+      <div style="font-size:0.85rem;color:var(--text-secondary);margin-top:6px">TFM quality advantage</div>
+    </div>
+    <div class="nl-stat-row">
+      <span class="nl-stat-label">TFM Target Rate</span>
+      <span class="nl-stat-value" style="color:var(--accent-tfm)">26.8%</span>
+    </div>
+    <div class="nl-stat-row">
+      <span class="nl-stat-label">GL Target Rate</span>
+      <span class="nl-stat-value" style="color:var(--accent-gl)">4.9%</span>
+    </div>
+    <div class="nl-stat-row">
+      <span class="nl-stat-label">TFM Scored</span>
+      <span class="nl-stat-value">82</span>
+    </div>
+    <div class="nl-stat-row">
+      <span class="nl-stat-label">GL Scored</span>
+      <span class="nl-stat-value">61</span>
+    </div>
+  </div>
+
+  <div class="nl-card iw">
+    <h3>Imaging Wire</h3>
+    <div style="text-align:center;padding:12px 0 8px">
+      <div style="font-size:3rem;font-weight:800;color:var(--accent-iw);line-height:1">6.9x</div>
+      <div style="font-size:0.85rem;color:var(--text-secondary);margin-top:6px">TFM quality advantage</div>
+    </div>
+    <div class="nl-stat-row">
+      <span class="nl-stat-label">TFM Target Rate</span>
+      <span class="nl-stat-value" style="color:var(--accent-tfm)">34.7%</span>
+    </div>
+    <div class="nl-stat-row">
+      <span class="nl-stat-label">GL Target Rate</span>
+      <span class="nl-stat-value" style="color:var(--accent-gl)">5.0%</span>
+    </div>
+    <div class="nl-stat-row">
+      <span class="nl-stat-label">TFM Scored</span>
+      <span class="nl-stat-value">72</span>
+    </div>
+    <div class="nl-stat-row">
+      <span class="nl-stat-label">GL Scored</span>
+      <span class="nl-stat-value">20</span>
+    </div>
+  </div>
+
+  <div class="nl-card dhw">
+    <h3>Digital Health Wire</h3>
+    <div style="text-align:center;padding:12px 0 8px">
+      <div style="font-size:3rem;font-weight:800;color:var(--accent-dhw);line-height:1">1.0x</div>
+      <div style="font-size:0.85rem;color:var(--text-secondary);margin-top:6px">Roughly equal</div>
+    </div>
+    <div class="nl-stat-row">
+      <span class="nl-stat-label">TFM Target Rate</span>
+      <span class="nl-stat-value" style="color:var(--accent-tfm)">42.3%</span>
+    </div>
+    <div class="nl-stat-row">
+      <span class="nl-stat-label">GL Target Rate</span>
+      <span class="nl-stat-value" style="color:var(--accent-gl)">40.6%</span>
+    </div>
+    <div class="nl-stat-row">
+      <span class="nl-stat-label">TFM Scored</span>
+      <span class="nl-stat-value">52</span>
+    </div>
+    <div class="nl-stat-row">
+      <span class="nl-stat-label">GL Scored</span>
+      <span class="nl-stat-value">64</span>
+    </div>
+  </div>
+</div>
+
+<!-- 4-Tier Distribution Chart -->
+<div class="card" style="padding:28px;margin-bottom:24px">
+  <h3 style="font-size:1rem;margin-bottom:4px;color:var(--text-primary)">4-Tier Quality Distribution: TFM vs Growletter</h3>
+  <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:16px">Side-by-side comparison of Excellent/Good/Medium/Bad counts from Jake's manual scoring. TFM bars on left, GL bars on right for each newsletter.</p>
+  <div class="chart-container-wide" style="height:380px">
+    <canvas id="tierDistributionChart"></canvas>
+  </div>
+</div>
+
+<!-- Jake's Scoring Definitions -->
+<div class="context-box info" style="border-left-color:var(--accent-tfm)">
+  <h4>Jake's 4-Tier Scoring Definitions</h4>
+  <ul>
+    <li><span style="color:#2ecc71;font-weight:700">Excellent</span> &mdash; High-level ICP role within a health system or major healthcare provider</li>
+    <li><span style="color:#3498db;font-weight:700">Good</span> &mdash; Got 1&ndash;2 of three criteria right, or all 3 but at a low level</li>
+    <li><span style="color:#f39c12;font-weight:700">Medium</span> &mdash; Not exactly ICP but OK to have on the list</li>
+    <li><span style="color:#e74c3c;font-weight:700">Bad</span> &mdash; Did not fit any criteria</li>
+  </ul>
+</div>
+
+<!-- Summary Insight Callout -->
+<div class="context-box insight">
+  <h4>Key Takeaway</h4>
+  <p>TFM delivers 5.5x better quality on Cardiac Wire and 6.9x better on Imaging Wire vs Growletter. On Digital Health Wire, quality is roughly equal &mdash; executive-level targeting is harder to differentiate by creative alone.</p>
+</div>
+
 </div><!-- end .dashboard -->
 
 <div class="footer">
@@ -1498,6 +1607,86 @@ function sortTable(colIdx, type) {
     el.textContent = i === colIdx ? (sortAsc ? ' ▲' : ' ▼') : '';
   });
 }
+
+// ==================== JAKE'S 4-TIER DISTRIBUTION CHART ====================
+const tierCtx = document.getElementById('tierDistributionChart').getContext('2d');
+new Chart(tierCtx, {
+  type: 'bar',
+  data: {
+    labels: ['CW (TFM)', 'CW (GL)', 'IW (TFM)', 'IW (GL)', 'DHW (TFM)', 'DHW (GL)'],
+    datasets: [
+      {
+        label: 'Excellent',
+        data: [8, 0, 12, 0, 5, 6],
+        backgroundColor: '#2ecc71',
+        borderRadius: 2,
+      },
+      {
+        label: 'Good',
+        data: [14, 3, 13, 1, 17, 20],
+        backgroundColor: '#3498db',
+        borderRadius: 2,
+      },
+      {
+        label: 'Medium',
+        data: [18, 47, 13, 4, 16, 28],
+        backgroundColor: '#f39c12',
+        borderRadius: 2,
+      },
+      {
+        label: 'Bad',
+        data: [42, 11, 34, 15, 14, 10],
+        backgroundColor: '#e74c3c',
+        borderRadius: 2,
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        labels: { color: '#8888aa', font: { size: 11 }, padding: 16 },
+        position: 'top',
+      },
+      tooltip: {
+        callbacks: {
+          afterBody: function(items) {
+            const totals = [82, 61, 72, 20, 52, 64];
+            const idx = items[0].dataIndex;
+            const total = totals[idx];
+            const val = items[0].raw;
+            return (val / total * 100).toFixed(1) + '% of ' + total + ' scored';
+          }
+        }
+      }
+    },
+    scales: {
+      x: {
+        stacked: true,
+        ticks: {
+          color: function(context) {
+            const colors = ['#e74c3c','#e74c3c','#3498db','#3498db','#2ecc71','#2ecc71'];
+            return colors[context.index] || '#8888aa';
+          },
+          font: { size: 11, weight: 'bold' }
+        },
+        grid: { display: false }
+      },
+      y: {
+        stacked: true,
+        ticks: { color: '#5c5c7a', font: { size: 10 } },
+        grid: { color: 'rgba(255,255,255,0.04)' },
+        title: {
+          display: true,
+          text: 'Number of Subscribers Scored',
+          color: '#5c5c7a',
+          font: { size: 11 }
+        }
+      }
+    }
+  }
+});
 </script>
 
 </body>

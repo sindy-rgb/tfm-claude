@@ -1,14 +1,24 @@
-# Insight Links -- Top-Performing DCT Analysis (DUAL-METRIC VIEW)
+# Insight Links -- Top-Performing DCT Analysis (THREE-LAYER QUALITY VIEW)
 
 **Date:** March 22, 2026
 **Data Source:** Mailchimp subscriber exports -- ALL segments, TFM + Growletter, all three newsletters
 **Total Records Analyzed:** 25,187 subscribers
 
-> **This version introduces dual-metric quality assessment.** The QUALIFIED field (form engagement) and ICP Title Match (actual audience fit) are shown side by side. Together they reveal four quadrants: real winners, traps, hidden quality, and kill candidates. Neither metric alone tells the full story.
+> **This version introduces a three-layer quality assessment.** Layer 1 (Raw CPL from Pipeboard) measures volume efficiency. Layer 2 (Form Qualified + ICP Title Match from Mailchimp) measures intent and automated audience fit. Layer 3 (Jake's 4-Tier Calibration from his March 1-12 scoring) measures actual advertiser value -- the ultimate truth. Together the three layers reveal whether we are delivering cheap leads, the right leads, or valuable leads. No single layer tells the full story.
 
 ---
 
-## How to Read the Dual-Metric Tables
+## How to Read This Analysis
+
+| Layer | Source | What It Measures | Scope |
+|---|---|---|---|
+| **Layer 1: Raw CPL** | Pipeboard (Meta Ads) | Volume efficiency -- cost per lead regardless of quality | Rolling 30 days |
+| **Layer 2: Form Qual + ICP Title Match** | Mailchimp subscriber exports | Intent (form engagement) + automated audience fit (title keyword matching) | Feb 20 - Mar 21, 2026 (30 days) |
+| **Layer 3: Jake's 4-Tier** | Jake's calibration XLS files | Actual advertiser value -- hand-scored by the client against real ICP criteria | Mar 1 - 12, 2026 (12 days) |
+
+**Scope difference:** Layer 2 covers a 30-day window (Feb 20 - Mar 21). Layer 3 covers a 12-day window (Mar 1-12). The populations overlap but are not identical. Layer 3 is a smaller sample but represents ground truth -- Jake personally evaluated every subscriber with first-party data.
+
+### How to Read the Dual-Metric Tables (Layers 1+2)
 
 | Quadrant | Form Qualified | ICP Title Match | What It Means |
 |---|---|---|---|
@@ -25,6 +35,136 @@
 - **DHW Clinician track:** director clinical, VP health, chief medical, chief information, clinical informatics, medical director, physician executive
 - **DHW Executive track:** CEO, CTO, CIO, COO, VP, director, founder, president, owner, consultant, executive, managing director, partner
 - **Universal excludes:** retired, disabled, patient, student, unemployed, homemaker, none, N/A, TBD, me, test
+
+---
+
+## Layer 3: Jake's 4-Tier Calibration (Mar 1-12, 2026)
+
+Jake hand-scored every subscriber from the first 12 days of March who had first-party data (title + company). This is the advertiser's own quality standard -- the closest thing to ground truth we have.
+
+### Scoring Definitions (from Jake's March 13 message)
+
+| Tier | Definition |
+|---|---|
+| **Excellent** | High-level ICP role within health system or major healthcare provider org |
+| **Good** | Got 1-2 of three criteria right, or all 3 but low level. Residents count as Good. |
+| **Medium** | Not exactly ICP but OK to have on the list |
+| **Bad** | Did not fit any criteria |
+
+**Target = Excellent + Good.** These are the subscribers Jake can sell to advertisers.
+
+### TFM Subscribers (Our Ads)
+
+| Newsletter | Total Subs | With 1P Data | % 1P | Excellent | Good | Medium | Bad | Target (E+G) | Target Rate |
+|---|---|---|---|---|---|---|---|---|---|
+| CW | 304 | 82 | 27.0% | 8 | 14 | 18 | 42 | 22 | 26.8% |
+| IW | 184 | 72 | 39.1% | 12 | 13 | 13 | 34 | 25 | 34.7% |
+| DHW | 184 | 52 | 28.3% | 5 | 17 | 16 | 14 | 22 | 42.3% |
+| **ALL** | **672** | **206** | **30.7%** | **25** | **44** | **47** | **90** | **69** | **33.5%** |
+
+### GL Subscribers (Growletter's Ads)
+
+| Newsletter | Total Subs | With 1P Data | % 1P | Excellent | Good | Medium | Bad | Target (E+G) | Target Rate |
+|---|---|---|---|---|---|---|---|---|---|
+| CW | 457 | 61 | 13.3% | 0 | 3 | 47 | 11 | 3 | 4.9% |
+| IW | 74 | 20 | 27.0% | 0 | 1 | 4 | 15 | 1 | 5.0% |
+| DHW | 252 | 64 | 25.4% | 6 | 20 | 28 | 10 | 26 | 40.6% |
+| **ALL** | **783** | **145** | **18.5%** | **6** | **24** | **79** | **36** | **30** | **20.7%** |
+
+### TFM vs GL Comparison
+
+| Newsletter | TFM Target Rate | GL Target Rate | TFM Advantage |
+|---|---|---|---|
+| CW | 26.8% | 4.9% | **5.5x** |
+| IW | 34.7% | 5.0% | **6.9x** |
+| DHW | 42.3% | 40.6% | **1.0x** |
+| ALL | 33.5% | 20.7% | **1.6x** |
+
+### Example Titles by Tier (TFM Subscribers)
+
+**CW Excellent examples:**
+- Surgeon at ICM
+- Cardiologist (x3) -- at Cardiology, GHS, Loma Linda
+- MD at Northwestern Medicine
+- Radiologist at Brooke Army Medical Center
+
+**IW Excellent examples:**
+- Radiologist (x7) -- at MD Prof Corp, RAA, Hampton Roads, Brooke Army, Toledo Clinic, SARMG, SDMI, Eric Chen MD Inc
+- Manager Radiology at Mount Sinai
+- Chief Radiographer/Manager at Pulse and Echo Radiology
+- Imaging Director at Bon Secours Mercy Health
+- MD at Northwestern Medicine
+
+**DHW -- aggregate only:** E:5, G:17, M:16, B:14 (52 titled subscribers scored; Jake's file uses "Middle" instead of "Medium" -- same tier)
+
+### Key Calibration Findings
+
+1. **TFM dramatically outperforms GL on CW and IW quality.** 5.5x and 6.9x better Target rates. This is the ammunition for the client conversation -- our targeting and creative are delivering the RIGHT audience, not just cheap leads.
+
+2. **DHW quality is roughly equal between TFM and GL.** TFM 42.3% vs GL 40.6% -- effectively 1.0x. This makes sense: DHW's ICP (healthcare executives) is broader and harder to differentiate by ad targeting alone.
+
+3. **TFM gets more first-party data.** 30.7% of TFM subs provide title/company vs 18.5% of GL subs. Our landing pages and forms are doing a better job extracting first-party data, which means more subscribers can be scored at all.
+
+4. **GL's CW and IW are near-zero value.** 4.9% and 5.0% Target rates mean 95% of GL subscribers with data are Medium or Bad. GL is filling the list with the wrong people on these two newsletters.
+
+5. **Even TFM's "Bad" rate is significant.** 90 out of 206 scored TFM subs (43.7%) are Bad. There is room to improve targeting further, but we are still 1.6x better than GL overall.
+
+---
+
+## 3-Layer Account-Level Summary
+
+This table brings all three quality layers together at the newsletter level. Each layer uses a different denominator and time window, so the rates are not directly comparable -- but the relative rankings tell a consistent story.
+
+### Cardiac Wire (CW)
+
+| Metric | Layer | TFM | GL/All | Notes |
+|---|---|---|---|---|
+| Total Subs | L2 (Mailchimp, 30d) | 2,508 TFM | 11,358 GL | Full subscriber base |
+| Form Qual Rate | L2 | 1.9% | n/a (GL has no form) | Form over-counts on CW |
+| ICP Title Match Rate | L2 | 1.5% | 1.6% (GL) | Title keywords vs subscriber job titles |
+| Both (FQ + ICP) Rate | L2 | -- | -- | 31 total across all CW |
+| Jake Target Rate (E+G) | L3 (12d, scored subs only) | **26.8%** | **4.9%** (GL) | TFM 5.5x better |
+
+CW tells the starkest quality story: GL delivers volume at near-zero advertiser value. TFM's CW leads are 5.5x more likely to be someone Jake can sell to advertisers.
+
+### Imaging Wire (IW)
+
+| Metric | Layer | TFM | GL/All | Notes |
+|---|---|---|---|---|
+| Total Subs | L2 (Mailchimp, 30d) | 1,497 TFM | 2,603 GL | Full subscriber base |
+| Form Qual Rate | L2 | 6.3% | n/a (GL has no form) | Best form reliability of all 3 NLs |
+| ICP Title Match Rate | L2 | 4.9% | 1.9% (GL) | Title keywords vs subscriber job titles |
+| Both (FQ + ICP) Rate | L2 | -- | -- | 98 total across all IW |
+| Jake Target Rate (E+G) | L3 (12d, scored subs only) | **34.7%** | **5.0%** (GL) | TFM 6.9x better |
+
+IW has the highest TFM quality signal across all three layers. The form works best here (38% overlap between Form Qual and ICP Match), and Jake's scoring confirms: over a third of scored TFM subs are Excellent or Good. GL's IW is essentially worthless.
+
+### Digital Health Wire (DHW)
+
+| Metric | Layer | TFM | GL/All | Notes |
+|---|---|---|---|---|
+| Total Subs | L2 (Mailchimp, 30d) | 1,575 TFM | 5,646 GL | Full subscriber base |
+| Form Qual Rate | L2 | 4.4% | n/a (GL has no form) | Form UNDER-counts DHW quality |
+| ICP Title Match Rate | L2 | 5.5% | 4.0% (GL) | Broader ICP = closer rates |
+| Both (FQ + ICP) Rate | L2 | -- | -- | 116 total across all DHW |
+| Jake Target Rate (E+G) | L3 (12d, scored subs only) | **42.3%** | **40.6%** (GL) | TFM 1.0x (equal) |
+
+DHW is the outlier. TFM and GL are essentially equal on Jake's scoring. The executive ICP is broad enough that even less-targeted GL ads find real prospects. Our Layer 2 analysis already flagged this: DHW has the most "hidden quality" -- executives who subscribe but skip the form.
+
+### What the 3 Layers Tell Us Together
+
+| Layer | What it measures | Best newsletter | Worst newsletter |
+|---|---|---|---|
+| **Layer 1: Raw CPL** | Volume efficiency | (check Pipeboard) | (check Pipeboard) |
+| **Layer 2: Form Qual + ICP** | Intent + automated audience fit | IW (38% overlap) | CW (12% overlap) |
+| **Layer 3: Jake's 4-Tier** | Actual advertiser value | DHW (42.3% Target) | CW (26.8% Target) |
+
+The layers tell different but complementary stories:
+- **Raw CPL** measures how cheaply we can acquire a lead. It says nothing about whether that lead matters.
+- **Form Qual + ICP Match** (our dual-metric) measures whether the subscriber engaged with the form AND matches title keywords. It is automated and scalable but imperfect -- it over-counts on CW and under-counts on DHW.
+- **Jake's 4-Tier** measures whether the subscriber is someone an advertiser would pay for. It is the ultimate truth but only covers a 12-day window and only scores subscribers with first-party data.
+
+When all three layers agree (e.g., IW consistently scores well), we have high confidence. When they disagree (e.g., CW form says 5.7% qual rate on DCT_103 but Jake says 26.8% Target), the disagreement itself is diagnostic -- it tells us where our automated signals are miscalibrated.
 
 ---
 
@@ -373,4 +513,4 @@ Neither form-qualified alone (over-counts on CW, under-counts on DHW) nor ICP-ma
 
 ---
 
-*This analysis was built by processing 25,187 Mailchimp subscriber records across 54 JSON exports, applying ICP title matching against newsletter-specific keyword sets, and cross-referencing with the QUALIFIED form field. Both metrics are shown because neither alone tells the complete quality story.*
+*This analysis was built by processing 25,187 Mailchimp subscriber records across 54 JSON exports (Layer 2), applying ICP title matching against newsletter-specific keyword sets, cross-referencing with the QUALIFIED form field, and integrating Jake's hand-scored 4-Tier calibration from March 1-12 (Layer 3). All three layers are shown because no single metric tells the complete quality story: Raw CPL measures volume, Form Qual + ICP Match measures automated audience fit, and Jake's 4-Tier measures actual advertiser value.*
