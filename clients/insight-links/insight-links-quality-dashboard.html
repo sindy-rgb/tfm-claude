@@ -520,7 +520,7 @@ body {
 <div class="header">
   <h1>Insight Links &mdash; TFM Campaign Quality & Optimization Dashboard</h1>
   <div class="subtitle">Three-Layer Quality View: ICP Qualification + Volume + Jake's 4-Tier Calibration | March 2026</div>
-  <div class="date">Data as of March 22, 2026 &middot; Mailchimp export &middot; 25,187 total subscribers across both agencies</div>
+  <div class="date">Data as of March 23, 2026 &middot; Mailchimp export &middot; Pipeboard MCP (Meta Ads) &middot; Jake's 4-Tier Calibration XLS (Mar 1&ndash;12, 2026) &middot; 25,187 total subscribers across both agencies</div>
   <div class="data-note">
     Methodology note: Quality metrics (QUALIFIED, TITLE, COMPANY) only apply to TFM-sourced leads.
     TFM's signup funnel includes post-subscribe ICP questions that populate these fields.
@@ -903,7 +903,13 @@ body {
   <span class="section-num">3</span>
   <h2>TFM DCT Performance Table</h2>
 </div>
-<div class="section-desc">All TFM DCTs with qualification data. Sortable by any column. Qualification rate is calculated among assessed leads only (QUALIFIED=true or false). Color coding: green 60%+, yellow 40&ndash;59%, red &lt;40%.</div>
+<div class="section-desc">
+  <strong>Three-Layer Quality View.</strong> Each DCT is measured on three quality filters:<br>
+  <span style="color:var(--green);font-weight:600">Layer 1 &mdash; Form Qualified:</span> Mailchimp QUALIFIED field &mdash; measures form engagement (subscriber completed the ICP qualification form).<br>
+  <span style="color:var(--blue);font-weight:600">Layer 2 &mdash; ICP Title Match:</span> Automated keyword matching against subscriber titles &mdash; measures actual audience fit.<br>
+  <span style="color:var(--accent-gold);font-weight:600">Layer 3 &mdash; Both (Qual + ICP):</span> Passes both filters &mdash; highest-confidence quality signal.<br>
+  Data aggregated from the Appendix table in the April Performance Brief (Feb 20 &ndash; Mar 21, 2026 spend window). Sortable by any column.
+</div>
 
 <div class="data-table-wrapper">
   <table class="data-table" id="dctTable">
@@ -911,244 +917,292 @@ body {
       <tr>
         <th onclick="sortTable(0,'str')">DCT Name <span class="sort-arrow"></span></th>
         <th onclick="sortTable(1,'num')">Total <span class="sort-arrow"></span></th>
-        <th onclick="sortTable(2,'num')">Qualified <span class="sort-arrow"></span></th>
-        <th onclick="sortTable(3,'num')">Not Qual <span class="sort-arrow"></span></th>
-        <th onclick="sortTable(4,'num')">Not Assessed <span class="sort-arrow"></span></th>
-        <th onclick="sortTable(5,'num')">Qual Rate <span class="sort-arrow"></span></th>
-        <th onclick="sortTable(6,'str')">Newsletters <span class="sort-arrow"></span></th>
-        <th onclick="sortTable(7,'str')">Top Titles <span class="sort-arrow"></span></th>
+        <th onclick="sortTable(2,'num')" style="color:var(--green)">Form Qual <span class="sort-arrow"></span></th>
+        <th onclick="sortTable(3,'num')" style="color:var(--blue)">ICP Match <span class="sort-arrow"></span></th>
+        <th onclick="sortTable(4,'num')" style="color:var(--accent-gold)">Both <span class="sort-arrow"></span></th>
+        <th onclick="sortTable(5,'num')">Not Assessed <span class="sort-arrow"></span></th>
+        <th onclick="sortTable(6,'num')" style="color:var(--green)">Form Qual Rate <span class="sort-arrow"></span></th>
+        <th onclick="sortTable(7,'num')" style="color:var(--blue)">ICP Rate <span class="sort-arrow"></span></th>
+        <th onclick="sortTable(8,'num')" style="color:var(--accent-gold)">Both Rate <span class="sort-arrow"></span></th>
+        <th onclick="sortTable(9,'str')">Newsletters <span class="sort-arrow"></span></th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>DCT_103 Confession [IW]</td>
-        <td>793</td>
-        <td style="color:var(--green)">199</td>
-        <td style="color:var(--red)">78</td>
+        <td>590</td>
+        <td style="color:var(--green)">120</td>
+        <td style="color:var(--blue)">77</td>
+        <td style="color:var(--accent-gold)">65</td>
         <td style="color:var(--text-muted)">516</td>
-        <td><span class="qual-badge qual-high">71.8%</span></td>
+        <td><span class="qual-badge qual-high">20.3%</span></td>
+        <td><span class="qual-badge" style="background:rgba(52,152,219,0.15);color:var(--blue)">13.1%</span></td>
+        <td><span class="qual-badge" style="background:rgba(241,196,15,0.15);color:var(--accent-gold)">11.0%</span></td>
         <td>IW:587, CW:101, DHW:105</td>
-        <td>Radiologist (17), MRI Tech (7), Radiographer (6)</td>
       </tr>
       <tr>
         <td>DCT_103 Confession [CW]</td>
-        <td>1,255</td>
-        <td style="color:var(--green)">95</td>
-        <td style="color:var(--red)">196</td>
+        <td>1,001</td>
+        <td style="color:var(--green)">57</td>
+        <td style="color:var(--blue)">12</td>
+        <td style="color:var(--accent-gold)">9</td>
         <td style="color:var(--text-muted)">964</td>
-        <td><span class="qual-badge qual-low">32.6%</span></td>
+        <td><span class="qual-badge qual-low">5.7%</span></td>
+        <td><span class="qual-badge" style="background:rgba(52,152,219,0.15);color:var(--blue)">1.2%</span></td>
+        <td><span class="qual-badge" style="background:rgba(241,196,15,0.15);color:var(--accent-gold)">0.9%</span></td>
         <td>CW:993, DHW:149, IW:113</td>
-        <td>Cardiologist (8), MD (7), PA (5)</td>
       </tr>
       <tr>
         <td>DCT_104 Life Hack [DHW]</td>
-        <td>618</td>
-        <td style="color:var(--green)">147</td>
-        <td style="color:var(--red)">74</td>
+        <td>482</td>
+        <td style="color:var(--green)">99</td>
+        <td style="color:var(--blue)">68</td>
+        <td style="color:var(--accent-gold)">55</td>
         <td style="color:var(--text-muted)">397</td>
-        <td><span class="qual-badge qual-high">66.5%</span></td>
+        <td><span class="qual-badge qual-high">20.5%</span></td>
+        <td><span class="qual-badge" style="background:rgba(52,152,219,0.15);color:var(--blue)">14.1%</span></td>
+        <td><span class="qual-badge" style="background:rgba(241,196,15,0.15);color:var(--accent-gold)">11.4%</span></td>
         <td>DHW:480, CW:79, IW:59</td>
-        <td>CEO (20), Consultant (6), Ceo (6)</td>
       </tr>
       <tr>
         <td>DCT_104 Life Hack [CW]</td>
-        <td>785</td>
-        <td style="color:var(--green)">36</td>
-        <td style="color:var(--red)">154</td>
+        <td>578</td>
+        <td style="color:var(--green)">21</td>
+        <td style="color:var(--blue)">10</td>
+        <td style="color:var(--accent-gold)">6</td>
         <td style="color:var(--text-muted)">595</td>
-        <td><span class="qual-badge qual-low">18.9%</span></td>
+        <td><span class="qual-badge qual-low">3.6%</span></td>
+        <td><span class="qual-badge" style="background:rgba(52,152,219,0.15);color:var(--blue)">1.7%</span></td>
+        <td><span class="qual-badge" style="background:rgba(241,196,15,0.15);color:var(--accent-gold)">1.0%</span></td>
         <td>CW:573, DHW:113, IW:99</td>
-        <td>Cardiologist (6), ARNP (3), Echo tech (3)</td>
       </tr>
       <tr>
         <td>DCT_118 Text Call Out</td>
-        <td>399</td>
-        <td style="color:var(--green)">74</td>
-        <td style="color:var(--red)">83</td>
+        <td>310</td>
+        <td style="color:var(--green)">50</td>
+        <td style="color:var(--blue)">10</td>
+        <td style="color:var(--accent-gold)">9</td>
         <td style="color:var(--text-muted)">242</td>
-        <td><span class="qual-badge qual-mid">47.1%</span></td>
+        <td><span class="qual-badge qual-mid">16.1%</span></td>
+        <td><span class="qual-badge" style="background:rgba(52,152,219,0.15);color:var(--blue)">3.2%</span></td>
+        <td><span class="qual-badge" style="background:rgba(241,196,15,0.15);color:var(--accent-gold)">2.9%</span></td>
         <td>CW:308, DHW:51, IW:40</td>
-        <td>Resident (6), MD (6), Physician (6)</td>
-      </tr>
-      <tr>
-        <td>DCT_101 Reasons Why [CW]</td>
-        <td>236</td>
-        <td style="color:var(--green)">16</td>
-        <td style="color:var(--red)">47</td>
-        <td style="color:var(--text-muted)">173</td>
-        <td><span class="qual-badge qual-low">25.4%</span></td>
-        <td>CW:164, DHW:39, IW:33</td>
-        <td>RN (3), Cardiologist in charge (3), CT (3)</td>
-      </tr>
-      <tr>
-        <td>DCT_123 If You, BUT</td>
-        <td>224</td>
-        <td style="color:var(--green)">53</td>
-        <td style="color:var(--red)">37</td>
-        <td style="color:var(--text-muted)">134</td>
-        <td><span class="qual-badge qual-mid">58.9%</span></td>
-        <td>DHW:184, CW:22, IW:18</td>
-        <td>CEO (7), CRC (3), COO (3)</td>
       </tr>
       <tr>
         <td>DCT_115 AppleNotes Transformation</td>
-        <td>202</td>
-        <td style="color:var(--green)">48</td>
-        <td style="color:var(--red)">39</td>
+        <td>167</td>
+        <td style="color:var(--green)">36</td>
+        <td style="color:var(--blue)">26</td>
+        <td style="color:var(--accent-gold)">18</td>
         <td style="color:var(--text-muted)">115</td>
-        <td><span class="qual-badge qual-mid">55.2%</span></td>
+        <td><span class="qual-badge qual-high">21.6%</span></td>
+        <td><span class="qual-badge" style="background:rgba(52,152,219,0.15);color:var(--blue)">15.6%</span></td>
+        <td><span class="qual-badge" style="background:rgba(241,196,15,0.15);color:var(--accent-gold)">10.8%</span></td>
         <td>DHW:165, CW:21, IW:16</td>
-        <td>Founder (4), COO (3), Student (3)</td>
       </tr>
       <tr>
         <td>DCT_114 Replace Journals</td>
-        <td>174</td>
-        <td style="color:var(--green)">46</td>
-        <td style="color:var(--red)">24</td>
+        <td>123</td>
+        <td style="color:var(--green)">29</td>
+        <td style="color:var(--blue)">20</td>
+        <td style="color:var(--accent-gold)">15</td>
         <td style="color:var(--text-muted)">104</td>
-        <td><span class="qual-badge qual-high">65.7%</span></td>
+        <td><span class="qual-badge qual-high">23.6%</span></td>
+        <td><span class="qual-badge" style="background:rgba(52,152,219,0.15);color:var(--blue)">16.3%</span></td>
+        <td><span class="qual-badge" style="background:rgba(241,196,15,0.15);color:var(--accent-gold)">12.2%</span></td>
         <td>IW:123, DHW:29, CW:22</td>
-        <td>Radiologist (8), Rad Tech Instructor (3), Mgr Radiology (3)</td>
+      </tr>
+      <tr>
+        <td>DCT_101 Reasons Why [CW]</td>
+        <td>165</td>
+        <td style="color:var(--green)">9</td>
+        <td style="color:var(--blue)">3</td>
+        <td style="color:var(--accent-gold)">1</td>
+        <td style="color:var(--text-muted)">173</td>
+        <td><span class="qual-badge qual-low">5.5%</span></td>
+        <td><span class="qual-badge" style="background:rgba(52,152,219,0.15);color:var(--blue)">1.8%</span></td>
+        <td><span class="qual-badge" style="background:rgba(241,196,15,0.15);color:var(--accent-gold)">0.6%</span></td>
+        <td>CW:164, DHW:39, IW:33</td>
+      </tr>
+      <tr>
+        <td>DCT_123 If You, BUT</td>
+        <td>184</td>
+        <td style="color:var(--green)">35</td>
+        <td style="color:var(--blue)">24</td>
+        <td style="color:var(--accent-gold)">16</td>
+        <td style="color:var(--text-muted)">134</td>
+        <td><span class="qual-badge qual-high">19.0%</span></td>
+        <td><span class="qual-badge" style="background:rgba(52,152,219,0.15);color:var(--blue)">13.0%</span></td>
+        <td><span class="qual-badge" style="background:rgba(241,196,15,0.15);color:var(--accent-gold)">8.7%</span></td>
+        <td>DHW:184, CW:22, IW:18</td>
       </tr>
       <tr>
         <td>DCT_105 UGC Doctor [CW]</td>
-        <td>129</td>
+        <td>85</td>
         <td style="color:var(--green)">1</td>
-        <td style="color:var(--red)">34</td>
+        <td style="color:var(--blue)">1</td>
+        <td style="color:var(--accent-gold)">1</td>
         <td style="color:var(--text-muted)">94</td>
-        <td><span class="qual-badge qual-low">2.9%</span></td>
+        <td><span class="qual-badge qual-low">1.2%</span></td>
+        <td><span class="qual-badge" style="background:rgba(52,152,219,0.15);color:var(--blue)">1.2%</span></td>
+        <td><span class="qual-badge" style="background:rgba(241,196,15,0.15);color:var(--accent-gold)">1.2%</span></td>
         <td>CW:85, DHW:24, IW:20</td>
-        <td>Interventional cardiologist (1)</td>
       </tr>
       <tr>
         <td>DCT_102 Why Read X? [DHW]</td>
-        <td>83</td>
-        <td style="color:var(--green)">24</td>
-        <td style="color:var(--red)">11</td>
+        <td>58</td>
+        <td style="color:var(--green)">14</td>
+        <td style="color:var(--blue)">12</td>
+        <td style="color:var(--accent-gold)">10</td>
         <td style="color:var(--text-muted)">48</td>
-        <td><span class="qual-badge qual-high">68.6%</span></td>
+        <td><span class="qual-badge qual-high">24.1%</span></td>
+        <td><span class="qual-badge" style="background:rgba(52,152,219,0.15);color:var(--blue)">20.7%</span></td>
+        <td><span class="qual-badge" style="background:rgba(241,196,15,0.15);color:var(--accent-gold)">17.2%</span></td>
         <td>DHW:56, CW:17, IW:10</td>
-        <td>COO (4), Board member (3), CEO (3)</td>
       </tr>
       <tr>
         <td>DCT_112 Endanger Patient</td>
-        <td>66</td>
-        <td style="color:var(--green)">11</td>
-        <td style="color:var(--red)">21</td>
+        <td>48</td>
+        <td style="color:var(--green)">8</td>
+        <td style="color:var(--blue)">1</td>
+        <td style="color:var(--accent-gold)">1</td>
         <td style="color:var(--text-muted)">34</td>
-        <td><span class="qual-badge qual-low">34.4%</span></td>
+        <td><span class="qual-badge qual-mid">16.7%</span></td>
+        <td><span class="qual-badge" style="background:rgba(52,152,219,0.15);color:var(--blue)">2.1%</span></td>
+        <td><span class="qual-badge" style="background:rgba(241,196,15,0.15);color:var(--accent-gold)">2.1%</span></td>
         <td>CW:48, DHW:12, IW:6</td>
-        <td>Physician (3), NP (3), MD (2)</td>
-      </tr>
-      <tr>
-        <td>DCT_104 Life Hack [IW]</td>
-        <td>65</td>
-        <td style="color:var(--green)">19</td>
-        <td style="color:var(--red)">13</td>
-        <td style="color:var(--text-muted)">33</td>
-        <td><span class="qual-badge qual-mid">59.4%</span></td>
-        <td>IW:42, CW:12, DHW:11</td>
-        <td>Radiologist (4), Rad Supervisor (3), MRI Tech (3)</td>
       </tr>
       <tr>
         <td>DCT_122 Make Better Decisions</td>
-        <td>39</td>
-        <td style="color:var(--green)">11</td>
-        <td style="color:var(--red)">3</td>
+        <td>30</td>
+        <td style="color:var(--green)">8</td>
+        <td style="color:var(--blue)">3</td>
+        <td style="color:var(--accent-gold)">3</td>
         <td style="color:var(--text-muted)">25</td>
-        <td><span class="qual-badge qual-high">78.6%</span></td>
+        <td><span class="qual-badge qual-high">26.7%</span></td>
+        <td><span class="qual-badge" style="background:rgba(52,152,219,0.15);color:var(--blue)">10.0%</span></td>
+        <td><span class="qual-badge" style="background:rgba(241,196,15,0.15);color:var(--accent-gold)">10.0%</span></td>
         <td>DHW:30, CW:6, IW:3</td>
-        <td>Chief (3), MedEd (2), VP IS (1)</td>
       </tr>
       <tr>
         <td>DCT_110 Radiologist Confession</td>
-        <td>26</td>
-        <td style="color:var(--green)">9</td>
-        <td style="color:var(--red)">3</td>
+        <td>19</td>
+        <td style="color:var(--green)">6</td>
+        <td style="color:var(--blue)">4</td>
+        <td style="color:var(--accent-gold)">3</td>
         <td style="color:var(--text-muted)">14</td>
-        <td><span class="qual-badge qual-high">75.0%</span></td>
+        <td><span class="qual-badge qual-high">31.6%</span></td>
+        <td><span class="qual-badge" style="background:rgba(52,152,219,0.15);color:var(--blue)">21.1%</span></td>
+        <td><span class="qual-badge" style="background:rgba(241,196,15,0.15);color:var(--accent-gold)">15.8%</span></td>
         <td>IW:19, CW:4, DHW:3</td>
-        <td>Medical coder (3), Radiologist (2), Imaging supervisor (1)</td>
-      </tr>
-      <tr>
-        <td>DCT_120 Information Overload</td>
-        <td>21</td>
-        <td style="color:var(--green)">5</td>
-        <td style="color:var(--red)">5</td>
-        <td style="color:var(--text-muted)">11</td>
-        <td><span class="qual-badge qual-mid">50.0%</span></td>
-        <td>IW:12, CW:5, DHW:4</td>
-        <td>Test engineer (2), Radiologist (2), Radiographer (1)</td>
-      </tr>
-      <tr>
-        <td>DCT_102 Why Read X? [IW]</td>
-        <td>20</td>
-        <td style="color:var(--green)">10</td>
-        <td style="color:var(--red)">2</td>
-        <td style="color:var(--text-muted)">8</td>
-        <td><span class="qual-badge qual-high">83.3%</span></td>
-        <td>IW:13, DHW:4, CW:3</td>
-        <td>CT Tech (3), IR Scheduler (3), Sonographer (2)</td>
       </tr>
       <tr>
         <td>DCT_119 Stay Current</td>
-        <td>15</td>
-        <td style="color:var(--green)">5</td>
-        <td style="color:var(--red)">1</td>
+        <td>13</td>
+        <td style="color:var(--green)">4</td>
+        <td style="color:var(--blue)">2</td>
+        <td style="color:var(--accent-gold)">2</td>
         <td style="color:var(--text-muted)">9</td>
-        <td><span class="qual-badge qual-high">83.3%</span></td>
+        <td><span class="qual-badge qual-high">30.8%</span></td>
+        <td><span class="qual-badge" style="background:rgba(52,152,219,0.15);color:var(--blue)">15.4%</span></td>
+        <td><span class="qual-badge" style="background:rgba(241,196,15,0.15);color:var(--accent-gold)">15.4%</span></td>
         <td>IW:13, DHW:2</td>
-        <td>Assoc Professor (1), MRI Tech (1), Rad Tech (1)</td>
       </tr>
       <tr>
-        <td>DCT_103 Confession [DHW]</td>
-        <td>14</td>
+        <td>DCT_120 Information Overload</td>
+        <td>12</td>
         <td style="color:var(--green)">4</td>
-        <td style="color:var(--red)">0</td>
-        <td style="color:var(--text-muted)">10</td>
-        <td><span class="qual-badge qual-high">100%</span></td>
-        <td>DHW:11, CW:2, IW:1</td>
-        <td>Health IT Sales (1), Biz Dev (1), Operations (1)</td>
+        <td style="color:var(--blue)">2</td>
+        <td style="color:var(--accent-gold)">2</td>
+        <td style="color:var(--text-muted)">11</td>
+        <td><span class="qual-badge qual-high">33.3%</span></td>
+        <td><span class="qual-badge" style="background:rgba(52,152,219,0.15);color:var(--blue)">16.7%</span></td>
+        <td><span class="qual-badge" style="background:rgba(241,196,15,0.15);color:var(--accent-gold)">16.7%</span></td>
+        <td>IW:12, CW:5, DHW:4</td>
       </tr>
       <tr>
         <td>DCT_113 GPT Response</td>
-        <td>12</td>
-        <td style="color:var(--green)">5</td>
-        <td style="color:var(--red)">2</td>
-        <td style="color:var(--text-muted)">5</td>
-        <td><span class="qual-badge qual-high">71.4%</span></td>
-        <td>IW:10, CW:1, DHW:1</td>
-        <td>MD (2), Health Ed Consultant (1), Chief of Xray (1)</td>
-      </tr>
-      <tr>
-        <td>DCT_101 Reasons Why [DHW]</td>
         <td>10</td>
         <td style="color:var(--green)">4</td>
-        <td style="color:var(--red)">1</td>
+        <td style="color:var(--blue)">1</td>
+        <td style="color:var(--accent-gold)">1</td>
         <td style="color:var(--text-muted)">5</td>
-        <td><span class="qual-badge qual-high">80.0%</span></td>
-        <td>DHW:8, CW:1, IW:1</td>
-        <td>CEO (3), Founder (1)</td>
+        <td><span class="qual-badge qual-high">40.0%</span></td>
+        <td><span class="qual-badge" style="background:rgba(52,152,219,0.15);color:var(--blue)">10.0%</span></td>
+        <td><span class="qual-badge" style="background:rgba(241,196,15,0.15);color:var(--accent-gold)">10.0%</span></td>
+        <td>IW:10, CW:1, DHW:1</td>
+      </tr>
+      <tr>
+        <td>DCT_117 Old vs. New</td>
+        <td>8</td>
+        <td style="color:var(--green)">1</td>
+        <td style="color:var(--blue)">0</td>
+        <td style="color:var(--accent-gold)">0</td>
+        <td style="color:var(--text-muted)">7</td>
+        <td><span class="qual-badge qual-low">12.5%</span></td>
+        <td><span class="qual-badge qual-na">0%</span></td>
+        <td><span class="qual-badge qual-na">0%</span></td>
+        <td>CW</td>
       </tr>
       <tr>
         <td>DCT_121 Newspaper for HC Pros</td>
         <td>5</td>
         <td style="color:var(--green)">1</td>
-        <td style="color:var(--red)">2</td>
+        <td style="color:var(--blue)">3</td>
+        <td style="color:var(--accent-gold)">1</td>
         <td style="color:var(--text-muted)">2</td>
-        <td><span class="qual-badge qual-low">33.3%</span></td>
+        <td><span class="qual-badge qual-mid">20.0%</span></td>
+        <td><span class="qual-badge" style="background:rgba(52,152,219,0.15);color:var(--blue)">60.0%</span></td>
+        <td><span class="qual-badge" style="background:rgba(241,196,15,0.15);color:var(--accent-gold)">20.0%</span></td>
         <td>DHW:5</td>
-        <td>CEO (1)</td>
+      </tr>
+      <tr>
+        <td>DCT_111 AuthorityFOMO</td>
+        <td>3</td>
+        <td style="color:var(--green)">0</td>
+        <td style="color:var(--blue)">0</td>
+        <td style="color:var(--accent-gold)">0</td>
+        <td style="color:var(--text-muted)">3</td>
+        <td><span class="qual-badge qual-na">0%</span></td>
+        <td><span class="qual-badge qual-na">0%</span></td>
+        <td><span class="qual-badge qual-na">0%</span></td>
+        <td>CW</td>
+      </tr>
+      <tr>
+        <td>DCT_108 10% that Matters</td>
+        <td>0</td>
+        <td style="color:var(--green)">0</td>
+        <td style="color:var(--blue)">0</td>
+        <td style="color:var(--accent-gold)">0</td>
+        <td style="color:var(--text-muted)">0</td>
+        <td><span class="qual-badge qual-na">N/A</span></td>
+        <td><span class="qual-badge qual-na">N/A</span></td>
+        <td><span class="qual-badge qual-na">N/A</span></td>
+        <td>CW</td>
+      </tr>
+      <tr>
+        <td>DCT_109 Best Radiologists NL</td>
+        <td>0</td>
+        <td style="color:var(--green)">0</td>
+        <td style="color:var(--blue)">0</td>
+        <td style="color:var(--accent-gold)">0</td>
+        <td style="color:var(--text-muted)">0</td>
+        <td><span class="qual-badge qual-na">N/A</span></td>
+        <td><span class="qual-badge qual-na">N/A</span></td>
+        <td><span class="qual-badge qual-na">N/A</span></td>
+        <td>IW</td>
       </tr>
       <tr>
         <td style="color:var(--text-muted)">social (organic)</td>
         <td>21</td>
         <td style="color:var(--green)">0</td>
-        <td style="color:var(--red)">16</td>
+        <td style="color:var(--blue)">&mdash;</td>
+        <td style="color:var(--accent-gold)">&mdash;</td>
         <td style="color:var(--text-muted)">5</td>
         <td><span class="qual-badge qual-low">0%</span></td>
+        <td><span class="qual-badge qual-na">N/A</span></td>
+        <td><span class="qual-badge qual-na">N/A</span></td>
         <td>CW:9, DHW:8, IW:4</td>
-        <td>&mdash;</td>
       </tr>
     </tbody>
   </table>
@@ -1157,31 +1211,32 @@ body {
 <!-- ==================== SECTION 4: BAKE-OFF CONTEXT ==================== -->
 <div class="section-header">
   <span class="section-num">4</span>
-  <h2>Bake-Off Context &mdash; What We Can and Cannot Measure</h2>
+  <h2>Cross-Agency Quality: What We Now Know</h2>
 </div>
-<div class="section-desc">Cross-agency quality comparison requires Jake's manual review. Our ICP qualification system only applies to TFM leads because Growletter leads never see the post-subscribe form.</div>
+<div class="section-desc">Jake's 4-Tier scoring (Section 6) now provides the direct, apples-to-apples quality comparison between TFM and Growletter. Form Qualified remains TFM-only, but the bake-off question is answered.</div>
 
 <div class="context-box warning">
-  <h4>Why We Cannot Compare Quality Across Agencies Using This Data</h4>
-  <p>TFM's signup funnel includes post-subscribe ICP qualification questions (job title, company, role). These populate the QUALIFIED, TITLE, and COMPANY fields in Mailchimp. Growletter's funnel does not include these questions. Their 93%+ empty QUALIFIED fields mean "never assessed" &mdash; not "failed quality." Any comparison using TFM-only fields (qualification rate, seniority, title data) is structurally invalid as a cross-agency comparison.</p>
+  <h4>Form Qualified Is Still TFM-Only (Sections 1 &amp; 3)</h4>
+  <p>TFM's signup funnel includes post-subscribe ICP qualification questions (job title, company, role). These populate the QUALIFIED, TITLE, and COMPANY fields in Mailchimp. Growletter's funnel does not include these questions. Their 93%+ empty QUALIFIED fields mean "never assessed" &mdash; not "failed quality." Any comparison using TFM-only fields (Form Qual Rate, ICP Title Match, seniority data) is structurally invalid as a cross-agency comparison. <strong>For cross-agency quality, use Jake's 4-Tier data in Section 6.</strong></p>
 </div>
 
 <div class="two-col">
-  <div class="context-box info">
-    <h4>What Jake Has Assessed (March 2026 Slack)</h4>
+  <div class="context-box insight" style="border-left-color:var(--accent-tfm)">
+    <h4>Jake's 4-Tier Scoring Now Answers the Bake-Off Question</h4>
     <ul>
-      <li><strong>IW radiologists:</strong> "TFM delivered 12 radiologists for IW, Growletter delivered 0" &mdash; Jake's manual review of subscriber lists, not our automated QUALIFIED field</li>
-      <li>Jake's manual assessments are the only valid cross-agency quality benchmark</li>
-      <li>These spot-checks are not continuous or systematic &mdash; they represent point-in-time reviews</li>
+      <li><strong>206 TFM subscribers + 145 GL subscribers scored</strong> using Jake's manual 4-tier system (Excellent / Good / Medium / Bad) from the Mar 1&ndash;12 2026 window</li>
+      <li>Scoring uses first-party data (title + company) &mdash; the ultimate quality benchmark from the advertiser's perspective</li>
+      <li><strong>Result:</strong> TFM delivers <span style="color:var(--accent-cw);font-weight:700">5.5x</span> better quality on CW, <span style="color:var(--accent-iw);font-weight:700">6.9x</span> on IW, and <span style="color:var(--accent-dhw);font-weight:700">1.0x</span> (equal) on DHW vs Growletter</li>
+      <li>This is no longer a spot-check &mdash; it is the most comprehensive cross-agency quality comparison available. See Section 6 for full data.</li>
     </ul>
   </div>
   <div class="context-box info">
-    <h4>How to Get Cross-Agency Quality Data</h4>
+    <h4>Remaining Data Gaps</h4>
     <ul>
-      <li><strong>Open rate comparison:</strong> ESP engagement data (not in this export) would be the fairest quality proxy available for both sources</li>
-      <li><strong>Manual audit:</strong> Jake can pull a random sample from each source and manually classify ICP fit</li>
-      <li><strong>Engagement scoring:</strong> Click rates, reading time, and conversion events apply equally to both sources</li>
-      <li><strong>Churn rate:</strong> Unsubscribe rates by source over time would indicate which agency delivers stickier subscribers</li>
+      <li><strong>Open rate comparison:</strong> ESP engagement data would complement Jake's ICP scoring with behavioral quality signals</li>
+      <li><strong>Churn rate by source:</strong> Unsubscribe rates over time would indicate which agency delivers stickier subscribers</li>
+      <li><strong>Expanding the 4-Tier window:</strong> The current 12-day sample could be extended to a full month for higher confidence, especially on IW GL (only 20 scored)</li>
+      <li><strong>Per-DCT 4-Tier breakdown:</strong> Scoring at the ad level (not just agency level) would identify which creatives attract the highest-tier leads</li>
     </ul>
   </div>
 </div>
@@ -1386,8 +1441,8 @@ body {
 </div><!-- end .dashboard -->
 
 <div class="footer">
-  Insight Links &mdash; TFM Campaign Quality & Optimization Dashboard &middot; Generated March 22, 2026<br>
-  Data: Mailchimp subscriber exports (TFM: 5,262 subs | Growletter: 19,925 subs) &middot; The Feed Media
+  Insight Links &mdash; TFM Campaign Quality & Optimization Dashboard &middot; Generated March 23, 2026<br>
+  Data: Mailchimp subscriber exports (TFM: 5,262 subs | Growletter: 19,925 subs) &middot; Jake's 4-Tier calibration data (Mar 1&ndash;12, 206 TFM + 145 GL scored) &middot; Pipeboard MCP (Meta Ads) &middot; The Feed Media
 </div>
 
 <script>
