@@ -37,12 +37,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "clients/insight-links/april-concepts-cw.md",
+                "file": "sindy-obsidian-onboarding.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "april-concepts-cw"
+              "title": "sindy-obsidian-onboarding"
             }
           }
         ],
@@ -244,8 +244,10 @@
       "obsidian-kanban:Create new board": false
     }
   },
-  "active": "5a9ad48de24af18a",
+  "active": "8498ff5326e43f3c",
   "lastOpenFiles": [
+    "sindy-obsidian-onboarding.pdf",
+    "clients/insight-links/april-concepts-cw.md",
     "sindy-obsidian-onboarding.md",
     "clients/insight-links/qualified-leads-analysis-2026-03-22.md",
     "clients/insight-links/meta-ads-performance-april-brief.md",
@@ -255,7 +257,6 @@
     "research/competitor-ad-copy-swipe-file-2026.md",
     "research/meta-ad-copywriting-playbook-2026.md",
     "research/youtube-ad-copywriting-research.md",
-    "clients/insight-links/april-concepts-cw.md",
     "clients/workweek/client-config.md",
     "clients/insight-links/april-concepts-dhw.md",
     "clients/insight-links/april-concepts-iw.md",
@@ -284,7 +285,6 @@
     "reports/portfolio-pulse-2026-03-21.md",
     "dashboards/weekly-review.md",
     "dashboards/creative-pipeline.md",
-    "dashboards/client-portfolio.md",
     "Untitled.canvas"
   ]
 }

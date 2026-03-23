@@ -4,7 +4,7 @@
 
 **What you need before starting:**
 
-- Obsidian (you already have this)
+- Obsidian 
 - A GitHub account (free)
 - About 15-20 minutes
 
@@ -13,7 +13,7 @@
 ## STEP 1 — Create a GitHub Account (if you don't already have one)
 
 1. Go to https://github.com/join
-2. Sign up with your email (your TFM email or personal is fine)
+2. Sign up with your email (your TFM email)
 3. Choose the free plan
 4. Send Jay your GitHub username so he can add you to the `thefeedmedia` organization and grant access to the private `tfm-vault` repo
 
@@ -66,12 +66,21 @@ This downloads the entire vault to your computer.
 2. Type the following and press Enter:
 
 ```
-git clone https://github.com/thefeedmedia/tfm-vault.git ~/Documents/tfm-vault
+git clone -b sindy-edits https://github.com/thefeedmedia/tfm-vault.git ~/Documents/tfm-vault
 ```
 
-3. When prompted for your username, enter your GitHub username
-4. When prompted for your password, paste the Personal Access Token from Step 3 (not your GitHub password)
-5. Wait for it to finish downloading
+3. If it says the branch doesn't exist yet, run this instead:
+
+```
+git clone https://github.com/thefeedmedia/tfm-vault.git ~/Documents/tfm-vault
+cd ~/Documents/tfm-vault
+git checkout -b sindy-edits
+git push -u origin sindy-edits
+```
+
+4. When prompted for your username, enter your GitHub username
+5. When prompted for your password, paste the Personal Access Token from Step 3 (not your GitHub password)
+6. Wait for it to finish downloading
 
 **If you're on Windows:**
 
@@ -79,12 +88,21 @@ git clone https://github.com/thefeedmedia/tfm-vault.git ~/Documents/tfm-vault
 2. Type the following and press Enter:
 
 ```
-git clone https://github.com/thefeedmedia/tfm-vault.git ~/Documents/tfm-vault
+git clone -b sindy-edits https://github.com/thefeedmedia/tfm-vault.git ~/Documents/tfm-vault
 ```
 
-3. When prompted for your username, enter your GitHub username
-4. When prompted for your password, paste the Personal Access Token from Step 3
-5. Wait for it to finish downloading
+3. If it says the branch doesn't exist yet, run this instead:
+
+```
+git clone https://github.com/thefeedmedia/tfm-vault.git ~/Documents/tfm-vault
+cd ~/Documents/tfm-vault
+git checkout -b sindy-edits
+git push -u origin sindy-edits
+```
+
+4. When prompted for your username, enter your GitHub username
+5. When prompted for your password, paste the Personal Access Token from Step 3
+6. Wait for it to finish downloading
 
 ---
 
@@ -115,9 +133,13 @@ git clone https://github.com/thefeedmedia/tfm-vault.git ~/Documents/tfm-vault
    - **Pull on startup:** ON
    - **Pull before push:** ON
    - **Sync method:** Merge
-9. Close Settings
+9. Now set your branch (this is important):
+   - Scroll down to **"Branch Settings"** in the Obsidian Git settings
+   - Set **"Branch name"** to: `sindy-edits`
+   - Leave "Remote branch name" blank (it will match automatically)
+10. Close Settings
 
-> **Note:** "Push on backup" is the key setting Lays's guide didn't include. It makes sure your commits actually reach GitHub instead of only saving locally.
+> **Why a separate branch?** Your changes go to a `sindy-edits` branch instead of directly into `main`. Jay reviews and merges your changes into `main` so nothing conflicts with ongoing work. You don't need to think about this — just edit files normally and the plugin handles the rest. Jay will merge your changes regularly (usually same day).
 
 ---
 
@@ -170,6 +192,8 @@ git config --global user.email "sindy@thefeedmedia.com"
 5. Open the Command Palette again and type "Obsidian Git: Push"
 6. If it pushes without errors, you're fully set up
 
+**To confirm you're on the right branch:** Open Terminal (Mac) or Git Bash (Windows), navigate to the vault folder, and type `git branch`. You should see `* sindy-edits` with the asterisk indicating it's your active branch.
+
 ---
 
 ## YOUR KEY FILES
@@ -220,9 +244,11 @@ If you're unsure whether you should edit something, just ask Jay or post in Slac
 
 You don't need to think about syncing. Once set up, the Obsidian Git plugin will:
 
-- **Automatically pull** other people's changes every 10 minutes
-- **Automatically push** your changes every 10 minutes after you stop editing
+- **Automatically pull** Jay's latest changes from `main` every 10 minutes
+- **Automatically push** your changes to `sindy-edits` every 10 minutes after you stop editing
 - **Pull on startup** every time you open Obsidian
+
+Jay reviews and merges your branch into `main` regularly. You'll automatically get his latest changes (and everyone else's merged work) through the auto-pull. You don't need to do anything extra — just edit files and save.
 
 If you ever see a merge conflict notification, don't panic. Just message Jay and he'll walk you through it.
 
@@ -235,3 +261,5 @@ If you ever see a merge conflict notification, don't panic. Just message Jay and
 - **Plugin not working** — Make sure Git is installed (Step 2). Restart Obsidian after installing the plugin.
 - **Vault looks empty** — Make sure you opened the correct folder (`tfm-vault`, not a parent folder).
 - **Changes not appearing on GitHub** — Check that "Push on backup" is ON in the Obsidian Git settings (Step 6). This was a common issue with the first round of onboarding.
+- **"Your branch is behind main"** — This is normal. Open Command Palette, run "Obsidian Git: Pull" to get the latest changes from main. Your branch will always be slightly behind main since Jay merges periodically.
+- **Wrong branch** — If `git branch` shows `* main` instead of `* sindy-edits`, open Terminal, navigate to the vault folder, and run: `git checkout sindy-edits`. Then restart Obsidian.

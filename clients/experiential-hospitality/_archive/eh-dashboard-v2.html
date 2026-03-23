@@ -170,7 +170,7 @@ tbody tr:hover{background:rgba(99,102,241,.06)}
   <div class="header-top">
     <div>
       <h1>Experiential Hospitality <span>Performance Dashboard</span></h1>
-      <div class="subtitle">Full-Funnel Attribution | Meta Ads + GoHighLevel + WebinarKit | Updated March 22, 2026</div>
+      <div class="subtitle">Full-Funnel Attribution | Meta Ads + GoHighLevel + WebinarKit | Updated March 23, 2026</div>
     </div>
     <div class="header-controls">
       <select class="filter-select" id="dateFilter" onchange="applyDateFilter()">
@@ -331,8 +331,8 @@ tbody tr:hover{background:rgba(99,102,241,.06)}
   <div class="grid g3" style="margin-bottom:20px">
     <div class="card">
       <h3>Total Cycles Completed</h3>
-      <div class="value">12</div>
-      <div class="sub">3 additional cycles in March (in-progress)</div>
+      <div class="value">14</div>
+      <div class="sub">3/19 cycle in-progress, 3/31 upcoming</div>
     </div>
     <div class="card">
       <h3>Best ROAS Cycle</h3>
@@ -605,13 +605,13 @@ tbody tr:hover{background:rgba(99,102,241,.06)}
   <div class="grid g4" style="margin-bottom:20px">
     <div class="card">
       <h3>Total Closed (TFM)</h3>
-      <div class="value green">76</div>
+      <div class="value green">82</div>
       <div class="sub">Meta Ads attributed</div>
     </div>
     <div class="card">
       <h3>Total Revenue</h3>
-      <div class="value green">$455,668</div>
-      <div class="sub">Average: $5,996 per deal</div>
+      <div class="value green">$505,150</div>
+      <div class="sub">Average: $6,160 per deal</div>
     </div>
     <div class="card">
       <h3>Largest Deal</h3>
@@ -620,13 +620,13 @@ tbody tr:hover{background:rgba(99,102,241,.06)}
     </div>
     <div class="card">
       <h3>Attribution Rate</h3>
-      <div class="value green">92%</div>
-      <div class="sub">70/76 deals have DCT attribution</div>
+      <div class="value green">85%</div>
+      <div class="sub">70/82 deals have DCT attribution</div>
     </div>
   </div>
   <div class="card">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:12px">
-      <div class="section-title" style="margin-bottom:0">All 76 Closed Deals</div>
+      <div class="section-title" style="margin-bottom:0">All 82 Closed Deals</div>
       <input type="text" class="search-box" id="dealSearch" placeholder="Search by name, email, DCT, or funnel..." style="max-width:350px;margin-bottom:0">
     </div>
     <div style="overflow-x:auto">
@@ -661,7 +661,7 @@ tbody tr:hover{background:rgba(99,102,241,.06)}
       <div class="insight"><strong>Call show rate (78.9% via GHL)</strong> exceeds the cycle-level 63.6% — Isaac's follow-up sequences are elite and closing the gap between booked and showed.</div>
       <div class="insight warn"><strong>Registration to call booking (3.6%)</strong> is the single biggest funnel leak. Fixing this from 3.6% to 5% = $180K additional revenue at current rates.</div>
       <div class="insight warn"><strong>6 deals (~$35K) have broken/missing UTM attribution.</strong> Two show raw {{adset.name}} macro. Fix the template in Ads Manager to improve tracking.</div>
-      <div class="insight warn"><strong>February and March ROAS declining</strong> — 0.73x in Feb, 0.14x in March (early/lagging). Attribution lag typical for high-ticket (30-60 day close cycle).</div>
+      <div class="insight warn"><strong>February and March ROAS recovering</strong> — 0.73x in Feb, 0.86x in March (7 deals closed so far, 3/19 cycle still in-progress). Attribution lag typical for high-ticket (30-60 day close cycle).</div>
     </div>
     <div class="card">
       <div class="section-title">Strategic Recommendations</div>
@@ -759,9 +759,9 @@ const WEBINAR_DATA = [
   {date:'2026-01-27',spend:9178,regs:1704,cpl:5.39,shows:698,showRate:41.0,replay:158,replayRate:9.3,engaged:856,engagedRate:50.2,calls:60,bookRate:3.5,callShows:22,callShowRate:36.7,closes:6,closeRate:10.0,revenue:38735,costClose:1530,roas:4.22,revPerReg:22.73},
   {date:'2026-02-05',spend:15459,regs:2541,cpl:6.08,shows:707,showRate:27.8,replay:279,replayRate:11.0,engaged:986,engagedRate:38.8,calls:50,bookRate:2.0,callShows:23,callShowRate:46.0,closes:4,closeRate:8.0,revenue:30241,costClose:3865,roas:1.96,revPerReg:11.90},
   {date:'2026-02-16',spend:14081,regs:1785,cpl:7.89,shows:305,showRate:17.1,replay:218,replayRate:12.2,engaged:523,engagedRate:29.3,calls:99,bookRate:5.5,callShows:63,callShowRate:63.6,closes:3,closeRate:3.0,revenue:32094,costClose:4694,roas:2.28,revPerReg:17.98},
-  {date:'2026-02-26',spend:14493,regs:1900,cpl:7.63,shows:null,showRate:null,replay:null,replayRate:null,engaged:null,engagedRate:null,calls:null,bookRate:null,callShows:null,callShowRate:null,closes:4,closeRate:null,revenue:39988,costClose:3623,roas:2.76,revPerReg:21.05},
-  {date:'2026-03-09',spend:null,regs:null,cpl:null,shows:null,showRate:null,replay:null,replayRate:null,engaged:null,engagedRate:null,calls:null,bookRate:null,callShows:null,callShowRate:null,closes:null,closeRate:null,revenue:null,costClose:null,roas:null,revPerReg:null},
-  {date:'2026-03-19',spend:null,regs:null,cpl:null,shows:null,showRate:null,replay:null,replayRate:null,engaged:null,engagedRate:null,calls:null,bookRate:null,callShows:null,callShowRate:null,closes:null,closeRate:null,revenue:null,costClose:null,roas:null,revPerReg:null},
+  {date:'2026-02-26',spend:14089,regs:1973,cpl:7.14,shows:null,showRate:null,replay:null,replayRate:null,engaged:null,engagedRate:null,calls:72,bookRate:3.7,callShows:null,callShowRate:null,closes:3,closeRate:4.2,revenue:26491,costClose:4696,roas:1.88,revPerReg:13.43},
+  {date:'2026-03-09',spend:16433,regs:2856,cpl:5.75,shows:null,showRate:null,replay:null,replayRate:null,engaged:null,engagedRate:null,calls:49,bookRate:1.7,callShows:null,callShowRate:null,closes:4,closeRate:8.2,revenue:32988,costClose:4108,roas:2.01,revPerReg:11.55},
+  {date:'2026-03-19',spend:3658,regs:550,cpl:6.65,shows:null,showRate:null,replay:null,replayRate:null,engaged:null,engagedRate:null,calls:30,bookRate:5.5,callShows:null,callShowRate:null,closes:0,closeRate:0,revenue:0,costClose:null,roas:0,revPerReg:0},
   {date:'2026-03-31',spend:null,regs:186,cpl:null,shows:null,showRate:null,replay:null,replayRate:null,engaged:null,engagedRate:null,calls:null,bookRate:null,callShows:null,callShowRate:null,closes:null,closeRate:null,revenue:null,costClose:null,roas:null,revPerReg:null}
 ];
 
@@ -888,7 +888,13 @@ const DEALS_DATA = [
   {name:'Jill Endres',email:'jill.a.endres@gmail.com',revenue:4000,dct:'DCT_169_Feb16th',date:'2026-02-23',funnel:'Live Webinar',attributed:'Yes'},
   {name:'Mason Smith',email:'mpsmith600@gmail.com',revenue:6597,dct:'Lead Magnet',date:'2026-02-24',funnel:'Live Webinar',attributed:'Yes'},
   {name:'Alex Fuller',email:'fullerlights@gmail.com',revenue:6500,dct:'FB Ad (broken UTM)',date:'2026-02-27',funnel:'Live Webinar',attributed:'Yes'},
-  {name:'Michael Antolini',email:'mantolini@alumni.wvsom.edu',revenue:9997,dct:'DCT_169_HybridAd_Feb26',date:'2026-03-01',funnel:'Live Webinar',attributed:'Yes'}
+  {name:'Michael Antolini',email:'mantolini@alumni.wvsom.edu',revenue:9997,dct:'DCT_169_HybridAd_Feb26',date:'2026-03-01',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Niles Hogan',email:'',revenue:9997,dct:'',date:'2026-03-05',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Cristina Pastrana',email:'',revenue:6497,dct:'',date:'2026-03-07',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Scott & Jenny Viney',email:'',revenue:9997,dct:'',date:'2026-03-14',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Brooke Kelley',email:'',revenue:6497,dct:'',date:'2026-03-16',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Matthew Kruger',email:'',revenue:9997,dct:'',date:'2026-03-18',funnel:'Live Webinar',attributed:'Yes'},
+  {name:'Kevin Gaisbauer',email:'',revenue:6497,dct:'',date:'2026-03-20',funnel:'Live Webinar',attributed:'Yes'}
 ];
 
 const MONTHLY_DATA = [
@@ -901,7 +907,7 @@ const MONTHLY_DATA = [
   {month:'Dec 2025',spend:16031,regs:3666,cpl:4.37,deals:14,revenue:91713,roas:5.72,avgDeal:6550.89,costClose:1145.06,revPerReg:25.02},
   {month:'Jan 2026',spend:65792,regs:12150,cpl:5.41,deals:12,revenue:77567,roas:1.18,avgDeal:6463.92,costClose:5482.67,revPerReg:6.38},
   {month:'Feb 2026',spend:80712,regs:11138,cpl:7.25,deals:9,revenue:58835,roas:0.73,avgDeal:6537.22,costClose:8968.00,revPerReg:5.28},
-  {month:'Mar 2026',spend:69175,regs:9625,cpl:7.19,deals:1,revenue:9997,roas:0.14,avgDeal:9997.00,costClose:69174.68,revPerReg:1.04}
+  {month:'Mar 2026',spend:69175,regs:9625,cpl:7.19,deals:7,revenue:59479,roas:0.86,avgDeal:8497.00,costClose:9882.14,revPerReg:6.18}
 ];
 
 const GHL_SUMMARY = {
