@@ -37,12 +37,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "clients/insight-links/meta-ads-performance-april-brief.md",
+                "file": "clients/insight-links/april-concepts-cw.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "meta-ads-performance-april-brief"
+              "title": "april-concepts-cw"
             }
           }
         ],
@@ -246,6 +246,9 @@
   },
   "active": "8498ff5326e43f3c",
   "lastOpenFiles": [
+    "clients/insight-links/qualified-leads-analysis-2026-03-22.md",
+    "clients/insight-links/meta-ads-performance-april-brief.md",
+    "meta-ads-performance-april-brief.pdf",
     "research/claude-code-advanced-research-2026.md",
     "research/environment-audit-2026-03-22.md",
     "research/competitor-ad-copy-swipe-file-2026.md",
@@ -260,14 +263,12 @@
     "clients/insight-links/top-performing-dcts-analysis.md",
     "clients/insight-links/slack-creative-context-brief.md",
     "clients/insight-links/notion-creative-pipeline-status.md",
-    "clients/insight-links/meta-ads-performance-april-brief.md",
     "clients/insight-links/creative-frameworks-april2026.md",
     "clients/insight-links/creative-dos-donts-april2026.md",
     "clients/workweek/workweek.md",
     "clients/workweek/deep-enrichment.md",
     "clients/workweek/claude-chat-project.md",
     "skills/vault-integrity/SKILL.md",
-    "clients/insight-links/qualified-leads-analysis-2026-03-22.md",
     "clients/insight-links/n8n-mailchimp-qualified-leads-workflow.json",
     "clients/the-points-guy/_archive/Newsletter Paid Social 2026-03-17 13_08.pdf",
     "clients/the-points-guy/_archive",
@@ -278,13 +279,11 @@
     "clients/status-news/_archive",
     "clients/quartz/_archive/screenshots/image (19).png",
     "clients/quartz/_archive/screenshots/Screenshot 2026-03-17 at 2.55.41 PM.png",
-    "clients/quartz/_archive/scripts/delivra-n8n-test.js",
     "skills/friday/SKILL.md",
     "reports/portfolio-pulse-2026-03-21.md",
     "dashboards/weekly-review.md",
     "dashboards/creative-pipeline.md",
     "dashboards/client-portfolio.md",
-    "clients/insight-links/claude-chat-project.md",
     "Untitled.canvas"
   ]
 }
