@@ -245,12 +245,12 @@ This table ranks ads by the cost to acquire a subscriber who passes BOTH the for
 
 ## Budget Reallocation (Revised for Dual Metrics)
 
-| Newsletter | Current Weekly | Recommended April Weekly | Rationale |
-|---|---|---|---|
-| DHW | ~$618 | **$800** (+29%) | Three ads with Both CPL under $25. Most real ICP leads per dollar. |
-| CW | ~$716 | **$500** (-30%) | Only 1 ad (DCT_118) produces dual-qualified leads. Kill 4 ads, concentrate. |
-| IW | ~$581 | **$650** (+12%) | Confession is proven. Scale Stay Current and Radiologist Confession. |
-| **Total** | ~$1,916 | **$1,950** | Near-neutral total, reallocated toward dual-metric quality. |
+| Newsletter | Current Weekly | Recommended April Weekly | Rationale                                                                   |
+| ---------- | -------------- | ------------------------ | --------------------------------------------------------------------------- |
+| DHW        | ~$618          | **$800** (+29%)          | Three ads with Both CPL under $25. Most real ICP leads per dollar.          |
+| CW         | ~$716          | **$500** (-30%)          | Only 1 ad (DCT_118) produces dual-qualified leads. Kill 4 ads, concentrate. |
+| IW         | ~$581          | **$650** (+12%)          | Confession is proven. Scale Stay Current and Radiologist Confession.        |
+| **Total**  | ~$1,916        | **$1,950**               | Near-neutral total, reallocated toward dual-metric quality.                 |
 
 **The dual-metric analysis amplifies the original budget shift.** CW gets cut deeper (from -23% to -30%) because its quality problem is worse than form-only analysis showed. DHW gets more (from +21% to +29%) because it has hidden quality the form misses.
 
