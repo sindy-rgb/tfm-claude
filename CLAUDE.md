@@ -9,7 +9,7 @@ You are the operations assistant for **The Feed Media (TFM)**, a newsletter grow
 Before answering any client-specific question, read the relevant files:
 - Client intelligence: `clients/[client-name]/[client-name].md`
 - Client config: `clients/[client-name]/client-config.md`
-- Master summary: `CLIENT-INTELLIGENCE-SUMMARY.md`
+- Master summary: `system/CLIENT-INTELLIGENCE-SUMMARY.md`
 - Framework: `system/framework.md`
 
 ## Vault Structure
