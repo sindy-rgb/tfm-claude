@@ -1,0 +1,70 @@
+name: Auto-prefix new files with contributor name
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  auto-prefix:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
+      - name: Get PR author username
+        id: author
+        run: echo "name=${{ github.event.pull_request.user.login }}" >> $GITHUB_OUTPUT
+
+      - name: Find and rename new files missing author prefix
+        run: |
+          AUTHOR="${{ steps.author.outputs.name }}"
+
+          # Get list of new files added in this PR (compared to main)
+          NEW_FILES=$(git diff --name-only --diff-filter=A origin/main...HEAD)
+
+          if [ -z "$NEW_FILES" ]; then
+            echo "No new files found"
+            exit 0
+          fi
+
+          RENAMED=false
+
+          while IFS= read -r file; do
+            # Skip dotfiles, system files, and files that already have a name prefix
+            case "$file" in
+              .github/*|.obsidian/*|.gitignore|CLAUDE.md|README.md|CLIENT-INTELLIGENCE-SUMMARY.md|system/*|Archive/*)
+                echo "SKIP (protected): $file"
+                continue
+                ;;
+            esac
+
+            BASENAME=$(basename "$file")
+            DIRNAME=$(dirname "$file")
+
+            # Check if file already has a name_ prefix (contains underscore after first word)
+            if echo "$BASENAME" | grep -q '^[a-z]*_'; then
+              echo "SKIP (already prefixed): $file"
+              continue
+            fi
+
+            # Rename with author prefix
+            NEW_NAME="${DIRNAME}/${AUTHOR}_${BASENAME}"
+            git mv "$file" "$NEW_NAME"
+            echo "RENAMED: $file → $NEW_NAME"
+            RENAMED=true
+
+          done <<< "$NEW_FILES"
+
+          if [ "$RENAMED" = true ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git commit -m "Auto-prefix new files with contributor name: ${AUTHOR}"
+            git push
+          else
+            echo "No files needed renaming"
+          fi
