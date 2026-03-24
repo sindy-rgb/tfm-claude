@@ -16,13 +16,8 @@ Before answering any client-specific question, read the relevant files:
 ```
 tfm-claude/
 ├── clients/          ← 25 client folders (intelligence, config, deep-enrichment)
-├── SOPs/             ← Team playbooks, frameworks, prompts, meeting schedules
-├── skills/           ← 7 automated skills (friday, weekly-enrichment, etc.)
-├── templates/        ← Reusable templates (new client, meeting notes, reports)
-├── dashboards/       ← Dataview dashboards (portfolio, creative pipeline, weekly)
-├── reports/          ← Active reports and audits
-├── system/           ← Framework, configs, SQLite data, state tracking
-├── Archive/          ← Old files kept for reference (not active)
+├── GMs/              ← Growth Manager profiles
+├── system/           ← All backend: skills, SOPs, templates, framework, configs, DB, archive
 ├── CLAUDE.md         ← This file
 ├── CLIENT-INTELLIGENCE-SUMMARY.md
 └── README.md
@@ -66,7 +61,7 @@ Every client file follows 6 categories:
 - **GHL** — GoHighLevel for Experiential Hospitality
 
 ## Skills
-Skills live in `skills/` (each has its own `SKILL.md`):
+Skills live in `system/skills/` (each has its own `SKILL.md`):
 - **`/friday`** — Friday ad report autopilot (DB-first metrics, Notion-ready output)
 - **`/weekly-enrichment`** — Sunday data pull → Monday briefing
 - **`/creative-qa`** — Check ads against client NEVER rules
@@ -108,4 +103,4 @@ Skills live in `skills/` (each has its own `SKILL.md`):
 - Flag when client intelligence files need updating
 - Use DCT naming conventions from Notion
 - Cross-reference ESP data with Meta performance when available
-- SOPs and playbooks are in `SOPs/` — check there first for team processes
+- SOPs and playbooks are in `system/SOPs/` — check there first for team processes
