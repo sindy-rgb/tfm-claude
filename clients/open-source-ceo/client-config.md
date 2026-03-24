@@ -10,7 +10,7 @@
 |-------|-------|
 | `client_name` | open-source-ceo |
 | `client_display_name` | Open Source CEO |
-| `client_intel_path` | /Users/jay/Documents/the-feed-media/clients/open-source-ceo/open-source-ceo.md |
+| `client_intel_path` | clients/open-source-ceo/open-source-ceo.md |
 
 ---
 

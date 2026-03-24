@@ -10,7 +10,7 @@
 |-------|-------|
 | `client_name` | houck |
 | `client_display_name` | Houck (Founding Journey) |
-| `client_intel_path` | /Users/jay/Documents/the-feed-media/clients/houck/houck.md |
+| `client_intel_path` | clients/houck/houck.md |
 
 ---
 

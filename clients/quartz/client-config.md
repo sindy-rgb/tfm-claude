@@ -10,7 +10,7 @@
 |-------|-------|
 | `client_name` | quartz |
 | `client_display_name` | Quartz |
-| `client_intel_path` | /Users/jay/Documents/the-feed-media/clients/quartz/quartz.md |
+| `client_intel_path` | clients/quartz/quartz.md |
 
 ---
 

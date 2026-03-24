@@ -10,7 +10,7 @@
 |-------|-------|
 | `client_name` | rnt-fitness |
 | `client_display_name` | RNT Fitness |
-| `client_intel_path` | /Users/jay/Documents/the-feed-media/clients/rnt-fitness/rnt-fitness.md |
+| `client_intel_path` | clients/rnt-fitness/rnt-fitness.md |
 
 ---
 

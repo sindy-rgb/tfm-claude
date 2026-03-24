@@ -10,7 +10,7 @@
 |-------|-------|
 | `client_name` | vendry |
 | `client_display_name` | Vendry (Case Studied) |
-| `client_intel_path` | /Users/jay/Documents/the-feed-media/clients/vendry/vendry.md |
+| `client_intel_path` | clients/vendry/vendry.md |
 
 ---
 

@@ -10,7 +10,7 @@
 |-------|-------|
 | `client_name` | mdhair |
 | `client_display_name` | MDhair |
-| `client_intel_path` | /Users/jay/Documents/the-feed-media/clients/mdhair/mdhair.md |
+| `client_intel_path` | clients/mdhair/mdhair.md |
 
 ---
 

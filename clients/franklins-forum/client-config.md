@@ -10,7 +10,7 @@
 |-------|-------|
 | `client_name` | franklins-forum |
 | `client_display_name` | Franklin's Forum |
-| `client_intel_path` | /Users/jay/Documents/the-feed-media/clients/franklins-forum/franklins-forum.md |
+| `client_intel_path` | clients/franklins-forum/franklins-forum.md |
 
 ---
 

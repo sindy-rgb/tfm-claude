@@ -10,7 +10,7 @@
 |-------|-------|
 | `client_name` | daily-drop |
 | `client_display_name` | Daily Drop |
-| `client_intel_path` | /Users/jay/Documents/the-feed-media/clients/daily-drop/daily-drop.md |
+| `client_intel_path` | clients/daily-drop/daily-drop.md |
 
 ---
 

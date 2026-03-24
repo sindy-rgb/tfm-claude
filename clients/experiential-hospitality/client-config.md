@@ -10,7 +10,7 @@
 |-------|-------|
 | `client_name` | experiential-hospitality |
 | `client_display_name` | Experiential Hospitality |
-| `client_intel_path` | /Users/jay/Documents/the-feed-media/clients/experiential-hospitality/experiential-hospitality.md |
+| `client_intel_path` | clients/experiential-hospitality/experiential-hospitality.md |
 
 ---
 

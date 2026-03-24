@@ -10,7 +10,7 @@
 |-------|-------|
 | `client_name` | contrarian-thinking |
 | `client_display_name` | Contrarian Thinking |
-| `client_intel_path` | /Users/jay/Documents/the-feed-media/clients/contrarian-thinking/contrarian-thinking.md |
+| `client_intel_path` | clients/contrarian-thinking/contrarian-thinking.md |
 
 ---
 

@@ -10,7 +10,7 @@
 |-------|-------|
 | `client_name` | workweek |
 | `client_display_name` | Workweek |
-| `client_intel_path` | /Users/jay/Documents/the-feed-media/clients/workweek/workweek.md |
+| `client_intel_path` | clients/workweek/workweek.md |
 
 ---
 

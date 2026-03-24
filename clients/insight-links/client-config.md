@@ -10,7 +10,7 @@
 |-------|-------|
 | `client_name` | insight-links |
 | `client_display_name` | Insight Links |
-| `client_intel_path` | /Users/jay/Documents/the-feed-media/clients/insight-links/insight-links.md |
+| `client_intel_path` | clients/insight-links/insight-links.md |
 
 ---
 

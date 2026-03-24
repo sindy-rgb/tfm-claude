@@ -10,7 +10,7 @@
 |-------|-------|
 | `client_name` | stocks-news |
 | `client_display_name` | Stocks.News |
-| `client_intel_path` | /Users/jay/Documents/the-feed-media/clients/stocks-news/stocks-news.md |
+| `client_intel_path` | clients/stocks-news/stocks-news.md |
 
 ---
 

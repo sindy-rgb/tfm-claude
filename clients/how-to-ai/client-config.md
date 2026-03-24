@@ -10,7 +10,7 @@
 |-------|-------|
 | `client_name` | how-to-ai |
 | `client_display_name` | How to AI |
-| `client_intel_path` | /Users/jay/Documents/the-feed-media/clients/how-to-ai/how-to-ai.md |
+| `client_intel_path` | clients/how-to-ai/how-to-ai.md |
 
 ---
 

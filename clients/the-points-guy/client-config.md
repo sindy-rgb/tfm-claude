@@ -10,7 +10,7 @@
 |-------|-------|
 | `client_name` | the-points-guy |
 | `client_display_name` | The Points Guy (TPG) |
-| `client_intel_path` | /Users/jay/Documents/the-feed-media/clients/the-points-guy/the-points-guy.md |
+| `client_intel_path` | clients/the-points-guy/the-points-guy.md |
 
 ---
 

@@ -10,7 +10,7 @@
 |-------|-------|
 | `client_name` | stocks-and-income |
 | `client_display_name` | Stocks & Income |
-| `client_intel_path` | /Users/jay/Documents/the-feed-media/clients/stocks-and-income/stocks-and-income.md |
+| `client_intel_path` | clients/stocks-and-income/stocks-and-income.md |
 
 ---
 

@@ -10,7 +10,7 @@
 |-------|-------|
 | `client_name` | status-news |
 | `client_display_name` | Status (News) |
-| `client_intel_path` | /Users/jay/Documents/the-feed-media/clients/status-news/status-news.md |
+| `client_intel_path` | clients/status-news/status-news.md |
 
 ---
 

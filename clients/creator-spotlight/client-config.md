@@ -10,7 +10,7 @@
 |-------|-------|
 | `client_name` | creator-spotlight |
 | `client_display_name` | Creator Spotlight |
-| `client_intel_path` | /Users/jay/Documents/the-feed-media/clients/creator-spotlight/creator-spotlight.md |
+| `client_intel_path` | clients/creator-spotlight/creator-spotlight.md |
 
 ---
 

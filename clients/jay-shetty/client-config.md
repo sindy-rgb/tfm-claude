@@ -10,7 +10,7 @@
 |-------|-------|
 | `client_name` | jay-shetty |
 | `client_display_name` | Jay Shetty |
-| `client_intel_path` | /Users/jay/Documents/the-feed-media/clients/jay-shetty/jay-shetty.md |
+| `client_intel_path` | clients/jay-shetty/jay-shetty.md |
 
 ---
 

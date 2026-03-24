@@ -10,7 +10,7 @@
 |-------|-------|
 | `client_name` | points-path |
 | `client_display_name` | Points Path |
-| `client_intel_path` | /Users/jay/Documents/the-feed-media/clients/points-path/points-path.md |
+| `client_intel_path` | clients/points-path/points-path.md |
 
 ---
 

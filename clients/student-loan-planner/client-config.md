@@ -10,7 +10,7 @@
 |-------|-------|
 | `client_name` | student-loan-planner |
 | `client_display_name` | Student Loan Planner (SLP) |
-| `client_intel_path` | /Users/jay/Documents/the-feed-media/clients/student-loan-planner/student-loan-planner.md |
+| `client_intel_path` | clients/student-loan-planner/student-loan-planner.md |
 
 ---
 

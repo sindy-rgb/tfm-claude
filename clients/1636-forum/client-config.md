@@ -10,7 +10,7 @@
 |-------|-------|
 | `client_name` | 1636-forum |
 | `client_display_name` | 1636 Forum |
-| `client_intel_path` | /Users/jay/Documents/the-feed-media/clients/1636-forum/1636-forum.md |
+| `client_intel_path` | clients/1636-forum/1636-forum.md |
 
 ---
 

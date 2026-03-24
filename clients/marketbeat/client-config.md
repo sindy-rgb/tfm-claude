@@ -10,7 +10,7 @@
 |-------|-------|
 | `client_name` | marketbeat |
 | `client_display_name` | MarketBeat |
-| `client_intel_path` | /Users/jay/Documents/the-feed-media/clients/marketbeat/marketbeat.md |
+| `client_intel_path` | clients/marketbeat/marketbeat.md |
 
 ---
 

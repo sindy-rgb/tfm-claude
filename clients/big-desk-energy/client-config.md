@@ -10,7 +10,7 @@
 |-------|-------|
 | `client_name` | big-desk-energy |
 | `client_display_name` | Big Desk Energy |
-| `client_intel_path` | /Users/jay/Documents/the-feed-media/clients/big-desk-energy/big-desk-energy.md |
+| `client_intel_path` | clients/big-desk-energy/big-desk-energy.md |
 
 ---
 

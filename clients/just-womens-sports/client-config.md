@@ -10,7 +10,7 @@
 |-------|-------|
 | `client_name` | just-womens-sports |
 | `client_display_name` | Just Women's Sports (JWS) |
-| `client_intel_path` | /Users/jay/Documents/the-feed-media/clients/just-womens-sports/just-womens-sports.md |
+| `client_intel_path` | clients/just-womens-sports/just-womens-sports.md |
 
 ---
 
