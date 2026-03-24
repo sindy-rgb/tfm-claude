@@ -1,11 +1,11 @@
-name: Auto-prefix new files with contributor name
+name: Auto-suffix new files with contributor name
 
 on:
   pull_request:
     types: [opened, synchronize]
 
 jobs:
-  auto-prefix:
+  auto-suffix:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -20,7 +20,7 @@ jobs:
         id: author
         run: echo "name=${{ github.event.pull_request.user.login }}" >> $GITHUB_OUTPUT
 
-      - name: Find and rename new files missing author prefix
+      - name: Find and rename new files with _by-author suffix
         run: |
           AUTHOR="${{ steps.author.outputs.name }}"
 
@@ -35,7 +35,7 @@ jobs:
           RENAMED=false
 
           while IFS= read -r file; do
-            # Skip dotfiles, system files, and files that already have a name prefix
+            # Skip dotfiles, system files, and protected files
             case "$file" in
               .github/*|.obsidian/*|.gitignore|CLAUDE.md|README.md|CLIENT-INTELLIGENCE-SUMMARY.md|system/*|Archive/*)
                 echo "SKIP (protected): $file"
@@ -46,14 +46,18 @@ jobs:
             BASENAME=$(basename "$file")
             DIRNAME=$(dirname "$file")
 
-            # Check if file already has a name_ prefix (contains underscore after first word)
-            if echo "$BASENAME" | grep -q '^[a-z]*_'; then
-              echo "SKIP (already prefixed): $file"
+            # Check if file already has _by- suffix
+            if echo "$BASENAME" | grep -q '_by-'; then
+              echo "SKIP (already suffixed): $file"
               continue
             fi
 
-            # Rename with author prefix
-            NEW_NAME="${DIRNAME}/${AUTHOR}_${BASENAME}"
+            # Add _by-author before the file extension
+            EXTENSION="${BASENAME##*.}"
+            NAME_WITHOUT_EXT="${BASENAME%.*}"
+            NEW_BASENAME="${NAME_WITHOUT_EXT}_by-${AUTHOR}.${EXTENSION}"
+            NEW_NAME="${DIRNAME}/${NEW_BASENAME}"
+
             git mv "$file" "$NEW_NAME"
             echo "RENAMED: $file → $NEW_NAME"
             RENAMED=true
@@ -63,7 +67,7 @@ jobs:
           if [ "$RENAMED" = true ]; then
             git config user.name "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
-            git commit -m "Auto-prefix new files with contributor name: ${AUTHOR}"
+            git commit -m "Auto-suffix new files with _by-${AUTHOR}"
             git push
           else
             echo "No files needed renaming"
