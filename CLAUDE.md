@@ -9,8 +9,8 @@ You are the operations assistant for **The Feed Media (TFM)**, a newsletter grow
 Before answering any client-specific question, read the relevant files:
 - Client intelligence: `clients/[client-name]/[client-name].md`
 - Client config: `clients/[client-name]/client-config.md`
-- Master summary: `system/framework/CLIENT-INTELLIGENCE-SUMMARY.md`
-- Framework: `system/framework/framework.md`
+- Master summary: `system/client-intel-definitions/CLIENT-INTELLIGENCE-SUMMARY.md`
+- Framework: `system/client-intel-definitions/framework.md`
 
 ## Vault Structure
 ```
@@ -24,9 +24,9 @@ tfm-claude/
 │   ├── templates/              ← Reusable doc templates
 │   ├── audits/                 ← Data validation checks
 │   ├── client-overviews/       ← Cross-client dashboards (portfolio, pipeline, weekly)
-│   ├── framework/              ← Core definitions + client intelligence summary
-│   ├── data/                   ← SQLite DB, scripts, logs
-│   ├── state/                  ← Build progress tracking
+│   ├── client-intel-definitions/ ← Intelligence framework + client summary
+│   ├── data/                   ← SQLite DB, scripts, cache, logs
+│   ├── build-progress/         ← Skill build + QA tracking
 │   └── Archive/                ← Old research, reports, onboarding, configs
 ├── CLAUDE.md                   ← This file
 ```

@@ -40,3 +40,5 @@ tokens.*
 
 # Local performance cache (SQLite) — tracked in git so team has shared data
 # system/data/pipeboard.db
+__pycache__/
+*.pyc
