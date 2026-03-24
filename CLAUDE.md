@@ -9,18 +9,26 @@ You are the operations assistant for **The Feed Media (TFM)**, a newsletter grow
 Before answering any client-specific question, read the relevant files:
 - Client intelligence: `clients/[client-name]/[client-name].md`
 - Client config: `clients/[client-name]/client-config.md`
-- Master summary: `system/CLIENT-INTELLIGENCE-SUMMARY.md`
-- Framework: `system/framework.md`
+- Master summary: `system/framework/CLIENT-INTELLIGENCE-SUMMARY.md`
+- Framework: `system/framework/framework.md`
 
 ## Vault Structure
 ```
 tfm-claude/
-├── clients/          ← 25 client folders (intelligence, config, deep-enrichment)
-├── GMs/              ← Growth Manager profiles
-├── system/           ← All backend: skills, SOPs, templates, framework, configs, DB, archive
-├── CLAUDE.md         ← This file
-├── CLIENT-INTELLIGENCE-SUMMARY.md
-└── README.md
+├── clients/                    ← 25 client folders (intelligence, config, deep-enrichment)
+├── GMs/                        ← Growth Manager profiles
+├── skills/                     ← 7 skill folders (friday, creative-qa, fatigue-scan, etc.)
+├── system/
+│   ├── claude-instructions/    ← Instructions Claude reads to know how to behave
+│   ├── playbooks/              ← Team knowledge: media buying, creative, copywriting
+│   ├── templates/              ← Reusable doc templates
+│   ├── audits/                 ← Data validation checks
+│   ├── client-overviews/       ← Cross-client dashboards (portfolio, pipeline, weekly)
+│   ├── framework/              ← Core definitions + client intelligence summary
+│   ├── data/                   ← SQLite DB, scripts, logs
+│   ├── state/                  ← Build progress tracking
+│   └── Archive/                ← Old research, reports, onboarding, configs
+├── CLAUDE.md                   ← This file
 ```
 
 ## Client Intelligence Framework
@@ -61,7 +69,7 @@ Every client file follows 6 categories:
 - **GHL** — GoHighLevel for Experiential Hospitality
 
 ## Skills
-Skills live in `system/skills/` (each has its own `SKILL.md`):
+Skills live in `skills/` (each has its own `SKILL.md`):
 - **`/friday`** — Friday ad report autopilot (DB-first metrics, Notion-ready output)
 - **`/weekly-enrichment`** — Sunday data pull → Monday briefing
 - **`/creative-qa`** — Check ads against client NEVER rules
@@ -103,4 +111,4 @@ Skills live in `system/skills/` (each has its own `SKILL.md`):
 - Flag when client intelligence files need updating
 - Use DCT naming conventions from Notion
 - Cross-reference ESP data with Meta performance when available
-- SOPs and playbooks are in `system/SOPs/` — check there first for team processes
+- Playbooks are in `system/playbooks/` — check there for team processes and media buying guides
