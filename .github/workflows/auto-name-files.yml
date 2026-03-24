@@ -20,9 +20,28 @@ jobs:
         id: author
         run: echo "name=${{ github.event.pull_request.user.login }}" >> $GITHUB_OUTPUT
 
-      - name: Find and rename new files with _by-author suffix
+      - name: Map GitHub username to team name
+        id: teamname
         run: |
-          AUTHOR="${{ steps.author.outputs.name }}"
+          GH_USER="${{ steps.author.outputs.name }}"
+          # Map GitHub usernames to first names
+          # UPDATE THIS when new GMs join — add their GitHub username
+          case "$GH_USER" in
+            sindy-rgb)      TEAM_NAME="sindy" ;;
+            # Add GM GitHub usernames below as they onboard:
+            # lays-github)  TEAM_NAME="lays" ;;
+            # mariely-gh)   TEAM_NAME="mariely" ;;
+            # luiz-gh)      TEAM_NAME="luiz" ;;
+            # kinte-gh)     TEAM_NAME="kinte" ;;
+            # aubree-gh)    TEAM_NAME="aubree" ;;
+            # jay-warner)   TEAM_NAME="jay" ;;
+            *)              TEAM_NAME="$GH_USER" ;;
+          esac
+          echo "name=$TEAM_NAME" >> $GITHUB_OUTPUT
+
+      - name: Find and rename new files with _by-name suffix
+        run: |
+          AUTHOR="${{ steps.teamname.outputs.name }}"
 
           # Get list of new files added in this PR (compared to main)
           NEW_FILES=$(git diff --name-only --diff-filter=A origin/main...HEAD)
