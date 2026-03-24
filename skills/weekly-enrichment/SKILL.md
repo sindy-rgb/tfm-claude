@@ -23,9 +23,9 @@ The N8N bot and GMs post weekly ad reports to Slack every Friday. The Day.ai Cli
 
 ## Context: The Vault Structure
 
-- **Client files:** `/the-feed-media/clients/[client-name]/[client-name].md` — each has YAML frontmatter with `current_cpl`, `risk_level`, `gm`, `status`, `sentiment`
-- **Master summary:** `/the-feed-media/CLIENT-INTELLIGENCE-SUMMARY.md` — portfolio table with all 25 clients
-- **Framework:** `/the-feed-media/system/framework.md` — the 6-category intelligence framework
+- **Client files:** `clients/[client-name]/[client-name].md` — each has YAML frontmatter with `current_cpl`, `risk_level`, `gm`, `status`, `sentiment`
+- **Master summary:** `CLIENT-INTELLIGENCE-SUMMARY.md` — portfolio table with all 25 clients
+- **Framework:** `system/framework.md` — the 6-category intelligence framework
 
 ## The 25 Clients and Their Slack Channels
 

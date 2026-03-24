@@ -65,9 +65,9 @@ This cuts portfolio generation from 45+ minutes to under 1 minute for most runs.
 
 ## Context
 
-- **Client configs:** `/the-feed-media/clients/[slug]/client-config.md` — each has `meta_account_id`, `kpi_primary`, `kpi_target`, `cpl_target`
-- **Client intel files:** `/the-feed-media/clients/[slug]/[slug].md` — has frontmatter with `current_cpl`, `risk_level`
-- **Master summary:** `/the-feed-media/CLIENT-INTELLIGENCE-SUMMARY.md`
+- **Client configs:** `clients/[slug]/client-config.md` — each has `meta_account_id`, `kpi_primary`, `kpi_target`, `cpl_target`
+- **Client intel files:** `clients/[slug]/[slug].md` — has frontmatter with `current_cpl`, `risk_level`
+- **Master summary:** `CLIENT-INTELLIGENCE-SUMMARY.md`
 
 ## Step-by-Step Process
 
@@ -221,7 +221,7 @@ Scan for these signals:
 
 ### Phase 6: Output Dashboard
 
-Print the dashboard to stdout. Also write to `/the-feed-media/reports/portfolio-pulse-[YYYY-MM-DD].md`.
+Print the dashboard to stdout. Also write to `reports/portfolio-pulse-[YYYY-MM-DD].md`.
 
 ```markdown
 # Portfolio Pulse — [Date]

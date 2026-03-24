@@ -83,7 +83,7 @@ For fully TFM-managed accounts (Workweek), pull at account level to avoid pagina
 ### Phase 1: Identify Accounts
 
 If a specific client-slug is given:
-1. Read `/the-feed-media/clients/[slug]/client-config.md`
+1. Read `clients/[slug]/client-config.md`
 2. Extract `meta_account_id` and `tfm_campaign_ids`
 
 If "all":

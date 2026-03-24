@@ -581,8 +581,4 @@ Do not hardcode these — always check the DB's `conversion_type` column and the
 
 ## Session Logging
 
-After running (especially in portfolio mode), update `memory/session-log.md` with:
-- Date and time of the run
-- Which clients were processed (and which errored/skipped)
-- Any stale data flags or Pipeboard fallbacks used
-- Key findings worth noting for next week (e.g., "3 clients showing CPM increases — watch for platform-level trend")
+Session logging is optional. If desired, note key findings (clients processed, errors/skips, stale data flags, cross-portfolio patterns) in the run output for future reference.

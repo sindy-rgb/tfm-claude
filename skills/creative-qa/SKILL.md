@@ -39,13 +39,13 @@ This skill catches everything the hook misses.
 ### Phase 1: Identify the Client and Load Rules
 
 1. Determine the client slug from the argument or from the Slack channel context
-2. Read the client's intel file: `/the-feed-media/clients/[slug]/[slug].md`
+2. Read the client's intel file: `clients/[slug]/[slug].md`
 3. Extract:
    - **NEVER Rules** (Section: "### NEVER Rules") — hard stops, absolute violations
    - **Brand Voice** — tone, approved language, audience segments
    - **Approved Language** — specific phrases and terminology that ARE allowed
    - **Negative Triggers** — things that upset this specific client
-4. Read the client's config file: `/the-feed-media/clients/[slug]/client-config.md`
+4. Read the client's config file: `clients/[slug]/client-config.md`
 5. Extract:
    - `never_rules` from config (may have additional rules)
    - `brand_voice_tone`

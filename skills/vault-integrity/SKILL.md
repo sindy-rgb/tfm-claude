@@ -25,7 +25,7 @@ Every other skill (weekly-enrichment, portfolio-pulse, fatigue-scan) reads clien
 ## Constants
 
 ### Vault Root
-`/Users/jay/Documents/the vault/the-feed-media`
+The vault root is the working directory (i.e., the root of this repository). All paths below are relative to it.
 
 ### The 25 Client Slugs
 creator-spotlight, workweek, insight-links, status-news, stocks-news, the-points-guy, houck, rnt-fitness, daily-drop, open-source-ceo, jay-shetty, how-to-ai, points-path, experiential-hospitality, quartz, big-desk-energy, stocks-and-income, contrarian-thinking, marketbeat, 1636-forum, franklins-forum, just-womens-sports, vendry, student-loan-planner, mdhair

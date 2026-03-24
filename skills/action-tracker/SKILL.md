@@ -106,7 +106,7 @@ For each item, create:
 
 ### Phase 4: Read Existing Action Items
 
-Check if `/the-feed-media/clients/[slug]/action-items.md` exists:
+Check if `clients/[slug]/action-items.md` exists:
 - If yes, read it and parse existing items
 - If no, create a new file
 
@@ -122,7 +122,7 @@ Compare new meeting action items against existing tracked items:
 
 ### Phase 6: Write Tracking File
 
-Write/update the tracking file at `/the-feed-media/clients/[slug]/action-items.md`:
+Write/update the tracking file at `clients/[slug]/action-items.md`:
 
 ```markdown
 # [Client Display Name] — Action Items
