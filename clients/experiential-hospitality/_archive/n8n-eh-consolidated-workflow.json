@@ -64,7 +64,7 @@
           "name": "GHL PIT Auth"
         }
       },
-      "notes": "Pulls all won opportunities from the NetRev Sales pipeline. After import, create an HTTP Header Auth credential named 'GHL PIT Auth' with Name='Authorization' and Value='Bearer pit-b2ba1c69-a1c1-4d20-b317-f641083541cf'. The Version header is required by GHL API v2."
+      "notes": "Pulls all won opportunities from the NetRev Sales pipeline. After import, create an HTTP Header Auth credential named 'GHL PIT Auth' with Name='Authorization' and Value='Bearer <REDACTED — get PIT token from Sindy>'. The Version header is required by GHL API v2."
     },
     {
       "parameters": {

@@ -1,10 +1,6 @@
-# Jay's management layer — private, not shared
+# Private folders
 team/
 memory/
-
-# Personal / non-TFM files in parent directory
-../leah-goldman-warner/
-../imessage*/
 
 # Claude Code local config (per-user)
 .claude/
@@ -38,6 +34,9 @@ tokens.*
 
 # Ignore Smart Environment folder
 .smart-env
+
+# Large Obsidian index files
+.obsidian/copilot-index-*.json
 
 # Local performance cache (SQLite) — tracked in git so team has shared data
 # system/data/pipeboard.db
